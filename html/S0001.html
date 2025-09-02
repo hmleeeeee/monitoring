@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tension Monitoring | 사용자 관리</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet"> <!-- Sweet Alert -->
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet"> <!-- FooTable -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet"> <!-- Datepicker -->
+    <link href="css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet"> <!-- DateRange -->
+</head>
+<body>
+    <div id="wrapper">
+       <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <h1 class="nav-logo">
+                            <a href="M0001.html" class="logo-link"><img src="img/logo_white.png" alt="KOREAN AIR Catering & Duty-free" class="img-logo logo1"></a>
+                            <a href="M0001.html" class="logo-link"><img src="img/logo_mini.png" alt="KOREAN AIR Catering & Duty-free" class="img-logo logo2"></a>
+                        </h1>
+                    </li>
+                    <li>
+                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">배포관리</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="M0001.html">배포 목록</a></li>
+                            <li><a href="M0002.html">배포 정보 등록</a></li>
+                            <li><a href="M0003.html">실행결과 조회</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">시스템 관리</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li class="active"><a href="S0001.html">사용자 관리</a></li>
+                            <li><a href="S0002.html">로그</a></li>
+                            <li><a href="S0003.html">시스템 설정</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                     <ul class="nav navbar-top-links navbar-right">
+                        <li><a href="M0001.html" role="button" href="#">홈</a></li>
+                        <li><a role="button" href="#">관리자</a></li>
+                        <li class="dropdown profile-droopdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">사용자정보</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item user-info">
+                                    <span class="user-name">홍길동</span>
+                                    <span class="user-email text-muted">admin@koreanaircnd.com</span>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li class="dropdown-item">
+                                    <div class="text-center link-block">
+                                        <a href="#none">
+                                            <strong>더보기</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="L0001_1.html"><i class="fa fa-sign-out"></i> 로그아웃</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>사용자 목록</h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item">시스템 관리</li>
+                        <li class="breadcrumb-item active"><strong>사용자 관리</strong></li>
+                    </ol>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="tabs-container">
+                            <ul class="nav nav-tabs">
+                                <li><a class="nav-link active" data-toggle="tab" href="#tab-1">사용자 목록</a></li>
+                                <li><a class="nav-link" data-toggle="tab" href="#tab-2">사용자 상세</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="tab-1" class="tab-pane active">
+                                    <div class="panel-body">
+                                        <div class="m-b-md">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group row">
+                                                        <label for="nameEl" class="col-sm-2 col-form-label">등록일자</label>
+                                                        <div class="col-sm-10">
+                                                           <input class="form-control" type="text" name="daterange" value="01/01/2025 - 01/31/2025" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group row">
+                                                        <label for="select1" class="col-sm-2 col-form-label">사용자구분</label>
+                                                        <div class="col-sm-10">
+                                                            <select name="select1" id="select1" class="form-control">
+                                                                <option value="1" selected>전체</option>
+                                                                <option value="2">옵션1</option>
+                                                                <option value="3">옵션2</option>
+                                                                <option value="4">옵션3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group row">
+                                                        <label for="select2" class="col-sm-2 col-form-label">사용자상태</label>
+                                                        <div class="col-sm-10">
+                                                            <select name="select2" id="select2" class="form-control">
+                                                                <option value="1" selected>전체</option>
+                                                                <option value="2">옵션1</option>
+                                                                <option value="3">옵션2</option>
+                                                                <option value="4">옵션3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group row">
+                                                        <label for="nameEl" class="col-sm-2 col-form-label">조직</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="nameEl" placeholder="" class="form-control" value="비즈티노">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    <div class="col-sm-4">
+                                                    <div class="form-group row">
+                                                        <label for="nameEl" class="col-sm-2 col-form-label">로그인아이디</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="nameEl" placeholder="" class="form-control" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    <div class="col-sm-4">
+                                                    <div class="form-group row">
+                                                        <label for="nameEl" class="col-sm-2 col-form-label">사용자명</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="nameEl" placeholder="" class="form-control" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="btn-group btn-search is-center">
+                                                <button class="btn btn-outline btn-primary btn-sm" type="button">초기화</button>
+                                                <button class="btn btn-primary btn-sm" type="button">검색</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="ibox">
+                                                    <div class="ibox-title">
+                                                        <h5 class="text-count"><span>총 <strong class="number">13</strong>건</span></h5>
+
+                                                        <!-- <div class="ibox-tools">
+                                                            <a class="collapse-link">
+                                                                <i class="fa fa-chevron-up"></i>
+                                                            </a>
+                                                            <a class="close-link">
+                                                                <i class="fa fa-times"></i>
+                                                            </a>
+                                                        </div> -->
+                                                    </div>
+                                                    <div class="ibox-content">
+                                                        <!-- pagination 불필요시 table에 (footable) 클래스 및 관련 data 속성 삭제 -->
+                                                        <table class="footable table tbl-data table-stripped" data-page-size="10" data-filter=#filter>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th data-sort-ignore="true">사용자명</th> <!-- sortable 기능 사용시 data-sortable="true" 작성 -->
+                                                                    <th data-sort-ignore="true">로그인아이디</th> <!-- footable은 기본적으로 sortable 아이콘 활성화시키므로 숨김처리시 data-sort-ignore="true" 작성 -->
+                                                                    <th data-sort-ignore="true" data-hide="phone,tablet">조직명</th>
+                                                                    <th data-sort-ignore="true" data-hide="phone,tablet">연락처</th>
+                                                                    <th data-sort-ignore="true" data-hide="phone,tablet">휴대폰</th>
+                                                                    <th data-sort-ignore="true" data-hide="phone,tablet">이메일</th>
+                                                                    <th data-sort-ignore="true" data-hide="phone,tablet">사용자상태</th>
+                                                                    <th data-sort-ignore="true" data-hide="phone,tablet">등록일자</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>관리자</td>
+                                                                    <td>admin</td>
+                                                                    <td>IT/시스템파트</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>010-0101-1010</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>admin@admin.co.kr</td>
+                                                                    <td>2025-01-01 12:12:12</td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tfoot>
+                                                                <tr>
+                                                                    <td colspan="9">
+                                                                        <ul class="pagination float-right"></ul>
+                                                                    </td>
+                                                                </tr>
+                                                            </tfoot>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-2" class="tab-pane">
+                                    <div class="panel-body">
+                                        <div class="btn-group is-end">
+                                            <button id="" class="btn btn-outline btn-primary btn-sm" type="button" data-toggle="modal" data-target="#popupStatus">상태이력</button>
+                                            <button id="" class="btn btn-outline btn-primary btn-sm" type="button" data-toggle="modal" data-target="#popupLogin">로그인이력</button>
+                                            <button id="alertReset" class="btn btn-outline btn-default btn-sm" type="button">비밀번호초기화</button>
+                                            <button id="alertNew" class="btn btn-outline btn-default btn-sm" type="button">신규</button>
+                                            <button id="alertModify" class="btn btn-outline btn-default btn-sm" type="button">수정</button>
+                                            <button id="alertDelete" class="btn btn-outline btn-default btn-sm" type="button">삭제</button>
+                                            <button id="alertUpdate" class="btn btn-outline btn-default btn-sm" type="button">저장</button>
+                                        </div>
+                                        <div class="table-responsive m-t-sm">
+                                            <table class="table table-bordered">
+                                                <colgroup>
+                                                    <col style="width: 20%;">
+                                                    <col style="width: 30%;">
+                                                    <col style="width: 20%;">
+                                                    <col style="width: 30%;">
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="is-bg">사용자 아이디</th>
+                                                        <td>1</td>
+                                                        <th class="is-bg">사용자명</th>
+                                                        <td>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" value="관리자">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="is-bg">조직</th>
+                                                        <td>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" value="비즈티노">
+                                                            </div>
+                                                        </td>
+                                                        <th class="is-bg">사용자 상태</th>
+                                                        <td>
+                                                            <select name="" id="" class="form-control">
+                                                                <option value="1" selected>사용</option>
+                                                                <option value="2">옵션1</option>
+                                                                <option value="2">옵션2</option>
+                                                            </select>   
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="is-bg">사용자 구분</th>
+                                                        <td>
+                                                            <select name="" id="" class="form-control">
+                                                                <option value="1" selected>관리자</option>
+                                                                <option value="2">옵션1</option>
+                                                                <option value="2">옵션2</option>
+                                                            </select>   
+                                                        </td>
+                                                        <th class="is-bg">연락처</th>
+                                                        <td>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" value="02-111-0000">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="is-bg">휴대폰</th>
+                                                        <td>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" value="02-111-0000">
+                                                            </div>
+                                                        </td>
+                                                        <th class="is-bg">이메일</th>
+                                                        <td>
+                                                            <div class="input-group">
+                                                                <input type="email" class="form-control" value="admin@admin.co.kr">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="is-bg">비밀번호 변경일시</th>
+                                                        <td>2025-01-01 12:12:12</td>
+                                                        <th class="is-bg">로그인 실패수</th>
+                                                        <td>1회</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 상태이력 팝업 -->
+                        <div class="modal inmodal" id="popupStatus" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title">상태이력</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="footable table tbl-data table-bordered" data-page-size="10">
+                                        <thead>
+                                            <tr>
+                                                <th data-sort-ignore="true">이력번호</th>
+                                                <th data-sort-ignore="true">상태</th>
+                                                <th data-sort-ignore="true">변경사유</th>
+                                                <th data-sort-ignore="true">등록자아이디</th>
+                                                <th data-sort-ignore="true">등록일자</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                                        <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>사용</td>
+                                                <td>신규등록 되었습니다.</td>
+                                                <td>관리자</td>
+                                                <td>2025-01-01 12:12:12</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="5">
+                                                    <ul class="pagination is-center"></ul>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-white" data-dismiss="modal">닫기</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 로그인 이력 팝업 -->
+                        <div class="modal inmodal" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title">로그인 이력</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="footable table tbl-data table-bordered" data-page-size="10">
+                                            <colgroup>
+                                                <col style="width: 50%;">
+                                                <col style="width: 50%;">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th data-sort-ignore="true">로그인 일시</th>
+                                                    <th data-sort-ignore="true">로그인 아이피</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+
+                                                    <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-01-01 12:12:12</td>
+                                                    <td>0.0.0.0:1</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <ul class="pagination is-center"></ul>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-white" data-dismiss="modal">닫기</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer">
+                <div>
+                    &copy; FuturenTech All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- Data picker -->
+    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <!-- Date range use moment.js same as full calendar plugin -->
+    <script src="js/plugins/fullcalendar/moment.min.js"></script>
+    <!-- Date range picker -->
+    <script src="js/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Sweet alert -->
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    <!-- FooTable -->
+    <script src="js/plugins/footable/footable.all.min.js"></script>
+
+    <!-- alert 스크립트 -->
+    <script>
+        $(document).ready(function () {
+            // footable 초기화
+            $('.footable').footable({
+                paginate: true,
+                sorting: false
+            });
+
+            // dateRange 호출
+            $('input[name="daterange"]').daterangepicker();
+
+            // SweetAlert 설정
+            $('#alertReset').click(function () {
+                swal({
+                    title: "사용자비밀번호",
+                    text: "초기화 하시겠습니까?",
+                    showCancelButton: true,
+                    confirmButtonColor: "#051766",
+                    confirmButtonText: "확인",
+                    cancelButtonText: "취소"
+                });
+            });
+
+            $('#alertDelete').click(function () {
+                swal({
+                    title: "삭제",
+                    text: "삭제 하시겠습니까?",
+                    showCancelButton: true,
+                    confirmButtonColor: "#051766",
+                    confirmButtonText: "확인",
+                    cancelButtonText: "취소"
+                });
+            });
+
+            $('#alertUpdate').click(function () {
+                swal({
+                    title: "등록",
+                    text: "등록 하시겠습니까?",
+                    showCancelButton: true,
+                    confirmButtonColor: "#051766",
+                    confirmButtonText: "확인",
+                    cancelButtonText: "취소"
+                });
+            });
+
+            $('#alertModify').click(function () {
+                swal({
+                    title: "수정",
+                    text: "수정 하시겠습니까?",
+                    showCancelButton: true,
+                    confirmButtonColor: "#051766",
+                    confirmButtonText: "확인",
+                    cancelButtonText: "취소"
+                });
+            });
+        });
+    </script>
+</body>
+</html>

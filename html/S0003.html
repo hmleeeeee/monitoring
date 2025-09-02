@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tension Monitoring | 시스템 설정</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                   <li class="nav-header">
+                        <h1 class="nav-logo">
+                            <a href="M0001.html" class="logo-link"><img src="img/logo_white.png" alt="KOREAN AIR Catering & Duty-free" class="img-logo logo1"></a>
+                            <a href="M0001.html" class="logo-link"><img src="img/logo_mini.png" alt="KOREAN AIR Catering & Duty-free" class="img-logo logo2"></a>
+                        </h1>
+                    </li>
+                    <li>
+                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">배포관리</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="M0001.html">배포 목록</a></li>
+                            <li><a href="M0002.html">배포 정보 등록</a></li>
+                            <li><a href="M0003.html">실행결과 조회</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">시스템 관리</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="S0001.html">사용자 관리</a></li>
+                            <li><a href="S0002.html">로그</a></li>
+                            <li class="active"><a href="S0003.html">시스템 설정</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li><a href="M0001.html" role="button" href="#">홈</a></li>
+                        <li><a role="button" href="#">관리자</a></li>
+                        <li class="dropdown profile-droopdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">사용자정보</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item user-info">
+                                    <span class="user-name">홍길동</span>
+                                    <span class="user-email text-muted">admin@koreanaircnd.com</span>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li class="dropdown-item">
+                                    <div class="text-center link-block">
+                                        <a href="#none">
+                                            <strong>더보기</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="L0001_1.html"><i class="fa fa-sign-out"></i> 로그아웃</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>시스템 설정</h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item">시스템 관리</li>
+                        <li class="breadcrumb-item active"><strong>시스템 설정</strong></li>
+                    </ol>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+
+            <div class="wrapper wrapper-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox">
+                            <div class="ibox-title">
+                                <h5>배포 실행 설정
+                                    <button class="btn btn-outline btn-primary btn-sm" type="button">저장</button>
+                                </h5>
+
+                                <div class="ibox-tools">
+                                    <!-- <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a> -->
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label">실행환경</label>
+                                    <div class="col-sm-11">
+                                        <div class="textarea-wrap">
+                                            <textarea class="form-control diff-textarea" id="" rows="3">/home/deployuser/ojdbc.jar:/oracle/EBS/classes</textarea>
+                                            <div class="btn-group is-end">
+                                                <button class="btn btn-outline btn-dark btn-sm" type="button">추가</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label">실행순서</label>
+                                    <div class="col-sm-11 set-order">
+                                        <div class="input-group">
+                                            <input type="text" placeholder="" class="form-control" value="/home/deployuser/backup.sh">
+                                            <button class="btn btn-outline btn-default btn-sm" type="button" data-toggle="modal" data-target="#popupShell">편집</button>
+                                        </div>
+                                            <div class="input-group">
+                                            <input type="text" placeholder="" class="form-control" value="/home/deployuser/compile.sh">
+                                            <button class="btn btn-outline btn-default btn-sm" type="button">편집</button>
+                                        </div>
+                                            <div class="input-group">
+                                            <input type="text" placeholder="" class="form-control" value="/home/deployuser/dbImport.sh">
+                                            <button class="btn btn-outline btn-default btn-sm" type="button">편집</button>
+                                        </div>
+                                            <div class="input-group">
+                                            <input type="text" placeholder="" class="form-control" value="/home/deployuser/copyfile.sh">
+                                            <button class="btn btn-outline btn-default btn-sm" type="button">편집</button>
+                                        </div>
+                                            <div class="input-group">
+                                            <input type="text" placeholder="" class="form-control" value="/home/deployuser/stop.sh">
+                                            <button class="btn btn-outline btn-default btn-sm" type="button">편집</button>
+                                        </div>
+                                            <div class="input-group">
+                                            <input type="text" placeholder="" class="form-control" value="/home/deployuser/start.sh">
+                                            <button class="btn btn-outline btn-default btn-sm" type="button">편집</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="ibox">
+                            <div class="ibox-title">
+                                <h5>
+                                    Backup 설정 
+                                    <button class="btn btn-outline btn-primary btn-sm" type="button">저장</button>
+                                </h5>
+
+                                <div class="ibox-tools">
+                                    <!-- <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a> -->
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label">백업 경로</label>
+                                    <div class="col-sm-11">
+                                        <input type="text" placeholder="" class="form-control" value="/nas/deploy/backup/{sysdate)"> 
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label">보관 차수</label>
+                                    <div class="col-sm-11">
+                                        <input type="text" placeholder="" class="form-control" value="7">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="ibox">
+                            <div class="ibox-title">
+                                <h5>
+                                    Resotore 설정
+                                    <button class="btn btn-outline btn-primary btn-sm" type="button">저장</button>
+                                </h5>
+
+                                <div class="ibox-tools">
+                                    <!-- <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a> -->
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label">실행순서</label>
+                                    <div class="col-sm-11 set-order">
+                                        <div class="input-group">
+                                            <input type="text" placeholder="" class="form-control" value="/home/deployuser/compile.sh">
+                                            <button class="btn btn-outline btn-default btn-sm" type="button">추가</button>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="text" placeholder="" class="form-control" value="/home/deployuser/restore_copyfile.sh">
+                                            <button class="btn btn-outline btn-default btn-sm" type="button">추가</button>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="text" placeholder="" class="form-control" value="/home/deployuser/stop.sh">
+                                            <button class="btn btn-outline btn-default btn-sm" type="button">추가</button>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="text" placeholder="" class="form-control" value="/home/deployuser/start.sh">
+                                            <button class="btn btn-outline btn-default btn-sm" type="button">추가</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-title">
+                                <h5>
+                                    메일 설정
+                                    <button class="btn btn-outline btn-primary btn-sm" type="button">저장</button>
+                                </h5>
+
+                                <div class="ibox-tools">
+                                    <!-- <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a> -->
+                                </div>
+                            </div>
+
+                            <div class="ibox-content">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">STMP 주소</label>
+                                            <div class="col-sm-10">
+                                               <div class="input-group">
+                                                    <input type="text" placeholder="" class="form-control" value="office365">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">STMP Port</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">
+                                                    <input type="text" placeholder="" class="form-control" value="587">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">접속 ID</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">
+                                                    <input type="text" placeholder="" class="form-control" value="7">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">비밀번호</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">
+                                                    <input type="text" placeholder="" class="form-control" value="7">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">대표메일주소</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">
+                                                    <input type="email" placeholder="" class="form-control" value="7">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shell 편집 팝업 -->
+                <div class="modal inmodal fade" id="popupShell" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">Shll 편집</h4>
+                            </div>
+                            <div class="modal-body">
+<textarea class="form-control diff-textarea" id="" rows="10">
+#!/bin/sh
+cd /home/erpcrp
+. ./.bash_profile
+cd $ADMIN_SCRIPTS_HOME
+
+adapcctl.sh stop
+
+{ echo Weblogic1!; } | admanagedsrvctl.sh stop oacore_server1
+…….
+</textarea>
+                            </div>
+                
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-white" data-dismiss="modal">닫기</button>
+                                <button type="button" class="btn btn-primary">저장</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Shell 편집 팝업 -->
+            </div>
+
+            <div class="footer">
+                <div>
+                    &copy; FuturenTech All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

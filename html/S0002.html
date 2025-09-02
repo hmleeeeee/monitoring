@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tension Monitoring | 로그</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Sweet Alert -->
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <!-- FooTable -->
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrapper">
+       <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <h1 class="nav-logo">
+                            <a href="M0001.html" class="logo-link"><img src="img/logo_white.png" alt="KOREAN AIR Catering & Duty-free" class="img-logo logo1"></a>
+                            <a href="M0001.html" class="logo-link"><img src="img/logo_mini.png" alt="KOREAN AIR Catering & Duty-free" class="img-logo logo2"></a>
+                        </h1>
+                    </li>
+                    <li>
+                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">배포관리</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="M0001.html">배포 목록</a></li>
+                            <li><a href="M0002.html">배포 정보 등록</a></li>
+                            <li><a href="M0003.html">실행결과 조회</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">시스템 관리</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="S0001.html">사용자 관리</a></li>
+                            <li class="active"><a href="S0002.html">로그</a></li>
+                            <li><a href="S0003.html">시스템 설정</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li><a href="M0001.html" role="button" href="#">홈</a></li>
+                        <li><a role="button" href="#">관리자</a></li>
+                        <li class="dropdown profile-droopdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">사용자정보</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item user-info">
+                                    <span class="user-name">홍길동</span>
+                                    <span class="user-email text-muted">admin@koreanaircnd.com</span>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li class="dropdown-item">
+                                    <div class="text-center link-block">
+                                        <a href="#none">
+                                            <strong>더보기</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="L0001_1.html"><i class="fa fa-sign-out"></i> 로그아웃</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>로그</h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item">시스템 관리</li>
+                        <li class="breadcrumb-item active"><strong>로그</strong></li>
+                    </ol>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+
+         <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs">
+                            <li><a class="nav-link active" data-toggle="tab" href="#tab-1"> 로그 목록</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-2"> 설정</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                                <div class="panel-body">
+                                    <div class="search-group">
+                                        <select name="select1" id="select1" class="form-control">
+                                            <option value="1" selected>변경종류</option>
+                                            <option value="2">옵션1</option>
+                                            <option value="3">옵션2</option>
+                                            <option value="4">옵션3</option>
+                                        </select>
+                                    
+                                        <select name="select2" id="select2" class="form-control">
+                                            <option value="1" selected>변경구분</option>
+                                            <option value="2">옵션1</option>
+                                            <option value="3">옵션2</option>
+                                            <option value="4">옵션3</option>
+                                        </select>
+                                    
+                                        <select name="select3" id="select3" class="form-control">
+                                            <option value="1" selected>검색구분</option>
+                                            <option value="2">옵션1</option>
+                                            <option value="3">옵션2</option>
+                                            <option value="4">옵션3</option>
+                                        </select>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control form-control-sm" name="search" placeholder="">
+                                            <div class="input-group-btn">
+                                                <button type="button" class="btn btn-sm btn-outline btn-primary">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="ibox">
+                                                <div class="ibox-content">
+                                                    <table class="footable table tbl-data table-stripped" data-page-size="20" data-filter=#filter>
+                                                        <thead>
+                                                            <tr>
+                                                                <th data-sort-ignore="true">아이디</th> <!-- sortable 기능 사용시 data-sortable="true" 작성 -->
+                                                                <th data-sort-ignore="true">직원명</th>
+                                                                <!-- footable은 기본적으로 sortable 아이콘 활성화시키므로 숨김처리시 data-sort-ignore="true" 작성 -->
+                                                                <th data-sort-ignore="true" data-hide="phone">조직명</th>
+                                                                <th data-sort-ignore="true" data-hide="phone">변경구분</th>
+                                                                <th data-sort-ignore="true" data-hide="phone">변경종류</th>
+                                                                <th data-sort-ignore="true" data-hide="phone">변경대상</th>
+                                                                <th data-sort-ignore="true" data-hide="phone">변경일자</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td>%변경구분%</td>
+                                                                <td>%변경종류%</td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>admin</td>
+                                                                <td>시스템관리자</td>
+                                                                <td>IT/시스템파트</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>출입</td>
+                                                                <td>2025-01-01 12:12:12</td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <td colspan="7">
+                                                                    <ul class="pagination float-right"></ul>
+                                                                </td>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-2" class="tab-pane">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="tbl-wrap">
+                                                <div class="tbl-title">
+                                                    <p>사용자 권한등록</p>
+                                                </div>
+                                    
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">변경구분</label>
+                                                            <div class="col-sm-8">
+                                                                <select name="" id="" class="form-control">
+                                                                    <option value="1" selected="">변경종류</option>
+                                                                    <option value="2">옵션1</option>
+                                                                    <option value="2">옵션2</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">변경상세구분</label>
+                                                            <div class="col-sm-8">
+                                                                <select name="" id="" class="form-control">
+                                                                    <option value="1" selected="">변경종류</option>
+                                                                    <option value="2">옵션1</option>
+                                                                    <option value="2">옵션2</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">정보변경값</label>
+                                                            <div class="col-sm-8">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" value="%정보변경값%" readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">정보변경값 명칭</label>
+                                                            <div class="col-sm-8">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" value="%정보변경값 명칭%" readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">코드에서 가져오기</label>
+                                                            <div class="col-sm-8">
+                                                                <select name="" id="" class="form-control">
+                                                                    <option value="1" selected="">변경종류</option>
+                                                                    <option value="2">옵션1</option>
+                                                                    <option value="2">옵션2</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="tbl-wrap">
+                                                <div class="tbl-title">
+                                                    <p>정보변경코드 목록</p>
+                                                </div>
+                                                <table class="footable table table-bordered tbl-data" data-page-size="20" data-filter=#filter>
+                                                    <thead>
+                                                        <tr>
+                                                            <th data-sort-ignore="true">변경정보</th>
+                                                            <th data-sort-ignore="true">값</th>
+                                                            <th data-sort-ignore="true">명칭</th>
+                                                            <th data-sort-ignore="true">등록자</th>
+                                                            <th data-sort-ignore="true">등록일</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>%변경정보%</td>
+                                                            <td>%값%</td>
+                                                            <td>%명칭%</td>
+                                                            <td>%등록자%</td>
+                                                            <td>YYYY-MM-DD HH:MM:SS</td>
+                                                        </tr>
+                                                        <!--데이터 없을 경우 tr에 (nodata) 클래스 추가 -->
+                                                        <tr class="nodata">
+                                                            <td colspan="5">검색 결과가 없습니다.</td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="5">
+                                                                <ul class="pagination float-right"></ul>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+            <div class="footer">
+                <div>
+                    &copy; FuturenTech All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- Sweet alert -->
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    <!-- FooTable -->
+    <script src="js/plugins/footable/footable.all.min.js"></script>
+
+    <!-- alert 스크립트 -->
+    <script>
+        $(document).ready(function () {
+            // footable 초기화
+            $('.footable').footable({
+                paginate: true,
+                sorting: false
+            });
+        });
+    </script>
+</body>
+</html>

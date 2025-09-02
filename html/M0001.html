@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tension Monitoring | 배포 정보</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet"> <!-- CheckboxCustom -->
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet"> <!-- FooTable -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <h1 class="nav-logo">
+                            <a href="M0001.html" class="logo-link"><img src="img/logo_white.png" alt="KOREAN AIR Catering & Duty-free" class="img-logo logo1"></a>
+                            <a href="M0001.html" class="logo-link"><img src="img/logo_mini.png" alt="KOREAN AIR Catering & Duty-free" class="img-logo logo2"></a>
+                        </h1>
+                    </li>
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">배포관리</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li class="active"><a href="M0001.html">배포 목록</a></li>
+                            <li><a href="M0002.html">배포 정보 등록</a></li>
+                            <li><a href="M0003.html">실행결과 조회</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">시스템 관리</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="S0001.html">사용자 관리</a></li>
+                            <li><a href="S0002.html">로그</a></li>
+                            <li><a href="S0003.html">시스템 설정</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li><a href="M0001.html" role="button" href="#">홈</a></li>
+                        <li><a role="button" href="#">관리자</a></li>
+                        <li class="dropdown profile-droopdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">사용자정보</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item user-info">
+                                    <span class="user-name">홍길동</span>
+                                    <span class="user-email text-muted">admin@koreanaircnd.com</span>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li class="dropdown-item">
+                                    <div class="text-center link-block">
+                                        <a href="#none">
+                                            <strong>더보기</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="L0001_1.html"><i class="fa fa-sign-out"></i> 로그아웃</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>배포 정보</h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item">배포 관리</li>
+                        <li class="breadcrumb-item active"><strong>배포 목록</strong></li>
+                    </ol>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+
+            <div class="wrapper wrapper-content">
+                <div class="ibox-content m-b-sm border-bottom">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <label for="nameEl" class="col-sm-2 col-form-label">담당자명</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="nameEl" placeholder="" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <label for="typeEl" class="col-sm-2 col-form-label">유형</label>
+                                <div class="col-sm-10">
+                                    <select name="typeEl" id="typeEl" class="form-control">
+                                        <option value="1" selected>전체</option>
+                                        <option value="2">유형1</option>
+                                        <option value="3">유형2</option>
+                                        <option value="4">유형3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <label for="searchEl" class="col-sm-2 col-form-label">검색</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="searchEl" name="searchEl" value="" placeholder="서버 아이디, 서버 명, Host" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-search is-center">
+                        <button class="btn btn-outline btn-primary btn-sm" type="button">검색</button>
+                        <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#popup1">서버 등록</button> <!-- data-target 속성과 modal id 값 매칭 -->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox">
+                            <div class="ibox-title">
+                                <h5 class="text-count">배포 목록 <span>총 <strong class="number">13</strong>건</span></h5>
+                                <div class="ibox-tools">
+                                    <!-- <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a> -->
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <!-- pagination 불필요시 table에 (footable) 클래스 및 관련 data 속성 삭제 -->
+                                <table class="footable table table-stripped" data-page-size="10" data-filter=#filter>
+                                    <thead>
+                                        <tr>
+                                            <th data-sortable="true">서버 아이디</th> <!-- sortable 기능 사용시 data-sortable="true" 작성 -->
+                                            <th data-sort-ignore="true">서버명</th> <!-- footable은 기본적으로 sortable 아이콘 활성화시키므로 숨김처리시 data-sort-ignore="true" 작성 -->
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">유형</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">Host</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">Post</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">ID</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">연결상태</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">등록자</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">등록일시</th>
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                        <tr class="gradeX" data-toggle="modal" data-target="#popup2"> <!-- data-target 속성과 modal id 값 매칭 -->
+                                            <td>SVR-001</td>
+                                            <td>STG 서버</td>
+                                            <td>STG</td>
+                                            <td>10.222.111.221</td>
+                                            <td>20022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="gradeC">
+                                            <td>SVR-002</td>
+                                            <td>PRD #1 서버</td>
+                                            <td>PRD</td>
+                                            <td>10.222.111.222</td>
+                                            <td>30022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>SVR-003</td>
+                                            <td>PRD #2 서버</td>
+                                            <td>PRD</td>
+                                            <td>10.222.111.223</td>
+                                            <td>30022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>SVR-004</td>
+                                            <td>PRD #3 서버</td>
+                                            <td>PRD</td>
+                                            <td>10.222.111.224</td>
+                                            <td>30022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr class="gradeA">
+                                            <td>SVR-005</td>
+                                            <td>PRD #4 서버</td>
+                                            <td>PRD</td>
+                                            <td>10.222.111.225</td>
+                                            <td>30022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>SVR-006</td>
+                                            <td>PRD #5 서버</td>
+                                            <td>PRD</td>
+                                            <td>10.222.111.225</td>
+                                            <td>30022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>SVR-007</td>
+                                            <td>PRD #6 서버</td>
+                                            <td>PRD</td>
+                                            <td>10.222.111.225</td>
+                                            <td>30022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>SVR-008</td>
+                                            <td>PRD #7 서버</td>
+                                            <td>PRD</td>
+                                            <td>10.222.111.225</td>
+                                            <td>30022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="gradeX">
+                                            <td>SVR-009</td>
+                                            <td>PRD #8 서버</td>
+                                            <td>PRD</td>
+                                            <td>10.222.111.225</td>
+                                            <td>30022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="gradeC">
+                                            <td>SVR-010</td>
+                                            <td>PRD #9 서버</td>
+                                            <td>PRD</td>
+                                            <td>10.222.111.225</td>
+                                            <td>30022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="gradeC">
+                                            <td>SVR-011</td>
+                                            <td>PRD #10 서버</td>
+                                            <td>PRD</td>
+                                            <td>10.222.111.225</td>
+                                            <td>30022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="gradeU">
+                                            <td>SVR-012</td>
+                                            <td>PRD #11 서버</td>
+                                            <td>PRD</td>
+                                            <td>10.222.111.225</td>
+                                            <td>30022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+                                       <tr class="gradeU">
+                                            <td>SVR-013</td>
+                                            <td>PRD #12 서버</td>
+                                            <td>PRD</td>
+                                            <td>10.222.111.225</td>
+                                            <td>30022</td>
+                                            <td>deployuser</td>
+                                            <td>정상</td>
+                                            <td>홍길동</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="9">
+                                                <ul class="pagination float-right"></ul>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 서버 등록 팝업 -->
+                <div class="modal inmodal" id="popup1" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-xlg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">서버 등록</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="tbl-wrap">
+                                    <div class="tbl-title"><p>서버 상세</p></div>
+                                    <table class="table table-bordered">
+                                        <colgroup>
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th>서버 아이디</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" value="SVR-001">
+                                                    </div>
+                                                </td>
+                                                <th>담당자</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" value="홍길동">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>서버 유형</th>
+                                                <td>
+                                                    <div class="checkbox-wrap">
+                                                        <div class="i-checks"><label> <input type="checkbox" value="" checked> <i></i> STG</label></div>
+                                                        <div class="i-checks"><label> <input type="checkbox" value=""> <i></i> PRD</label></div>
+                                                    </div>
+                                                </td>
+                                                <th>STG 등록일시</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th>서버 명</th>
+                                                <td colspan="3">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" value="PRD #1 서버">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tbl-wrap">
+                                    <div class="tbl-title"><p>SSH 접속 정보</p></div>
+                                    <table class="table table-bordered">
+                                        <colgroup>
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th>Host</th>
+                                                <td>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" value="10.222.111.222">
+                                                        <button type="button" class="btn btn-sm btn-green m-l-xs" data-toggle="modal" data-target="">접속 테스트</button>
+                                                    </div>
+                                                </td>
+                                                <th>Port</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" value="20022">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>User ID</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" value="deployuser">
+                                                    </div>
+                                                </td>
+                                                <th>Password</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="password" class="form-control" value="aaaabcde123">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tbl-wrap">
+                                    <div class="tbl-title"><p>DB 접속 정보</p></div>
+                                    <table class="table table-bordered">
+                                        <colgroup>
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th>Host</th>
+                                                <td>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" value="11521">
+                                                        <button type="button" class="btn btn-sm btn-green m-l-xs" data-toggle="modal" data-target="">접속 테스트</button>
+                                                    </div>
+                                                </td>
+                                                <th>Port</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" value="20022">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>User ID</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" value="oracleuser">
+                                                    </div>
+                                                </td>
+                                                <th>Password</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="password" class="form-control" value="aaaabcde123">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tbl-wrap">
+                                    <div class="tbl-title"><p>WLS Managerd Service Component</p></div>
+                                    <table class="table table-bordered">
+                                        <colgroup>
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th>Component's</th>
+                                                <td colspan="3">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" value="oacore_server1,oacore_server2,oacore_server3,oacore_server4,oafm_server1,forms_server1">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-white" data-dismiss="modal">닫기</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">저장</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //서버 등록 팝업 -->
+
+                <!-- 서버 상세 팝업 -->
+                <div class="modal inmodal" id="popup2" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-xlg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">서버 상세</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="tbl-wrap">
+                                    <div class="tbl-title"><p>서버 상세</p></div>
+                                    <table class="table table-bordered">
+                                        <colgroup>
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th>서버 아이디</th>
+                                                <td>SVR-001</td>
+                                                <th>담당자</th>
+                                                <td>홍길동</td>
+                                            </tr>
+                                            <tr>
+                                                <th>서버 유형</th>
+                                                <td>
+                                                    <div class="checkbox-wrap">
+                                                        <div class="i-checks"><label> <input type="radio" name="serverType" value="" checked> <i></i> STG</label></div>
+                                                        <div class="i-checks"><label> <input type="radio" name="serverType" value=""> <i></i> PRD</label></div>
+                                                    </div>
+                                                </td>
+                                                <th>STG 등록일시</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th>서버 명</th>
+                                                <td colspan="3">PRD #1 서버</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tbl-wrap">
+                                    <div class="tbl-title"><p>SSH 접속 정보</p></div>
+                                    <table class="table table-bordered">
+                                        <colgroup>
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th>Host</th>
+                                                <td>
+                                                    <div class="input-group align-items-center">
+                                                        10.222.111.222
+                                                        <button type="button" class="btn btn-sm btn-green m-l-xs" data-toggle="modal" data-target="">접속 테스트</button>
+                                                    </div>
+                                                </td>
+                                                <th>Port</th>
+                                                <td>20022</td>
+                                            </tr>
+                                            <tr>
+                                                <th>User ID</th>
+                                                <td>deployuser</td>
+                                                <th>Password</th>
+                                                <td>**********</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tbl-wrap">
+                                    <div class="tbl-title"><p>DB 접속 정보</p></div>
+                                    <table class="table table-bordered">
+                                        <colgroup>
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th>Host</th>
+                                                <td>
+                                                    <div class="input-group align-items-center">
+                                                        11521
+                                                        <button type="button" class="btn btn-sm btn-green m-l-xs" data-toggle="modal" data-target="">접속 테스트</button>
+                                                    </div>
+                                                </td>
+                                                <th>Port</th>
+                                                <td>20022</td>
+                                            </tr>
+                                            <tr>
+                                                <th>User ID</th>
+                                                <td>oracleuser</td>
+                                                <th>Password</th>
+                                                <td>**********</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tbl-wrap">
+                                    <div class="tbl-title"><p>WLS Managerd Service Component</p></div>
+                                    <table class="table table-bordered">
+                                        <colgroup>
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th>Component's</th>
+                                                <td colspan="3">
+                                                    oacore_server1,oacore_server2,oacore_server3,oacore_server4,oafm_server1,forms_server1
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-white" data-dismiss="modal">닫기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //서버 상세 팝업 -->
+            </div>
+
+            <div class="footer">
+                <div>
+                    &copy; FuturenTech All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- FooTable -->
+    <script src="js/plugins/footable/footable.all.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function() {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+            $('.footable').footable();
+        });
+    </script>
+</body>
+</html>
