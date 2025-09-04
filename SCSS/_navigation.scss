@@ -637,7 +637,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 
 /* depth3 */
 $depth3-row-h: 30px;   // 항목 1줄 높이
-$depth3-pad-y: 2px;   // 패널 상하 패딩
+$depth3-pad-y: 4px;   // 패널 상하 패딩
 $depth3-vh-cap: 42vh;  // 화면 대비 상한
 
 /* depth3 common base */
@@ -663,7 +663,7 @@ $depth3-vh-cap: 42vh;  // 화면 대비 상한
         padding-inline-end: 8px;
         scrollbar-gutter: stable;
         scrollbar-width: thin; /* Firefox */
-        border-top: 4px solid #2D2F39; // 상단 시각적 여백
+        border-top: 2px solid #2D2F39; // 상단 시각적 여백
         border-right: 8px solid #2D2F39; // 우측 시각적 여백
   
         /* 항목 1줄 고정 + 말줄임 (행높이 계산 안정화) */
@@ -672,7 +672,7 @@ $depth3-vh-cap: 42vh;  // 화면 대비 상한
             display: flex; align-items: center;
             height: var(--row-h);
             line-height: 20px;
-            padding: 2px 14px;
+            padding: 4px 14px;
             white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
             color: #cfd3da;
             font-size: 12.5px;
@@ -681,6 +681,10 @@ $depth3-vh-cap: 42vh;  // 화면 대비 상한
           }
           &:last-child { padding-bottom: 0; }
           &.active > a { background: #2D2F39; color: #C0C0C0; }
+          &.active {
+             &::before { display: none; }
+             > a { color: $secondary; }
+          }
         }
   
         scrollbar-width: thin;

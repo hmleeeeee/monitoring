@@ -1751,11 +1751,11 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 .navbar-default #side-menu .nav-second-level.depth3 {
   --row-h: 30px;
   --rows: 10;
-  --panel-pad: 2px;
+  --panel-pad: 4px;
   --vh-cap: 42vh;
   position: relative;
   margin: 0 0 12px 30px;
-  padding: 2px;
+  padding: 4px;
   border-radius: 8px;
   background: #2D2F39;
   box-sizing: border-box;
@@ -1765,7 +1765,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   padding-inline-end: 8px;
   scrollbar-gutter: stable;
   scrollbar-width: thin; /* Firefox */
-  border-top: 4px solid #2D2F39;
+  border-top: 2px solid #2D2F39;
   border-right: 8px solid #2D2F39;
   /* 항목 1줄 고정 + 말줄임 (행높이 계산 안정화) */
   scrollbar-width: thin;
@@ -1778,7 +1778,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   align-items: center;
   height: var(--row-h);
   line-height: 20px;
-  padding: 2px 14px;
+  padding: 4px 14px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1796,6 +1796,12 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 .navbar-default #side-menu .nav-second-level.depth3 > li.active > a {
   background: #2D2F39;
   color: #C0C0C0;
+}
+.navbar-default #side-menu .nav-second-level.depth3 > li.active::before {
+  display: none;
+}
+.navbar-default #side-menu .nav-second-level.depth3 > li.active > a {
+  color: #CC8889;
 }
 .navbar-default #side-menu .nav-second-level.depth3::-webkit-scrollbar {
   width: 4px;
