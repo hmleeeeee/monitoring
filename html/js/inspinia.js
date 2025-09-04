@@ -344,3 +344,42 @@ function WinMove() {
     $m.find('.modal-dialog').removeAttr('style');
   });
 })();
+
+// Depth3 Auto Viewport Cap
+(function () {
+  var SEL = '.navbar-default #side-menu .nav-second-level.depth3';
+  var MAX_VH = 90; // 자동 계산 cap 상한
+
+  function px(n){ return parseFloat(n) || 0; }
+  function getVar(el, name, fallback){
+    var v = getComputedStyle(el).getPropertyValue(name).trim();
+    return v ? parseFloat(v) : (fallback || 0);
+  }
+
+  function calcCap(el){
+    // cap-rows / vh-unbound가 있으면 자동 계산 스킵(수동 규칙 우선)
+    if (el.classList.contains('cap-rows') || el.classList.contains('vh-unbound')) return;
+
+    var rows     = getVar(el, '--rows', 10);       // 예: rows-16 클래스면 --rows:16
+    var rowH     = getVar(el, '--row-h', 30);      // 1행 총 높이(px)
+    var panelPad = getVar(el, '--panel-pad', 0);   // 상하 패딩(px)
+    var needPx   = (rowH * rows) + (panelPad * 2); // rows를 정확히 보여주기 위한 px
+    var vh       = Math.ceil((needPx / window.innerHeight) * 100);
+
+    vh = Math.min(vh, MAX_VH);
+
+    el.style.setProperty('--vh-cap', vh + 'vh');
+  }
+
+  function run(){
+    document.querySelectorAll(SEL).forEach(calcCap);
+  }
+
+  // 초기/리사이즈
+  var t;
+  window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(run, 100); });
+  document.addEventListener('DOMContentLoaded', run);
+
+  // 메뉴 펼침 후 재계산
+  $(document).on('shown.bs.collapse shown.metisMenu', function(){ run(); });
+})();

@@ -634,3 +634,78 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   display: block;
   width: $sidebar-width;
 }
+
+/* depth3 */
+$depth3-row-h: 30px;   // 항목 1줄 높이
+$depth3-pad-y: 2px;   // 패널 상하 패딩
+$depth3-vh-cap: 42vh;  // 화면 대비 상한
+
+/* depth3 common base */
+.navbar-default {
+  #side-menu {
+    .nav-second-level {
+      &.depth3 {
+        --row-h: #{$depth3-row-h};
+        --rows: 10;
+        --panel-pad: #{$depth3-pad-y};
+        --vh-cap: #{$depth3-vh-cap};
+  
+        position: relative;
+        margin: 0 0 12px 30px;
+        padding: $depth3-pad-y;
+        border-radius:8px;
+        background: #2D2F39;
+        box-sizing: border-box;
+  
+        /* 노출 개수(행수) × 행높이 + 패딩 = 높이 상한, 단 뷰포트 상한 */
+        max-height: min(var(--vh-cap), calc(var(--row-h) * var(--rows) + var(--panel-pad) * 2));
+        overflow: auto;
+        padding-inline-end: 8px;
+        scrollbar-gutter: stable;
+        scrollbar-width: thin; /* Firefox */
+        border-top: 4px solid #2D2F39; // 상단 시각적 여백
+        border-right: 8px solid #2D2F39; // 우측 시각적 여백
+  
+        /* 항목 1줄 고정 + 말줄임 (행높이 계산 안정화) */
+        > li {
+          a {
+            display: flex; align-items: center;
+            height: var(--row-h);
+            line-height: 20px;
+            padding: 2px 14px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            color: #cfd3da;
+            font-size: 12.5px;
+            box-sizing: border-box;
+            &:hover, &:focus { background: #2D2F39; color: #fff; }
+          }
+          &:last-child { padding-bottom: 0; }
+          &.active > a { background: #2D2F39; color: #C0C0C0; }
+        }
+  
+        scrollbar-width: thin;
+        scrollbar-color: #3e4552 transparent;
+  
+        &::-webkit-scrollbar { width: 4px; }
+        &::-webkit-scrollbar-thumb { background: #3e4552; border-radius: 4px; }
+        &::-webkit-scrollbar-track { background: transparent; background-clip: padding-box; }
+        /* cap-rows: 뷰포트 상한 무시, 행 개수 기준만 적용 */
+        &.cap-rows { max-height: calc(var(--row-h) * var(--rows) + var(--panel-pad) * 2) !important; }
+
+        /* vh-unbound: 뷰포트 상한을 사실상 해제(화면 높이까지 허용) */
+        &.vh-unbound { --vh-cap: 100vh; }
+        &.rows-unbound { max-height: none; }
+      }
+    }
+  }
+}
+
+body.mini-navbar {
+  #side-menu .nav-second-level.depth3 { --vh-cap: 60vh; }
+}
+/* (옵션) 펼침 애니메이션과 충돌 최소화: height 트윈 중 내부 점프 방지 */
+// #side-menu .nav-second-level.collapsing { overflow: hidden; contain: layout paint; }
+// #side-menu .nav-second-level.collapsing .depth3 { transition: none !important; }
+
+// 필요 개수까지 생성
+@include gen-depth3-rows('#side-menu .nav-second-level.depth3', 100);

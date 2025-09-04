@@ -645,42 +645,6 @@ select.form-control {
           }
         }
       }
-      /* depth3 */
-      &.depth3 {
-        position: relative;
-        max-height: min(40vh, 270px);
-        margin: 0 0 12px 30px;
-        padding: 0;
-        border-radius:8px;
-        background: #2D2F39;
-        box-sizing: border-box;
-        padding-inline-end: 8px;
-        scrollbar-gutter: stable;
-        overflow-y: auto;
-        background-clip: padding-box;
-        border-top: 4px solid #2D2F39;
-        border-right: 8px solid #2D2F39;
-
-        > li {
-          > a {
-            display: block;
-            padding: 4px 14px;
-            color: #cfd3da;
-            font-size: 12px;
-            opacity: .9;
-            &:hover, &:focus { background: #2D2F39; color: #fff; }
-          }
-          &:last-child { padding-bottom: 0; }
-          &.active > a { background: #2D2F39; color: #C0C0C0; }
-        }
-
-        /* scrollbar */
-        scrollbar-width: thin;
-        scrollbar-color: #4b5563 transparent;
-        &::-webkit-scrollbar { width: 4px; height: 4px; }
-        &::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
-        &::-webkit-scrollbar-track { background: transparent; }
-      }
       > .active > a {
         &:hover, &:focus { background: #161A23; color: #C0C0C0; }
       }
@@ -749,6 +713,7 @@ select.form-control {
   }
   .logo2 { display: none; }
 }
+
 body.mini-navbar {
   .nav-header {
     margin-bottom: 0;
