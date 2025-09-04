@@ -5,13 +5,14 @@ $blue: #1c84c6;       // Success color
 $lazur: #395fb8;      // Info color
 $yellow: #f8ac59;     // Warning color
 $red: #ED5565;        // Danger color
+$secondary: #CC8889;  // Secondary color
 
 // Various colors
-$text-color: #676a6c;   // Body text
-$gray: #FAFAFA;         // Background wrapper color
+$text-color: #5F5F5F;   // Body text
+$gray: #f3f3f4;         // Background wrapper color
 $light-gray: #D1DADE;   // Default label, badge
 $label-badge-color: #5E5E5E;
-$light-blue:#f3f6fb;
+$light-blue:#FBFDFF;
 
 // Spinner color and margin
 $spin-color: $navy;
@@ -21,12 +22,12 @@ $spin-margin: 0 auto;
 $basic-link-color: #337ab7;
 
 // IBOX colors ( default panel colors)
-$border-color: #EAEAEA;     // IBox border
+$border-color: #DFDFDF;     // IBox border
 $ibox-title-bg:#ffffff;     // IBox Background header
 $ibox-content-bg:#ffffff;   // IBox Background content
 
 //Sidebar width
-$sidebar-width: 220px;
+$sidebar-width: 256px;
 
 // Boxed layout width
 $boxed-width: 1200px;
@@ -37,5 +38,18 @@ $btn-border-radius: 3px;
 
 //Navigation
 $nav-bg: #161A23;
-// $nav-profile-pattern: url("patterns/header-profile.png");
+$nav-profile-pattern: url("patterns/header-profile.png");
 $nav-text-color: #8A8C91;
+
+// Gray Scale
+$grays-9: #343434;
+$grays-8: #494949;
+$grays-7: #5F5F5F;
+$grays-6: #767676;
+$grays-5: #8A8A8A;
+$grays-4: #9F9F9F;
+$grays-3: #B5B5B5;
+$grays-2: #CACACA;
+$grays-1: #DFDFDF;
+$grays-0: #F5F5F5;
+$grays-m: #FAFAFA;

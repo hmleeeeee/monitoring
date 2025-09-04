@@ -114,7 +114,7 @@
   border: 1px solid #e5e6e7;
   border-radius: 2px;
   box-shadow: none;
-  color: #333333;
+  color: $grays-9;
   cursor: default;
   line-height: 13px;
   margin: 3px 0 3px 5px;
@@ -130,9 +130,7 @@
 }
 
 /* PAGINATIN */
-.pagination.is-center {
-  justify-content: center;
-}
+
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
   //background-color: #f4f4f4;
   border-color: #DDDDDD;
@@ -237,7 +235,7 @@
   background-image: none;
   background-repeat: repeat-x;
   box-shadow: none;
-  color: #333333;
+  color: $grays-9;
   text-shadow: none;
 }
 

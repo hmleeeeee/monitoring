@@ -383,15 +383,6 @@ body.body-small .footer.fixed {
   padding: 8px;
   vertical-align: top;
 }
-.table>thead>tr>th:not(.ellipsis),
-.table>tbody>tr>th:not(.ellipsis),
-.table>tfoot>tr>th:not(.ellipsis),
-.table>thead>tr>td:not(.ellipsis),
-.table>tbody>tr>td:not(.ellipsis),
-.table>tfoot>tr>td:not(.ellipsis) {
-  white-space: normal;
-  word-break: break-word;
-}
 
 /* PANELS */
 
@@ -914,10 +905,6 @@ table.table-mail tr td {
   color: #ffffff;
 }
 
-.text-count .number {
-  color: $navy;
-}
-
 .simple_tag {
   background-color: #f3f3f4;
   border: 1px solid #e7eaec;
@@ -1335,8 +1322,7 @@ a.close-canvas-menu:hover {
 }
 
 .m-b {
-  // margin-bottom: 15px;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 .m-b-md {
@@ -1364,8 +1350,7 @@ a.close-canvas-menu:hover {
 }
 
 .m-b-n {
-  // margin-bottom: -15px;
-  margin-bottom: -12px;
+  margin-bottom: -15px;
 }
 
 .m-b-n-md {
@@ -1471,7 +1456,7 @@ body.fullscreen-ibox-mode {
 }
 
 .ibox.fullscreen .ibox-content {
-  min-height: calc(100% - 48px);
+  min-height: calc(100% - 48px);;
 }
 
 // Bootstrap issue in 3.3.0 with modal https://github.com/twbs/bootstrap/issues/9855

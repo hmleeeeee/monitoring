@@ -101,131 +101,7 @@
 }
 
 .loginscreen.middle-box {
-  width: 538px;
-  padding-top: 12vh;
-}
-
-.loginscreen .btn-group {
-  gap: 4px;
-}
-.loginscreen .btn-group .btn-login {
-  display: block;
-  width: 100%;
-  font-size: 14px;
-}
-.loginscreen .login-form .btn-text {
-  display: block;
-  padding: 0;
-  margin-top: 6px;
-  font-size: 13px;
-  color: #333;
-  text-align: center;
-}
-.loginscreen .login-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 20px;
-}
-.loginscreen .login-bottom .btn:not(.btn-text) {
-  flex: 1;
-  min-width: 82px;
-}
-.loginscreen .login-bottom .btn.flex3 {
-  flex: 3;
-}
-.loginscreen .login-bottom:has(.btn-text) .btn {
-  flex: auto;
-}
-.loginscreen .login-bottom .btn.btn-default {
-  border-color: #ddd;
-}
-.loginscreen .col-form-label.is-hidden {
-  display: none;
-}
-.loginscreen .ibox {
-  margin-bottom: 0;
-}
-.loginscreen .ibox-title {
-  padding: 50px 40px 20px 40px;
-  border: 1px solid #D6D6D6;
-  border-bottom: 0;
-  border-radius: 26px 26px 0 0;
-}
-.loginscreen .ibox-title h3 {
-  margin: 0;
-  color: #000;
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 1.4;
-}
-.loginscreen .ibox-title h3 > span {
-  color: #333;
-  font-size: 32px;
-  font-weight: 600;
-}
-.loginscreen .ibox-content {
-  padding: 20px 40px 30px 40px;
-  border: 1px solid #D6D6D6;
-  border-top: 0;
-  border-radius: 0 0 26px 26px;
-}
-.loginscreen .ibox .col-form-label {
-  display: none;
-}
-.loginscreen .ibox .form-group {
-  margin-bottom: .8rem;
-}
-.loginscreen .ibox .form-control {
-  padding: 10px 12px;
-  color: #333;
-  border-radius: 8px;
-  box-shadow:
-  0 1px 2px rgba(16,24,40,.06),
-  inset 0 1px 1.5px rgba(16,24,40,.04);
-  transition: box-shadow .18s ease, border-color .18s ease;
-}
-.loginscreen .ibox .form-control::placeholder {
-  color: #B0A9A9;
-}
-.loginscreen .ibox .form-control:focus {
-  border-color: #5A6673;
-   box-shadow:
-    0 1px 2px rgba(16,24,40,.08),
-    inset 0 1px 1.5px rgba(16,24,40,.05),
-    0 0 0 3px color-mix(in oklab, var(--ring) 30%, transparent);
-}
-.loginscreen .ibox .form-text {
-  margin-top: 6px;
-  font-size: 12px;
-}
-.loginscreen .login-bottom .btn:not(.btn-text) {
-  padding: 0.65rem 0.75rem;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-/* ≤1200px : Laptop screens */
-@media (max-width: 1200px) {
-
-}
-
-/* ≤1024px : Tablet screens */
-@media (max-width: 1024px) {
-}
-
-/* ≤768px : Mobile screens */
-@media (max-width: 768px) {
-  .loginscreen.middle-box {
-    width: 100%;
-    max-width: 90vw;
-    padding-top: 10vh;
-  }
-  .loginscreen .ibox-title,
-  .loginscreen .ibox-content {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
+  width: 300px;
 }
 
 .loginColumns {
@@ -246,10 +122,6 @@
   font-weight: 800;
   letter-spacing: -10px;
   margin-bottom: 0;
-}
-
-.middle-box .ibox {
-
 }
 
 .middle-box h1 {
@@ -1495,4 +1367,3 @@ body.body-small .vote-icon {
 .lightBoxGallery img {
   margin: 5px
 }
-

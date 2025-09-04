@@ -312,4 +312,35 @@ function WinMove() {
         .disableSelection();
 }
 
+// Draggable modal
+(function () {
+  var ROOT = '.js-draggable-modal';
+  var HANDLE = '.js-drag-handle';
 
+  $(document).on('shown.bs.modal', function (e) {
+    var $m = $(e.target);
+    if (!$m.is(ROOT)) return;
+
+    // 모달을 body로 올려서 offset 부모 영향 제거
+    if (!$m.parent().is('body')) $m.appendTo('body');
+    var $d = $m.find('.modal-dialog').css({ margin: 0, position: 'fixed' });
+
+    // 드래그 초기화
+    if (typeof $.fn.draggable === 'function' && !$d.data('drag-init')) {
+      $d.draggable({ handle: HANDLE, containment: 'window', scroll: false })
+        .data('drag-init', true);
+    }
+
+    // 오픈 시 중앙 배치
+    var ww = $(window).width(), wh = $(window).height();
+    var dw = $d.outerWidth(),  dh = $d.outerHeight();
+    $d.css({ left: Math.max(0, (ww - dw) / 2), top: Math.max(20, (wh - dh) / 2) });
+  });
+
+  // 닫을 때 위치 초기화
+  $(document).on('hidden.bs.modal', function (e) {
+    var $m = $(e.target);
+    if (!$m.is(ROOT)) return;
+    $m.find('.modal-dialog').removeAttr('style');
+  });
+})();
