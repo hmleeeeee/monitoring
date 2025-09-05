@@ -295,11 +295,11 @@
 
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>노드 목록</h2>
+                    <h2>$페이지 네임$</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item">노드 관리</li>
-                        <li class="breadcrumb-item active"><strong>노드 목록</strong></li>
+                        <li class="breadcrumb-item">1depth</li>
+                        <li class="breadcrumb-item active"><strong>2dppth</strong></li>
                     </ol>
                 </div>
                 <div class="col-lg-2">
@@ -313,7 +313,7 @@
                          (form-group + is-{center | is-end} : 중앙 정렬, 우측 정렬
                     -->
                     <div class="form-group form-rowgroup">
-                        <label for="nameEl" class="col-form-label">노드명</label> <!-- (is-hidden) 클래스 추가시 라벨 숨김 처리됨 placeholder로 label 내용 대체 -->
+                        <label for="nameEl" class="col-form-label">메뉴명</label> <!-- (is-hidden) 클래스 추가시 라벨 숨김 처리됨 placeholder로 label 내용 대체 -->
                         <!-- 인풋 사이즈 제어 클래스 : .form-control에 `.form-control--xs|sm|md|lg|xlg` 클래스 적용시 사이즈에 맞는 표준화된 최대 너비 설정됨 -->
                         <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
                         
@@ -327,7 +327,7 @@
 
                 <div class="ibox-content ibox-top">
                     <div class="form-group form-rowgroup is-center">
-                        <label for="nameEl" class="col-form-label">노드명</label>
+                        <label for="nameEl" class="col-form-label">메뉴명</label>
                         <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
                         
                         <div class="btn-group btn-search">
@@ -340,7 +340,7 @@
 
                 <div class="ibox-content ibox-top">
                     <div class="form-group form-rowgroup is-end">
-                        <label for="nameEl" class="col-form-label">노드명</label>
+                        <label for="nameEl" class="col-form-label">메뉴명</label>
                         <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
                         
                         <div class="btn-group btn-search">
@@ -355,25 +355,25 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group row">
-                                <label for="inp02" class="col-sm-3 col-form-label">노드명</label>
+                                <label for="inp02" class="col-sm-3 col-form-label">메뉴명</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="inp02" placeholder="노드명을 입력해주세요" class="form-control">
+                                    <input type="text" id="inp02" placeholder="placeholder 입력" class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group row">
-                                <label for="inp03" class="col-sm-3 col-form-label">노드번호</label>
+                                <label for="inp02" class="col-sm-3 col-form-label">메뉴명</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="inp03" placeholder="노드번호를 입력해주세요" class="form-control">
+                                    <input type="text" id="inp02" placeholder="placeholder 입력" class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-4">
-                            <div class="form-group row">
-                                <label for="inp05" class="col-sm-3 col-form-label">사용여부</label>
+                          <div class="form-group row">
+                                <label for="inp02" class="col-sm-3 col-form-label">메뉴명</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="inp05" placeholder="사용여부를 입력해주세요" class="form-control">
+                                    <input type="text" id="inp02" placeholder="placeholder 입력" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -381,7 +381,7 @@
                     <div class="btn-group btn-search is-center">
                         <button class="btn btn-outline btn-default btn-sm" type="button">초기화</button>
                         <button class="btn btn-outline btn-primary btn-sm" type="button">검색</button>
-                        <button class="btn btn-primary btn-sm" type="button">노드 등록</button>
+                        <button class="btn btn-primary btn-sm" type="button">등록</button>
                     </div>
                 </div>
 
@@ -389,8 +389,10 @@
                     <div class="col-lg-12">
                         <div class="ibox">
                             <div class="ibox-title">
-                                <h5 class="text-count">노드 목록 <span>총 <strong class="number">13</strong>건</span></h5>
+                                <h5 class="text-count">타이틀 <span class="line">총 <strong class="number">13</strong>건</span></h5>
                                 <div class="form-group">
+                                    <button class="btn btn-outline btn-primary btn-sm" type="button">$버튼명$</button>
+                                    <button class="btn btn-outline btn-primary btn-sm" type="button">$버튼명$</button>
                                     <select class="form-control">
                                         <option value="0">1개</option>
                                         <option value="1">2개</option>

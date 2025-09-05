@@ -117,154 +117,108 @@
                                         drag 팝업
                                     </button>
                                 </div>
-                                <!-- 상태이력 팝업 -->
-                                <div class="modal inmodal" id="popup1" tabindex="-1" role="dialog" aria-hidden="true">
+
+                                <!-- 노드 상세 팝업 -->
+                                <div class="modal inmodal js-draggable-modal" id="popup1" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <div class="modal-header">
+                                            <div class="modal-header js-drag-handle">
                                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                                <h4 class="modal-title">상태이력</h4>
+                                                <h4 class="modal-title">노드 상세</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <table class="footable table tbl-data table-bordered" data-page-size="10">
-                                                <thead>
-                                                    <tr>
-                                                        <th data-sort-ignore="true">이력번호</th>
-                                                        <th data-sort-ignore="true">상태</th>
-                                                        <th data-sort-ignore="true">변경사유</th>
-                                                        <th data-sort-ignore="true">등록자아이디</th>
-                                                        <th data-sort-ignore="true">등록일자</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                               <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>사용</td>
-                                                        <td>신규등록 되었습니다.</td>
-                                                        <td>관리자</td>
-                                                        <td>2025-01-01 12:12:12</td>
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <td colspan="5">
-                                                            <ul class="pagination is-center"></ul>
-                                                        </td>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
+                                                <div class="tbl-wrap">
+                                                    <div class="tbl-title">
+                                                        <p>노드 정보</p>
+                                                        <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#">수정</button>
+                                                    </div>
+                                                    <table class="table table-bordered">
+                                                        <colgroup>
+                                                            <col style="width: 20%;">
+                                                            <col style="width: 30%;">
+                                                            <col style="width: 20%;">
+                                                            <col style="width: 30%;">
+                                                        </colgroup>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>STIE NAME</th>
+                                                                <td>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" value="제 2025-08" readonly>
+                                                                        <button class="btn btn-outline btn-primary btn-xs m-l-xs" data-toggle="modal" data-target="#popupSearch">검색</button>
+                                                                    </div>
+                                                                </td>
+                                                                <th>NODE NAME</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" value="%노드명%">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>GPS 위도</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" value="154.263">
+                                                                    </div>
+                                                                </td>
+                                                                <th>Data(V)</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" value="986.145">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="tbl-wrap">
+                                                    <div class="tbl-title">
+                                                        <p class="text-count">연결된 센서정보 <span class="line">총 <strong class="number">2</strong>건</span></p>
+                                                        <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#">추가</button>
+                                                    </div>
+                                                    <table class="table table-bordered">
+                                                        <colgroup>
+                                                            <col style="width: 30%;">
+                                                            <col style="width: 20%;">
+                                                            <col style="width: 50%;">
+                                                        </colgroup>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>센서 Name</th>
+                                                                <th>센서 종류</th>
+                                                                <th>GPS</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>test sensor3</td>
+                                                                <td>센서004</td>
+                                                                <td>위도 : 154.222, 경도 : 986.146</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>test sensor3</td>
+                                                                <td>센서004</td>
+                                                                <td>위도 : 154.222, 경도 : 986.146</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>test sensor3</td>
+                                                                <td>센서004</td>
+                                                                <td>위도 : 154.222, 경도 : 986.146</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>test sensor3</td>
+                                                                <td>센서004</td>
+                                                                <td>위도 : 154.222, 경도 : 986.146</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>test sensor3</td>
+                                                                <td>센서004</td>
+                                                                <td>위도 : 154.222, 경도 : 986.146</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-white" data-dismiss="modal">닫기</button>
@@ -272,157 +226,721 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- //노드 상세 팝업 -->
 
-                                <!-- 로그인 이력 팝업 -->
-                                <div class="modal inmodal" id="popup2" tabindex="-1" role="dialog" aria-hidden="true">
+                                <!-- 노드 검색 팝업 -->
+                                <div class="modal inmodal js-draggable-modal" id="popup2" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <div class="modal-header">
+                                            <div class="modal-header js-drag-handle">
                                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                                <h4 class="modal-title">로그인 이력</h4>
+                                                <h4 class="modal-title">사이트 목록</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <table class="footable table tbl-data table-bordered" data-page-size="10">
-                                                    <colgroup>
-                                                        <col style="width: 50%;">
-                                                        <col style="width: 50%;">
-                                                    </colgroup>
-                                                    <thead>
-                                                        <tr>
-                                                            <th data-sort-ignore="true">로그인 일시</th>
-                                                            <th data-sort-ignore="true">로그인 아이피</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:0</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-
-                                                           <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2025-01-01 12:12:12</td>
-                                                            <td>0.0.0.0:1</td>
-                                                        </tr>
-                                                    </tbody>
-                                                    <tfoot>
-                                                    <tr>
-                                                        <td colspan="2">
-                                                            <ul class="pagination is-center"></ul>
-                                                        </td>
-                                                    </tr>
-                                                </tfoot>
-                                                </table>
+                                                <div class="ibox-content m-b-sm border-bottom">
+                                                    <div class="form-group row">
+                                                        <label for="nameEl" class="col-sm-1 col-form-label">관리호</label>
+                                                        <div class="col-sm-11">
+                                                            <div class="input-group">
+                                                                <input type="text" id="nameEl" placeholder="관리호를 입력해주세요" class="form-control">
+                                                                <button class="btn btn-outline btn-primary btn-xs m-l-xs" type="button">검색</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                    
+                                                <div class="tbl-wrap">
+                                                    <div class="">
+                                                        <table class="footable table table-striped" data-page-size="10" data-filter=#filter>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th data-sort-ignore="true">도메인명</th>
+                                                                    <th data-sort-ignore="true">관리 호</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>도메인 명1_산사태 산사태</td>
+                                                                    <td>제 2025-08</td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td>도메인 명2_산사태 산사태</td>
+                                                                    <td>제 2025-08</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>도메인 명3_도메인명</td>
+                                                                    <td>제 2025-08</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>도메인 명2_산사태 산사태</td>
+                                                                    <td>제 2025-08</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>도메인 명2_산사태 산사태</td>
+                                                                    <td>제 2025-08</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>도메인 명2_산사태 산사태</td>
+                                                                    <td>제 2025-08</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>도메인 명2_산사태 산사태</td>
+                                                                    <td>제 2025-08</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>도메인 명2_산사태 산사태</td>
+                                                                    <td>제 2025-08</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>도메인 명2_산사태 산사태</td>
+                                                                    <td>제 2025-08</td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tfoot>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <ul class="pagination float-right is-center"></ul>
+                                                                </td>
+                                                                </tr>
+                                                            </tfoot>
+                                                        </table>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
+                                                <!-- 필요시 사용 -->
                                                 <button type="button" class="btn btn-white" data-dismiss="modal">닫기</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">선택</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- //노드 검색 팝업 -->
+
+                                 <!-- 센서 기본값 설정 -->
+                                <div class="modal inmodal js-draggable-modal" id="popup3" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <!-- 모달창 사이즈 제어 클래스 : modal-{sm|md|lg|xlg} -->
+                                    <div class="modal-dialog modal-xlg">
+                                        <div class="modal-content">
+                                            <div class="modal-header js-drag-handle">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                <h4 class="modal-title">센서 기본값 설정</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="tbl-wrap">
+                                                    <div class="tbl-title">
+                                                        <p>센서 기본 정보</p>
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-primary btn-xs">등록</button>
+                                                        </div>
+                                                    </div>
+                                                    <table class="table table-bordered">
+                                                        <colgroup>
+                                                            <col style="width: 20%;">
+                                                            <col style="width: 30%;">
+                                                            <col style="width: 20%;">
+                                                            <col style="width: 30%;">
+                                                        </colgroup>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>ID</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="ID 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <th>Type</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <select name="" id="" class="form-control">
+                                                                            <option value="1" selected>LTE</option>
+                                                                            <option value="2">옵션1</option>
+                                                                            <option value="3">옵션2</option>
+                                                                            <option value="4">옵션3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Nickname</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="닉네임 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <th>Site Code</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <select name="" id="" class="form-control">
+                                                                            <option value="1" selected>산사태</option>
+                                                                            <option value="2">옵션1</option>
+                                                                            <option value="3">옵션2</option>
+                                                                            <option value="4">옵션3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Node No</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="노드 번호 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <th>Port No</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="포트 번호 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Device ID</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="장비 ID 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <th>Gate No</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="게이트 번호 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Tension Type</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <select name="" id="" class="form-control">
+                                                                            <option value="1" selected>산사태</option>
+                                                                            <option value="2">옵션1</option>
+                                                                            <option value="3">옵션2</option>
+                                                                            <option value="4">옵션3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <th>Time Zone</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="시간대 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>S</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="S값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <th>L</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="L값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>L Max</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="L Max값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <th>C</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="C값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>NI</th>
+                                                                <td> <!-- colspan 속성을 삭제하여 input 위 셀과 사이즈 맞춤 더 크게 지정하고 싶을시 colspan="3" 추가해서 병합 후 하기 클래스 가이드 준수 -->
+                                                                    <div class="form-group">
+                                                                        <!-- 인풋 사이즈 제어 클래스 : .form-control에 `.form-control--xs|sm|md|lg|xlg` 클래스 적용시 사이즈에 맞는 표준화된 최대 너비 설정됨 -->
+                                                                        <input type="text" class="form-control" placeholder="NI값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Node Volt Upper Limit</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="노드 전압 상한값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <th>Gate Volt Upper Limit</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="게이트 전압 상한값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Displacement Range Min</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="변위 범위 최소값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <th>Displacement Range Max</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="변위 범위 최대값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Temperature Range Min</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="온도 범위 최소값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <th>Temperature Range Max</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="온도 범위 최대값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Latest Data Count</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="최신 데이터 개수 값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <th>Out Of Range Data Count</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="범위 밖 데이터 개수 값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                    <!-- 지표경사 테이블 -->
+                                                    <table class="table table-bordered tbl-data">
+                                                        <colgroup>
+                                                            <col style="width: 12%;">
+                                                            <col>
+                                                            <col>
+                                                            <col>
+                                                            <col>
+                                                            <col style="width: 21%;">
+                                                        </colgroup>
+                                                        <thead>
+                                                            <tr>
+                                                                <th></th>
+                                                                <th>주의</th>
+                                                                <th>경계</th>
+                                                                <th>심각</th>
+                                                                <th>초기값</th>
+                                                                <th>통신 불량 처리시간</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>지표경사 x</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>지표경사 y</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>지표번위</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>토양수분_h</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>토양수분_l</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>토양온도</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>GPS_lock</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>GPS_lat</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>GPS_lon</th>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-white" data-dismiss="modal">취소</button>
+                                                <button type="button" class="btn btn-primary">등록</button> <!-- 필요시 사용 -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //센서 기본값 설정 -->
+
+                                <!-- 사용자 상세 정보 팝업 -->
+                                <div class="modal inmodal js-draggable-modal" id="popup4" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-md"> <!-- 모달창 사이즈 제어 클래스 : modal-{sm|md|lg|xlg} -->
+                                        <div class="modal-content">
+                                            <div class="modal-header js-drag-handle">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                <h4 class="modal-title">사용자 상세 정보</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="tbl-wrap">
+                                                    <div class="">
+                                                        <table class="table table-bordered">
+                                                            <colgroup>
+                                                                <col style="width: 20%;">
+                                                                <col style="width: 80%;">
+                                                            </colgroup>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th>사용자명</th>
+                                                                    <td>관리자01</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>사원번호</th>
+                                                                    <td>adminUser001</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>로그인 아이디</th>
+                                                                    <td>
+                                                                        <div class="input-group">
+                                                                            <input type="text" class="form-control form-control--sm" value="admin1">
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>지역</th>
+                                                                    <td>
+                                                                        <div class="form-group">
+                                                                            <select name="" id="" class="form-control form-control--sm">
+                                                                                <option value="1" selected>서울시</option>
+                                                                                <option value="2">옵션1</option>
+                                                                                <option value="3">옵션2</option>
+                                                                                <option value="4">옵션3</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>소속</th>
+                                                                    <td>
+                                                                        <div class="form-group">
+                                                                            <select name="" id="" class="form-control form-control--sm">
+                                                                                <option value="1" selected>영업과</option>
+                                                                                <option value="2">옵션1</option>
+                                                                                <option value="3">옵션2</option>
+                                                                                <option value="4">옵션3</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>전화번호</th>
+                                                                    <td>
+                                                                        <div class="input-group">
+                                                                            <input type="tel" class="form-control form-control--sm" value="010-1234-1234" >
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>이메일</th>
+                                                                    <td>test123@gmail.com</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>권한</th>
+                                                                    <td>
+                                                                        <div class="form-group">
+                                                                            <select name="" id="" class="form-control form-control--sm">
+                                                                                <option value="1" selected>site admin</option>
+                                                                                <option value="2">user</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>등록일자</th>
+                                                                    <td>2025-09-01</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>수정일자</th>
+                                                                    <td>2025-09-03</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-white" data-dismiss="modal">취소</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">저장</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //사용자 상세 정보 팝업 -->
 
                                 <!-- 드래그 팝업 -->
                                 <div class="modal inmodal js-draggable-modal" id="popupDrag" tabindex="-1" role="dialog" aria-hidden="true">
@@ -610,7 +1128,7 @@ $('.demo3').click(function () {
                     title: "사용자비밀번호",
                     text: "초기화 하시겠습니까?",
                     showCancelButton: true,
-                    confirmButtonColor: "#051766",
+                    confirmButtonColor: "#333A49",
                     confirmButtonText: "확인",
                     cancelButtonText: "취소"
                 });
@@ -621,7 +1139,7 @@ $('.demo3').click(function () {
                     title: "삭제",
                     text: "삭제 하시겠습니까?",
                     showCancelButton: true,
-                    confirmButtonColor: "#051766",
+                    confirmButtonColor: "#333A49",
                     confirmButtonText: "확인",
                     cancelButtonText: "취소"
                 });
@@ -632,7 +1150,7 @@ $('.demo3').click(function () {
                     title: "등록",
                     text: "등록 하시겠습니까?",
                     showCancelButton: true,
-                    confirmButtonColor: "#051766",
+                    confirmButtonColor: "#333A49",
                     confirmButtonText: "확인",
                     cancelButtonText: "취소"
                 });
@@ -643,7 +1161,7 @@ $('.demo3').click(function () {
                     title: "수정",
                     text: "수정 하시겠습니까?",
                     showCancelButton: true,
-                    confirmButtonColor: "#051766",
+                    confirmButtonColor: "#333A49",
                     confirmButtonText: "확인",
                     cancelButtonText: "취소"
                 });

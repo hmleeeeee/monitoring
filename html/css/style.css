@@ -11086,7 +11086,15 @@ a.link {
   display: inline-flex;
   align-items: center;
 }
-.tbl-wrap .tbl-title .text-count strong {
+.tbl-wrap .tbl-title .text-count .line::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 0 8px;
+  background: #8A8A8A;
+}
+.tbl-wrap .tbl-title .text-count strong, .tbl-wrap .tbl-title .text-count .number {
   color: #333A49;
 }
 .tbl-wrap .form-group.row .col-form-label {
@@ -11270,6 +11278,16 @@ a.link {
 .ibox-title h5.text-count .number {
   color: #333A49;
 }
+.ibox-title h5.text-count .line::before {
+  content: "";
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  margin: 0 8px;
+  background: #8A8A8A;
+}
 .ibox-title .ibox-tools {
   float: none;
   position: static;
@@ -11281,6 +11299,9 @@ a.link {
   top: 10px;
 }
 .ibox-title .form-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   margin: 0;
 }
 .ibox-title .btn-group {

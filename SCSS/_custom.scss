@@ -74,7 +74,17 @@ a.link {
       .btn-sm { font-size: 12px; }
     }
     .text-count { display: inline-flex; align-items: center;
-      strong { color: $navy; }
+    .line {
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 12px;
+        margin: 0 8px;
+        background: $grays-5;
+      }
+    }
+      strong, .number { color: $navy; }
     } 
   }
   .form-group.row {
@@ -292,13 +302,25 @@ a.link {
   h5 { margin-bottom: 0; color: $grays-9; 
     &.text-count {
       .number { color: $navy; }
+      .line {
+        &::before {
+          content: '';
+          position: relative;
+          top: 2px;
+          display: inline-block;
+          width: 1px;
+          height: 14px;
+          margin: 0 8px;
+          background: $grays-5;
+        }
+      }
     }
   }
 
   .ibox-tools { float: none; position: static; display: inline-flex; align-items: center; gap: 8px;
     &:has(.btn-group) { top: 10px; }
   }
-  .form-group {
+  .form-group { display: inline-flex; align-items: center; gap: 4px;
     margin: 0;
   }
   .btn-group { gap: 6px;
