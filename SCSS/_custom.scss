@@ -13,6 +13,9 @@
 b, strong {
   font-weight: 600;
 }
+.page-heading {
+  padding: 0 15px 20px 15px;
+}
 
 /* class */
 .ellipsis {
@@ -119,7 +122,7 @@ a.link {
         }
         .input-group,
         .checkbox-wrap { min-height: 32px; }
-        &.is-bg { background-color: $light-blue; }
+        &.is-bg { background-color: $grays-0; }
         &:not(.ellipsis) { 
           word-break: keep-all; 
           // overflow-wrap: anywhere;
@@ -149,7 +152,7 @@ a.link {
       > tr {
         &:not(.form-control) {
           th {
-            background-color: $light-blue;
+            background-color: $grays-0;
           }
           th, td {
             line-height: 24px;
@@ -208,7 +211,7 @@ a.link {
           &:first-child { border-left: 0; }
         }
           th {
-            background-color: $light-blue;
+            background-color: $grays-0;
             border-right: 1px solid $border-color;
           }
       }
@@ -220,7 +223,7 @@ a.link {
       text-align: center;
       border-left: 1px solid $border-color;
       border-right: 1px solid $border-color;
-      background-color: $light-blue;
+      background-color: $grays-0;
     }
 
   }
@@ -682,7 +685,7 @@ select.form-control {
     .logo-link {
       display: inline-flex;
       align-items: center;
-      min-height: 72px;
+      min-height: 61px;
     }
     .img-logo { width: 160px;
       &.logo2 { width: 22px; }
@@ -690,7 +693,7 @@ select.form-control {
   }
   &:has(.nav-logo) {
     position: relative;
-    height: 72px;
+    height: 61px;
     padding: 0;
     margin-bottom: 12px;
     &:after {
@@ -718,6 +721,7 @@ body.mini-navbar {
   .nav-header {
     margin-bottom: 0;
     background: $nav-bg;
+    border-bottom: 1px solid #2D2F39;
     .nav-logo { justify-content: center;
       .logo1 { display: none; }
       .logo2 { display: block; width: 100%; }
@@ -726,13 +730,15 @@ body.mini-navbar {
   }
   .nav {
     &.metismenu { padding: 0;
-      li > a i { margin-right: 6px; }
-      > li.active {
-        a { border-radius: 0; }
+      > li {
+        > a {
+          padding: 14px 20px 14px 25px;
+          i { margin-right: 6px; }
+        }
+        &.active {
+          a { border-radius: 0; }
+        }
       }
-    }
-    > li a:not(.logo-link) {
-      padding: 14px 20px 14px 25px;
     }
     ul.nav-second-level {
       &.depth2 {
@@ -752,15 +758,26 @@ body.mini-navbar {
   }
 }
 .navbar-static-top {
-  .navbar-header { z-index: 9999; 
-    .minimalize-styl-2 {
-      position: relative;
-      left: -18px;
-      margin: 54px 0 0 0;
-      padding: 5px 13px;
-      background: #161A23;
-      border: 1px solid #5C5F65;
-      border-radius: 8px;
+  .minimalize-styl-2  {
+    margin: 15px 20px 16px 30px;
+    padding: 4px 11px;
+  }
+  .navbar-collapse { position: relative;
+    .navbar-nav {
+      .dropdown-menu {
+        left: auto;
+        right: 50% !important;
+        transform: translateX(50%);
+        transform-origin: top center;
+        min-width: 0;
+        width: max-content;
+        white-space: normal;
+        word-break: keep-all;
+        box-sizing: border-box;
+        > li {
+          > a { padding: 3px 12px; }
+        }
+      }
     }
   }
 }
