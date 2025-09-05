@@ -159,7 +159,8 @@ button:focus {
 .btn-default {
   color: inherit;
   background: white;
-  border: 1px solid $border-color;
+  // border: 1px solid $border-color;
+  border: 1px solid $grays-2;
 }
 
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default, .btn-default:active:focus, .btn-default:active:hover, .btn-default.active:hover, .btn-default.active:focus {
