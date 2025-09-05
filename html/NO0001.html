@@ -206,7 +206,7 @@
                             <li>
                                 <a href="SE0001.html">센서 목록</a>
                                 <ul class="nav nav-second-level depth3">
-                                    <li><a href="#none">센서 리스트</a></li>
+                                    <li><a href="SE0001.html">센서 리스트</a></li>
                                     <li><a href="#none">센서 리스트</a></li>
                                     <li><a href="#none">센서 리스트</a></li>
                                     <li><a href="#none">센서 리스트</a></li>
@@ -306,17 +306,81 @@
             </div>
 
             <div class="wrapper wrapper-content">
-                <div class="ibox-content m-b-sm border-bottom">
+                <div class="ibox-content ibox-top"> <!-- 상단 검색 영역에 (ibox-top) 클래스 추가 -->
+                    <!-- (form-rowgroup) : lable + input El 가로 방향
+                         (form-colgroup) : label + input El 세로 방향
+                         (form-group + is-{center | is-end} : 중앙 정렬, 우측 정렬
+                    -->
                     <div class="form-group form-rowgroup">
-                        <label for="nameEl" class="col-form-label">노드명</label>
+                        <label for="nameEl" class="col-form-label">노드명</label> <!-- (is-hidden) 클래스 추가시 라벨 숨김 처리됨 placeholder로 label 내용 대체 -->
                         <!-- 인풋 사이즈 제어 클래스 : .form-control에 `.form-control--xs|sm|md|lg|xlg` 클래스 적용시 사이즈에 맞는 표준화된 최대 너비 설정됨 -->
                         <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
                         
-                        <div class="btn-group">
+                        <div class="btn-group btn-search">
                             <button class="btn btn-outline btn-default btn-sm" type="button">초기화</button>
                             <button class="btn btn-outline btn-primary btn-sm" type="button">검색</button>
                             <button class="btn btn-primary btn-sm" type="button">추가</button>
                         </div>
+                    </div>
+                </div>
+
+                <div class="ibox-content ibox-top">
+                    <div class="form-group form-rowgroup is-center">
+                        <label for="nameEl" class="col-form-label">노드명</label>
+                        <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
+                        
+                        <div class="btn-group btn-search">
+                            <button class="btn btn-outline btn-default btn-sm" type="button">초기화</button>
+                            <button class="btn btn-outline btn-primary btn-sm" type="button">검색</button>
+                            <button class="btn btn-primary btn-sm" type="button">추가</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ibox-content ibox-top">
+                    <div class="form-group form-rowgroup is-end">
+                        <label for="nameEl" class="col-form-label">노드명</label>
+                        <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
+                        
+                        <div class="btn-group btn-search">
+                            <button class="btn btn-outline btn-default btn-sm" type="button">초기화</button>
+                            <button class="btn btn-outline btn-primary btn-sm" type="button">검색</button>
+                            <button class="btn btn-primary btn-sm" type="button">추가</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ibox-content ibox-top">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <label for="inp02" class="col-sm-3 col-form-label">노드명</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="inp02" placeholder="노드명을 입력해주세요" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <label for="inp03" class="col-sm-3 col-form-label">노드번호</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="inp03" placeholder="노드번호를 입력해주세요" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <label for="inp05" class="col-sm-3 col-form-label">사용여부</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="inp05" placeholder="사용여부를 입력해주세요" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-search is-center">
+                        <button class="btn btn-outline btn-default btn-sm" type="button">초기화</button>
+                        <button class="btn btn-outline btn-primary btn-sm" type="button">검색</button>
+                        <button class="btn btn-primary btn-sm" type="button">노드 등록</button>
                     </div>
                 </div>
 
@@ -326,7 +390,7 @@
                             <div class="ibox-title">
                                 <h5 class="text-count">노드 목록 <span>총 <strong class="number">13</strong>건</span></h5>
                                 <div class="form-group">
-                                    <select class="form-control form-control-sm">
+                                    <select class="form-control">
                                         <option value="0">1개</option>
                                         <option value="1">2개</option>
                                         <option value="2">3개</option>
@@ -437,7 +501,13 @@
                                     <tfoot>
                                         <tr>
                                             <td colspan="3">
-                                                <ul class="pagination float-right"></ul>
+                                                <!-- pagination 클래스 : is-{center | end} 중앙, 우측 정렬 -->
+                                                <ul class="pagination is-center"></ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <ul class="pagination is-end"></ul>
                                             </td>
                                         </tr>
                                     </tfoot>

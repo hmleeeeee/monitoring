@@ -308,48 +308,62 @@
             </div>
 
             <div class="wrapper wrapper-content">
-                <div class="ibox-content m-b-sm border-bottom">
+                <div class="ibox-content ibox-top">
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" for="date1">배포일자</label>
-                                <div class="col-sm-10 input-group date">
+                                <label class="col-sm-3 col-form-label" for="date1">등록일자</label>
+                                <div class="col-sm-9 input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input id="date1" type="text" class="form-control" value="">
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group row">
-                                <label for="nameEl" class="col-sm-2 col-form-label">담당자명</label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="nameEl" placeholder="" class="form-control">
+                                <label for="inp01" class="col-sm-3 col-form-label">사용자명</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="inp01" placeholder="사용자명을 입력해주세요" class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group row">
-                                <label for="typeEl" class="col-sm-2 col-form-label">상태</label>
-                                <div class="col-sm-10">
-                                    <select name="typeEl" id="typeEl" class="form-control">
-                                        <option value="1" selected>전체</option>
-                                        <option value="2">성공</option>
-                                        <option value="3">실패</option>
-                                    </select>
+                                <label for="inp02" class="col-sm-3 col-form-label">로그인 아이디</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="inp02" placeholder="로그인 아이디를 입력해주세요" class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group row">
-                                <label for="searchEl" class="col-sm-2 col-form-label">검색</label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="searchEl" name="searchEl" value="" placeholder="배포등록번호, CSR No., 제목, 담당자" class="form-control">
+                                <label for="inp03" class="col-sm-3 col-form-label">사원번호</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="inp03" placeholder="사원번호를 입력해주세요" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <label for="inp04" class="col-sm-3 col-form-label">이메일</label>
+                                <div class="col-sm-9">
+                                    <input type="email" id="inp04" placeholder="이메일을 입력해주세요" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <label for="inp05" class="col-sm-3 col-form-label">사용여부</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="inp05" placeholder="사용여부를 입력해주세요" class="form-control">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="btn-group btn-search is-center">
-                        <!-- <button class="btn btn-outline btn-primary btn-sm" type="button">초기화</button> -->
+                        <button class="btn btn-outline btn-default btn-sm" type="button">초기화</button>
                         <button class="btn btn-outline btn-primary btn-sm" type="button">검색</button>
+                        <button class="btn btn-primary btn-sm" type="button">CSV 등록</button>
+                        <button class="btn btn-primary btn-sm" type="button">CSV 다운로드</button>
                     </div>
                 </div>
 
