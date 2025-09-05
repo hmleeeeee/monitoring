@@ -121,6 +121,7 @@ a.link {
           // overflow-wrap: anywhere;
           hyphens: auto;
         }
+        .form-group { margin-bottom: 0; }
       }
       &:has(.form-control, .input-group, .checkbox-wrap) {
         th, td {
@@ -161,11 +162,10 @@ a.link {
             line-height: 26px;
           }
         }
-        .btn-xs {
-          padding: 0 0.4rem;
-          line-height: 21px;
-        }
       }
+    }
+    tfoot {
+      .pagination { margin-top: 10px; }
     }
     &.table-striped {
       thead > tr:not(.form-control) th { background-color: #fff; }
@@ -270,14 +270,14 @@ a.link {
     }
   }
 
-  .ibox-tools { float: none; position: static;
+  .ibox-tools { float: none; position: static; display: inline-flex; align-items: center; gap: 8px;
     &:has(.btn-group) { top: 10px; }
   }
   .form-group {
     margin: 0;
   }
   .btn-group { gap: 6px;
-    .btn-sm { font-size: 12px; }
+    .btn-sm {  padding: .3rem .5rem; }
   } 
 }
 .ibox-content {

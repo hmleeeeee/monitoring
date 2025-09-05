@@ -371,216 +371,493 @@
                     <div class="col-lg-12">
                         <div class="ibox">
                             <div class="ibox-title">
-                                <h5 class="text-count">배포 목록 <span>총 <strong class="number">15</strong>건</span></h5>
+                                <h5 class="text-count">사용자 목록 <span>총 <strong class="number">15</strong>건</span></h5>
 
                                 <div class="ibox-tools">
                                     <div class="btn-group">
-                                        <button class="btn btn-outline btn-primary btn-sm" type="button" onclick="location.href='M0002.html'">배포 등록</button>
-                                        <button class="btn btn-outline btn-primary btn-sm" type="button">STG 예약실행</button>
-                                        <button class="btn btn-outline btn-dark btn-sm" type="button">예약실행 즉시 중단</button>
+                                        <button class="btn btn-outline btn-primary btn-sm" type="button">$버튼명$</button>
+                                        <button class="btn btn-outline btn-primary btn-sm" type="button">$버튼명$</button>
                                     </div>
-                                    <!-- <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a> -->
+                                    <div class="form-group">
+                                        <select name="" id="" class="form-control">
+                                            <option value="1" selected>1개</option>
+                                            <option value="2">옵션1</option>
+                                            <option value="3">옵션2</option>
+                                            <option value="4">옵션3</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="ibox-content">
                                 <!-- pagination 불필요시 table에 (footable) 클래스 및 관련 data 속성 삭제 -->
                                 <table class="footable table" data-page-size="10" data-filter=#filter>
                                     <colgroup>
+                                        <col style="width: 9%;">
+                                        <col style="width: 9%;">
+                                        <col>
+                                        <col style="width: 10%;">
+                                        <col style="width: 10%;">
                                         <col>
                                         <col>
-                                        <col style="width: 9%;">
-                                        <col style="width: 9%;">
-                                        <col style="width: 9%;">
-                                        <col style="width: 9%;">
-                                        <col style="width: 9%;">
-                                        <col style="width: 9%;">
+                                        <col style="width: 10%;">
+                                        <col style="width: 6%;">
+                                        <col style="width: 10%;">
+                                        <col style="width: 8%;">
                                     </colgroup>
                                     <thead>
                                         <tr>
-                                            <th data-sort-ignore="true">배포등록번호</th> <!-- sortable 기능 사용시 data-sortable="true" 작성 -->
-                                            <th data-sort-ignore="true">배포 제목</th> <!-- footable은 기본적으로 sortable 아이콘 활성화시키므로 숨김처리시 data-sort-ignore="true" 작성 -->
-                                            <th data-sort-ignore="true" data-hide="phone,tablet">담당자</th>
-                                            <th data-sort-ignore="true" data-hide="phone,tablet">STG</th>
-                                            <th data-sort-ignore="true" data-hide="phone,tablet">PRD1</th>
-                                            <th data-sort-ignore="true" data-hide="phone,tablet">PRD2</th>
-                                            <th data-sort-ignore="true" data-hide="phone,tablet">PRD3</th>
-                                            <th data-sort-ignore="true" data-hide="phone,tablet">CSR No.</th>
+                                            <th data-sort-ignore="true">사용자명</th> <!-- sortable 기능 사용시 data-sortable="true" 작성 -->
+                                            <th data-sort-ignore="true">사원번호</th> <!-- footable은 기본적으로 sortable 아이콘 활성화시키므로 숨김처리시 data-sort-ignore="true" 작성 -->
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">로그인 아이디</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">지역</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">소속</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">전화번호</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">이메일</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">권한</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">사용여부</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">등록일자</th>
+                                            <th data-sort-ignore="true" data-hide="phone,tablet">기능</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr> 
-                                            <!-- 배포상세정보 팝업은 tr 기준 아닌 제목 링크에 걸어둠 -->
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-003</a></td>
-                                            <td class="text-left ellipsis">20250425 배포20250425 0250425 배포20250425배포20250425배포20250425배포20250425배포20250425배포20250425</td> <!-- (ellipsis) 클래스 말줄임 처리시 사용 -->
-                                            <td>홍길동</td>
+                                        <tr>
+                                            <td>관리자01</td>
+                                            <td>adminUser001</td>
                                             <td>
-                                                <button class="btn-success btn btn-xs" data-toggle="modal" data-target="">100/100</button> <!-- data-target 속성과 modal id 값 매칭 -->
-                                                <!-- <span class="badge badge-success">100/100</span> -->
-                                            </td>
-                                            <td>
-                                                <button class="btn-warning btn btn-xs" data-toggle="modal" data-target="">예약</button>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="admin1" >
+                                                </div>
                                             </td>
                                             <td>
-                                                <button class="btn-warning btn btn-xs" data-toggle="modal" data-target="">예약</button>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>서울시</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
                                             </td>
-                                              <td>
-                                                <button class="btn-warning btn btn-xs" data-toggle="modal" data-target="">예약</button>
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr> 
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-002</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
                                             <td>
-                                                <button class="btn-danger btn btn-xs" data-toggle="modal" data-target="#popupList">실패</button> <!-- data-target 속성과 modal id 값 매칭 -->
-                                                <!-- <span class="badge badge-dabtn-danger">실패</span> -->
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>영업과</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
                                             </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control" value="010-1234-1234" >
+                                                </div>
+                                            </td>
+                                            <td>test123@gmail.com</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="site admin" >
+                                                </div>
+                                            </td>
+                                            <td>Y</td>
+                                            <td>2025-09-01</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-outline btn-primary btn-xs">수정</button>
+                                                    <button class="btn btn-outline btn-default btn-xs">삭제</button>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>관리자01</td>
+                                            <td>adminUser001</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="admin1" >
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>서울시</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>영업과</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control" value="010-1234-1234" >
+                                                </div>
+                                            </td>
+                                            <td>test123@gmail.com</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="site admin" >
+                                                </div>
+                                            </td>
+                                            <td>Y</td>
+                                            <td>2025-09-01</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-outline btn-primary btn-xs">수정</button>
+                                                    <button class="btn btn-outline btn-default btn-xs">삭제</button>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>관리자01</td>
+                                            <td>adminUser001</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="admin1" >
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>서울시</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>영업과</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control" value="010-1234-1234" >
+                                                </div>
+                                            </td>
+                                            <td>test123@gmail.com</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="site admin" >
+                                                </div>
+                                            </td>
+                                            <td>Y</td>
+                                            <td>2025-09-01</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-outline btn-primary btn-xs">수정</button>
+                                                    <button class="btn btn-outline btn-default btn-xs">삭제</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>관리자01</td>
+                                            <td>adminUser001</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="admin1" >
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>서울시</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>영업과</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control" value="010-1234-1234" >
+                                                </div>
+                                            </td>
+                                            <td>test123@gmail.com</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="site admin" >
+                                                </div>
+                                            </td>
+                                            <td>Y</td>
+                                            <td>2025-09-01</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-outline btn-primary btn-xs">수정</button>
+                                                    <button class="btn btn-outline btn-default btn-xs">삭제</button>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>관리자01</td>
+                                            <td>adminUser001</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="admin1" >
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>서울시</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>영업과</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control" value="010-1234-1234" >
+                                                </div>
+                                            </td>
+                                            <td>test123@gmail.com</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="site admin" >
+                                                </div>
+                                            </td>
+                                            <td>Y</td>
+                                            <td>2025-09-01</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-outline btn-primary btn-xs">수정</button>
+                                                    <button class="btn btn-outline btn-default btn-xs">삭제</button>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>관리자01</td>
+                                            <td>adminUser001</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="admin1" >
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>서울시</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>영업과</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control" value="010-1234-1234" >
+                                                </div>
+                                            </td>
+                                            <td>test123@gmail.com</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="site admin" >
+                                                </div>
+                                            </td>
+                                            <td>Y</td>
+                                            <td>2025-09-01</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-outline btn-primary btn-xs">수정</button>
+                                                    <button class="btn btn-outline btn-default btn-xs">삭제</button>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>관리자01</td>
+                                            <td>adminUser001</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="admin1" >
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>서울시</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>영업과</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control" value="010-1234-1234" >
+                                                </div>
+                                            </td>
+                                            <td>test123@gmail.com</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="site admin" >
+                                                </div>
+                                            </td>
+                                            <td>Y</td>
+                                            <td>2025-09-01</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-outline btn-primary btn-xs">수정</button>
+                                                    <button class="btn btn-outline btn-default btn-xs">삭제</button>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>관리자01</td>
+                                            <td>adminUser001</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="admin1" >
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>서울시</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>영업과</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control" value="010-1234-1234" >
+                                                </div>
+                                            </td>
+                                            <td>test123@gmail.com</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="site admin" >
+                                                </div>
+                                            </td>
+                                            <td>Y</td>
+                                            <td>2025-09-01</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-outline btn-primary btn-xs">수정</button>
+                                                    <button class="btn btn-outline btn-default btn-xs">삭제</button>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                            <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                            <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                            <tr>
-                                            <td><a href="#none" class="link" data-toggle="modal" data-target="#popupDetail">ADP-20250425-001</a></td>
-                                            <td class="text-left">20250424 배포</td>
-                                            <td>홍길동</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>관리자01</td>
+                                            <td>adminUser001</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="admin1" >
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>서울시</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="1" selected>영업과</option>
+                                                        <option value="2">옵션1</option>
+                                                        <option value="3">옵션2</option>
+                                                        <option value="4">옵션3</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control" value="010-1234-1234" >
+                                                </div>
+                                            </td>
+                                            <td>test123@gmail.com</td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="site admin" >
+                                                </div>
+                                            </td>
+                                            <td>Y</td>
+                                            <td>2025-09-01</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-outline btn-primary btn-xs">수정</button>
+                                                    <button class="btn btn-outline btn-default btn-xs">삭제</button>
+                                                </div>
+                                            </td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td colspan="8">
-                                                <ul class="pagination float-right"></ul>
+                                            <td colspan="11">
+                                                <ul class="pagination is-center"></ul>
                                             </td>
                                         </tr>
                                     </tfoot>

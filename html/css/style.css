@@ -11137,6 +11137,9 @@ a.link {
   -webkit-hyphens: auto;
           hyphens: auto;
 }
+.table thead > tr th .form-group, .table thead > tr td .form-group, .table tbody > tr th .form-group, .table tbody > tr td .form-group, .table tfoot > tr th .form-group, .table tfoot > tr td .form-group {
+  margin-bottom: 0;
+}
 .table thead > tr:has(.form-control, .input-group, .checkbox-wrap) th, .table thead > tr:has(.form-control, .input-group, .checkbox-wrap) td, .table tbody > tr:has(.form-control, .input-group, .checkbox-wrap) th, .table tbody > tr:has(.form-control, .input-group, .checkbox-wrap) td, .table tfoot > tr:has(.form-control, .input-group, .checkbox-wrap) th, .table tfoot > tr:has(.form-control, .input-group, .checkbox-wrap) td {
   padding: 6px 10px;
   line-height: 21px;
@@ -11159,9 +11162,8 @@ a.link {
   padding: 6px 10px;
   line-height: 26px;
 }
-.table.footable tbody > tr .btn-xs {
-  padding: 0 0.4rem;
-  line-height: 21px;
+.table.footable tfoot .pagination {
+  margin-top: 10px;
 }
 .table.footable.table-striped thead > tr:not(.form-control) th {
   background-color: #fff;
@@ -11254,6 +11256,9 @@ a.link {
 .ibox-title .ibox-tools {
   float: none;
   position: static;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 .ibox-title .ibox-tools:has(.btn-group) {
   top: 10px;
@@ -11265,7 +11270,7 @@ a.link {
   gap: 6px;
 }
 .ibox-title .btn-group .btn-sm {
-  font-size: 12px;
+  padding: 0.3rem 0.5rem;
 }
 
 .ibox-content {
