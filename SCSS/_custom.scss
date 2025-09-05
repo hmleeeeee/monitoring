@@ -242,6 +242,16 @@ a.link {
 }
 
 /* ibox */
+.ibox-top {
+  margin-bottom: 10px;
+  .form-rowgroup {
+    .form-control {
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+  }
+
+}
 .ibox-title {
   display: flex;
   flex-wrap: wrap;
@@ -378,7 +388,8 @@ select.form-control {
 // form-control resize
 .form-control{
   border-radius: 3px;
-    &.input-sm, &.form-control--sm { max-width: 14rem !important; padding: 3px 12px; }
+    &.input-xs, &.form-control--xs { max-width: 8rem !important; }
+    &.input-sm, &.form-control--sm { max-width: 14rem !important; }
     &.input-md, &.form-control--md { max-width: 18rem !important; }
     &.input-lg, &.form-control--lg { max-width: 26rem !important; }
     &.input-xlg, &.form-control--xlg { max-width: 40rem !important; }
@@ -517,7 +528,7 @@ select.form-control {
           font-size: 12px;
         }
         &:has(.btn-group) { margin-bottom: 12px; }
-        .btn-primary.btn-xs { padding: .2rem 1rem; }
+        .btn-primary.btn-xs { padding: .25rem .8rem; }
       }
       .table {
         margin-bottom: 0;
@@ -708,8 +719,8 @@ select.form-control {
       &.active {
         background: $nav-bg;
         border: 0;
-        > a { color: #C0C0C0; 
-          &:hover, &:focus { background: #2D2F39; color: #C0C0C0; }
+        > a { color: $grays-0; 
+          &:hover, &:focus { background: #2D2F39; color: $grays-0; }
         }
       }
     }
@@ -805,7 +816,7 @@ body.mini-navbar {
 }
 .navbar-static-top {
   .minimalize-styl-2  {
-    margin: 15px 20px 16px 30px;
+    margin: 17px 20px 12px 30px;
     padding: 4px 11px;
   }
 }
@@ -835,6 +846,20 @@ body.mini-navbar {
   @supports not (width: max-content){ 
     .dropdown-menu{ width:auto; } 
   }
+}
+
+/* navy */
+.nav-bg .navbar-fixed-top {
+  background: $navy;
+  .minimalize-styl-2 { color: #cfd3da; background-color: #2D2F39; border-color: #2D2F39; }
+  .navbar-nav > li {
+    > a { color: $grays-1;
+      &:focus, &:active { color: #fff; }
+    }
+    &.active > a:focus, &.active > a:active { color: #fff; }
+    .dropdown-toggle::after { margin-left: 10px; }
+  }
+  .nav.navbar-right > li > a { color: #fff; }
 }
 
 /* login-page */

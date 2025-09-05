@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tension Monitoring | 노드 목록</title>
+    <title>Tension Monitoring | 센서 목록</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -33,7 +33,6 @@
                         <ul class="nav nav-second-level depth2">
                             <li>
                                 <a href="#none">도메인 목록</a>
-                                <!-- depth3 메뉴 노출 개수: <ul class="... depth3 rows-{N}"> (N=1~100, 기본 10) -->
                                 <ul class="nav nav-second-level depth3 rows-15">
                                     <li><a href="#none">도메인 리스트</a></li>
                                     <li><a href="#none">도메인 리스트</a></li>
@@ -173,13 +172,12 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="NO0001.html"><i class="fa fa-sitemap"></i> <span class="nav-label">노드 관리</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse depth2">
-                            <li class="active">
+                            <li>
                                 <a href="NO0001.html">노드 목록</a>
-                                <!-- depth3 메뉴 노출 개수: <ul class="... depth3 rows-{N}"> (N=1~100, 기본 10) -->
-                                <ul class="nav nav-second-level depth3 rows-12">
+                                <ul class="nav nav-second-level depth3">
                                     <li class="active"><a href="NO0001.html">노드 리스트</a></li>
                                     <li><a href="#none">노드 리스트</a></li>
                                     <li><a href="#none">노드 리스트</a></li>
@@ -200,12 +198,15 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="SE0001.html"><i class="fa fa-tachometer"></i> <span class="nav-label">센서 관리</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li>
+                            <li class="active">
                                 <a href="SE0001.html">센서 목록</a>
-                                <ul class="nav nav-second-level depth3">
+                                <!-- depth3 메뉴 노출 개수: <ul class="... depth3 rows-{N}"> (N=1~100, 기본 10) -->
+                                <ul class="nav nav-second-level depth3 rows-5">
+                                    <li class="active"><a href="SE0001.html">센서 리스트</a></li>
+                                    <li><a href="#none">센서 리스트</a></li>
                                     <li><a href="#none">센서 리스트</a></li>
                                     <li><a href="#none">센서 리스트</a></li>
                                     <li><a href="#none">센서 리스트</a></li>
@@ -248,18 +249,18 @@
                                 <ul role="menu" class="dropdown-menu">
                                      <li><a href="">사이트 메뉴1</a></li>
                                     <li><a href="">사이트 메뉴2</a></li>
-                                    <li><a href="">사이트 메뉴3</a></li>
-                                    <li><a href="">사이트 메뉴4</a></li>
+                                    <li><a href="">사이트 메뉴메뉴3</a></li>
+                                    <li><a href="">사이트 메뉴메뉴메뉴4사이트 메뉴메뉴메뉴4사이트 메뉴메뉴메뉴4사이트 메뉴메뉴메뉴4사이트 메뉴메뉴메뉴4사이트 메뉴메뉴메뉴4사이트 메뉴메뉴메뉴4사이트 메뉴메뉴메뉴4사이트 메뉴메뉴메뉴4</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">노드 관리</a>
+                                <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">센서 관리</a>
                                 <ul role="menu" class="dropdown-menu">
-                                    <li><a href="">노드 메뉴1</a></li>
-                                    <li><a href="">노드 메뉴2</a></li>
-                                    <li><a href="">노드 메뉴3</a></li>
-                                    <li><a href="">노드 메뉴4</a></li>
-                                    <li><a href="">노드 메뉴5</a></li>
+                                    <li><a href="">센서 메뉴1</a></li>
+                                    <li><a href="">센서 메뉴2</a></li>
+                                    <li><a href="">센서 메뉴3</a></li>
+                                    <li><a href="">센서 메뉴4</a></li>
+                                    <li><a href="">센서 메뉴5</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -294,11 +295,11 @@
 
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>노드 목록</h2>
+                    <h2>센서 목록</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item">노드 관리</li>
-                        <li class="breadcrumb-item active"><strong>노드 목록</strong></li>
+                        <li class="breadcrumb-item">센서 관리</li>
+                        <li class="breadcrumb-item active"><strong>센서 목록</strong></li>
                     </ol>
                 </div>
                 <div class="col-lg-2">
@@ -306,10 +307,10 @@
             </div>
 
             <div class="wrapper wrapper-content">
-                <div class="ibox-content m-b-sm border-bottom">
+                <div class="ibox-content ibox-top">
                     <div class="form-group form-rowgroup">
-                        <label for="nameEl" class="col-form-label">노드명</label>
-                        <!-- 인풋 사이즈 제어 클래스 : .form-control에 `.form-control--xs|sm|md|lg|xlg` 클래스 적용시 사이즈에 맞는 표준화된 최대 너비 설정됨 -->
+                        <label for="nameEl" class="col-form-label">센서명</label>
+                        <!-- .form-control에 `.form-control--xs|md|lg|xlg` 클래스를 적용하면 표준화된 최대 너비가 설정되어, 일관된 폼 레이아웃 유지가 가능함 -->
                         <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
                         
                         <div class="btn-group">
@@ -324,7 +325,7 @@
                     <div class="col-lg-12">
                         <div class="ibox">
                             <div class="ibox-title">
-                                <h5 class="text-count">노드 목록 <span>총 <strong class="number">13</strong>건</span></h5>
+                                <h5 class="text-count">센서 목록 <span>총 <strong class="number">13</strong>건</span></h5>
                                 <div class="form-group">
                                     <select class="form-control form-control-sm">
                                         <option value="0">1개</option>
@@ -346,91 +347,89 @@
                                     </thead>
                                         <tbody>
                                         <tr data-toggle="modal" data-target="#popup1"> <!-- data-target 속성과 modal id 값 매칭 -->
-                                            <td>노드명1노드명1노드명1</td>
-                                            <td>제 2025-08</td>
+                                            <td>Test sensor3</td>
+                                            <td>센서003</td>
+                                            <td>위도 : 154.263, 경도 : 986.144</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test sensor4</td>
+                                            <td>센서004</td>
                                             <td>위도 : 154.263, 경도 : 986.145</td>
                                         </tr>
                                         <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
                                             <td>위도 : 154.263, 경도 : 986.145</td>
                                         </tr>
                                         <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
-                                            <td>위도 : 154.263, 경도 : 986.145</td>
-                                        </tr>
-                                        <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
-                                            <td>위도 : 154.263, 경도 : 986.145</td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
-                                            <td>위도 : 154.263, 경도 : 986.145</td>
-                                        </tr>
-                                        <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
-                                            <td>위도 : 154.263, 경도 : 986.145</td>
-                                        </tr>
-                                        <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
-                                            <td>위도 : 154.263, 경도 : 986.145</td>
-                                        </tr>
-                                        <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
-                                            <td>위도 : 154.263, 경도 : 986.145</td>
-                                        </tr>
-                                        <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
-                                            <td>위도 : 154.263, 경도 : 986.145</td>
-                                        </tr>
-                                        <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
-                                            <td>위도 : 154.263, 경도 : 986.145</td>
-                                        </tr>
-                                        <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
                                             <td>위도 : 154.263, 경도 : 986.145</td>
                                         </tr>
                                         
-                                        
                                         <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
                                             <td>위도 : 154.263, 경도 : 986.145</td>
                                         </tr>
                                         <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
                                             <td>위도 : 154.263, 경도 : 986.145</td>
                                         </tr>
                                         <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
                                             <td>위도 : 154.263, 경도 : 986.145</td>
                                         </tr>
                                         <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
                                             <td>위도 : 154.263, 경도 : 986.145</td>
                                         </tr>
                                         <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
                                             <td>위도 : 154.263, 경도 : 986.145</td>
                                         </tr>
                                         <tr>
-                                            <td>노드명2노드명2노드명2</td>
-                                            <td>제 2025-08</td>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
+                                            <td>위도 : 154.263, 경도 : 986.145</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
+                                            <td>위도 : 154.263, 경도 : 986.145</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
+                                            <td>위도 : 154.263, 경도 : 986.145</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
+                                            <td>위도 : 154.263, 경도 : 986.145</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
+                                            <td>위도 : 154.263, 경도 : 986.145</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
+                                            <td>위도 : 154.263, 경도 : 986.145</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
+                                            <td>위도 : 154.263, 경도 : 986.145</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test sensor3</td>
+                                            <td>센서004</td>
                                             <td>위도 : 154.263, 경도 : 986.145</td>
                                         </tr>
                                     </tbody>
@@ -447,19 +446,22 @@
                     </div>
                 </div>
 
-                <!-- 노드 상세 팝업 -->
+                <!-- 센서 상세 팝업 -->
                 <div class="modal inmodal js-draggable-modal" id="popup1" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-xlg">
                         <div class="modal-content">
                             <div class="modal-header js-drag-handle">
                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title">노드 상세</h4>
+                                <h4 class="modal-title">센서 상세</h4>
                             </div>
                             <div class="modal-body">
                                 <div class="tbl-wrap">
                                     <div class="tbl-title">
-                                        <p>노드 상세</p>
-                                        <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#">수정</button>
+                                        <p>센서 상세</p>
+                                        <div class="btn-group">
+                                            <button class="btn btn-outline btn-primary btn-xs">수정</button>
+                                            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#popup3">기본값 설정</button>
+                                        </div>
                                     </div>
                                     <table class="table table-bordered">
                                         <colgroup>
@@ -477,10 +479,10 @@
                                                         <button class="btn btn-outline btn-primary btn-xs m-l-xs" data-toggle="modal" data-target="#popupSearch">검색</button>
                                                     </div>
                                                 </td>
-                                                <th>NODE NAME</th>
+                                                <th>센서 NAME</th>
                                                 <td>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" value="%노드명%">
+                                                        <input type="text" class="form-control" value="센서명">
                                                     </div>
                                                 </td>
                                             </tr>
@@ -503,7 +505,7 @@
                                 </div>
                                 <div class="tbl-wrap">
                                    <div class="tbl-title">
-                                        <p>노드에 연결된 센서정보</p>
+                                        <p>센서에 연결된 센서정보</p>
                                         <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#">추가</button>
                                     </div>
                                     <table class="table table-bordered">
@@ -555,97 +557,309 @@
                         </div>
                     </div>
                 </div>
-                <!-- //노드 상세 팝업 -->
+                <!-- //센서 상세 팝업 -->
 
-                <!-- 노드 검색 팝업 -->
-                <div class="modal inmodal js-draggable-modal" id="popupSearch" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
+                <!-- 센서 기본값 설정 -->
+                <div class="modal inmodal js-draggable-modal" id="popup3" tabindex="-1" role="dialog" aria-hidden="true">
+                    <!-- modal 사이즈 제어 클래스 : modal-{sm|lg|xlg} -->
+                    <div class="modal-dialog modal-xlg">
                         <div class="modal-content">
                             <div class="modal-header js-drag-handle">
                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title">사이트 목록</h4>
+                                <h4 class="modal-title">센서 기본값 설정</h4>
                             </div>
                             <div class="modal-body">
-                                <div class="ibox-content m-b-sm border-bottom">
-                                    <div class="form-group row">
-                                        <label for="nameEl" class="col-sm-1 col-form-label">관리호</label>
-                                        <div class="col-sm-11">
-                                            <div class="input-group">
-                                                <input type="text" id="nameEl" placeholder="관리호를 입력해주세요" class="form-control">
-                                                <button class="btn btn-outline btn-primary btn-xs m-l-xs" type="button">검색</button>
-                                            </div>
+                                <div class="tbl-wrap">
+                                    <div class="tbl-title">
+                                        <p>센서 기본 정보</p>
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary btn-xs">등록</button>
                                         </div>
                                     </div>
-                                </div>
-    
-                                <div class="tbl-wrap">
-                                    <div class="">
-                                        <table class="footable table table-striped" data-page-size="10" data-filter=#filter>
-                                            <thead>
-                                                <tr>
-                                                    <th data-sort-ignore="true">도메인명</th>
-                                                    <th data-sort-ignore="true">관리 호</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>도메인 명1_산사태 산사태</td>
-                                                    <td>제 2025-08</td>
-                                                </tr>
-                                                
-                                                <tr>
-                                                    <td>도메인 명2_산사태 산사태</td>
-                                                    <td>제 2025-08</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>도메인 명3_도메인명</td>
-                                                    <td>제 2025-08</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>도메인 명2_산사태 산사태</td>
-                                                    <td>제 2025-08</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>도메인 명2_산사태 산사태</td>
-                                                    <td>제 2025-08</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>도메인 명2_산사태 산사태</td>
-                                                    <td>제 2025-08</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>도메인 명2_산사태 산사태</td>
-                                                    <td>제 2025-08</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>도메인 명2_산사태 산사태</td>
-                                                    <td>제 2025-08</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>도메인 명2_산사태 산사태</td>
-                                                    <td>제 2025-08</td>
-                                                </tr>
-                                            </tbody>
-                                            <tfoot>
+                                    <table class="table table-bordered">
+                                        <colgroup>
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                            <col style="width: 20%;">
+                                            <col style="width: 30%;">
+                                        </colgroup>
+                                        <tbody>
                                             <tr>
-                                                <td colspan="2">
-                                                    <ul class="pagination float-right is-center"></ul>
+                                                <th>ID</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="ID 입력" value="">
+                                                    </div>
                                                 </td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
+                                                <th>Type</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <select name="" id="" class="form-control">
+                                                            <option value="1" selected>LTE</option>
+                                                            <option value="2">옵션1</option>
+                                                            <option value="3">옵션2</option>
+                                                            <option value="4">옵션3</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Nickname</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="닉네임 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <th>Site Code</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <select name="" id="" class="form-control">
+                                                            <option value="1" selected>산사태</option>
+                                                            <option value="2">옵션1</option>
+                                                            <option value="3">옵션2</option>
+                                                            <option value="4">옵션3</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Node No</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="노드 번호 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <th>Port No</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="포트 번호 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Device ID</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="장비 ID 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <th>Gate No</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="게이트 번호 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tension Type</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <select name="" id="" class="form-control">
+                                                            <option value="1" selected>산사태</option>
+                                                            <option value="2">옵션1</option>
+                                                            <option value="3">옵션2</option>
+                                                            <option value="4">옵션3</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <th>Time Zone</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="시간대 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>S</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="S값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <th>L</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="L값 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>L Max</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="L Max값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <th>C</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="C값 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>NI</th>
+                                                <td> <!-- colspan 속성을 삭제하여 input 위 셀과 사이즈 맞춤 더 크게 지정하고 싶을시 colspan="3" 추가해서 병합 후 하기 클래스 가이드 준수 -->
+                                                    <div class="form-group">
+                                                        <!-- 인풋 사이즈 제어 클래스 : .form-control에 `.form-control--xs|sm|md|lg|xlg` 클래스 적용시 사이즈에 맞는 표준화된 최대 너비 설정됨 -->
+                                                        <input type="text" class="form-control" placeholder="NI값 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Node Volt Upper Limit</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="노드 전압 상한값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <th>Gate Volt Upper Limit</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="게이트 전압 상한값 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Displacement Range Min</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="변위 범위 최소값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <th>Displacement Range Max</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="변위 범위 최대값 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Temperature Range Min</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="온도 범위 최소값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <th>Temperature Range Max</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="온도 범위 최대값 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Latest Data Count</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="최신 데이터 개수 값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <th>Out Of Range Data Count</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="범위 밖 데이터 개수 값 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <!-- 지표경사 테이블 -->
+                                    <table class="table table-bordered tbl-data">
+                                        <colgroup>
+                                            <col style="width: 12%;">
+                                            <col>
+                                            <col>
+                                            <col>
+                                            <col>
+                                            <col style="width: 21%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>주의</th>
+                                                <th>경계</th>
+                                                <th>심각</th>
+                                                <th>초기값</th>
+                                                <th>통신 불량 처리시간</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>지표경사 x</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                    </div>
+                                                </td>
+                                                   </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                    </div>
+                                                </td>
+                                                   </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                   </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>지표경사 y</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                    </div>
+                                                </td>
+                                                   </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                    </div>
+                                                </td>
+                                                   </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                   </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <!-- 필요시 사용 -->
                                 <button type="button" class="btn btn-white" data-dismiss="modal">닫기</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">선택</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- //노드 검색 팝업 -->
+                <!-- //센서 기본값 설정 -->
             </div>
 
             <div class="footer">
