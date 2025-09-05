@@ -8,6 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="css/plugins/iCheck/custom.css" rel="stylesheet"> <!-- CheckboxCustom -->
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet"> <!-- Sweet Alert -->
     <link href="css/plugins/footable/footable.core.css" rel="stylesheet"> <!-- FooTable -->
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -457,9 +458,9 @@
                             <div class="modal-body">
                                 <div class="tbl-wrap">
                                     <div class="tbl-title">
-                                        <p>센서 상세</p>
+                                        <p>센서 정보</p>
                                         <div class="btn-group">
-                                            <button class="btn btn-outline btn-primary btn-xs">수정</button>
+                                            <button class="btn btn-outline btn-primary btn-xs" id="alertModify">수정</button>
                                             <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#popup3">기본값 설정</button>
                                         </div>
                                     </div>
@@ -472,17 +473,30 @@
                                         </colgroup>
                                         <tbody>
                                             <tr>
-                                                <th>STIE NAME</th>
-                                                <td>
+                                                <th>노드명</th>
+                                                <td colspan="3">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" value="제 2025-08" readonly>
+                                                        <input type="text" class="form-control" placeholder="노드명 검색" value="" readonly>
                                                         <button class="btn btn-outline btn-primary btn-xs m-l-xs" data-toggle="modal" data-target="#popupSearch">검색</button>
                                                     </div>
                                                 </td>
-                                                <th>센서 NAME</th>
+                                            </tr>
+                                            <tr>
+                                                <th>센서명</th>
                                                 <td>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" value="센서명">
+                                                        <input type="text" class="form-control" placeholder="" value="test sensor3">
+                                                    </div>
+                                                </td>
+                                                <th>센서 종류</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <select name="" id="" class="form-control">
+                                                            <option value="1" selected>센서004</option>
+                                                            <option value="2">옵션1</option>
+                                                            <option value="3">옵션2</option>
+                                                            <option value="4">옵션3</option>
+                                                        </select>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -496,56 +510,9 @@
                                                 <th>Data(V)</th>
                                                 <td>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" value="986.145">
+                                                        <input type="text" class="form-control" value="986.146">
                                                     </div>
                                                 </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tbl-wrap">
-                                   <div class="tbl-title">
-                                        <p>센서에 연결된 센서정보</p>
-                                        <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#">추가</button>
-                                    </div>
-                                    <table class="table table-bordered">
-                                        <colgroup>
-                                            <col style="width: 30%;">
-                                            <col style="width: 30%;">
-                                            <col>
-                                        </colgroup>
-                                        <thead>
-                                            <tr>
-                                                <th>센서 Name</th>
-                                                <th>센서 종류</th>
-                                                <th>GPS</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>test sensor3</td>
-                                                <td>센서004</td>
-                                                <td>위도 : 154.222, 경도 : 986.146</td>
-                                            </tr>
-                                            <tr>
-                                                <td>test sensor3</td>
-                                                <td>센서004</td>
-                                                <td>위도 : 154.222, 경도 : 986.146</td>
-                                            </tr>
-                                            <tr>
-                                                <td>test sensor3</td>
-                                                <td>센서004</td>
-                                                <td>위도 : 154.222, 경도 : 986.146</td>
-                                            </tr>
-                                            <tr>
-                                                <td>test sensor3</td>
-                                                <td>센서004</td>
-                                                <td>위도 : 154.222, 경도 : 986.146</td>
-                                            </tr>
-                                            <tr>
-                                                <td>test sensor3</td>
-                                                <td>센서004</td>
-                                                <td>위도 : 154.222, 경도 : 986.146</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -559,9 +526,88 @@
                 </div>
                 <!-- //센서 상세 팝업 -->
 
+                <!-- 센서 검색 팝업 -->
+                <div class="modal inmodal js-draggable-modal" id="popupSearch" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header js-drag-handle">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">노드 목록</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="ibox-content m-b-sm border-bottom">
+                                    <div class="form-group row">
+                                        <label for="nameEl" class="col-sm-1 col-form-label">노드명</label>
+                                        <div class="col-sm-11">
+                                            <div class="input-group">
+                                                <input type="text" id="nameEl" placeholder="노드명을 입력해주세요" class="form-control">
+                                                <button class="btn btn-outline btn-primary btn-xs m-l-xs" type="button">검색</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="tbl-wrap">
+                                  <div class="tbl-title">
+                                       <p class="text-count">노드 목록 <span>총 <strong class="number">13</strong>건</span></p>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option value="0">1개</option>
+                                                <option value="1">2개</option>
+                                                <option value="2">3개</option>
+                                                <option value="3">4개</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <table class="footable table table-bordered" data-page-size="10" data-filter=#filter>
+                                            <thead>
+                                                <tr>
+                                                    <th data-sort-ignore="true" class="text-center">노드명</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>%노드명 노출 노드명 노출%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>%노드명 노출 노드명 노출%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>%노드명 노출 노드명 노출%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>%노드명 노출 노드명 노출%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>%노드명 노출 노드명 노출%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>%노드명 노출 노드명 노출%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>%노드명 노출 노드명 노출%</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <td colspan="1">
+                                                    <ul class="pagination is-center"></ul>
+                                                </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //센서 검색 팝업 -->
+
                 <!-- 센서 기본값 설정 -->
                 <div class="modal inmodal js-draggable-modal" id="popup3" tabindex="-1" role="dialog" aria-hidden="true">
-                    <!-- modal 사이즈 제어 클래스 : modal-{sm|lg|xlg} -->
+                    <!-- 모달창 사이즈 제어 클래스 : modal-{sm|md|lg|xlg} -->
                     <div class="modal-dialog modal-xlg">
                         <div class="modal-content">
                             <div class="modal-header js-drag-handle">
@@ -849,12 +895,230 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <tr>
+                                                <th>지표번위</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                    </div>
+                                                </td>
+                                                   </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                    </div>
+                                                </td>
+                                                   </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                   </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>토양수분_h</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>토양수분_l</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>토양온도</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>GPS_lock</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>GPS_lat</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>GPS_lon</th>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="주의 입력" value="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="경계 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="심각 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="초기값 입력" value="">
+                                                    </div>
+                                                </td>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="통신 불량 처리시간 입력" value="">
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-white" data-dismiss="modal">닫기</button>
+                                <button type="button" class="btn btn-white" data-dismiss="modal">취소</button>
+                                <button type="button" class="btn btn-primary">등록</button> <!-- 필요시 사용 -->
                             </div>
                         </div>
                     </div>
@@ -887,6 +1151,9 @@
     <!-- jquery UI -->
     <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
+     <!-- Sweet alert -->
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
     <!-- iCheck -->
     <script src="js/plugins/iCheck/icheck.min.js"></script>
     
@@ -898,7 +1165,20 @@
                 radioClass: 'iradio_square-green',
             });
 
+            // footable 초기화
             $('.footable').footable();
+
+            // SweetAlert 설정
+            $('#alertModify').click(function () {
+                swal({
+                    title: "수정",
+                    text: "수정 하시겠습니까?",
+                    showCancelButton: true,
+                    confirmButtonColor: "#333A49",
+                    confirmButtonText: "확인",
+                    cancelButtonText: "취소"
+                });
+            });
         });
     </script>
 </body>

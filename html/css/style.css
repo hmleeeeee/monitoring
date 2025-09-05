@@ -11082,6 +11082,13 @@ a.link {
 .tbl-wrap .tbl-title .btn-group .btn-sm {
   font-size: 12px;
 }
+.tbl-wrap .tbl-title .text-count {
+  display: inline-flex;
+  align-items: center;
+}
+.tbl-wrap .tbl-title .text-count strong {
+  color: #333A49;
+}
 .tbl-wrap .form-group.row .col-form-label {
   text-align: center;
 }
@@ -11153,9 +11160,10 @@ a.link {
   background-color: #fff;
 }
 .table.footable thead > tr:not(.form-control) th {
+  line-height: 20px;
   background-color: #F5F5F5;
 }
-.table.footable thead > tr:not(.form-control) th, .table.footable thead > tr:not(.form-control) td {
+.table.footable thead > tr:not(.form-control) td {
   line-height: 24px;
 }
 .table.footable tbody > tr:not(.form-control) th, .table.footable tbody > tr:not(.form-control) td {
@@ -11210,6 +11218,15 @@ a.link {
 .table + .table {
   margin-top: 20px;
   border-top: 1px solid #343434;
+}
+.table.table-center thead > tr th, .table.table-center thead > tr td, .table.table-center tbody > tr th, .table.table-center tbody > tr td, .table.table-center tfoot > tr th, .table.table-center tfoot > tr td {
+  text-align: center !important;
+}
+.table.table-left thead > tr th, .table.table-left thead > tr td, .table.table-left tbody > tr th, .table.table-left tbody > tr td, .table.table-left tfoot > tr th, .table.table-left tfoot > tr td {
+  text-align: left !important;
+}
+.table.table-right thead > tr th, .table.table-right thead > tr td, .table.table-right tbody > tr th, .table.table-right tbody > tr td, .table.table-right tfoot > tr th, .table.table-right tfoot > tr td {
+  text-right: right !important;
 }
 
 .table-responsive > .table-bordered {
@@ -11584,6 +11601,9 @@ select.form-control {
 }
 
 @media (min-width: 1024px) {
+  .modal .modal-md {
+    max-width: 600px;
+  }
   .modal .modal-xlg {
     max-width: 1000px;
   }
@@ -11602,6 +11622,9 @@ select.form-control {
 }
 .js-draggable-modal .modal-dialog.modal-sm {
   --modal-max: 300px;
+}
+.js-draggable-modal .modal-dialog.modal-md {
+  --modal-max: 600px;
 }
 .js-draggable-modal .modal-dialog.modal-lg {
   --modal-max: 800px;

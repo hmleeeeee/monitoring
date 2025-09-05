@@ -72,6 +72,9 @@ a.link {
     }
     .btn-group {
       .btn-sm { font-size: 12px; }
+    }
+    .text-count { display: inline-flex; align-items: center;
+      strong { color: $navy; }
     } 
   }
   .form-group.row {
@@ -146,9 +149,10 @@ a.link {
       > tr {
         &:not(.form-control) {
           th {
+            line-height: 20px;
             background-color: $grays-0;
           }
-          th, td {
+          td {
             line-height: 24px;
           }
         }
@@ -226,6 +230,27 @@ a.link {
   +.table {
     margin-top: 20px;
     border-top: 1px solid $grays-9;
+  }
+  &.table-center {
+    thead, tbody, tfoot {
+      > tr {
+        th, td { text-align: center !important; }
+      }
+    }
+  }
+  &.table-left {
+    thead, tbody, tfoot {
+      > tr {
+        th, td { text-align: left !important; }
+      }
+    }
+  }
+  &.table-right {
+    thead, tbody, tfoot {
+      > tr {
+        th, td { text-right: right !important; }
+      }
+    }
   }
 }
 .table-responsive {
@@ -602,9 +627,8 @@ select.form-control {
 
 @media (min-width: 1024px) {
   .modal {
-    .modal-xlg {
-      max-width: 1000px;
-    }
+    .modal-md { max-width: 600px; }
+    .modal-xlg { max-width: 1000px; }
   }
 }
 @media (max-width: 1024px) {
@@ -626,6 +650,7 @@ select.form-control {
     max-width: var(--modal-max, 1200px);
 
     &.modal-sm { --modal-max: 300px; }
+    &.modal-md { --modal-max: 600px; }
     &.modal-lg { --modal-max: 800px; }
     &.modal-xlg { --modal-max: 1000px; }
   }
