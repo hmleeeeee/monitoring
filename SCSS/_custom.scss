@@ -911,7 +911,7 @@ body.mini-navbar {
     font-weight: 500;
     &.dropdown-toggle::after { margin-left: 10px; }
   }
-  .navbar-top-links li a {
+  .navbar-top-links li a:not(.dropdown-toggle) {
     padding: 14px 30px 16px;
     font-weight: 500;
   }
