@@ -15,7 +15,7 @@ b, strong {
 }
 .page-heading {
   padding: 0 15px 20px 15px;
-  .big-title { font-size: 2.8rem; font-weight: 600; letter-spacing: -.15rem; }
+  .big-title { margin-bottom: 0; font-size: 2.8rem; font-weight: 600; letter-spacing: -.15rem; }
 }
 
 /* class */
@@ -951,6 +951,7 @@ body.mini-navbar {
 }
 
 /* navy */
+.navy-bg.border-bottom {border-bottom-color: $navy !important;}
 .navy-bg .navbar-static-top {
   background: $navy;
   .minimalize-styl-2 { color: $navy; background-color: $grays-m; border-color: $grays-m; }
@@ -1209,5 +1210,20 @@ body.mini-navbar {
 
 /* Dashboard */
 body.has-dashboard {
-  
+  .ibox-acco {
+    margin-bottom: 20px;
+    &.border-bottom { border-bottom: 0 !important; }
+    &.collapsed {
+      .ibox-title { border-radius: 8px;  }
+    }
+    &.expanded {
+      .ibox-title { border-radius: 8px 8px 0 0; }
+    }
+    .ibox-title {
+      padding: 30px 30px;
+    }
+    .ibox-content {
+      padding: 20px 30px 30px;
+    }
+  }
 }

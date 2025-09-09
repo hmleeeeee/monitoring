@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tension Monitoring | 사용자 목록</title>
+    <title>Tension Monitoring | 센서 모니터링</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
-    <link href="css/plugins/iCheck/custom.css" rel="stylesheet"> <!-- CheckboxCustom -->
-    <link href="css/plugins/footable/footable.core.css" rel="stylesheet"> <!-- FooTable -->
+
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet"> <!-- Toastr style -->
    
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -296,15 +296,70 @@
             </div>
 
             <div class="row wrapper page-heading">
-                <div class="col-lg-12">
+                <div class="col-lg-10">
                     <h2 class="big-title">Tension Sensor Monitoring</h2>
+                </div>
+                <div class="col-lg-2">
+                    <!-- 예시 -->
+                    <!-- <button type="button" class="btn btn-primary" id="btnShowToast">Show Toast</button> -->
                 </div>
             </div>
 
             <div class="wrapper wrapper-content">
                 <div class="row">
                     <div class="col-lg-12">
-               
+                        <div class="ibox ibox-acco collapsed"> <!-- (collapsed) 클래스 추가시 아코디언 닫힌 상태 -->
+                            <div class="ibox-title">
+                                <h5>Example of initial collapsed panel</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                Example of initial collapsed panel item
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="ibox ibox-acco collapsed"> <!-- (collapsed) 클래스 추가시 아코디언 닫힌 상태 -->
+                            <div class="ibox-title">
+                                <h5>Example of initial collapsed panel</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                Example of initial collapsed panel item
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="ibox ibox-acco collapsed"> <!-- (collapsed) 클래스 추가시 아코디언 닫힌 상태 -->
+                            <div class="ibox-title">
+                                <h5>Example of initial collapsed panel</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                Example of initial collapsed panel item
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -331,19 +386,36 @@
     <!-- jquery UI -->
     <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-    <!-- iCheck -->
-    <script src="js/plugins/iCheck/icheck.min.js"></script>
-    <!-- Data picker -->
-    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
-    <!-- Clock picker -->
-    <script src="js/plugins/clockpicker/clockpicker.js"></script>
-    <!-- FooTable -->
-    <script src="js/plugins/footable/footable.all.min.js"></script>
+    <!-- Toastr script -->
+    <script src="js/plugins/toastr/toastr.min.js"></script>
 
     <!-- Page-Level Scripts -->
     <script>
         $(document).ready(function() {
-            
+            // 공통 옵션
+            toastr.options = {
+                closeButton: false,
+                debug: false,
+                progressBar: false,
+                preventDuplicates: false,
+                positionClass: "toast-top-right",
+                onclick: null,
+                showDuration: "400",
+                hideDuration: "1000",
+                timeOut: "7000",
+                extendedTimeOut: "1000",
+                showEasing: "swing",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut"
+            };
+
+            toastr.error("toast description", "title"); // msg, title
+
+            // 이벤트 바인딩
+            // $("#btnShowToast").on("click", function () {
+            //     toastr.error("toast description", "title");
+            // });
         });
     </script>
 </body>

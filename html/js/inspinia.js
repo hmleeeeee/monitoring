@@ -34,7 +34,7 @@ $(document).ready(function () {
         var content = ibox.children('.ibox-content');
         content.slideToggle(200);
         button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
-        ibox.toggleClass('').toggleClass('border-bottom');
+        ibox.toggleClass('').toggleClass('border-bottom expanded');
         setTimeout(function () {
             ibox.resize();
             ibox.find('[id^=map-]').resize();
