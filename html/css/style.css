@@ -11017,10 +11017,9 @@ b, strong {
   padding: 0 15px 20px 15px;
 }
 .page-heading .big-title {
-  margin-bottom: 0;
-  font-size: 2.8rem;
+  font-size: 32px;
   font-weight: 600;
-  letter-spacing: -0.15rem;
+  letter-spacing: -1px;
 }
 
 /* class */
@@ -11963,6 +11962,13 @@ body.mini-navbar .nav ul.nav-second-level.depth3 {
   }
 }
 
+body.top-navigation .navbar-default.navbar-static-side, body.top-navigation .navbar-minimalize {
+  display: none;
+}
+body.top-navigation .navbar-top-links li a {
+  min-height: 40px;
+}
+
 /* navy */
 .navy-bg.border-bottom {
   border-bottom-color: #333A49 !important;
@@ -11988,9 +11994,11 @@ body.mini-navbar .nav ul.nav-second-level.depth3 {
 }
 .navy-bg .navbar-static-top .navbar-nav > li > a:hover, .navy-bg .navbar-static-top .navbar-nav > li > a:focus, .navy-bg .navbar-static-top .navbar-nav > li > a:active {
   color: #fff;
+  background: transparent;
 }
 .navy-bg .navbar-static-top .navbar-nav > li.active > a:focus, .navy-bg .navbar-static-top .navbar-nav > li.active > a:active {
   color: #fff;
+  background: transparent;
 }
 .navy-bg .navbar-static-top .navbar-collapse .dropdown-menu {
   background-color: #333A49;
@@ -12005,7 +12013,30 @@ body.mini-navbar .nav ul.nav-second-level.depth3 {
   color: #fff;
 }
 .navy-bg .navbar-static-top .nav.navbar-right > li > a {
+  color: #FAFAFA;
+}
+.navy-bg .navbar-static-top .nav.navbar-right > li > a:hover, .navy-bg .navbar-static-top .nav.navbar-right > li > a:focus, .navy-bg .navbar-static-top .nav.navbar-right > li > a:active {
   color: #fff;
+  background: transparent;
+}
+
+.top-navigation .navy-bg .navbar.navbar-static-top .navbar-brand {
+  padding: 10px 25px 11px;
+}
+.top-navigation .navy-bg .navbar.navbar-static-top .nav.navbar-nav > li > a {
+  padding: 10px 24px 11px;
+  font-size: 13px;
+}
+.top-navigation .navy-bg .navbar.navbar-static-top .navbar-top-links li a {
+  padding: 10px 30px 11px;
+  font-size: 13px;
+}
+.top-navigation .navy-bg .navbar.navbar-static-top .navbar-collapse .dropdown-menu {
+  top: 41px;
+}
+.top-navigation .navy-bg .navbar.navbar-static-top .navbar-collapse .dropdown-menu > li > a {
+  margin: 4px;
+  padding: 2px 27px 2px 26px;
 }
 
 .footer {

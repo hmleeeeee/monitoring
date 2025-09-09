@@ -8,18 +8,12 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
-
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet"> <!-- Toastr style -->
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet"> <!-- Toastr -->
    
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
-    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
-    <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet"> <!-- Datepicker -->
-    <link href="css/plugins/clockpicker/clockpicker.css" rel="stylesheet"><!-- Timepicker -->
-
 </head>
-<body class="mini-navbar has-dashboard"> <!-- (mini-navbar) 클래스 추가시 default 닫힌 상태 -->
+<body class="top-navigation has-dashboard"> <!-- (top-navigation) 클래스 추가시 사이드바 none 처리 -->
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
@@ -230,10 +224,11 @@
         </nav>
 
         <div id="page-wrapper" class="gray-bg">
-            <div class="row border-bottom navy-bg"> <!-- (white-bg, navy-bg) 2타입 클래스로 제어 가능 -->
+            <div class="row border-bottom navy-bg">
                 <nav class="navbar navbar-expand-lg navbar-static-top" role="navigation">
                     <div class="navbar-header">
-                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i> </a>
+                        <a href="#" class="navbar-brand">logo</a>
+                        <!-- <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i> </a> -->
                     </div>
                     <div class="navbar-collapse collapse" id="navbar">
                         <ul class="nav navbar-nav mr-auto">
@@ -251,8 +246,8 @@
                                 <ul role="menu" class="dropdown-menu">
                                      <li><a href="">사이트 메뉴1</a></li>
                                     <li><a href="">사이트 메뉴2</a></li>
-                                    <li><a href="">사이트 메뉴3</a></li>
-                                    <li><a href="">사이트 메뉴4</a></li>
+                                    <li><a href="">사이트 메뉴메뉴3</a></li>
+                                    <li><a href="">사이트 메뉴메뉴메뉴4</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -296,16 +291,12 @@
             </div>
 
             <div class="row wrapper page-heading">
-                <div class="col-lg-10">
+                <div class="col-lg-12">
                     <h2 class="big-title">Tension Sensor Monitoring</h2>
-                </div>
-                <div class="col-lg-2">
-                    <!-- 예시 -->
-                    <!-- <button type="button" class="btn btn-primary" id="btnShowToast">Show Toast</button> -->
                 </div>
             </div>
 
-            <div class="wrapper wrapper-content">
+            <div class="wrapper">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="ibox ibox-acco collapsed"> <!-- (collapsed) 클래스 추가시 아코디언 닫힌 상태 -->
@@ -315,9 +306,6 @@
                                     <a class="collapse-link">
                                         <i class="fa fa-chevron-up"></i>
                                     </a>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a>
                                 </div>
                             </div>
                             <div class="ibox-content">
@@ -333,9 +321,6 @@
                                     <a class="collapse-link">
                                         <i class="fa fa-chevron-up"></i>
                                     </a>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a>
                                 </div>
                             </div>
                             <div class="ibox-content">
@@ -350,9 +335,6 @@
                                 <div class="ibox-tools">
                                     <a class="collapse-link">
                                         <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
                                     </a>
                                 </div>
                             </div>
@@ -413,7 +395,7 @@
             toastr.error("toast description", "title"); // msg, title
 
             // 이벤트 바인딩
-            // $("#btnShowToast").on("click", function () {
+            // $("#btnId").on("click", function () {
             //     toastr.error("toast description", "title");
             // });
         });
