@@ -15,6 +15,7 @@ b, strong {
 }
 .page-heading {
   padding: 0 15px 20px 15px;
+  .big-title { font-size: 2.8rem; font-weight: 600; letter-spacing: -.15rem; }
 }
 
 /* class */
@@ -1204,4 +1205,9 @@ body.mini-navbar {
 
 .popover.clockpicker-popover {
   z-index: 2051;
+}
+
+/* Dashboard */
+body.has-dashboard {
+  
 }
