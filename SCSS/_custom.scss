@@ -663,6 +663,7 @@ select.form-control {
       }
     }
   }
+  .btn-group { flex-wrap: wrap; }
 }
 
 /* draggable-modal 재정의 */
@@ -753,7 +754,7 @@ select.form-control {
 
 .navbar-default {
   .nav {
-    .collapse { transition: height .16s ease; }
+    // .collapse { transition: height .16s ease; }
     &.metismenu { padding: 0 24px;
       > li {
         > a { font-size: 14px;
@@ -820,7 +821,7 @@ select.form-control {
     .logo-link {
       display: inline-flex;
       align-items: center;
-      min-height: 61px;
+      min-height: 51px;
     }
     .img-logo { width: 160px;
       &.logo2 { width: 22px; }
@@ -828,7 +829,7 @@ select.form-control {
   }
   &:has(.nav-logo) {
     position: relative;
-    height: 61px;
+    height: 51px;
     padding: 0;
     margin-bottom: 12px;
     &:after {
@@ -843,7 +844,7 @@ select.form-control {
   }
   .logo {
     width: 100%;
-    height: 24px;
+    height: 22px;
     > img {
       width: auto;
       height: 100%;
@@ -853,13 +854,16 @@ select.form-control {
 }
 
 body.mini-navbar {
+  .navbar-default .nav-second-level { display:none!important; }
+  .navbar-static-side { width: 50px; }
+  #page-wrapper { margin: 0 0 0 50px; }
   .nav-header {
     margin-bottom: 0;
     background: $nav-bg;
     border-bottom: 1px solid #2D2F39;
     .nav-logo { justify-content: center;
       .logo1 { display: none; }
-      .logo2 { display: block; width: 100%; }
+      .logo2 { display: block; width: 100%; height: 20px; }
     }
     &:has(.nav-logo):after { display: none; }
   }
@@ -867,8 +871,9 @@ body.mini-navbar {
     &.metismenu { padding: 0;
       > li {
         > a {
-          padding: 14px 20px 14px 25px;
-          i { margin-right: 6px; }
+          padding: 13px 16px 13px 16px;
+          text-align: center;
+          i { margin-right: 0; }
         }
         &.active {
           a { border-radius: 0; }
@@ -876,6 +881,7 @@ body.mini-navbar {
       }
     }
     ul.nav-second-level {
+      left: 50px; display: none;
       &.depth2 {
         li.active {
           &:before { display: none; }
@@ -892,10 +898,21 @@ body.mini-navbar {
     }
   }
 }
+
 .navbar-static-top {
   .minimalize-styl-2  {
-    margin: 17px 20px 12px 30px;
-    padding: 4px 11px;
+    margin: 12px 20px 12px 30px;
+    padding: 2px 7px;
+  } 
+  .nav.navbar-nav > li > a {
+    padding: 14px 24px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    &.dropdown-toggle::after { margin-left: 10px; }
+  }
+  .navbar-top-links li a {
+    padding: 14px 30px 16px;
+    font-weight: 500;
   }
 }
 
@@ -905,9 +922,8 @@ body.mini-navbar {
   }
 
   .navbar-collapse {
-    .dropdown{ position: relative; }
     .dropdown-menu{
-      top: 55px;
+      top: 51px;
       left: 0;
       right: auto;
       transform-origin: top left;
@@ -917,7 +933,14 @@ body.mini-navbar {
       white-space: normal;
       overflow-wrap: anywhere;
       word-break: keep-all;
+      box-shadow: none;
+      border: 1px solid $border-color;
+      border-radius: 0;
       box-sizing: border-box;
+      > li > a {
+        padding: 4px 30px 4px 29px;
+        font-size: 12px;
+      }
     }
   }
 
@@ -927,17 +950,35 @@ body.mini-navbar {
 }
 
 /* navy */
-.nav-bg .navbar-fixed-top {
+.navy-bg .navbar-static-top {
   background: $navy;
-  .minimalize-styl-2 { color: #cfd3da; background-color: #2D2F39; border-color: #2D2F39; }
+  .minimalize-styl-2 { color: $navy; background-color: $grays-m; border-color: $grays-m; }
   .navbar-nav > li {
-    > a { color: $grays-1;
-      &:focus, &:active { color: #fff; }
+    &.dropdown.show > a { background-color: #222835; color: #fff; }
+    > a { color: $grays-m;
+      &.dropdown-toggle::after { color: #717885; }
+      &:hover, &:focus, &:active { color: #fff }
     }
-    &.active > a:focus, &.active > a:active { color: #fff; }
-    .dropdown-toggle::after { margin-left: 10px; }
+    &.active > a:focus, &.active > a:active { color: #fff }
   }
+  .navbar-collapse {
+    .dropdown-menu {
+      background-color: $navy;
+      border: 0;
+      border-radius: 0;
+      > li > a { 
+        color: $grays-m;
+        &:hover, &:focus, &:active { background-color: transparent; color: #fff; }
+      }
+    }
+  }
+
   .nav.navbar-right > li > a { color: #fff; }
+}
+
+.footer {
+  padding: 8px 20px;
+  > div { font-size: 11px; }
 }
 
 /* login-page */

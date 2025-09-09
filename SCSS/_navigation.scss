@@ -659,7 +659,7 @@ $depth3-vh-cap: 42vh;  // 화면 대비 상한
   
         /* 노출 개수(행수) × 행높이 + 패딩 = 높이 상한, 단 뷰포트 상한 */
         max-height: min(var(--vh-cap), calc(var(--row-h) * var(--rows) + var(--panel-pad) * 2));
-        overflow: auto;
+        overflow-y: auto;
         padding-inline-end: 8px;
         scrollbar-gutter: stable;
         scrollbar-width: thin; /* Firefox */
@@ -707,9 +707,6 @@ $depth3-vh-cap: 42vh;  // 화면 대비 상한
 body.mini-navbar {
   #side-menu .nav-second-level.depth3 { --vh-cap: 60vh; }
 }
-/* (옵션) 펼침 애니메이션과 충돌 최소화: height 트윈 중 내부 점프 방지 */
-// #side-menu .nav-second-level.collapsing { overflow: hidden; contain: layout paint; }
-// #side-menu .nav-second-level.collapsing .depth3 { transition: none !important; }
 
 // 필요 개수까지 생성
 @include gen-depth3-rows('#side-menu .nav-second-level.depth3', 100);

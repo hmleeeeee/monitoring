@@ -383,3 +383,31 @@ function WinMove() {
   // 메뉴 펼침 후 재계산
   $(document).on('shown.bs.collapse shown.metisMenu', function(){ run(); });
 })();
+
+// mini-navbar 상태에서 1depth 링크는 토글 막고 이동만 허용
+(function () {
+  var menu = document.getElementById('side-menu');
+  if (!menu) return;
+
+  menu.addEventListener('click', function (ev) {
+    if (!document.body.classList.contains('mini-navbar')) return;
+
+    var a = ev.target.closest('#side-menu > li > a');
+    if (!a || !menu.contains(a)) return;
+
+    var href = a.getAttribute('href');
+    if (!href || href === '#' || href === '#none') {
+      ev.preventDefault(); // MetisMenu 토글 막기
+      ev.stopImmediatePropagation();
+      return;
+    }
+
+    ev.preventDefault();
+    ev.stopImmediatePropagation();
+
+    var target = a.getAttribute('target');
+    target && target !== '_self'
+      ? window.open(href, target)
+      : window.location.assign(href);
+  }, true);
+})();

@@ -1761,7 +1761,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   box-sizing: border-box;
   /* 노출 개수(행수) × 행높이 + 패딩 = 높이 상한, 단 뷰포트 상한 */
   max-height: min(var(--vh-cap), var(--row-h) * var(--rows) + var(--panel-pad) * 2);
-  overflow: auto;
+  overflow-y: auto;
   padding-inline-end: 8px;
   scrollbar-gutter: stable;
   scrollbar-width: thin; /* Firefox */
@@ -1828,7 +1828,6 @@ body.mini-navbar #side-menu .nav-second-level.depth3 {
   --vh-cap: 60vh;
 }
 
-/* (옵션) 펼침 애니메이션과 충돌 최소화: height 트윈 중 내부 점프 방지 */
 #side-menu .nav-second-level.depth3.rows-1 {
   --rows: 1;
 }
@@ -11635,6 +11634,9 @@ select.form-control {
     min-width: auto;
     max-width: 10rem;
   }
+  .btn-group {
+    flex-wrap: wrap;
+  }
 }
 /* draggable-modal 재정의 */
 .js-draggable-modal .modal-dialog {
@@ -11735,9 +11737,6 @@ select.form-control {
   margin: 0;
 }
 
-.navbar-default .nav .collapse {
-  transition: height 0.16s ease;
-}
 .navbar-default .nav.metismenu {
   padding: 0 24px;
 }
@@ -11819,7 +11818,7 @@ select.form-control {
 .nav-header .nav-logo .logo-link {
   display: inline-flex;
   align-items: center;
-  min-height: 61px;
+  min-height: 51px;
 }
 .nav-header .nav-logo .img-logo {
   width: 160px;
@@ -11829,7 +11828,7 @@ select.form-control {
 }
 .nav-header:has(.nav-logo) {
   position: relative;
-  height: 61px;
+  height: 51px;
   padding: 0;
   margin-bottom: 12px;
 }
@@ -11844,7 +11843,7 @@ select.form-control {
 }
 .nav-header .logo {
   width: 100%;
-  height: 24px;
+  height: 22px;
 }
 .nav-header .logo > img {
   width: auto;
@@ -11854,6 +11853,15 @@ select.form-control {
   display: none;
 }
 
+body.mini-navbar .navbar-default .nav-second-level {
+  display: none !important;
+}
+body.mini-navbar .navbar-static-side {
+  width: 50px;
+}
+body.mini-navbar #page-wrapper {
+  margin: 0 0 0 50px;
+}
 body.mini-navbar .nav-header {
   margin-bottom: 0;
   background: #161A23;
@@ -11868,6 +11876,7 @@ body.mini-navbar .nav-header .nav-logo .logo1 {
 body.mini-navbar .nav-header .nav-logo .logo2 {
   display: block;
   width: 100%;
+  height: 20px;
 }
 body.mini-navbar .nav-header:has(.nav-logo):after {
   display: none;
@@ -11876,13 +11885,18 @@ body.mini-navbar .nav.metismenu {
   padding: 0;
 }
 body.mini-navbar .nav.metismenu > li > a {
-  padding: 14px 20px 14px 25px;
+  padding: 13px 16px 13px 16px;
+  text-align: center;
 }
 body.mini-navbar .nav.metismenu > li > a i {
-  margin-right: 6px;
+  margin-right: 0;
 }
 body.mini-navbar .nav.metismenu > li.active a {
   border-radius: 0;
+}
+body.mini-navbar .nav ul.nav-second-level {
+  left: 50px;
+  display: none;
 }
 body.mini-navbar .nav ul.nav-second-level.depth2 li.active:before {
   display: none;
@@ -11897,18 +11911,27 @@ body.mini-navbar .nav ul.nav-second-level.depth3 {
 }
 
 .navbar-static-top .minimalize-styl-2 {
-  margin: 17px 20px 12px 30px;
-  padding: 4px 11px;
+  margin: 12px 20px 12px 30px;
+  padding: 2px 7px;
+}
+.navbar-static-top .nav.navbar-nav > li > a {
+  padding: 14px 24px 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.navbar-static-top .nav.navbar-nav > li > a.dropdown-toggle::after {
+  margin-left: 10px;
+}
+.navbar-static-top .navbar-top-links li a {
+  padding: 14px 30px 16px;
+  font-weight: 500;
 }
 
 .navbar.navbar-static-top .navbar-nav > li > a:hover, .navbar.navbar-static-top .navbar-nav > li > a:focus {
   color: #343434;
 }
-.navbar.navbar-static-top .navbar-collapse .dropdown {
-  position: relative;
-}
 .navbar.navbar-static-top .navbar-collapse .dropdown-menu {
-  top: 55px;
+  top: 51px;
   left: 0;
   right: auto;
   transform-origin: top left;
@@ -11919,7 +11942,14 @@ body.mini-navbar .nav ul.nav-second-level.depth3 {
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: keep-all;
+  box-shadow: none;
+  border: 1px solid #DFDFDF;
+  border-radius: 0;
   box-sizing: border-box;
+}
+.navbar.navbar-static-top .navbar-collapse .dropdown-menu > li > a {
+  padding: 4px 30px 4px 29px;
+  font-size: 12px;
 }
 @supports not ((width: -moz-max-content) or (width: max-content)) {
   .navbar.navbar-static-top .dropdown-menu {
@@ -11928,28 +11958,51 @@ body.mini-navbar .nav ul.nav-second-level.depth3 {
 }
 
 /* navy */
-.nav-bg .navbar-fixed-top {
+.navy-bg .navbar-static-top {
   background: #333A49;
 }
-.nav-bg .navbar-fixed-top .minimalize-styl-2 {
-  color: #cfd3da;
-  background-color: #2D2F39;
-  border-color: #2D2F39;
+.navy-bg .navbar-static-top .minimalize-styl-2 {
+  color: #333A49;
+  background-color: #FAFAFA;
+  border-color: #FAFAFA;
 }
-.nav-bg .navbar-fixed-top .navbar-nav > li > a {
-  color: #DFDFDF;
-}
-.nav-bg .navbar-fixed-top .navbar-nav > li > a:focus, .nav-bg .navbar-fixed-top .navbar-nav > li > a:active {
+.navy-bg .navbar-static-top .navbar-nav > li.dropdown.show > a {
+  background-color: #222835;
   color: #fff;
 }
-.nav-bg .navbar-fixed-top .navbar-nav > li.active > a:focus, .nav-bg .navbar-fixed-top .navbar-nav > li.active > a:active {
+.navy-bg .navbar-static-top .navbar-nav > li > a {
+  color: #FAFAFA;
+}
+.navy-bg .navbar-static-top .navbar-nav > li > a.dropdown-toggle::after {
+  color: #717885;
+}
+.navy-bg .navbar-static-top .navbar-nav > li > a:hover, .navy-bg .navbar-static-top .navbar-nav > li > a:focus, .navy-bg .navbar-static-top .navbar-nav > li > a:active {
   color: #fff;
 }
-.nav-bg .navbar-fixed-top .navbar-nav > li .dropdown-toggle::after {
-  margin-left: 10px;
-}
-.nav-bg .navbar-fixed-top .nav.navbar-right > li > a {
+.navy-bg .navbar-static-top .navbar-nav > li.active > a:focus, .navy-bg .navbar-static-top .navbar-nav > li.active > a:active {
   color: #fff;
+}
+.navy-bg .navbar-static-top .navbar-collapse .dropdown-menu {
+  background-color: #333A49;
+  border: 0;
+  border-radius: 0;
+}
+.navy-bg .navbar-static-top .navbar-collapse .dropdown-menu > li > a {
+  color: #FAFAFA;
+}
+.navy-bg .navbar-static-top .navbar-collapse .dropdown-menu > li > a:hover, .navy-bg .navbar-static-top .navbar-collapse .dropdown-menu > li > a:focus, .navy-bg .navbar-static-top .navbar-collapse .dropdown-menu > li > a:active {
+  background-color: transparent;
+  color: #fff;
+}
+.navy-bg .navbar-static-top .nav.navbar-right > li > a {
+  color: #fff;
+}
+
+.footer {
+  padding: 8px 20px;
+}
+.footer > div {
+  font-size: 11px;
 }
 
 /* login-page */
