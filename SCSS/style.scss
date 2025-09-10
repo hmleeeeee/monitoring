@@ -50,6 +50,7 @@
 // Custom style
 // Your custom style to override base style
 @import "custom.scss";
+@import "dashboard.scss"; // 대시보드
 
 // Clear layout on print mode
 @media print {

@@ -1,405 +1,494 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tension Monitoring | 센서 모니터링</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tension Monitoring | 센서 모니터링</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet"> <!-- Toastr -->
-   
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
-<body class="top-navigation has-dashboard"> <!-- 대시보드 페이지는 (has-dashboard) 클래스 추가 -->
-    <!-- (top-navigation) 클래스 추가시 사이드바(navbar-static-side), 토글 버튼(navbar-minimalize) none 처리됨 -->
-    <div id="wrapper">
-        <nav class="navbar-default navbar-static-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav metismenu" id="side-menu">
-                    <li class="nav-header">
-                        <h1 class="nav-logo">
-                            <a href="#none" class="logo-link">
-                                <img src="img/@logo.svg" alt="logo" class="logo logo1">
-                                <img src="img/@logo2.svg" alt="logo" class="logo logo2">
-                            </a>
-                        </h1>
-                    </li>
-                    <li>
-                        <a href="#none"><i class="fa fa-globe"></i> <span class="nav-label">도메인 관리</span> <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level depth2">
-                            <li>
-                                <a href="#none">도메인 목록</a>
-                                <!-- depth3 메뉴 노출 개수: <ul class="... depth3 rows-{N}"> (N=1~100, 기본 10) -->
-                                <ul class="nav nav-second-level depth3 rows-15">
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                    <li><a href="#none">도메인 리스트</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#none"><i class="fa fa-server"></i> <span class="nav-label">사이트 관리</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse depth2">
-                            <li>
-                                <a href="#none">사이트 목록</a>
-                                <ul class="nav nav-second-level depth3">
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                    <li><a href="#none">사이트 리스트</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="NO0001.html"><i class="fa fa-sitemap"></i> <span class="nav-label">노드 관리</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse depth2">
-                            <li>
-                                <a href="NO0001.html">노드 목록</a>
-                                <ul class="nav nav-second-level depth3 rows-12">
-                                    <li><a href="NO0001.html">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                    <li><a href="#none">노드 리스트</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="SE0001.html"><i class="fa fa-tachometer"></i> <span class="nav-label">센서 관리</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li>
-                                <a href="SE0001.html">센서 목록</a>
-                                <ul class="nav nav-second-level depth3">
-                                    <li><a href="SE0001.html">센서 리스트</a></li>
-                                    <li><a href="#none">센서 리스트</a></li>
-                                    <li><a href="#none">센서 리스트</a></li>
-                                    <li><a href="#none">센서 리스트</a></li>
-                                    <li><a href="#none">센서 리스트</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="active">
-                        <a href="SY0001.html"><i class="fa fa-cog"></i> <span class="nav-label">설정</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse depth2">
-                            <li class="active"><a href="SY0001.html">사용자 목록</a></li>
-                            <li><a href="#none">상황 전파 설정</a></li>
-                        </ul>
-                    </li>
+<body class="top-navigation has-dashboard" data-theme="light">
+  <div id="wrapper">
+    <div id="page-wrapper">
+      <div class="row border-bottom navy-bg">
+        <nav class="navbar navbar-expand-lg navbar-static-top" role="navigation">
+          <div class="navbar-header">
+            <a href="#" class="navbar-brand">logo</a>
+          </div>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav mr-auto">
+              <li class="dropdown">
+                <a role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">도메인 관리</a>
+                <ul class="dropdown-menu">
+                  <li><a href="">도메인 메뉴1</a></li>
+                  <li><a href="">도메인 메뉴2</a></li>
+                  <li><a href="">도메인 메뉴3</a></li>
+                  <li><a href="">도메인 메뉴4</a></li>
                 </ul>
-            </div>
+              </li>
+              <li class="dropdown">
+                <a role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">사이트 관리</a>
+                <ul class="dropdown-menu">
+                  <li><a href="">사이트 메뉴1</a></li>
+                  <li><a href="">사이트 메뉴2</a></li>
+                  <li><a href="">사이트 메뉴3</a></li>
+                  <li><a href="">사이트 메뉴4</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">노드 관리</a>
+                <ul class="dropdown-menu">
+                  <li><a href="">노드 메뉴1</a></li>
+                  <li><a href="">노드 메뉴2</a></li>
+                  <li><a href="">노드 메뉴3</a></li>
+                  <li><a href="">노드 메뉴4</a></li>
+                  <li><a href="">노드 메뉴5</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">센서 관리</a>
+                <ul class="dropdown-menu">
+                  <li><a href="">센서 메뉴1</a></li>
+                  <li><a href="">센서 메뉴2</a></li>
+                  <li><a href="">센서 메뉴3</a></li>
+                  <li><a href="">센서 메뉴4</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">설정</a>
+                <ul class="dropdown-menu">
+                  <li><a href="">사용자 관리</a></li>
+                  <li><a href="">센서 모니터링</a></li>
+                  <li><a href="">대시보드1</a></li>
+                  <li><a href="">대시보드2</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-top-links navbar-right">
+              <li>
+                <a href="LO0001.html"><i class="fa fa-sign-out"></i> Log out</a>
+              </li>
+            </ul>
+          </div>
         </nav>
+      </div>
 
-        <div id="page-wrapper" class="gray-bg">
-            <div class="row border-bottom navy-bg">
-                <nav class="navbar navbar-expand-lg navbar-static-top" role="navigation">
-                    <div class="navbar-header">
-                        <a href="#" class="navbar-brand">logo</a>
-                        <!-- <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i> </a> -->
-                    </div>
-                    <div class="navbar-collapse collapse" id="navbar">
-                        <ul class="nav navbar-nav mr-auto">
-                            <li class="dropdown">
-                                <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">도메인 관리</a>
-                                <ul role="menu" class="dropdown-menu">
-                                    <li><a href="">도메인 메뉴1</a></li>
-                                    <li><a href="">도메인 메뉴2</a></li>
-                                    <li><a href="">도메인 메뉴3</a></li>
-                                    <li><a href="">도메인 메뉴4</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">사이트 관리</a>
-                                <ul role="menu" class="dropdown-menu">
-                                     <li><a href="">사이트 메뉴1</a></li>
-                                    <li><a href="">사이트 메뉴2</a></li>
-                                    <li><a href="">사이트 메뉴메뉴3</a></li>
-                                    <li><a href="">사이트 메뉴메뉴메뉴4</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">노드 관리</a>
-                                <ul role="menu" class="dropdown-menu">
-                                    <li><a href="">노드 메뉴1</a></li>
-                                    <li><a href="">노드 메뉴2</a></li>
-                                    <li><a href="">노드 메뉴3</a></li>
-                                    <li><a href="">노드 메뉴4</a></li>
-                                    <li><a href="">노드 메뉴5</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">센서 관리</a>
-                                <ul role="menu" class="dropdown-menu">
-                                    <li><a href="">센서 메뉴1</a></li>
-                                    <li><a href="">센서 메뉴2</a></li>
-                                    <li><a href="">센서 메뉴3</a></li>
-                                    <li><a href="">센서 메뉴4</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">설정</a>
-                                <ul role="menu" class="dropdown-menu">
-                                    <li><a href="">사용자 관리</a></li>
-                                    <li><a href="">센서 모니터링</a></li>
-                                    <li><a href="">대시보드1</a></li>
-                                    <li><a href="">대시보드2</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <ul class="nav navbar-top-links navbar-right">
-                            <li>
-                                <a href="LO0001.html">
-                                    <i class="fa fa-sign-out"></i> Log out
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-
-            <div class="row wrapper page-heading">
-                <div class="col-lg-12">
-                    <h2 class="big-title">Tension Sensor Monitoring</h2>
-                </div>
-            </div>
-
-            <div class="wrapper">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="ibox ibox-acco collapsed"> <!-- (collapsed) 클래스 추가시 아코디언 닫힌 상태 -->
-                            <div class="ibox-title">
-                                <h5>Example of initial collapsed panel</h5>
-                                <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="ibox-content">
-                                Example of initial collapsed panel item
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="ibox ibox-acco collapsed"> <!-- (collapsed) 클래스 추가시 아코디언 닫힌 상태 -->
-                            <div class="ibox-title">
-                                <h5>Example of initial collapsed panel</h5>
-                                <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="ibox-content">
-                                Example of initial collapsed panel item
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="ibox ibox-acco collapsed"> <!-- (collapsed) 클래스 추가시 아코디언 닫힌 상태 -->
-                            <div class="ibox-title">
-                                <h5>Example of initial collapsed panel</h5>
-                                <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="ibox-content">
-                                Example of initial collapsed panel item
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer">
-                <div>
-                    &copy; FuturenTech All Rights Reserved.
-                </div>
-            </div>
+      <div class="tmd-wrap">
+        <div class="tmd-header tmd-header--bar">
+          <h2 class="tmd-title">Tension Sensor Monitoring</h2>
+          <div class="tmd-clock" id="tmd-clock" aria-live="polite">09:00 AM</div>
+          <div class="tmd-toolbar">
+            <button type="button" id="tmd-theme-toggle" class="tmd-btn" aria-pressed="false" aria-label="테마 전환">
+              <i class="fa fa-moon-o" aria-hidden="true"></i><span class="sr-only">Light / Dark</span>
+            </button>
+          </div>
         </div>
+
+        <div class="tmd-layout">
+          <div class="tmd-list" id="tmd-list">
+            <section class="tmd-card" data-line="12-구간 데모">
+              <div class="tmd-label tmd-from">출발</div>
+              <div class="tmd-route">
+                <div class="tmd-track">
+                  <div class="tmd-grid"
+                       data-nodes='[{"label":"구간1","state":"ok"},{"label":"구간2","state":"warn"},{"label":"구간3","state":"ok"},{"label":"구간4","state":"ok"},{"label":"구간5","state":"danger"},{"label":"구간6","state":"ok"},{"label":"구간7","state":"ok"},{"label":"구간8","state":"warn"},{"label":"구간9","state":"ok"},{"label":"구간10","state":"ok"}]'>
+                  </div>
+                </div>
+              </div>
+              <div class="tmd-label tmd-to">도착</div>
+            </section>
+
+            <section class="tmd-card" data-line="부산 - 동대신">
+              <div class="tmd-label tmd-from">출발</div>
+              <div class="tmd-route">
+                <div class="tmd-track">
+                  <div class="tmd-grid"
+                       data-nodes='[{"label":"부산역","state":"ok"},{"label":"중앙","state":"ok"},{"label":"남포","state":"danger"},{"label":"자갈치","state":"ok"},{"label":"토성","state":"ok"},{"label":"동대신","state":"ok"}]'>
+                  </div>
+                </div>
+              </div>
+              <div class="tmd-label tmd-to">도착</div>
+            </section>
+
+            <section class="tmd-card" data-line="부산 - 토성">
+              <div class="tmd-label tmd-from">출발</div>
+              <div class="tmd-route">
+                <div class="tmd-track">
+                  <div class="tmd-grid"
+                       data-nodes='[{"label":"부산역","state":"unknown"},{"label":"중앙","state":"danger"},{"label":"남포","state":"unknown"},{"label":"자갈치","state":"ok"},{"label":"토성","state":"ok"}]'>
+                  </div>
+                </div>
+              </div>
+              <div class="tmd-label tmd-to">도착</div>
+            </section>
+
+          </div>
+
+          <aside class="tmd-side">
+            <section class="tmd-panel" aria-live="polite">
+              <h3>센서 기본값</h3>
+              <dl class="tmd-kv">
+                <dt>노선</dt><dd id="tmd-d-line">부산→동대신</dd>
+                <dt>구간</dt><dd id="tmd-d-seg">부산역</dd>
+                <dt>최근 측정</dt><dd id="tmd-d-last">2025. 9. 10. 오후 5:29:07</dd>
+                <dt>ID</dt><dd id="tmd-d-id">S-0001</dd>
+                <dt>Nickname</dt><dd id="tmd-d-nick">센서A</dd>
+                <dt>Device ID</dt><dd id="tmd-d-device">DEV-42</dd>
+                <dt>Tension Type</dt><dd id="tmd-d-type">Spring</dd>
+                <dt>범위(S/L/C/NI)</dt><dd id="tmd-d-range">12 / 34 / 5 / 3</dd>
+                <dt>변위(Min/Max)</dt><dd id="tmd-d-disp">0.1 / 1.5</dd>
+                <dt>온도(Min/Max)</dt><dd id="tmd-d-temp">-10 / 60</dd>
+                <dt>전압(Node/Gate)</dt><dd id="tmd-d-volt">4.2 / 12</dd>
+                <dt>데이터(최근/범위밖)</dt><dd id="tmd-d-count">128 / 2</dd>
+              </dl>
+            </section>
+          </aside>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Mainly scripts -->
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+  <!-- Popover -->
+  <div class="tmd-popover" id="tmd-popover" hidden>
+    <div class="tmd-sheet" role="dialog" aria-modal="false" aria-labelledby="tmd-p-title">
+      <div class="thd-shhet-header">
+        <h3 id="tmd-p-title" class="tmd-p-title">센서 기본값</h3>
+        <button class="tmd-close" id="tmd-p-close" aria-label="닫기">✕</button>
+      </div>
+      <dl class="tmd-kv">
+        <dt>노선</dt><dd id="tmd-p-line">-</dd>
+        <dt>구간</dt><dd id="tmd-p-seg">-</dd>
+        <dt>상태</dt><dd id="tmd-p-state">-</dd>
+        <dt>최근 측정</dt><dd id="tmd-p-last">-</dd>
+        <dt>ID</dt><dd id="tmd-p-id">-</dd>
+        <dt>Nickname</dt><dd id="tmd-p-nick">-</dd>
+        <dt>Device ID</dt><dd id="tmd-p-device">-</dd>
+        <dt>Tension Type</dt><dd id="tmd-p-type">-</dd>
+      </dl>
+    </div>
+  </div>
 
-    <!-- Custom and plugin javascript -->
-    <script src="js/inspinia.js"></script>
-    <script src="js/plugins/pace/pace.min.js"></script>
+  <!-- libs -->
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+  <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="js/inspinia.js"></script>
+  <script src="js/plugins/pace/pace.min.js"></script>
+  <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="js/plugins/toastr/toastr.min.js"></script>
 
-    <!-- jquery UI -->
-    <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
-
-    <!-- Toastr script -->
-    <script src="js/plugins/toastr/toastr.min.js"></script>
-
-    <!-- Page-Level Scripts -->
+  <!-- Page scripts -->
     <script>
-        $(document).ready(function() {
-            // 공통 옵션
-            toastr.options = {
-                closeButton: false,
-                debug: false,
-                progressBar: false,
-                preventDuplicates: false,
-                positionClass: "toast-top-right",
-                onclick: null,
-                showDuration: "400",
-                hideDuration: "1000",
-                timeOut: "7000",
-                extendedTimeOut: "1000",
-                showEasing: "swing",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut"
+        // Toastr demo
+        $(function () {
+            toastr.options = { positionClass: "toast-top-right", timeOut: 3000 };
+            toastr.error("Loaded");
+        });
+    </script>
+
+    <script>
+        (function (win, doc, $) {
+
+            /* ====== 상수/셀렉터 ====== */
+            var SEL = { card: '.tmd-card', grid: '.tmd-grid', popover: '#tmd-popover' };
+            var RANK = { unknown: 0, ok: 1, warn: 2, danger: 3 };
+            var NODE_W = 88, EDGE_MIN = 36, GAP_X = 10;
+            var THEME_KEY = 'tmd-theme';
+
+            var $pop = $(SEL.popover), $sheet = $pop.find('.tmd-sheet');
+            var lockMode = false;
+
+            /* ---------- util: 상태 우선순위 비교 후 더 위험한 상태를 반환 ---------- */
+            function worst(a, b) { a = a || 'unknown'; b = b || 'unknown'; return (RANK[a] >= RANK[b]) ? a : b; }
+
+            /* ---------- util: 상태코드를 한글 레이블로 변환 ---------- */
+            function labelOf(s) { return s === 'ok' ? '정상' : s === 'warn' ? '주의' : s === 'danger' ? '경고' : '미수신'; }
+
+            /* ---------- theme: 강제 테마 적용(localStorage 반영 포함) ---------- */
+            function setTheme(theme) {
+                $('body').attr('data-theme', theme);
+                try { win.localStorage.setItem(THEME_KEY, theme); } catch (e) { }
+                var $btn = $('#tmd-theme-toggle');
+                if ($btn.length) {
+                    var isDark = theme === 'dark';
+                    $btn.attr('aria-pressed', String(isDark));
+                    $btn.find('i').attr('class', isDark ? 'fa fa-sun-o' : 'fa fa-moon-o');
+                }
+            }
+
+            /* ---------- theme: 저장된/초기 테마를 로드하여 적용 ---------- */
+            function loadTheme() {
+                var t = null;
+                try { t = win.localStorage.getItem(THEME_KEY); } catch (e) { }
+                if (!t) t = $('body').attr('data-theme') || 'light';
+                setTheme(t);
+            }
+
+            /* ---------- theme: 현재 테마(light/dark) 토글 ---------- */
+            function toggleTheme() {
+                var cur = $('body').attr('data-theme') === 'dark' ? 'dark' : 'light';
+                setTheme(cur === 'dark' ? 'light' : 'dark');
+            }
+
+            /* ---------- clock: 상단 시계를 HH:MM AM/PM 형식으로 갱신 ---------- */
+            function tickClock() {
+                var $clock = $('#tmd-clock'); if (!$clock.length) return;
+                var t = new Date();
+                var h = ((t.getHours() + 11) % 12) + 1;
+                var m = ('0' + t.getMinutes()).slice(-2);
+                $clock.text(h + ':' + m + (t.getHours() < 12 ? ' AM' : ' PM'));
+            }
+
+            /* ---------- popover: 팝오버 표시에 필요한 필드 채움 ---------- */
+            function fillPopover(data) {
+                if (!$pop.length) return;
+                $('#tmd-p-line').text(data.line || '-');
+                $('#tmd-p-seg').text(data.segment || (data.from ? (data.from + ' → ' + data.to) : '-'));
+                $('#tmd-p-state').text(labelOf(data.state));
+                $('#tmd-p-last').text(data.last || new Date().toLocaleString());
+                var s = data.sensor || sampleSensor();
+                $('#tmd-p-id').text(s.id); $('#tmd-p-nick').text(s.nickname);
+                $('#tmd-p-device').text(s.deviceId); $('#tmd-p-type').text(s.tensionType);
+            }
+
+            /* ---------- popover: 특정 좌표(x,y)에 팝오버 표시 ---------- */
+            function openPopoverAt(x, y, data) {
+                fillPopover(data); $pop.prop('hidden', false);
+                var left = Math.min(win.innerWidth - 300, x + 12);
+                $sheet.css({ top: Math.max(12, y + 10), left: left });
+            }
+
+            /* ---------- popover: 앵커 엘리먼트 기준으로 팝오버 표시(고정 모드) ---------- */
+            function openPopoverByAnchor(anchor, data) {
+                fillPopover(data);
+                var r = anchor.getBoundingClientRect();
+                $pop.prop('hidden', false);
+                var left = Math.min(win.innerWidth - 300, r.left + r.width + 10);
+                $sheet.css({ top: Math.max(12, r.top - 6), left: left });
+            }
+
+            /* ---------- popover: 팝오버를 닫고 고정 모드 해제 ---------- */
+            function closePopover() { lockMode = false; $pop.prop('hidden', true); }
+
+            /* ---------- sensor: 우측 정보 패널을 최신 데이터로 갱신 ---------- */
+            function updateSide(data) {
+                var s = data.sensor || {};
+                $('#tmd-d-line').text(data.line || '-');
+                $('#tmd-d-seg').text(data.segment || '-');
+                $('#tmd-d-last').text(data.last || '-');
+                $('#tmd-d-id').text(s.id || '-');
+                $('#tmd-d-nick').text(s.nickname || '-');
+                $('#tmd-d-device').text(s.deviceId || '-');
+                $('#tmd-d-type').text(s.tensionType || '-');
+                $('#tmd-d-range').text([s.s, s.l, s.c, s.ni].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
+                $('#tmd-d-disp').text([s.dispMin, s.dispMax].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
+                $('#tmd-d-temp').text([s.tempMin, s.tempMax].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
+                $('#tmd-d-volt').text([s.nodeVoltUpper, s.gateVoltUpper].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
+                $('#tmd-d-count').text([s.latestCnt, s.outOfRangeCnt].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
+            }
+
+            /* ---------- sample: 샘플 센서(데모/초기값) ---------- */
+            function sampleSensor() {
+                return {
+                    id: 'S-0001', nickname: '센서A', deviceId: 'DEV-42', tensionType: 'Spring',
+                    s: 12, l: 34, c: 5, ni: 3, tempMin: -10, tempMax: 60, dispMin: 0.1, dispMax: 1.5, nodeVoltUpper: 4.2, gateVoltUpper: 12, latestCnt: 128, outOfRangeCnt: 2
+                };
+            }
+
+            /* ---------- grid: .tmd-grid에서 노드 정의를 읽어 JSON 배열로 반환 ---------- */
+            function readNodes($grid) {
+                var nodes = [], raw = $grid.attr('data-nodes');
+                if (raw) { try { nodes = JSON.parse(raw); } catch (e) { } }
+                if (!nodes.length) {
+                    var $s = $grid.children('script.tmd-nodes[type="application/json"]');
+                    if ($s.length) { try { nodes = JSON.parse($.trim($s.text())); } catch (e) { } }
+                }
+                if (!nodes.length) {
+                    nodes = [
+                        { label: '구간A', state: 'ok' }, { label: '구간B', state: 'warn' },
+                        { label: '구간C', state: 'ok' }, { label: '도착', state: 'unknown' }
+                    ];
+                }
+                return nodes.slice(0, 20);
+            }
+
+            /* ---------- grid: 주어진 노드로 그리드를 구성(최대 2행 균등 분배) ---------- */
+            function buildWrappedGrid($grid, nodes, line) {
+                $grid.empty();
+                var total = nodes.length; if (!total) return;
+
+                var parent = $grid.parent()[0];
+                var avail = parent ? parent.clientWidth : $grid.width();
+                var unit = NODE_W + EDGE_MIN + GAP_X;
+                var maxPerRow = Math.floor((avail + GAP_X) / unit);
+                if (maxPerRow < 3) maxPerRow = 3;
+                if (maxPerRow > 12) maxPerRow = 12;
+
+                var rows = Math.max(1, Math.ceil(total / maxPerRow));
+                if (rows > 2) rows = 2;
+
+                var base = Math.floor(total / rows);
+                var rem = total % rows;
+                var idx = 0;
+
+                for (var r = 0; r < rows; r++) {
+                    var count = base + (r < rem ? 1 : 0);
+                    var rowNodes = nodes.slice(idx, idx + count);
+                    idx += count;
+
+                    var $row = $('<div/>', { 'class': 'tmd-row' });
+
+                    for (var j = 0; j < rowNodes.length; j++) {
+                        var n = rowNodes[j];
+
+                        // node dom
+                        var $wrap = $('<div/>', { 'class': 'tmd-node' });
+                        var $btn = $('<button/>', {
+                            'class': 'tmd-dotbtn ' + (n.state || 'unknown'),
+                            'type': 'button',
+                            'aria-pressed': 'false'
+                        }).data('label', n.label).data('state', n.state || 'unknown');
+
+                        $wrap.append($btn).append($('<span/>', { 'class': 'tmd-nlabel', text: n.label }));
+                        $row.append($wrap);
+
+                        // edge dom
+                        if (j < rowNodes.length - 1) {
+                            var st = worst(n.state, rowNodes[j + 1].state);
+                            var $edge = $('<div/>', { 'class': 'tmd-edge ' + st })
+                                .data('state', st).data('from', n.label).data('to', rowNodes[j + 1].label).data('line', line);
+
+                            $edge.on('mouseenter', function (e) {
+                                if (lockMode) return;
+                                var $t = $(this);
+                                openPopoverAt(e.clientX, e.clientY, {
+                                    line: $t.data('line'),
+                                    from: $t.data('from'),
+                                    to: $t.data('to'),
+                                    state: $t.data('state')
+                                });
+                                $(doc).trigger('tmd:edge.enter', [{
+                                    line: $t.data('line'), from: $t.data('from'), to: $t.data('to'), state: $t.data('state'), ts: Date.now()
+                                }]);
+                            }).on('mousemove', function (e) {
+                                if (lockMode || $pop.prop('hidden')) return;
+                                var left = Math.min(win.innerWidth - 300, e.clientX + 12);
+                                $sheet.css({ top: (e.clientY + 10), left: left });
+                            }).on('mouseleave', function () {
+                                if (!lockMode) $pop.prop('hidden', true);
+                                var $t = $(this);
+                                $(doc).trigger('tmd:edge.leave', [{
+                                    line: $t.data('line'), from: $t.data('from'), to: $t.data('to'), state: $t.data('state'), ts: Date.now()
+                                }]);
+                            }).on('click', function (e) {
+                                if (lockMode) return;
+                                var $t = $(this);
+                                openPopoverAt(e.clientX, e.clientY, {
+                                    line: $t.data('line'),
+                                    from: $t.data('from'),
+                                    to: $t.data('to'),
+                                    state: $t.data('state')
+                                });
+                                $(doc).trigger('tmd:edge.click', [{
+                                    line: $t.data('line'), from: $t.data('from'), to: $t.data('to'), state: $t.data('state'), ts: Date.now()
+                                }]);
+                            });
+
+                            $row.append($edge);
+                        }
+
+                        // node click → 고정 팝오버 + 사이드 갱신 + 이벤트 발행
+                        (function ($wrapRef, $btnRef, label) {
+                            $wrapRef.on('click', function () {
+                                var state = $btnRef.data('state');
+                                var now = new Date().toLocaleString();
+                                lockMode = true;
+                                openPopoverByAnchor($btnRef[0], {
+                                    line: line, segment: label, state: state, last: now, sensor: sampleSensor()
+                                });
+                                updateSide({ line: line, segment: label, state: state, last: now, sensor: sampleSensor() });
+                                $(doc).trigger('tmd:node.select', [{ line: line, segment: label, state: state, ts: Date.now() }]);
+                            });
+                        })($wrap, $btn, n.label);
+                    }
+
+                    $grid.append($row);
+                }
+            }
+
+            /* ---------- card: 단일 카드 초기화 및 리사이즈 대응 ---------- */
+            function mountCard($card) {
+                var line = $card.attr('data-line') || '-';
+                var $grid = $card.find(SEL.grid); if (!$grid.length) return;
+
+                var nodes = readNodes($grid);
+                function rebuild() { buildWrappedGrid($grid, nodes, line); }
+                rebuild();
+
+                var timer = null;
+                $(win).on('resize.tmd', function () {
+                    clearTimeout(timer);
+                    timer = setTimeout(rebuild, 120);
+                });
+            }
+
+            /* ---------- api: 페이지 내 모든 카드 자동 렌더 ---------- */
+            function renderAll() {
+                $('.tmd-card').each(function () { mountCard($(this)); });
+            }
+
+            /* ---------- api: 특정 카드에 즉시 렌더(서버 데이터 반영 시 사용) ---------- */
+            function renderCard(cardEl, nodes, line) {
+                var $card = $(cardEl);
+                var $grid = $card.find(SEL.grid);
+                line = line || $card.attr('data-line') || '-';
+                if (nodes && nodes.length) {
+                    $grid.attr('data-nodes', JSON.stringify(nodes));
+                } else {
+                    nodes = readNodes($grid);
+                }
+                buildWrappedGrid($grid, nodes, line);
+            }
+
+            /* ---------- doc: 글로벌 키/마우스 핸들러 바인딩 ---------- */
+            $(doc).on('keydown', function (e) { if (e.key === 'Escape') closePopover(); });
+            $(doc).on('mousedown', function (e) {
+                if ($pop.prop('hidden') || !lockMode) return;
+                if (!$sheet[0].contains(e.target)) closePopover();
+            });
+
+            $('#tmd-p-close').on('click', closePopover);
+            $('#tmd-theme-toggle').on('click', toggleTheme);
+
+            /* ---------- init: 초기 테마/시계/전체 렌더 ---------- */
+            $(function () {
+                loadTheme();
+                tickClock(); setInterval(tickClock, 15000);
+                renderAll();
+            });
+
+            /* ---------- export: 전역 API 노출 ---------- */
+            win.TMD = {
+                // 화면 전체 렌더(초기화/레이아웃 변경 후)
+                renderAll: renderAll,
+                // 지정 카드에 데이터 바인딩 후 렌더
+                renderCard: renderCard,
+                // 우측 패널 갱신(상세 조회 응답 가공해 넘김)
+                updateSide: updateSide,
+                // 테마 강제/토글
+                setTheme: setTheme,
+                toggleTheme: toggleTheme,
+                // 팝오버 닫기(외부 동작 후 수동 제어)
+                closePopover: closePopover
             };
 
-            toastr.error("toast description", "title"); // msg, title
-
-            // 이벤트 바인딩
-            // $("#btnId").on("click", function () {
-            //     toastr.error("toast description", "title");
-            // });
-        });
+        })(window, document, jQuery);
     </script>
 </body>
 </html>
