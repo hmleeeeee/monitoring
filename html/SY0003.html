@@ -90,7 +90,7 @@
 
         <div class="tmd-layout">
           <div class="tmd-list" id="tmd-list">
-            <section class="tmd-card" data-line="12-구간 데모">
+            <div class="tmd-card" data-line="12-구간 데모">
               <div class="tmd-label tmd-from">출발</div>
               <div class="tmd-route">
                 <div class="tmd-track">
@@ -110,9 +110,9 @@
                 </div>
               </div>
               <div class="tmd-label tmd-to">도착</div>
-            </section>
+            </div>
 
-            <section class="tmd-card" data-line="부산 - 동대신">
+            <div class="tmd-card" data-line="부산 - 동대신">
               <div class="tmd-label tmd-from">출발</div>
               <div class="tmd-route">
                 <div class="tmd-track">
@@ -128,29 +128,49 @@
                 </div>
               </div>
               <div class="tmd-label tmd-to">도착</div>
-            </section>
+            </div>
 
-            <section class="tmd-card" data-line="부산 - 토성">
+            <div class="tmd-card" data-line="부산 - 서대신">
               <div class="tmd-label tmd-from">출발</div>
               <div class="tmd-route">
                 <div class="tmd-track">
 					<div class="tmd-grid"
 						data-nodes='[
-						{"label":"부산역","state":"unknown"},
-						{"label":"중앙","state":"unknown"},
+						{"label":"부산역","state":"ok"},
+						{"label":"중앙","state":"ok"},
 						{"label":"남포","state":"danger"},
 						{"label":"자갈치","state":"unknown"},
-						{"label":"토성","state":"ok"}]'>
+						{"label":"토성","state":"unknown"},
+						{"label":"동대신","state":"warn"},
+						{"label":"서대신","state":"warn"}]'>
 					</div>
                 </div>
               </div>
               <div class="tmd-label tmd-to">도착</div>
-            </section>
+            </div>
 
+            <div class="tmd-card" data-line="부산 - 괴정">
+              <div class="tmd-label tmd-from">출발</div>
+              <div class="tmd-route">
+                <div class="tmd-track">
+                  <div class="tmd-grid"
+                    data-nodes='[
+                    {"label":"부산역","state":"unknown"},
+                    {"label":"중앙","state":"unknown"},
+                    {"label":"남포","state":"danger"},
+                    {"label":"자갈치","state":"danger"},
+                    {"label":"토성","state":"warn"},
+                    {"label":"동대신","state":"unknown"},
+                    {"label":"괴정","state":"ok"}]'>,
+                  </div>
+                </div>
+              </div>
+              <div class="tmd-label tmd-to">도착</div>
+            </div>
           </div>
 
-          <aside class="tmd-side">
-            <section class="tmd-panel" aria-live="polite">
+          <div class="tmd-side">
+            <div class="tmd-panel" aria-live="polite">
               <h3>센서 기본값</h3>
               <dl class="tmd-kv">
                 <dt>노선</dt><dd id="tmd-d-line">부산→동대신</dd>
@@ -166,8 +186,8 @@
                 <dt>전압(Node/Gate)</dt><dd id="tmd-d-volt">4.2 / 12</dd>
                 <dt>데이터(최근/범위밖)</dt><dd id="tmd-d-count">128 / 2</dd>
               </dl>
-            </section>
-          </aside>
+            </div>
+          </div>
         </div>
       </div>
     </div>
