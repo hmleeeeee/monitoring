@@ -12269,9 +12269,10 @@ body.has-dashboard .ibox-acco .ibox-content {
    Tokens
 ========================================= */
 /* 라인 균등/자동 줄바꿈(2줄 이내) */
-/* 내부 여백 */
+/* padding */
 /* shadow */
-/* 링(border) 두께 */
+/* ring */
+/* acco */
 /* =========================================
    Theme maps
 ========================================= */
@@ -12280,6 +12281,7 @@ body.has-dashboard .ibox-acco .ibox-content {
 ========================================= */
 /* 2색 가로 그라데이션(라인) */
 /* 단색 느낌(unknown) */
+/* ===== Accordion ===== */
 /* =========================================
    Base (theme-independent)
 ========================================= */
@@ -12309,6 +12311,11 @@ body.has-dashboard .ibox-acco .ibox-content {
   gap: clamp(0.45rem, 0.7vw, 0.9rem);
 }
 
+.has-monitoring .tmd-header--bar {
+  -moz-column-gap: clamp(0rem, 1vw, 0rem);
+       column-gap: clamp(0rem, 1vw, 0rem);
+}
+
 /* 레이아웃 */
 .tmd-layout {
   display: grid;
@@ -12317,7 +12324,7 @@ body.has-dashboard .ibox-acco .ibox-content {
   gap: clamp(0.9rem, 1.2vw, 1.5rem);
   overflow: visible;
 }
-.tmd-layout.is-full {
+.tmd-layout.has-acco {
   grid-template-columns: minmax(0, 1fr);
 }
 
@@ -12371,10 +12378,9 @@ body.has-dashboard .ibox-acco .ibox-content {
   row-gap: clamp(0.55rem, 0.75vw, 0.95rem);
 }
 
-/* 행: 가로 가운데 정렬(노드/엣지 모두 중앙) */
+/* 행: 가로 가운데 정렬(노드/엣지) */
 .tmd-row {
-  display: flex;
-  align-items: center;
+  display: flex; /*align-items:center;*/
   justify-content: center;
   -moz-column-gap: clamp(0.36rem, 0.55vw, 0.7rem);
        column-gap: clamp(0.36rem, 0.55vw, 0.7rem);
@@ -12399,20 +12405,20 @@ body.has-dashboard .ibox-acco .ibox-content {
 
 /* 블렛(링): 단색 + border 두께로 정비율(원형) 보장 */
 .tmd-dotbtn {
-  width: clamp(0.95rem, 1.05vw, 1.35rem); /* 정사각 고정 */
+  width: clamp(0.95rem, 1.05vw, 1.35rem);
   height: clamp(0.95rem, 1.05vw, 1.35rem);
-  aspect-ratio: 1/1; /* 보조(미지원 브라우저도 width/height로 충분) */
+  aspect-ratio: 1/1;
   padding: 0;
-  margin: 0; /* 기본 버튼 스타일 제거 */
+  margin: 0;
   line-height: 0;
   -moz-appearance: none;
        appearance: none;
   -webkit-appearance: none;
-  border-radius: 9999px; /* 완전 원형 */
-  box-sizing: border-box; /* border 포함 */
+  border-radius: 9999px;
+  box-sizing: border-box;
   background: transparent;
-  border: clamp(3px, 0.45vw, 5px) solid rgba(0, 0, 0, 0.12); /* 테마에서 색 덮어씀 */
-  flex: 0 0 auto; /* 부모가 크기 강제 못 하게 */
+  border: clamp(3px, 0.45vw, 5px) solid rgba(0, 0, 0, 0.12);
+  flex: 0 0 auto;
   display: inline-block;
 }
 
@@ -12432,6 +12438,7 @@ body.has-dashboard .ibox-acco .ibox-content {
   min-width: clamp(1.4rem, 2.2vw, 2.8rem);
   height: clamp(0.32rem, 0.42vw, 0.55rem);
   border-radius: 999px;
+  margin-top: calc(clamp(0.95rem, 1.05vw, 1.35rem) / 2 - clamp(0.32rem, 0.42vw, 0.55rem) / 2);
 }
 
 /* 우측 패널: sticky */
@@ -12470,6 +12477,205 @@ body.has-dashboard .ibox-acco .ibox-content {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* =========================================
+   Accordion (base / theme-independent)
+========================================= */
+.tmd-accordion {
+  display: grid;
+  gap: clamp(0.6rem, 0.9vw, 1.1rem); /* 아이템 간격: 토큰(clamp) */
+  /* 부트스트랩 card 리셋 */
+  /* ---------------- Header ---------------- */
+  /* ---------------- Panel ---------------- */
+}
+.tmd-accordion .tmd-acc-item.card {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.tmd-accordion .tmd-acc-head.card-header {
+  position: relative;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  /* 헤더 내부 카드(Bookmark | Route | Util) */
+  /* 펼침 상태 아이콘 회전 */
+}
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* bookmark | route | util */
+  grid-template-areas: "bookmark route util";
+  align-items: center;
+  -moz-column-gap: clamp(0.6rem, 0.9vw, 0.6rem);
+       column-gap: clamp(0.6rem, 0.9vw, 0.6rem);
+  /* 높이/패딩/라운드: 모두 토큰(clamp) */
+  min-height: clamp(7.5rem, 9.5vw, 11.5rem);
+  padding: clamp(2rem, 0.9vw, 1.1rem);
+  border-radius: calc(clamp(0.7rem, 0.8vw, 1.1rem) + 0.2rem);
+  /* --- Bookmark 버튼 --- */
+  /* --- Util(상태 라벨 + 토글) --- */
+}
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-bookmark {
+  grid-area: bookmark;
+}
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-route {
+  grid-area: route;
+}
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill {
+  grid-area: util;
+}
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-bookmark {
+  display: flex;
+  align-items: center;
+}
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-bookmark .btn-bookmark {
+  width: clamp(28px, 1.6vw, 36px);
+  height: clamp(28px, 1.6vw, 36px);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  line-height: 0;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-bookmark .btn-bookmark i {
+  font-size: clamp(0.86rem, 0.95vw, 1.05rem);
+}
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 5rem;
+  gap: clamp(0.5rem, 0.8vw, 1rem);
+}
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill .tmd-status {
+  color: #F73660;
+  font-weight: 700;
+  font-size: clamp(0.9375rem, 1vw, 1.25rem);
+  line-height: 1;
+  white-space: nowrap;
+}
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill > .btn.btn-link {
+  width: clamp(44px, 1.6vw, 56px);
+  height: clamp(44px, 1.6vw, 56px);
+  display: inline-grid;
+  place-items: center;
+  border-radius: clamp(10px, 0.6vw, 14px);
+  padding: 0;
+  line-height: 0;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, color 0.15s ease;
+}
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill > .btn.btn-link i {
+  color: #CACACA;
+  font-size: clamp(1.5rem, 1.4vw, 2rem);
+  transition: transform 0.18s ease;
+}
+.tmd-accordion .tmd-acc-head.card-header [data-toggle=collapse][aria-expanded=true] i {
+  transform: rotate(180deg);
+}
+.tmd-accordion .tmd-acc-body {
+  /* 큰 화면에서 살짝 여백 업 */
+}
+.tmd-accordion .tmd-acc-body .tmd-acc-panel {
+  padding: clamp(0.8rem, 1.1vw, 1.4rem);
+  /* 4열 그리드 */
+  /* 상태 카드 공통 레이아웃 */
+}
+.tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-sgrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.8rem, 1.1vw, 1.4rem);
+  padding: 0 7rem 0 3.8rem;
+}
+.tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard {
+  position: relative;
+  border-radius: clamp(12px, 0.9vw, 16px);
+  padding: clamp(24px, 1.95vw, 33px) clamp(16px, 1.3vw, 22px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+  /* 구간 경로 */
+  /* 메타 2열 (좌: Device, 우: 범위) */
+}
+.tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: clamp(6px, 0.5vw, 10px);
+  gap: 0.6rem;
+}
+.tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__title {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(1.25rem, 1.4vw, 1.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__badge {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: clamp(34px, 1.85vw, 44px);
+  height: clamp(34px, 1.85vw, 44px);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+}
+.tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__badge i {
+  font-size: clamp(0.95rem, 1vw, 1.15rem);
+}
+.tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__route {
+  margin: 0 0 clamp(10px, 0.7vw, 12px);
+  font-size: clamp(0.92rem, 0.9vw, 1.2rem);
+  line-height: 1.25;
+}
+.tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(6px, 0.6vw, 10px) clamp(4px, 1vw, 6px);
+  margin: 0;
+}
+.tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__meta > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -moz-column-gap: clamp(4px, 0.35vw, 6px);
+       column-gap: clamp(4px, 0.35vw, 6px);
+  align-items: baseline;
+}
+.tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__meta dt {
+  margin: 0;
+  font-size: clamp(0.78rem, 0.85vw, 0.92rem);
+  font-weight: 600;
+}
+.tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__meta dd {
+  margin: 0;
+  font-size: clamp(0.78rem, 0.85vw, 0.92rem);
+  text-align: right;
+}
+@media (min-width: 1920px) {
+  .tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-sgrid {
+    gap: clamp(1rem, 0.9vw, 1.4rem);
+  }
+}
+.tmd-accordion .tmd-acc-panel.card-body {
+  margin-top: -1px;
+  padding: clamp(2rem, 0.9vw, 1.1rem);
+  border-radius: calc(clamp(0.7rem, 0.8vw, 1.1rem) + 0.2rem);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  overflow: visible;
+}
+.tmd-accordion .tmd-acc-item {
+  /* 열린 상태(= collapse.show) */
+}
+.tmd-accordion .tmd-acc-item:has(> .collapse.show) .tmd-acc-head .tmd-card {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.tmd-accordion .tmd-acc-item:has(> .collapse.show) .tmd-acc-panel {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 /* popover */
@@ -12534,7 +12740,7 @@ body[data-theme=light] {
   background: #f6f7fb;
   color: #111827;
   /* 블렛(링) — 단색 + border 두께로 제어 (정비율 유지) */
-  /* 라인(엣지) — 요청 그라데이션 */
+  /* 라인(엣지) — 그라데이션 */
 }
 body[data-theme=light] .tmd-wrap {
   max-width: min(240rem, 98vw);
@@ -12614,12 +12820,65 @@ body[data-theme=light] .tmd-edge.unknown {
   background-color: rgba(202, 202, 202, 0.8);
   background-image: none;
 }
+body[data-theme=light] .tmd-accordion .tmd-acc-head .tmd-card {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #CACACA;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-head .tmd-card .tmd-bookmark .btn-bookmark {
+  background: #ffffff;
+  color: #5F5F5F;
+  border: 1px solid #CACACA;
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-head .tmd-card .tmd-bookmark .btn-bookmark:hover {
+  color: #111827;
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-head .tmd-card .tmd-bookmark .btn-bookmark:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.22);
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-head > .btn.btn-link {
+  color: #5F5F5F;
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-head > .btn.btn-link:hover {
+  color: #111827;
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-head > .btn.btn-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.22);
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-panel {
+  background: #ffffff;
+  border: 1px solid #CACACA;
+  border-top: 0;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-panel .tmd-scard {
+  color: #fff;
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-panel .tmd-scard.ok {
+  background: #3BD156;
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-panel .tmd-scard.danger {
+  background: #F73660;
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-panel .tmd-scard.unknown {
+  background: #cacaca;
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-panel .tmd-scard.warn {
+  background: #FFC12F;
+}
+body[data-theme=light] .tmd-accordion .tmd-acc-panel .tmd-scard .tmd-scard__badge {
+  background: rgba(255, 255, 255, 0.22);
+  color: currentColor;
+}
 
 body[data-theme=dark] {
   background: #0f172a;
   color: #e5e7eb;
   /* 블렛(링) — 단색 + border 두께로 제어 (정비율 유지) */
-  /* 라인(엣지) — 요청 그라데이션 */
+  /* 라인(엣지) — 그라데이션 */
 }
 body[data-theme=dark] .tmd-wrap {
   max-width: min(240rem, 98vw);
@@ -12630,8 +12889,8 @@ body[data-theme=dark] .tmd-title {
   color: #e5e7eb;
 }
 body[data-theme=dark] .tmd-toolbar .tmd-btn {
-  border: 1px solid #1e293b;
-  background: #0b1222;
+  border: 1px solid #243047;
+  background: #131f35;
   color: #e5e7eb;
   border-radius: calc(clamp(0.7rem, 0.8vw, 1.1rem) - 0.25rem);
   padding: 0.55em 0.85em;
@@ -12647,14 +12906,14 @@ body[data-theme=dark] .tmd-toolbar .tmd-btn:focus-visible {
   box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.3);
 }
 body[data-theme=dark] .tmd-card {
-  background: #0b1222;
-  border: 1px solid #1e293b;
+  background: #131f35;
+  border: 1px solid #243047;
   color: #e5e7eb;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
 }
 body[data-theme=dark] .tmd-panel {
-  background: #0b1222;
-  border: 1px solid #1e293b;
+  background: #131f35;
+  border: 1px solid #243047;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
 }
 body[data-theme=dark] .tmd-panel > h3 {
@@ -12698,6 +12957,59 @@ body[data-theme=dark] .tmd-edge.danger {
 body[data-theme=dark] .tmd-edge.unknown {
   background-color: rgba(202, 202, 202, 0.8);
   background-image: none;
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-head .tmd-card {
+  background: #131f35;
+  color: #e5e7eb;
+  border: 1px solid #243047;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-head .tmd-card .tmd-bookmark .btn-bookmark {
+  background: #131f35;
+  color: #94a3b8;
+  border: 1px solid #243047;
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-head .tmd-card .tmd-bookmark .btn-bookmark:hover {
+  color: #e5e7eb;
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-head .tmd-card .tmd-bookmark .btn-bookmark:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.3);
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-head > .btn.btn-link {
+  color: #94a3b8;
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-head > .btn.btn-link:hover {
+  color: #e5e7eb;
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-head > .btn.btn-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.3);
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-panel {
+  background: #131f35;
+  border: 1px solid #243047;
+  border-top: 0;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-panel .tmd-scard {
+  color: #fff;
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-panel .tmd-scard.ok {
+  background: #3BD156;
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-panel .tmd-scard.danger {
+  background: #F73660;
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-panel .tmd-scard.unknown {
+  background: #cacaca;
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-panel .tmd-scard.warn {
+  background: #FFC12F;
+}
+body[data-theme=dark] .tmd-accordion .tmd-acc-panel .tmd-scard .tmd-scard__badge {
+  background: rgba(255, 255, 255, 0.22);
+  color: currentColor;
 }
 
 @media print {
