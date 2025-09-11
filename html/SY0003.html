@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tension Monitoring | 센서 모니터링</title>
+  <title>Tension Monitoring | 대시보드</title>
 
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -79,7 +79,8 @@
 
       <div class="tmd-wrap">
         <div class="tmd-header tmd-header--bar">
-          <h2 class="tmd-title">Tension Sensor Monitoring</h2>
+          <h2 class="tmd-title">Tension Monitoring Dashboard</h2>
+          <div class="tmd-clock" id="tmd-clock" aria-live="polite">09:00 AM</div>
           <div class="tmd-toolbar">
             <button type="button" id="tmd-theme-toggle" class="tmd-btn" aria-pressed="false" aria-label="테마 전환">
               <i class="fa fa-moon-o" aria-hidden="true"></i><span class="sr-only">Light / Dark</span>
@@ -87,7 +88,7 @@
           </div>
         </div>
 
-        <div class="tmd-layout is-full">
+        <div class="tmd-layout">
           <div class="tmd-list" id="tmd-list">
             <section class="tmd-card" data-line="12-구간 데모">
               <div class="tmd-label tmd-from">출발</div>
@@ -106,7 +107,7 @@
               <div class="tmd-route">
                 <div class="tmd-track">
                   <div class="tmd-grid"
-                       data-nodes='[{"label":"부산역","state":"ok"},{"label":"중앙","state":"ok"},{"label":"남포","state":"danger"},{"label":"자갈치","state":"ok"},{"label":"토성","state":"ok"},{"label":"동대신","state":"ok"}]'>
+                       data-nodes='[{"label":"부산역","state":"unknown"},{"label":"중앙","state":"unknown"},{"label":"남포","state":"danger"},{"label":"자갈치","state":"ok"},{"label":"토성","state":"ok"},{"label":"동대신","state":"ok"}]'>
                   </div>
                 </div>
               </div>
@@ -118,7 +119,7 @@
               <div class="tmd-route">
                 <div class="tmd-track">
                   <div class="tmd-grid"
-                       data-nodes='[{"label":"부산역","state":"unknown"},{"label":"중앙","state":"danger"},{"label":"남포","state":"unknown"},{"label":"자갈치","state":"ok"},{"label":"토성","state":"ok"}]'>
+                       data-nodes='[{"label":"부산역","state":"unknown"},{"label":"중앙","state":"unknown"},{"label":"남포","state":"danger"},{"label":"자갈치","state":"unknown"},{"label":"토성","state":"ok"}]'>
                   </div>
                 </div>
               </div>
@@ -126,6 +127,26 @@
             </section>
 
           </div>
+
+          <aside class="tmd-side">
+            <section class="tmd-panel" aria-live="polite">
+              <h3>센서 기본값</h3>
+              <dl class="tmd-kv">
+                <dt>노선</dt><dd id="tmd-d-line">부산→동대신</dd>
+                <dt>구간</dt><dd id="tmd-d-seg">부산역</dd>
+                <dt>최근 측정</dt><dd id="tmd-d-last">2025. 9. 10. 오후 5:29:07</dd>
+                <dt>ID</dt><dd id="tmd-d-id">S-0001</dd>
+                <dt>Nickname</dt><dd id="tmd-d-nick">센서A</dd>
+                <dt>Device ID</dt><dd id="tmd-d-device">DEV-42</dd>
+                <dt>Tension Type</dt><dd id="tmd-d-type">Spring</dd>
+                <dt>범위(S/L/C/NI)</dt><dd id="tmd-d-range">12 / 34 / 5 / 3</dd>
+                <dt>변위(Min/Max)</dt><dd id="tmd-d-disp">0.1 / 1.5</dd>
+                <dt>온도(Min/Max)</dt><dd id="tmd-d-temp">-10 / 60</dd>
+                <dt>전압(Node/Gate)</dt><dd id="tmd-d-volt">4.2 / 12</dd>
+                <dt>데이터(최근/범위밖)</dt><dd id="tmd-d-count">128 / 2</dd>
+              </dl>
+            </section>
+          </aside>
         </div>
       </div>
     </div>
@@ -160,17 +181,8 @@
   <script src="js/inspinia.js"></script>
   <script src="js/plugins/pace/pace.min.js"></script>
   <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
-  <script src="js/plugins/toastr/toastr.min.js"></script>
 
   <!-- Page scripts -->
-    <script>
-        // Toastr demo
-        $(function () {
-            toastr.options = { positionClass: "toast-top-right", timeOut: 3000 };
-            toastr.error("Loaded");
-        });
-    </script>
-
     <!--
     - data-nodes에 샘플 JSON만 넣었습니다.
     - 실제 개발 시 data-nodes JSON을 실데이터로 교체
@@ -220,6 +232,15 @@
                 setTheme(cur === 'dark' ? 'light' : 'dark');
             }
 
+            /* ---------- clock: 상단 시계를 HH:MM AM/PM 형식으로 갱신 ---------- */
+            function tickClock() {
+                var $clock = $('#tmd-clock'); if (!$clock.length) return;
+                var t = new Date();
+                var h = ((t.getHours() + 11) % 12) + 1;
+                var m = ('0' + t.getMinutes()).slice(-2);
+                $clock.text(h + ':' + m + (t.getHours() < 12 ? ' AM' : ' PM'));
+            }
+
             /* ---------- popover: 팝오버 표시에 필요한 필드 채움 ---------- */
             function fillPopover(data) {
                 if (!$pop.length) return;
@@ -250,6 +271,23 @@
 
             /* ---------- popover: 팝오버를 닫고 고정 모드 해제 ---------- */
             function closePopover() { lockMode = false; $pop.prop('hidden', true); }
+
+            /* ---------- sensor: 우측 정보 패널을 최신 데이터로 갱신 ---------- */
+            function updateSide(data) {
+                var s = data.sensor || {};
+                $('#tmd-d-line').text(data.line || '-');
+                $('#tmd-d-seg').text(data.segment || '-');
+                $('#tmd-d-last').text(data.last || '-');
+                $('#tmd-d-id').text(s.id || '-');
+                $('#tmd-d-nick').text(s.nickname || '-');
+                $('#tmd-d-device').text(s.deviceId || '-');
+                $('#tmd-d-type').text(s.tensionType || '-');
+                $('#tmd-d-range').text([s.s, s.l, s.c, s.ni].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
+                $('#tmd-d-disp').text([s.dispMin, s.dispMax].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
+                $('#tmd-d-temp').text([s.tempMin, s.tempMax].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
+                $('#tmd-d-volt').text([s.nodeVoltUpper, s.gateVoltUpper].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
+                $('#tmd-d-count').text([s.latestCnt, s.outOfRangeCnt].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
+            }
 
             /* ---------- sample: 샘플 센서(데모/초기값) ---------- */
             function sampleSensor() {
@@ -370,6 +408,8 @@
                                 openPopoverByAnchor($btnRef[0], {
                                     line: line, segment: label, state: state, last: now, sensor: sampleSensor()
                                 });
+                                updateSide({ line: line, segment: label, state: state, last: now, sensor: sampleSensor() });
+                                $(doc).trigger('tmd:node.select', [{ line: line, segment: label, state: state, ts: Date.now() }]);
                             });
                         })($wrap, $btn, n.label);
                     }
@@ -425,6 +465,7 @@
             /* ---------- init: 초기 테마/시계/전체 렌더 ---------- */
             $(function () {
                 loadTheme();
+                tickClock(); setInterval(tickClock, 15000);
                 renderAll();
             });
 
@@ -434,6 +475,8 @@
                 renderAll: renderAll,
                 // 지정 카드에 데이터 바인딩 후 렌더
                 renderCard: renderCard,
+                // 우측 패널 갱신(상세 조회 응답 가공해 넘김)
+                updateSide: updateSide,
                 // 테마 강제/토글
                 setTheme: setTheme,
                 toggleTheme: toggleTheme,
