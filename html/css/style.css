@@ -12043,8 +12043,22 @@ body.top-navigation .navbar-top-links li a {
 
 /* login-page */
 .loginscreen.middle-box {
-  width: 538px;
+  width: 500px;
+  max-width: 100%;
   padding-top: 12vh;
+}
+.loginscreen .login-title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.loginscreen .login-title > h2 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+.loginscreen .login-title > img {
+  width: 200px;
+  height: auto;
 }
 .loginscreen .logo-img {
   display: flex;
@@ -12068,8 +12082,8 @@ body.top-navigation .navbar-top-links li a {
 }
 .loginscreen .ibox .ibox-title h3 {
   margin: 0;
-  color: #343434;
-  font-size: 22px;
+  color: #5F5F5F;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.4;
 }
@@ -12077,6 +12091,7 @@ body.top-navigation .navbar-top-links li a {
   color: #494949;
   font-size: 32px;
   font-weight: 600;
+  letter-spacing: -1px;
 }
 .loginscreen .ibox .ibox-content {
   padding: 20px 40px 30px 40px;
