@@ -94,7 +94,7 @@
                 <div class="tmd-card" data-line="부산역 - 사하">
                   <div class="tmd-bookmark">
                     <button type="button" class="btn btn-bookmark">
-                      <i class="fa fa-heart" aria-hidden="true"></i><span class="sr-only">즐겨찾기</span>
+                      <i class="fa fa-heart-o" aria-hidden="true"></i><span class="sr-only">즐겨찾기</span>
                     </button>
                   </div>
                   <div class="tmd-route">
@@ -882,7 +882,7 @@
   <!-- Page scripts -->
   <script>
     // (옵션) Toastr 데모
-    $(function () { toastr.options = { positionClass: "toast-top-right", timeOut: 3000 }; toastr.error("Loaded"); });
+    $(function () { toastr.options = { positionClass: "toast-top-right", timeOut: 3000 }; toastr.error("에러형 토스트 예시"); });
   </script>
 
   <script>
@@ -1014,12 +1014,54 @@
         return { init:init, openAt:openAt, openByAnchor:openByAnchor, close:close };
       })();
 
+      // 즐겨찾기 토글 (아이콘: fa-heart-o ↔ fa-heart)
+      function bindBookmark(){
+        // Toastr 기본 옵션 (있을 때만)
+        if (window.toastr) {
+          toastr.options = $.extend({}, toastr.options, {
+            positionClass: "toast-top-right",
+            timeOut: 1200,
+            preventDuplicates: true
+          });
+        }
+
+        $(document).on('click', '.tmd-bookmark .btn-bookmark', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+
+          var $btn = $(this);
+          var $i   = $btn.find('i');
+          var added;
+
+          if ($i.hasClass('fa-heart')) {
+            // 해제: 채움 → 외곽
+            $i.removeClass('fa-heart').addClass('fa-heart-o');
+            $btn.attr('aria-pressed', 'false');
+            added = false;
+          } else {
+            // 설정: 외곽 → 채움
+            $i.removeClass('fa-heart-o').addClass('fa-heart');
+            $btn.attr('aria-pressed', 'true');
+            added = true;
+          }
+
+          // 토스트 알림
+          if (window.toastr) {
+            var msg = added ? '즐겨찾기가 추가되었습니다' : '즐겨찾기가 해제되었습니다';
+            toastr[added ? 'success' : 'info'](msg);
+          }
+        });
+      }
+
       /* =========================
         Init
       ========================= */
       $(function(){
         TMD.Theme.init('#tmd-theme-toggle');
         TMD.Popover.init();
+
+        // 북마크 토글
+        bindBookmark(); 
       });
 
     })(window, document, jQuery);
