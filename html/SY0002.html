@@ -89,385 +89,758 @@
 
         <div class="tmd-accordion accordion" id="tmd-acc-list">
             <div class="tmd-acc-item card">
-							<div class="tmd-acc-head card-header">
-									<div class="tmd-card" data-line="부산역 - 대티">
-											<div class="tmd-bookmark">
-													<button type="button" class="btn btn-link btn-bookmark">
-																	<i class="fa fa-heart" aria-hidden="true"></i><span class="sr-only">즐겨찾기</span>
-													</button>
-											</div>
-											<div class="tmd-route">
-													<div class="tmd-track">
-															<div class="tmd-grid"
-																	data-nodes='[
-																			{"label":"부산역","state":"unknown"},
-																			{"label":"중앙","state":"unknown"},
-																			{"label":"남포","state":"ok"},
-																			{"label":"자갈치","state":"ok"},
-																			{"label":"토성","state":"danger"},
-																			{"label":"동대신","state":"danger"},
-																			{"label":"서대신","state":"warn"},
-																			{"label":"대티","state":"warn"}
-																	]'>
-															</div>
-													</div>
-											</div>
-											<div class="tmd-utill">
-													<div class="tmd-status">위험</div>
-													<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#acc-body-1" aria-expanded="false" aria-controls="acc-body-1"><i class="fa fa-angle-down ml-1"></i></button>
-											</div>
-									</div>
-							</div>
+              <div class="tmd-acc-head card-header">
+                <div class="tmd-card" data-line="부산역 - 사하">
+                  <div class="tmd-bookmark">
+                    <button type="button" class="btn btn-bookmark">
+                      <i class="fa fa-heart" aria-hidden="true"></i><span class="sr-only">즐겨찾기</span>
+                    </button>
+                  </div>
+                  <div class="tmd-route">
+                    <div class="tmd-track">
+                      <div class="tmd-grid">
+                        <div class="tmd-row">
+                          <!--
+                          상태 구분: unknown|ok|warn|danger (미수신|정상|주의|위험)
+                          상태 적용: .tmd-dotbtn, .tmd-edge (클래스로 상태 표현)
+                          tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
+                          마지막 노드엔 (tmd-pair--last) 클래스 추가
+                          -->
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">부산역</span>
+                            </div>
+                            <div class="tmd-edge unknown" data-state="unknown" data-from="부산역" data-to="중앙" data-line="부산역 - 사하"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">중앙</span>
+                            </div>
+                            <div class="tmd-edge ok" data-state="ok" data-from="중앙" data-to="남포" data-line="부산역 - 사하"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">남포</span>
+                            </div>
+                            <div class="tmd-edge ok" data-state="ok" data-from="남포" data-to="자갈치" data-line="부산역 - 사하"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">자갈치</span>
+                            </div>
+                            <div class="tmd-edge danger" data-state="danger" data-from="자갈치" data-to="토성" data-line="부산역 - 사하"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">토성</span>
+                            </div>
+                            <div class="tmd-edge danger" data-state="danger" data-from="토성" data-to="동대신" data-line="부산역 - 사하"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">동대신</span>
+                            </div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="동대신" data-to="서대신" data-line="부산역 - 사하"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">서대신</span>
+                            </div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="서대신" data-to="대티" data-line="부산역 - 사하"></div>
+                          </div>
 
-							<div id="acc-body-1" class="tmd-acc-body collapse" data-parent="#tmd-acc-list">
-								<div class="tmd-acc-panel card-body">
-									<div class="tmd-sgrid">
-										<!-- 상태 카드 1 : danger -->
-										<div class="tmd-scard danger">
-											<div class="tmd-scard__head">
-												<h4 class="tmd-scard__title">남포</h4>
-												<span class="tmd-scard__badge"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
-											</div>
-											<p class="tmd-scard__route">부산역 → 사하 구간</p>
-											<dl class="tmd-scard__meta">
-												<div><dt>Device ID</dt><dd>DEV-421</dd></div>
-												<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-											</dl>
-										</div>
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">대티</span>
+                            </div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="대티" data-to="사하" data-line="부산역 - 사하"></div>
+                          </div>
 
-										<!-- 상태 카드 2 : warn -->
-										<div class="tmd-scard warn">
-											<div class="tmd-scard__head">
-												<h4 class="tmd-scard__title">대티</h4>
-												<span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
-											</div>
-											<p class="tmd-scard__route">부산역 → 사하 구간</p>
-											<dl class="tmd-scard__meta">
-												<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-												<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-											</dl>
-										</div>
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">괴정</span>
+                            </div>
+                            <div class="tmd-edge ok" data-state="ok" data-from="괴정" data-to="사하" data-line="부산역 - 사하"></div>
+                          </div>
+                  
+                          <!-- 마지막 노드엔 (tmd-pair--last) 클래스 추가 및 tmd-edge 미존재 -->
+                          <div class="tmd-pair tmd-pair--last">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">사하</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-										<div class="tmd-scard warn">
-											<div class="tmd-scard__head">
-												<h4 class="tmd-scard__title">대티</h4>
-												<span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
-											</div>
-											<p class="tmd-scard__route">부산역 → 사하 구간</p>
-											<dl class="tmd-scard__meta">
-												<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-												<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-											</dl>
-										</div>
+                  <div class="tmd-utill">
+                    <div class="tmd-status">위험</div>
+                    <button type="button" class="btn btn-acco" data-toggle="collapse" data-target="#acc-body-1" aria-expanded="false" aria-controls="acc-body-1">
+                      <i class="fa fa-angle-down ml-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-										<div class="tmd-scard warn">
-											<div class="tmd-scard__head">
-												<h4 class="tmd-scard__title">대티</h4>
-												<span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
-											</div>
-											<p class="tmd-scard__route">부산역 → 사하 구간</p>
-											<dl class="tmd-scard__meta">
-												<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-												<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-											</dl>
-										</div>
+              <div id="acc-body-1" class="tmd-acc-body collapse" data-parent="#tmd-acc-list">
+                <div class="tmd-acc-panel card-body">
+                  <div class="tmd-sgrid">
+                    <!-- 상태 카드 1 : danger -->
+                    <div class="tmd-scard danger">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">남포</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-421</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-										<!-- 상태 카드 3 : ok -->
-										<div class="tmd-scard ok">
-											<div class="tmd-scard__head">
-												<h4 class="tmd-scard__title">토성</h4>
-												<span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
-											</div>
-											<p class="tmd-scard__route">부산역 → 사하 구간</p>
-											<dl class="tmd-scard__meta">
-												<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-												<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-											</dl>
-										</div>
+                    <!-- 상태 카드 2 : warn -->
+                    <div class="tmd-scard warn">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">대티</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-										<div class="tmd-scard ok">
-											<div class="tmd-scard__head">
-												<h4 class="tmd-scard__title">자갈치</h4>
-												<span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
-											</div>
-											<p class="tmd-scard__route">부산역 → 사하 구간</p>
-											<dl class="tmd-scard__meta">
-												<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-												<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-											</dl>
-										</div>
+                    <div class="tmd-scard warn">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">대티</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-										<!-- 상태 카드 4 : unknown -->
-										<div class="tmd-scard unknown">
-											<div class="tmd-scard__head">
-												<h4 class="tmd-scard__title">중앙</h4>
-												<span class="tmd-scard__badge"><i class="fa fa-times" aria-hidden="true"></i></span>
-											</div>
-											<p class="tmd-scard__route">부산역 → 사하 구간</p>
-											<dl class="tmd-scard__meta">
-												<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-												<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-											</dl>
-										</div>
-									</div>
-								</div>
-							</div>
+                    <div class="tmd-scard warn">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">대티</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
+
+                    <!-- 상태 카드 3 : ok -->
+                    <div class="tmd-scard ok">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">토성</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
+
+                    <div class="tmd-scard ok">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">자갈치</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
+
+                    <!-- 상태 카드 4 : unknown -->
+                    <div class="tmd-scard unknown">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">중앙</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-times" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="tmd-acc-item card">
-                <div class="tmd-acc-head card-header">
-                    <div class="tmd-card" data-line="부산역 - 사하">
-                        <div class="tmd-bookmark">
-                            <button type="button" class="btn btn-link btn-bookmark">
-															<i class="fa fa-heart-o" aria-hidden="true"></i><span class="sr-only">즐겨찾기</span>
-                            </button>
-                        </div>
-                        <div class="tmd-route">
-                            <div class="tmd-track">
-                                <div class="tmd-grid"
-                                    data-nodes='[
-                                        {"label":"부산역","state":"unknown"},
-                                        {"label":"중앙","state":"warn"},
-                                        {"label":"남포","state":"warn"},
-                                        {"label":"자갈치","state":"ok"},
-                                        {"label":"토성","state":"danger"},
-                                        {"label":"동대신","state":"danger"},
-                                        {"label":"서대신","state":"ok"},
-                                        {"label":"대티","state":"danger"},
-                                        {"label":"괴정","state":"danger"},
-                                        {"label":"사하","state":"warn"}
-                                    ]'>
-                                </div>
+              <div class="tmd-acc-head card-header">
+                <div class="tmd-card" data-line="부산역 - 대티">
+                  <div class="tmd-bookmark">
+                    <button type="button" class="btn btn-bookmark">
+                      <i class="fa fa-heart" aria-hidden="true"></i><span class="sr-only">즐겨찾기</span>
+                    </button>
+                  </div>
+                  <div class="tmd-route">
+                    <div class="tmd-track">
+                      <div class="tmd-grid">
+                        <div class="tmd-row">
+                          <!--
+                          상태 구분: unknown|ok|warn|danger (미수신|정상|주의|위험)
+                          상태 적용: .tmd-dotbtn, .tmd-edge (클래스로 상태 표현)
+                          tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
+                          마지막 노드엔 (tmd-pair--last) 클래스 추가
+                          -->
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">부산역</span>
                             </div>
+                            <div class="tmd-edge danger" data-state="danger" data-from="부산역" data-to="중앙" data-line="부산역 - 대티"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">중앙</span>
+                            </div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="중앙" data-to="남포" data-line="부산역 - 대티"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">남포</span>
+                            </div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="남포" data-to="자갈치" data-line="부산역 - 대티"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">자갈치</span>
+                            </div>
+                            <div class="tmd-edge danger" data-state="danger" data-from="자갈치" data-to="토성" data-line="부산역 - 대티"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">토성</span>
+                            </div>
+                            <div class="tmd-edge danger" data-state="danger" data-from="토성" data-to="동대신" data-line="부산역 - 대티"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">동대신</span>
+                            </div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="동대신" data-to="서대신" data-line="부산역 - 대티"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">서대신</span>
+                            </div>
+                            <div class="tmd-edge unknown" data-state="unknown" data-from="서대신" data-to="대티" data-line="부산역 - 대티"></div>
+                          </div>
+
+                          <!-- 마지막 노드엔 (tmd-pair--last) 클래스 추가 및 tmd-edge 미존재 -->
+                          <div class="tmd-pair tmd-pair--last">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">대티</span>
+                            </div>
+                          </div>
                         </div>
-                        <div class="tmd-utill">
-                            <div class="tmd-status">위험</div>
-                            <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#acc-body-2" aria-expanded="false" aria-controls="acc-body-2"><i class="fa fa-angle-down ml-1"></i></button>
-                        </div>
+                      </div>
                     </div>
+                  </div>
+
+                  <div class="tmd-utill">
+                    <div class="tmd-status">위험</div>
+                    <button type="button" class="btn btn-acco" data-toggle="collapse" data-target="#acc-body-2" aria-expanded="false" aria-controls="acc-body-2">
+                      <i class="fa fa-angle-down ml-1"></i>
+                    </button>
+                  </div>
                 </div>
+              </div>
 
-                <div id="acc-body-2" class="tmd-acc-body collapse show" data-parent="#tmd-acc-list">
-									<div class="tmd-acc-panel card-body">
-										<div class="tmd-sgrid">
-											<!-- 상태 카드 1 : danger -->
-											<div class="tmd-scard danger">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">남포</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-421</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
+              <div id="acc-body-2" class="tmd-acc-body collapse show" data-parent="#tmd-acc-list">
+                <div class="tmd-acc-panel card-body">
+                  <div class="tmd-sgrid">
+                    <!-- 상태 카드 1 : danger -->
+                    <div class="tmd-scard danger">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">남포</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 대티 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-421</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-											<!-- 상태 카드 2 : warn -->
-											<div class="tmd-scard warn">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">대티</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
+                    <!-- 상태 카드 2 : warn -->
+                    <div class="tmd-scard warn">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">대티</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 대티 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-											<div class="tmd-scard warn">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">대티</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
+                    <div class="tmd-scard warn">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">대티</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 대티 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-											<div class="tmd-scard warn">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">대티</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
+                    <div class="tmd-scard warn">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">대티</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 대티 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-											<!-- 상태 카드 3 : ok -->
-											<div class="tmd-scard ok">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">토성</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
+                    <!-- 상태 카드 3 : ok -->
+                    <div class="tmd-scard ok">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">토성</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 대티 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-											<div class="tmd-scard ok">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">자갈치</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
+                    <div class="tmd-scard ok">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">자갈치</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 대티 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-											<!-- 상태 카드 4 : unknown -->
-											<div class="tmd-scard unknown">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">중앙</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-times" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
-										</div>
-									</div>
+                    <!-- 상태 카드 4 : unknown -->
+                    <div class="tmd-scard unknown">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">중앙</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-times" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 대티 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
 
-						<div class="tmd-acc-item card">
-                <div class="tmd-acc-head card-header">
-                    <div class="tmd-card" data-line="부산역 - 사하">
-                        <div class="tmd-bookmark">
-                            <button type="button" class="btn btn-link btn-bookmark">
-															<i class="fa fa-heart-o" aria-hidden="true"></i><span class="sr-only">즐겨찾기</span>
-                            </button>
-                        </div>
-                        <div class="tmd-route">
-                            <div class="tmd-track">
-                                <div class="tmd-grid"
-                                    data-nodes='[
-                                        {"label":"부산역","state":"unknown"},
-                                        {"label":"중앙","state":"unknown"},
-                                        {"label":"남포","state":"ok"},
-                                        {"label":"자갈치","state":"ok"},
-                                        {"label":"토성","state":"unknown"},
-                                        {"label":"동대신","state":"ok"},
-                                        {"label":"서대신","state":"ok"},
-                                        {"label":"대티","state":"warn"},
-                                        {"label":"괴정","state":"warn"},
-                                        {"label":"사하","state":"warn"}
-                                    ]'>
-                                </div>
+            <div class="tmd-acc-item card">
+              <div class="tmd-acc-head card-header">
+                <div class="tmd-card" data-line="부산역 - 괴정">
+                  <div class="tmd-bookmark">
+                    <button type="button" class="btn btn-bookmark">
+                      <i class="fa fa-heart" aria-hidden="true"></i><span class="sr-only">즐겨찾기</span>
+                    </button>
+                  </div>
+                  <div class="tmd-route">
+                    <div class="tmd-track">
+                      <div class="tmd-grid">
+                        <div class="tmd-row">
+                          <!--
+                          상태 구분: unknown|ok|warn|danger (미수신|정상|주의|위험)
+                          상태 적용: .tmd-dotbtn, .tmd-edge (클래스로 상태 표현)
+                          tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
+                          마지막 노드엔 (tmd-pair--last) 클래스 추가
+                          -->
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">부산역</span>
                             </div>
+                            <div class="tmd-edge ok" data-state="ok" data-from="부산역" data-to="중앙" data-line="부산역 - 괴정"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">중앙</span>
+                            </div>
+                            <div class="tmd-edge ok" data-state="ok" data-from="중앙" data-to="남포" data-line="부산역 - 괴정"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">남포</span>
+                            </div>
+                            <div class="tmd-edge ok" data-state="ok" data-from="남포" data-to="자갈치" data-line="부산역 - 괴정"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">자갈치</span>
+                            </div>
+                            <div class="tmd-edge unknown" data-state="unknown" data-from="자갈치" data-to="토성" data-line="부산역 - 괴정"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">토성</span>
+                            </div>
+                            <div class="tmd-edge unknown" data-state="unknown" data-from="토성" data-to="동대신" data-line="부산역 - 괴정"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">동대신</span>
+                            </div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="동대신" data-to="서대신" data-line="부산역 - 괴정"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">서대신</span>
+                            </div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="서대신" data-to="대티" data-line="부산역 - 괴정"></div>
+                          </div>
+
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">대티</span>
+                            </div>
+                            <div class="tmd-edge ok" data-state="ok" data-from="대티" data-to="괴정" data-line="부산역 - 괴정"></div>
+                          </div>
+                  
+                          <!-- 마지막 노드엔 (tmd-pair--last) 클래스 추가 및 tmd-edge 미존재 -->
+                          <div class="tmd-pair tmd-pair--last">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">괴정</span>
+                            </div>
+                          </div>
                         </div>
-                        <div class="tmd-utill">
-                            <div class="tmd-status"></div>
-                            <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#acc-body-3" aria-expanded="false" aria-controls="acc-body-3"><i class="fa fa-angle-down ml-1"></i></button>
-                        </div>
+                      </div>
                     </div>
+                  </div>
+
+                  <div class="tmd-utill">
+                    <div class="tmd-status"></div>
+                    <button type="button" class="btn btn-acco" data-toggle="collapse" data-target="#acc-body-3" aria-expanded="false" aria-controls="acc-body-3">
+                      <i class="fa fa-angle-down ml-1"></i>
+                    </button>
+                  </div>
                 </div>
+              </div>
 
-                <div id="acc-body-3" class="tmd-acc-body collapse" data-parent="#tmd-acc-list">
-									<div class="tmd-acc-panel card-body">
-										<div class="tmd-sgrid">
-											<!-- 상태 카드 1 : danger -->
-											<div class="tmd-scard danger">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">남포</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-421</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
+              <div id="acc-body-3" class="tmd-acc-body collapse" data-parent="#tmd-acc-list">
+                <div class="tmd-acc-panel card-body">
+                  <div class="tmd-sgrid">
+                    <!-- 상태 카드 1 : danger -->
+                    <div class="tmd-scard danger">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">남포</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 괴정 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-421</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-											<!-- 상태 카드 2 : warn -->
-											<div class="tmd-scard warn">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">대티</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
+                    <!-- 상태 카드 2 : warn -->
+                    <div class="tmd-scard warn">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">대티</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 괴정 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-											<div class="tmd-scard warn">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">대티</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
+                    <div class="tmd-scard warn">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">대티</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 괴정 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-											<div class="tmd-scard warn">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">대티</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
+                    <div class="tmd-scard warn">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">대티</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 괴정 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-											<!-- 상태 카드 3 : ok -->
-											<div class="tmd-scard ok">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">토성</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
+                    <!-- 상태 카드 3 : ok -->
+                    <div class="tmd-scard ok">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">토성</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 괴정 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-											<div class="tmd-scard ok">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">자갈치</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
+                    <div class="tmd-scard ok">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">자갈치</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 괴정 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
 
-											<!-- 상태 카드 4 : unknown -->
-											<div class="tmd-scard unknown">
-												<div class="tmd-scard__head">
-													<h4 class="tmd-scard__title">중앙</h4>
-													<span class="tmd-scard__badge"><i class="fa fa-times" aria-hidden="true"></i></span>
-												</div>
-												<p class="tmd-scard__route">부산역 → 사하 구간</p>
-												<dl class="tmd-scard__meta">
-													<div><dt>Device ID</dt><dd>DEV-422</dd></div>
-													<div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
-												</dl>
-											</div>
-										</div>
-									</div>
+                    <!-- 상태 카드 4 : unknown -->
+                    <div class="tmd-scard unknown">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">중앙</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-times" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 괴정 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
+                  </div>
                 </div>
+              </div>
+            </div>
+
+            <div class="tmd-acc-item card">
+              <div class="tmd-acc-head card-header">
+                <div class="tmd-card" data-line="부산역 - 동대신">
+                  <div class="tmd-bookmark">
+                    <button type="button" class="btn btn-bookmark">
+                      <i class="fa fa-heart" aria-hidden="true"></i><span class="sr-only">즐겨찾기</span>
+                    </button>
+                  </div>
+                  <div class="tmd-route">
+                    <div class="tmd-track">
+                      <div class="tmd-grid">
+                        <div class="tmd-row">
+                          <!--
+                          상태 구분: unknown|ok|warn|danger (미수신|정상|주의|위험)
+                          상태 적용: .tmd-dotbtn, .tmd-edge (클래스로 상태 표현)
+                          tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
+                          마지막 노드엔 (tmd-pair--last) 클래스 추가
+                          -->
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">부산역</span>
+                            </div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="부산역" data-to="중앙" data-line="부산역 - 동대신"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">중앙</span>
+                            </div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="중앙" data-to="남포" data-line="부산역 - 동대신"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">남포</span>
+                            </div>
+                            <div class="tmd-edge ok" data-state="ok" data-from="남포" data-to="자갈치" data-line="부산역 - 동대신"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">자갈치</span>
+                            </div>
+                            <div class="tmd-edge unknown" data-state="unknown" data-from="자갈치" data-to="토성" data-line="부산역 - 동대신"></div>
+                          </div>
+                  
+                          <div class="tmd-pair">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">토성</span>
+                            </div>
+                            <div class="tmd-edge ok" data-state="ok" data-from="토성" data-to="동대신" data-line="부산역 - 동대신"></div>
+                          </div>
+                  
+                          <!-- 마지막 노드엔 (tmd-pair--last) 클래스 추가 및 tmd-edge 미존재 -->
+                          <div class="tmd-pair tmd-pair--last">
+                            <div class="tmd-node">
+                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                              <span class="tmd-nlabel">동대신</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tmd-utill">
+                    <div class="tmd-status"></div>
+                    <button type="button" class="btn btn-acco" data-toggle="collapse" data-target="#acc-body-4" aria-expanded="false" aria-controls="acc-body-4">
+                      <i class="fa fa-angle-down ml-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div id="acc-body-4" class="tmd-acc-body collapse" data-parent="#tmd-acc-list">
+                <div class="tmd-acc-panel card-body">
+                  <div class="tmd-sgrid">
+                    <!-- 상태 카드 1 : danger -->
+                    <div class="tmd-scard danger">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">남포</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 동대신 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-421</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
+
+                    <!-- 상태 카드 2 : warn -->
+                    <div class="tmd-scard warn">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">대티</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 동대신 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
+
+                    <div class="tmd-scard warn">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">대티</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 동대신 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
+
+                    <div class="tmd-scard warn">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">대티</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 동대신 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
+
+                    <!-- 상태 카드 3 : ok -->
+                    <div class="tmd-scard ok">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">토성</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 동대신 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
+
+                    <div class="tmd-scard ok">
+                      <div class="tmd-scard__head">
+                        <h4 class="tmd-scard__title">자갈치</h4>
+                        <span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
+                      </div>
+                      <p class="tmd-scard__route">부산역 → 동대신 구간</p>
+                      <dl class="tmd-scard__meta">
+                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
+                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
       </div> 
@@ -507,308 +880,135 @@
 
   <!-- Page scripts -->
   <script>
-    // Toastr demo
-    $(function () {
-      toastr.options = { positionClass: "toast-top-right", timeOut: 3000 };
-      toastr.error("Loaded");
-    });
+    // (옵션) Toastr 데모
+    $(function () { toastr.options = { positionClass: "toast-top-right", timeOut: 3000 }; toastr.error("Loaded"); });
   </script>
 
-  <!--
-  - data-nodes에 샘플 JSON만 넣었습니다.
-  - 실제 개발 시 data-nodes JSON을 실데이터로 교체
-  - JSON 포맷: [{ "label": "구간명", "state": "ok|warn|danger|unknown" }]
-  -->
-	<script>
-		(function (win, doc, $) {
-			/* ====== 상수/셀렉터 ====== */
-			var SEL = { card: '.tmd-card', grid: '.tmd-grid', popover: '#tmd-popover' };
-			var RANK = { unknown: 0, ok: 1, warn: 2, danger: 3 };
-			var NODE_W = 88, EDGE_MIN = 36, GAP_X = 10;
-			var THEME_KEY = 'tmd-theme';
+  <!-- Theme toggle -->
+  <script>
+  (function (win, doc) {
+    var KEY = 'tmd-theme';
+    function setTheme(t){
+      doc.body.setAttribute('data-theme', t);
+      try{ localStorage.setItem(KEY, t); }catch(e){}
+      var btn = doc.getElementById('tmd-theme-toggle');
+      if(!btn) return;
+      var isDark = (t==='dark');
+      btn.setAttribute('aria-pressed', String(isDark));
+      var icon = btn.querySelector('i');
+      if(icon) icon.className = isDark ? 'fa fa-sun-o' : 'fa fa-moon-o';
+    }
+    function loadTheme(){
+      var t=null; try{ t = localStorage.getItem(KEY); }catch(e){}
+      if(!t) t = doc.body.getAttribute('data-theme') || 'light';
+      setTheme(t);
+    }
+    function toggleTheme(){
+      var cur = doc.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      setTheme(cur === 'dark' ? 'light' : 'dark');
+    }
+    doc.addEventListener('DOMContentLoaded', function(){
+      loadTheme();
+      var btn = doc.getElementById('tmd-theme-toggle');
+      if(btn) btn.addEventListener('click', toggleTheme);
+    });
+  })(window, document);
+  </script>
 
-			/* ====== 전역 옵션 ======
-					EDGE_MODE:
-					- 'worst'      : 엣지 = (왼쪽 노드, 오른쪽 노드) 중 위험도가 더 높은 쪽
-					- 'bind-right' : 엣지 = 오른쪽(다음) 노드 상태 (노드+다음 구간을 한 묶음으로 표현)
-					- 'bind-left'  : 엣지 = 왼쪽(이전) 노드 상태
-			*/
-			var EDGE_MODE = 'bind-right';
+  <script>
+    /*
+    상태 구분: unknown|ok|warn|danger (미수신|정상|주의|위험)
+    .tmd-dotbtn / .tmd-edge의 상태 클래스가 단일 근거(SSOT)
+    .tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
+    */
+    (function (win, doc, $) {
+      /* refs/state */
+      var $pop = $('#tmd-popover'), $sheet = $pop.find('.tmd-sheet');
+      var lockMode = false;          // 노드 클릭 고정 여부
+      var anchorEl = null;           // 고정 앵커(노드 버튼)
+      var anchorPayload = null;      // 고정 팝오버 데이터
 
-			var $pop = $(SEL.popover), $sheet = $pop.find('.tmd-sheet');
-			var lockMode = false;
+      /* utils */
+      function labelOf(s) { return s === 'ok' ? '정상' : s === 'warn' ? '주의' : s === 'danger' ? '위험' : '미수신'; }
+      function stateFromClass(el) {
+        if (!el) return 'unknown';
+        var c = el.classList;
+        if (c.contains('danger')) return 'danger';
+        if (c.contains('warn')) return 'warn';
+        if (c.contains('ok')) return 'ok';
+        return 'unknown';
+      }
+      function getEdgePayload($edge) {
+        var edgeEl = $edge[0], $card = $edge.closest('.tmd-card');
+        return {
+          line: $edge.data('line') || ($card.length ? $card.data('line') : '-') || '-',
+          from: $edge.data('from') || '-',
+          to: $edge.data('to') || '-',
+          state: $edge.data('state') || stateFromClass(edgeEl)
+        };
+      }
 
-			/* ---------- util: 상태 우선순위 비교 후 더 위험한 상태를 반환 ---------- */
-			function worst(a, b) { a = a || 'unknown'; b = b || 'unknown'; return (RANK[a] >= RANK[b]) ? a : b; }
+      /* popover ui */
+      function fill(data) {
+        $('#tmd-p-line').text(data.line || '-');
+        $('#tmd-p-seg').text(data.segment || (data.from ? (data.from + ' → ' + data.to) : '-'));
+        $('#tmd-p-state').text(labelOf(data.state));
+        $('#tmd-p-last').text(data.last || new Date().toLocaleString());
+        // 데모 고정값(실데이터 연동 시 교체)
+        $('#tmd-p-id').text('S-0001'); $('#tmd-p-nick').text('센서A');
+        $('#tmd-p-device').text('DEV-42'); $('#tmd-p-type').text('Spring');
+      }
+      function openAt(x, y, payload) {
+        fill(payload);
+        $pop.prop('hidden', false);
+        $sheet.css({ top: Math.max(12, y + 10), left: Math.min(win.innerWidth - 300, x + 12) });
+      }
+      function openByAnchor(anchor, payload) {
+        fill(payload);
+        var r = anchor.getBoundingClientRect();
+        $pop.prop('hidden', false);
+        $sheet.css({ top: Math.max(12, r.top - 6), left: Math.min(win.innerWidth - 300, r.left + r.width + 10) });
+      }
+      function saveAnchor(anchor, payload) { anchorEl = anchor; anchorPayload = payload; lockMode = true; }
+      function restoreAnchor() { if (lockMode && anchorEl) openByAnchor(anchorEl, anchorPayload); }
+      function closePop() { lockMode = false; anchorEl = null; anchorPayload = null; $pop.prop('hidden', true); }
 
-			/* ---------- util: 상태코드를 한글 레이블로 변환 ---------- */
-			function labelOf(s) { return s === 'ok' ? '정상' : s === 'warn' ? '주의' : s === 'danger' ? '위험' : '미수신'; }
+      /* edges: hover preview (고정모드에서도 허용), leave 시 앵커 복귀 */
+      $(doc)
+        .on('mouseenter', '.tmd-edge', function (e) {
+          openAt(e.clientX, e.clientY, getEdgePayload($(this)));
+        })
+        .on('mousemove', '.tmd-edge', function (e) {
+          if ($pop.prop('hidden')) return;
+          $sheet.css({ top: e.clientY + 10, left: Math.min(win.innerWidth - 300, e.clientX + 12) });
+        })
+        .on('mouseleave', '.tmd-edge', function () {
+          if (lockMode) restoreAnchor(); else $pop.prop('hidden', true);
+        })
+        .on('click', '.tmd-edge', function (e) {
+          // 클릭도 미리보기로 동작(앵커는 유지)
+          openAt(e.clientX, e.clientY, getEdgePayload($(this)));
+        });
 
-			/* ---------- theme: 강제 테마 적용(localStorage 반영 포함) ---------- */
-			function setTheme(theme) {
-					$('body').attr('data-theme', theme);
-					try { win.localStorage.setItem(THEME_KEY, theme); } catch (e) {}
-					var $btn = $('#tmd-theme-toggle');
-					if ($btn.length) {
-					var isDark = theme === 'dark';
-					$btn.attr('aria-pressed', String(isDark));
-					$btn.find('i').attr('class', isDark ? 'fa fa-sun-o' : 'fa fa-moon-o');
-					}
-			}
+      /* nodes: click → 고정모드 진입(앵커 저장), hover는 계속 동작 */
+      $(doc).on('click', '.tmd-node', function () {
+        var $node = $(this), $btn = $node.find('.tmd-dotbtn');
+        var seg = $node.find('.tmd-nlabel').text().trim();
+        var line = $node.closest('.tmd-card').data('line') || '-';
+        var state = ($btn.attr('class').match(/\b(ok|warn|danger|unknown)\b/) || [])[1] || 'unknown';
+        var payload = { line: line, segment: seg, state: state, last: new Date().toLocaleString() };
+        saveAnchor($btn[0] || this, payload);
+        openByAnchor(anchorEl, anchorPayload);
+      });
 
-			/* ---------- theme: 저장된/초기 테마를 로드하여 적용 ---------- */
-			function loadTheme() {
-					var t = null; try { t = win.localStorage.getItem(THEME_KEY); } catch (e) {}
-					if (!t) t = $('body').attr('data-theme') || 'light';
-					setTheme(t);
-			}
+      /* close: X / ESC / 바깥클릭 */
+      $('#tmd-p-close').on('click', closePop);
+      $(doc).on('keydown', function (e) { if (e.key === 'Escape') closePop(); });
+      $(doc).on('mousedown', function (e) {
+        if (!$pop.prop('hidden') && !$sheet[0].contains(e.target)) closePop();
+      });
 
-			/* ---------- theme: 현재 테마(light/dark) 토글 ---------- */
-			function toggleTheme() {
-					var cur = $('body').attr('data-theme') === 'dark' ? 'dark' : 'light';
-					setTheme(cur === 'dark' ? 'light' : 'dark');
-			}
-
-			/* ---------- popover: 팝오버 표시에 필요한 필드 채움 ---------- */
-			function fillPopover(data) {
-					if (!$pop.length) return;
-					$('#tmd-p-line').text(data.line || '-');
-					$('#tmd-p-seg').text(data.segment || (data.from ? (data.from + ' → ' + data.to) : '-'));
-					$('#tmd-p-state').text(labelOf(data.state));
-					$('#tmd-p-last').text(data.last || new Date().toLocaleString());
-					var s = data.sensor || sampleSensor();
-					$('#tmd-p-id').text(s.id); $('#tmd-p-nick').text(s.nickname);
-					$('#tmd-p-device').text(s.deviceId); $('#tmd-p-type').text(s.tensionType);
-			}
-
-			/* ---------- popover: 특정 좌표(x,y)에 팝오버 표시 ---------- */
-			function openPopoverAt(x, y, data) {
-					fillPopover(data); $pop.prop('hidden', false);
-					var left = Math.min(win.innerWidth - 300, x + 12);
-					$sheet.css({ top: Math.max(12, y + 10), left: left });
-			}
-
-			/* ---------- popover: 앵커 엘리먼트 기준으로 팝오버 표시(고정 모드) ---------- */
-			function openPopoverByAnchor(anchor, data) {
-					fillPopover(data);
-					var r = anchor.getBoundingClientRect();
-					$pop.prop('hidden', false);
-					var left = Math.min(win.innerWidth - 300, r.left + r.width + 10);
-					$sheet.css({ top: Math.max(12, r.top - 6), left: left });
-			}
-
-			/* ---------- popover: 팝오버를 닫고 고정 모드 해제 ---------- */
-			function closePopover() { lockMode = false; $pop.prop('hidden', true); }
-
-			/* ---------- sample: 샘플 센서(데모/초기값) ---------- */
-			function sampleSensor() {
-					return {
-					id: 'S-0001', nickname: '센서A', deviceId: 'DEV-42', tensionType: 'Spring',
-					s: 12, l: 34, c: 5, ni: 3, tempMin: -10, tempMax: 60, dispMin: 0.1, dispMax: 1.5,
-					nodeVoltUpper: 4.2, gateVoltUpper: 12, latestCnt: 128, outOfRangeCnt: 2
-					};
-			}
-
-			/* ---------- grid: .tmd-grid에서 노드 정의를 읽어 JSON 배열로 반환 ---------- */
-			function readNodes($grid) {
-					var nodes = [], raw = $grid.attr('data-nodes');
-					if (raw) { try { nodes = JSON.parse(raw); } catch (e) {} }
-					if (!nodes.length) {
-					var $s = $grid.children('script.tmd-nodes[type="application/json"]');
-					if ($s.length) { try { nodes = JSON.parse($.trim($s.text())); } catch (e) {} }
-					}
-					if (!nodes.length) {
-					nodes = [
-							{ label: '구간A', state: 'ok' }, { label: '구간B', state: 'warn' },
-							{ label: '구간C', state: 'ok' }, { label: '도착', state: 'unknown' }
-					];
-					}
-					return nodes.slice(0, 20);
-			}
-
-			/* ---------- edge: 엣지(구간 선) 상태 계산 ---------- */
-			function edgeState(leftState, rightState) {
-					leftState = leftState || 'unknown';
-					rightState = rightState || 'unknown';
-					if (EDGE_MODE === 'bind-right') return rightState;           // 다음 노드 기준(노드+다음 구간 한 묶음)
-					if (EDGE_MODE === 'bind-left')  return leftState;            // 이전 노드 기준
-					return worst(leftState, rightState);                         // 기본: 더 위험한 쪽
-			}
-
-			/* ---------- grid: 주어진 노드로 그리드를 구성(최대 2행 균등 분배) ---------- */
-			function buildWrappedGrid($grid, nodes, line) {
-					$grid.empty();
-					var total = nodes.length; if (!total) return;
-
-					// 부모 가용폭 추정 → 행당 최대 노드 수 계산
-					var parent = $grid.parent()[0];
-					var avail = parent ? parent.clientWidth : $grid.width();
-					var unit = NODE_W + EDGE_MIN + GAP_X;
-					var maxPerRow = Math.floor((avail + GAP_X) / unit);
-					if (maxPerRow < 3) maxPerRow = 3;
-					if (maxPerRow > 12) maxPerRow = 12;
-
-					var rows = Math.max(1, Math.ceil(total / maxPerRow));
-					if (rows > 2) rows = 2;
-
-					var base = Math.floor(total / rows);
-					var rem = total % rows;
-					var idx = 0;
-
-					for (var r = 0; r < rows; r++) {
-					var count = base + (r < rem ? 1 : 0);
-					var rowNodes = nodes.slice(idx, idx + count);
-					idx += count;
-
-					var $row = $('<div/>', { 'class': 'tmd-row' });
-
-					for (var j = 0; j < rowNodes.length; j++) {
-							var n = rowNodes[j];
-
-							// --- node dom ---
-							var $wrap = $('<div/>', { 'class': 'tmd-node' });
-							var $btn = $('<button/>', {
-							'class': 'tmd-dotbtn ' + (n.state || 'unknown'),
-							'type': 'button',
-							'aria-pressed': 'false'
-							}).data('label', n.label).data('state', n.state || 'unknown');
-
-							$wrap.append($btn).append($('<span/>', { 'class': 'tmd-nlabel', text: n.label }));
-							$row.append($wrap);
-
-							// --- edge dom (같은 행 내에서만 연결) ---
-							if (j < rowNodes.length - 1) {
-							var st = edgeState(n.state, rowNodes[j + 1].state);
-							var $edge = $('<div/>', { 'class': 'tmd-edge ' + st })
-									.data('state', st).data('from', n.label).data('to', rowNodes[j + 1].label).data('line', line);
-
-							// 엣지 인터랙션(툴팁/로그용 이벤트 훅)
-							$edge.on('mouseenter', function (e) {
-									if (lockMode) return;
-									var $t = $(this);
-									openPopoverAt(e.clientX, e.clientY, {
-									line: $t.data('line'),
-									from: $t.data('from'),
-									to: $t.data('to'),
-									state: $t.data('state')
-									});
-									$(doc).trigger('tmd:edge.enter', [{
-									line: $t.data('line'), from: $t.data('from'), to: $t.data('to'),
-									state: $t.data('state'), ts: Date.now()
-									}]);
-							}).on('mousemove', function (e) {
-									if (lockMode || $pop.prop('hidden')) return;
-									var left = Math.min(win.innerWidth - 300, e.clientX + 12);
-									$sheet.css({ top: (e.clientY + 10), left: left });
-							}).on('mouseleave', function () {
-									if (!lockMode) $pop.prop('hidden', true);
-									var $t = $(this);
-									$(doc).trigger('tmd:edge.leave', [{
-									line: $t.data('line'), from: $t.data('from'), to: $t.data('to'),
-									state: $t.data('state'), ts: Date.now()
-									}]);
-							}).on('click', function (e) {
-									if (lockMode) return;
-									var $t = $(this);
-									openPopoverAt(e.clientX, e.clientY, {
-									line: $t.data('line'),
-									from: $t.data('from'),
-									to: $t.data('to'),
-									state: $t.data('state')
-									});
-									$(doc).trigger('tmd:edge.click', [{
-									line: $t.data('line'), from: $t.data('from'), to: $t.data('to'),
-									state: $t.data('state'), ts: Date.now()
-									}]);
-							});
-
-							$row.append($edge);
-							}
-
-							// --- node click → 고정 팝오버 ---
-							(function ($wrapRef, $btnRef, label) {
-							$wrapRef.on('click', function () {
-									var state = $btnRef.data('state');
-									var now = new Date().toLocaleString();
-									lockMode = true;
-									openPopoverByAnchor($btnRef[0], {
-									line: line, segment: label, state: state, last: now, sensor: sampleSensor()
-									});
-							});
-							})($wrap, $btn, n.label);
-					}
-
-					$grid.append($row);
-					}
-			}
-
-			/* ---------- card: 단일 카드 초기화 및 리사이즈 대응 ---------- */
-			function mountCard($card) {
-					var line = $card.attr('data-line') || '-';
-					var $grid = $card.find(SEL.grid); if (!$grid.length) return;
-
-					var nodes = readNodes($grid);
-					function rebuild() { buildWrappedGrid($grid, nodes, line); }
-					rebuild();
-
-					var timer = null;
-					$(win).on('resize.tmd', function () {
-					clearTimeout(timer);
-					timer = setTimeout(rebuild, 120);
-					});
-			}
-
-			/* ---------- api: 페이지 내 모든 카드 자동 렌더 ---------- */
-			function renderAll() {
-					$('.tmd-card').each(function () { mountCard($(this)); });
-			}
-
-			/* ---------- api: 특정 카드에 즉시 렌더(서버 데이터 반영 시 사용) ---------- */
-			function renderCard(cardEl, nodes, line) {
-					var $card = $(cardEl);
-					var $grid = $card.find(SEL.grid);
-					line = line || $card.attr('data-line') || '-';
-					if (nodes && nodes.length) {
-					$grid.attr('data-nodes', JSON.stringify(nodes));
-					} else {
-					nodes = readNodes($grid);
-					}
-					buildWrappedGrid($grid, nodes, line);
-			}
-
-			/* ---------- doc: 글로벌 키/마우스 핸들러 바인딩 ---------- */
-			$(doc).on('keydown', function (e) { if (e.key === 'Escape') closePopover(); });
-			$(doc).on('mousedown', function (e) {
-					if ($pop.prop('hidden') || !lockMode) return;
-					if (!$sheet[0].contains(e.target)) closePopover();
-			});
-
-			$('#tmd-p-close').on('click', closePopover);
-			$('#tmd-theme-toggle').on('click', toggleTheme);
-
-			/* ---------- init: 초기 테마/전체 렌더 ---------- */
-			$(function () {
-					loadTheme();
-					renderAll();
-			});
-
-			/* ---------- export: 전역 API 노출 ---------- */
-			win.TMD = {
-					// 화면 전체 렌더(초기화/레이아웃 변경 후)
-					renderAll: renderAll,
-					// 지정 카드에 데이터 바인딩 후 렌더
-					renderCard: renderCard,
-					// 테마 강제/토글
-					setTheme: setTheme,
-					toggleTheme: toggleTheme,
-					// 팝오버 닫기(외부 동작 후 수동 제어)
-					closePopover: closePopover,
-					// 엣지 상태 계산 전략 getter/setter
-					get edgeMode(){ return EDGE_MODE; },            // 현재 엣지 모드 조회
-					set edgeMode(v){ EDGE_MODE = String(v || '').toLowerCase(); }  // 'worst' | 'bind-right' | 'bind-left'
-			};
-
-		})(window, document, jQuery);
-	</script>
+    })(window, document, jQuery);
+  </script>
 </body>
-</html>
+</html>	

@@ -12268,7 +12268,8 @@ body.has-dashboard .ibox-acco .ibox-content {
 /* =========================================
    Tokens
 ========================================= */
-/* 라인 균등/자동 줄바꿈(2줄 이내) */
+/* 라인 균등 */
+/* 엣지 길이(동일하게 보이는 목표 길이 + 절대 최소) */
 /* padding */
 /* shadow */
 /* ring */
@@ -12279,11 +12280,10 @@ body.has-dashboard .ibox-acco .ibox-content {
 /* =========================================
    Mixins
 ========================================= */
-/* 2색 가로 그라데이션(라인) */
-/* 단색 느낌(unknown) */
-/* ===== Accordion ===== */
+/* 라인 그라데이션 */
+/* (옵션) 행당 N개 고정 줄바꿈을 쓰고 싶을 때 */
 /* =========================================
-   Base (theme-independent)
+   Base
 ========================================= */
 /* 헤더 */
 .tmd-header--bar {
@@ -12296,9 +12296,10 @@ body.has-dashboard .ibox-acco .ibox-content {
 }
 .tmd-header--bar .tmd-title {
   margin: 0;
-  font-size: clamp(1.35rem, 1.55vw, 1.9rem);
+  font-size: clamp(1.45rem, 2vw, 2rem);
   font-weight: 700;
   line-height: 1.12;
+  letter-spacing: -0.5px;
 }
 .tmd-header--bar .tmd-clock {
   font-size: clamp(1.3rem, 1.7vw, 2.1rem);
@@ -12346,7 +12347,7 @@ body.has-dashboard .ibox-acco .ibox-content {
   border-radius: calc(clamp(0.7rem, 0.8vw, 1.1rem) + 0.2rem);
   padding: clamp(0.75rem, 0.9vw, 1.1rem);
   min-height: clamp(7.5rem, 9.5vw, 11.5rem);
-  max-height: clamp(11rem, 24vw, 21rem);
+  max-height: clamp(16rem, 48vh, 36rem);
 }
 .tmd-card .tmd-from {
   grid-area: from;
@@ -12355,6 +12356,11 @@ body.has-dashboard .ibox-acco .ibox-content {
   grid-area: to;
 }
 
+@media (max-width: 1024px) {
+  .tmd-card {
+    max-height: none;
+  }
+}
 .tmd-label {
   font-weight: 800;
   text-align: center;
@@ -12378,10 +12384,12 @@ body.has-dashboard .ibox-acco .ibox-content {
   row-gap: clamp(0.55rem, 0.75vw, 0.95rem);
 }
 
-/* 행: 가로 가운데 정렬(노드/엣지) */
+/* 행: pair 단위로 wrap */
 .tmd-row {
-  display: flex; /*align-items:center;*/
-  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
   -moz-column-gap: clamp(0.36rem, 0.55vw, 0.7rem);
        column-gap: clamp(0.36rem, 0.55vw, 0.7rem);
   row-gap: clamp(0.35rem, 0.5vw, 0.7rem);
@@ -12389,21 +12397,44 @@ body.has-dashboard .ibox-acco .ibox-content {
   min-width: 0;
 }
 
-/* 노드: 고정폭, 중앙정렬 */
+/* ===== Pair: 노드+엣지 묶음 (핵심) ===== */
+.tmd-pair {
+  display: flex;
+  align-items: flex-start;
+  -moz-column-gap: clamp(0.36rem, 0.55vw, 0.7rem);
+       column-gap: clamp(0.36rem, 0.55vw, 0.7rem);
+  flex: 0 1 auto; /* 내용 기준으로 줄바꿈 */
+  min-width: calc(clamp(4.2rem, 4.7vw, 5.4rem) + clamp(1.4rem, 2vw, 2.6rem) + clamp(0.36rem, 0.55vw, 0.7rem));
+}
+
+.tmd-pair--last {
+  min-width: clamp(4.2rem, 4.7vw, 5.4rem); /* 마지막 pair는 노드 폭만 보장 */
+}
+
+/* 노드 */
 .tmd-node {
   flex: 0 0 clamp(4.2rem, 4.7vw, 5.4rem);
   min-width: clamp(4.2rem, 4.7vw, 5.4rem);
   display: grid;
   place-items: center;
   text-align: center;
-  /* 자식 버튼이 부모에 의해 늘어나지 않도록 */
 }
 .tmd-node > .tmd-dotbtn {
   justify-self: center;
   align-self: center;
 }
 
-/* 블렛(링): 단색 + border 두께로 정비율(원형) 보장 */
+.tmd-nlabel {
+  margin-top: 0.32rem;
+  font-size: clamp(0.88rem, 1.05vw, 1.125rem);
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+/* 블렛(링) */
 .tmd-dotbtn {
   width: clamp(0.95rem, 1.05vw, 1.35rem);
   height: clamp(0.95rem, 1.05vw, 1.35rem);
@@ -12422,20 +12453,12 @@ body.has-dashboard .ibox-acco .ibox-content {
   display: inline-block;
 }
 
-.tmd-nlabel {
-  margin-top: 0.32rem;
-  font-size: clamp(0.74rem, 0.82vw, 0.94rem);
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-}
-
-/* 엣지(라인): 동일 분배 + 최소 길이 보장 */
+/* 엣지: 동일 길이 */
 .tmd-edge {
-  flex: 1 1 clamp(1.4rem, 2.2vw, 2.8rem);
-  min-width: clamp(1.4rem, 2.2vw, 2.8rem);
+  flex: 0 0 clamp(2.5rem, 8vw, 3.6rem);
+  width: clamp(2.5rem, 8vw, 3.6rem);
+  min-width: clamp(1.4rem, 2vw, 2.6rem);
+  max-width: clamp(2.5rem, 8vw, 3.6rem);
   height: clamp(0.32rem, 0.42vw, 0.55rem);
   border-radius: 999px;
   margin-top: calc(clamp(0.95rem, 1.05vw, 1.35rem) / 2 - clamp(0.32rem, 0.42vw, 0.55rem) / 2);
@@ -12455,6 +12478,7 @@ body.has-dashboard .ibox-acco .ibox-content {
 .tmd-panel {
   display: flex;
   flex-direction: column;
+  min-height: 50vh;
   max-height: calc(100vh - var(--stick-top) - clamp(1rem, 1.2vw, 1.5rem));
   padding: clamp(0.9rem, 1vw, 1.2rem) !important;
   border-radius: clamp(0.7rem, 0.8vw, 1.1rem);
@@ -12480,14 +12504,11 @@ body.has-dashboard .ibox-acco .ibox-content {
 }
 
 /* =========================================
-   Accordion (base / theme-independent)
+   Accordion (base)
 ========================================= */
 .tmd-accordion {
   display: grid;
-  gap: clamp(0.6rem, 0.9vw, 1.1rem); /* 아이템 간격: 토큰(clamp) */
-  /* 부트스트랩 card 리셋 */
-  /* ---------------- Header ---------------- */
-  /* ---------------- Panel ---------------- */
+  gap: clamp(0.6rem, 0.9vw, 1.1rem);
 }
 .tmd-accordion .tmd-acc-item.card {
   background: transparent;
@@ -12500,22 +12521,17 @@ body.has-dashboard .ibox-acco .ibox-content {
   padding: 0;
   background: transparent;
   border: 0;
-  /* 헤더 내부 카드(Bookmark | Route | Util) */
-  /* 펼침 상태 아이콘 회전 */
 }
 .tmd-accordion .tmd-acc-head.card-header > .tmd-card {
   display: grid;
-  grid-template-columns: auto 1fr auto; /* bookmark | route | util */
+  grid-template-columns: auto 1fr auto;
   grid-template-areas: "bookmark route util";
   align-items: center;
   -moz-column-gap: clamp(0.6rem, 0.9vw, 0.6rem);
        column-gap: clamp(0.6rem, 0.9vw, 0.6rem);
-  /* 높이/패딩/라운드: 모두 토큰(clamp) */
   min-height: clamp(7.5rem, 9.5vw, 11.5rem);
   padding: clamp(2rem, 0.9vw, 1.1rem);
   border-radius: calc(clamp(0.7rem, 0.8vw, 1.1rem) + 0.2rem);
-  /* --- Bookmark 버튼 --- */
-  /* --- Util(상태 라벨 + 토글) --- */
 }
 .tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-bookmark {
   grid-area: bookmark;
@@ -12526,10 +12542,6 @@ body.has-dashboard .ibox-acco .ibox-content {
 .tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill {
   grid-area: util;
 }
-.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-bookmark {
-  display: flex;
-  align-items: center;
-}
 .tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-bookmark .btn-bookmark {
   width: clamp(28px, 1.6vw, 36px);
   height: clamp(28px, 1.6vw, 36px);
@@ -12539,7 +12551,7 @@ body.has-dashboard .ibox-acco .ibox-content {
   place-items: center;
   padding: 0;
   line-height: 0;
-  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  transition: transform 0.15s, box-shadow 0.2s;
 }
 .tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-bookmark .btn-bookmark i {
   font-size: clamp(0.86rem, 0.95vw, 1.05rem);
@@ -12554,36 +12566,36 @@ body.has-dashboard .ibox-acco .ibox-content {
 .tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill .tmd-status {
   color: #F73660;
   font-weight: 700;
-  font-size: clamp(0.9375rem, 1vw, 1.25rem);
+  font-size: clamp(0.94rem, 1.2vw, 1.45rem);
   line-height: 1;
   white-space: nowrap;
 }
-.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill > .btn.btn-link {
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill > .btn-acco {
   width: clamp(44px, 1.6vw, 56px);
   height: clamp(44px, 1.6vw, 56px);
+  background: none;
   display: inline-grid;
   place-items: center;
   border-radius: clamp(10px, 0.6vw, 14px);
   padding: 0;
   line-height: 0;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.2s ease, color 0.15s ease;
+  transition: transform 0.15s, box-shadow 0.2s, color 0.15s;
 }
-.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill > .btn.btn-link i {
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill > .btn-acco:hover, .tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill > .btn-acco:focus, .tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill > .btn-acco:active {
+  background: none;
+  box-shadow: none;
+}
+.tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill > .btn-acco i {
   color: #CACACA;
   font-size: clamp(1.5rem, 1.4vw, 2rem);
-  transition: transform 0.18s ease;
+  transition: transform 0.18s;
 }
 .tmd-accordion .tmd-acc-head.card-header [data-toggle=collapse][aria-expanded=true] i {
   transform: rotate(180deg);
 }
-.tmd-accordion .tmd-acc-body {
-  /* 큰 화면에서 살짝 여백 업 */
-}
 .tmd-accordion .tmd-acc-body .tmd-acc-panel {
   padding: clamp(0.8rem, 1.1vw, 1.4rem);
-  /* 4열 그리드 */
-  /* 상태 카드 공통 레이아웃 */
 }
 .tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-sgrid {
   display: grid;
@@ -12596,8 +12608,6 @@ body.has-dashboard .ibox-acco .ibox-content {
   border-radius: clamp(12px, 0.9vw, 16px);
   padding: clamp(24px, 1.95vw, 33px) clamp(16px, 1.3vw, 22px);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
-  /* 구간 경로 */
-  /* 메타 2열 (좌: Device, 우: 범위) */
 }
 .tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__head {
   display: flex;
@@ -12666,9 +12676,6 @@ body.has-dashboard .ibox-acco .ibox-content {
   border-top-right-radius: 0;
   overflow: visible;
 }
-.tmd-accordion .tmd-acc-item {
-  /* 열린 상태(= collapse.show) */
-}
 .tmd-accordion .tmd-acc-item:has(> .collapse.show) .tmd-acc-head .tmd-card {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -12702,7 +12709,7 @@ body.has-dashboard .ibox-acco .ibox-content {
 }
 .tmd-popover .tmd-sheet .tmd-p-title {
   margin: 0;
-  color: #F5F5F5;
+  color: #fff;
   font-size: clamp(0.846rem, 0.15625vw + 0.692rem, 0.923rem);
   font-weight: 600;
 }
@@ -12711,7 +12718,7 @@ body.has-dashboard .ibox-acco .ibox-content {
   cursor: pointer;
   padding: 0.2rem 0.35rem;
   border-radius: 0.45rem;
-  color: #F5F5F5;
+  color: #fff;
 }
 .tmd-popover .tmd-sheet .tmd-close:focus-visible {
   box-shadow: 0 0 0 0.18rem rgba(255, 255, 255, 0.18);
@@ -12724,11 +12731,11 @@ body.has-dashboard .ibox-acco .ibox-content {
   font-size: clamp(0.846rem, 0.15625vw + 0.692rem, 0.923rem);
 }
 .tmd-popover .tmd-kv dt {
-  color: #DFDFDF;
+  color: #cbd5e1;
   font-weight: 500;
 }
 .tmd-popover .tmd-kv dd {
-  color: #DFDFDF;
+  color: #cbd5e1;
   font-weight: 400;
 }
 
@@ -12739,8 +12746,8 @@ body.has-dashboard .ibox-acco .ibox-content {
 body[data-theme=light] {
   background: #f6f7fb;
   color: #111827;
-  /* 블렛(링) — 단색 + border 두께로 제어 (정비율 유지) */
-  /* 라인(엣지) — 그라데이션 */
+  /* 링 색 */
+  /* 엣지 그라데이션 */
 }
 body[data-theme=light] .tmd-wrap {
   max-width: min(240rem, 98vw);
@@ -12827,6 +12834,7 @@ body[data-theme=light] .tmd-accordion .tmd-acc-head .tmd-card {
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
 }
 body[data-theme=light] .tmd-accordion .tmd-acc-head .tmd-card .tmd-bookmark .btn-bookmark {
+  margin-right: 1rem;
   background: #ffffff;
   color: #5F5F5F;
   border: 1px solid #CACACA;
@@ -12838,13 +12846,13 @@ body[data-theme=light] .tmd-accordion .tmd-acc-head .tmd-card .tmd-bookmark .btn
   outline: none;
   box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.22);
 }
-body[data-theme=light] .tmd-accordion .tmd-acc-head > .btn.btn-link {
+body[data-theme=light] .tmd-accordion > .btn.btn-link {
   color: #5F5F5F;
 }
-body[data-theme=light] .tmd-accordion .tmd-acc-head > .btn.btn-link:hover {
+body[data-theme=light] .tmd-accordion > .btn.btn-link:hover {
   color: #111827;
 }
-body[data-theme=light] .tmd-accordion .tmd-acc-head > .btn.btn-link:focus-visible {
+body[data-theme=light] .tmd-accordion > .btn.btn-link:focus-visible {
   outline: none;
   box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.22);
 }
@@ -12877,8 +12885,8 @@ body[data-theme=light] .tmd-accordion .tmd-acc-panel .tmd-scard .tmd-scard__badg
 body[data-theme=dark] {
   background: #0f172a;
   color: #e5e7eb;
-  /* 블렛(링) — 단색 + border 두께로 제어 (정비율 유지) */
-  /* 라인(엣지) — 그라데이션 */
+  /* 링 색 */
+  /* 엣지 그라데이션 */
 }
 body[data-theme=dark] .tmd-wrap {
   max-width: min(240rem, 98vw);
@@ -12965,6 +12973,7 @@ body[data-theme=dark] .tmd-accordion .tmd-acc-head .tmd-card {
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
 }
 body[data-theme=dark] .tmd-accordion .tmd-acc-head .tmd-card .tmd-bookmark .btn-bookmark {
+  margin-right: 1rem;
   background: #131f35;
   color: #94a3b8;
   border: 1px solid #243047;
@@ -12976,13 +12985,13 @@ body[data-theme=dark] .tmd-accordion .tmd-acc-head .tmd-card .tmd-bookmark .btn-
   outline: none;
   box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.3);
 }
-body[data-theme=dark] .tmd-accordion .tmd-acc-head > .btn.btn-link {
+body[data-theme=dark] .tmd-accordion > .btn.btn-link {
   color: #94a3b8;
 }
-body[data-theme=dark] .tmd-accordion .tmd-acc-head > .btn.btn-link:hover {
+body[data-theme=dark] .tmd-accordion > .btn.btn-link:hover {
   color: #e5e7eb;
 }
-body[data-theme=dark] .tmd-accordion .tmd-acc-head > .btn.btn-link:focus-visible {
+body[data-theme=dark] .tmd-accordion > .btn.btn-link:focus-visible {
   outline: none;
   box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.3);
 }
@@ -13010,6 +13019,55 @@ body[data-theme=dark] .tmd-accordion .tmd-acc-panel .tmd-scard.warn {
 body[data-theme=dark] .tmd-accordion .tmd-acc-panel .tmd-scard .tmd-scard__badge {
   background: rgba(255, 255, 255, 0.22);
   color: currentColor;
+}
+
+/* (옵션) Split 규칙을 쓰고 싶을 때 — 1줄에 4개 등 */
+/* N번째 pair 뒤에서 개행 */
+.tmd-row[data-split="3"] > .tmd-pair:nth-child(3)::after {
+  content: "";
+  flex-basis: 100%; /* pseudo를 flex item처럼 쓰기 위해 */
+}
+
+/* N번째 pair 뒤에서 개행 */
+.tmd-row[data-split="4"] > .tmd-pair:nth-child(4)::after {
+  content: "";
+  flex-basis: 100%; /* pseudo를 flex item처럼 쓰기 위해 */
+}
+
+/* N번째 pair 뒤에서 개행 */
+.tmd-row[data-split="5"] > .tmd-pair:nth-child(5)::after {
+  content: "";
+  flex-basis: 100%; /* pseudo를 flex item처럼 쓰기 위해 */
+}
+
+/* N번째 pair 뒤에서 개행 */
+.tmd-row[data-split="6"] > .tmd-pair:nth-child(6)::after {
+  content: "";
+  flex-basis: 100%; /* pseudo를 flex item처럼 쓰기 위해 */
+}
+
+/* N번째 pair 뒤에서 개행 */
+.tmd-row[data-split="7"] > .tmd-pair:nth-child(7)::after {
+  content: "";
+  flex-basis: 100%; /* pseudo를 flex item처럼 쓰기 위해 */
+}
+
+/* N번째 pair 뒤에서 개행 */
+.tmd-row[data-split="8"] > .tmd-pair:nth-child(8)::after {
+  content: "";
+  flex-basis: 100%; /* pseudo를 flex item처럼 쓰기 위해 */
+}
+
+/* N번째 pair 뒤에서 개행 */
+.tmd-row[data-split="9"] > .tmd-pair:nth-child(9)::after {
+  content: "";
+  flex-basis: 100%; /* pseudo를 flex item처럼 쓰기 위해 */
+}
+
+/* N번째 pair 뒤에서 개행 */
+.tmd-row[data-split="10"] > .tmd-pair:nth-child(10)::after {
+  content: "";
+  flex-basis: 100%; /* pseudo를 flex item처럼 쓰기 위해 */
 }
 
 @media print {
