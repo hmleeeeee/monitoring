@@ -12292,6 +12292,7 @@ body.has-dashboard .ibox-acco .ibox-content {
   align-items: center;
   -moz-column-gap: clamp(0.6rem, 0.9vw, 1.1rem);
        column-gap: clamp(0.6rem, 0.9vw, 1.1rem);
+  min-height: 4rem;
   margin-bottom: clamp(0.8rem, 1vw, 1.2rem);
 }
 .tmd-header--bar .tmd-title {
@@ -12310,11 +12311,6 @@ body.has-dashboard .ibox-acco .ibox-content {
   display: inline-flex;
   align-items: center;
   gap: clamp(0.45rem, 0.7vw, 0.9rem);
-}
-
-.has-monitoring .tmd-header--bar {
-  -moz-column-gap: clamp(0rem, 1vw, 0rem);
-       column-gap: clamp(0rem, 1vw, 0rem);
 }
 
 /* 레이아웃 */
@@ -12472,13 +12468,13 @@ body.has-dashboard .ibox-acco .ibox-content {
   align-self: start;
   display: grid;
   gap: 0.7rem;
+  min-height: 100%;
 }
 
 /* 패널 */
 .tmd-panel {
   display: flex;
   flex-direction: column;
-  min-height: 50vh;
   max-height: calc(100vh - var(--stick-top) - clamp(1rem, 1.2vw, 1.5rem));
   padding: clamp(0.9rem, 1vw, 1.2rem) !important;
   border-radius: clamp(0.7rem, 0.8vw, 1.1rem);
@@ -12501,6 +12497,19 @@ body.has-dashboard .ibox-acco .ibox-content {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* custom */
+.has-monitoring .tmd-header--bar {
+  -moz-column-gap: clamp(0rem, 1vw, 0rem);
+       column-gap: clamp(0rem, 1vw, 0rem);
+}
+
+.has-dashboard .tmd-edge {
+  flex: 0 0 clamp(3.5rem, 12vw, 6rem);
+  width: clamp(3.5rem, 12vw, 6rem);
+  min-width: clamp(1.4rem, 2vw, 2.6rem);
+  max-width: clamp(3.5rem, 12vw, 6rem);
 }
 
 /* =========================================

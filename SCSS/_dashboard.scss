@@ -20,6 +20,7 @@ $gap-x    : clamp(.36rem, .55vw, .7rem);
 /* 엣지 길이(동일하게 보이는 목표 길이 + 절대 최소) */
 $edge-min : clamp(1.4rem, 2.0vw, 2.6rem);
 $edge-l   : clamp(2.5rem, 8vw, 3.6rem);
+$edge-d   : clamp(3.5rem, 12vw, 6rem);
 
 /* padding */
 $card-pad: clamp(.75rem, .9vw, 1.1rem);
@@ -83,13 +84,13 @@ $theme-dark: (
   grid-template-columns: 1fr auto auto;
   align-items:center;
   column-gap: clamp(.6rem,.9vw,1.1rem);
+  min-height:4rem;
   margin-bottom: clamp(.8rem,1vw,1.2rem);
 
   .tmd-title{ margin:0; font-size:$title; font-weight:700; line-height:1.12; letter-spacing:-.5px; }
   .tmd-clock{ font-size:clamp(1.3rem,1.7vw,2.1rem); font-weight:700; text-align:right; }
   .tmd-toolbar{ display:inline-flex; align-items:center; gap:clamp(.45rem,.7vw,.9rem); }
 }
-.has-monitoring .tmd-header--bar{ column-gap: clamp(0rem,1vw,0rem); }
 
 /* 레이아웃 */
 .tmd-layout{
@@ -191,12 +192,19 @@ $theme-dark: (
 }
 
 /* 우측 패널: sticky */
-.tmd-side{ --stick-top: clamp(.5rem, 1vw, 1rem); position:sticky; top:var(--stick-top); align-self:start; display:grid; gap:.7rem; }
+.tmd-side{
+  --stick-top: clamp(.5rem, 1vw, 1rem); 
+  position:sticky;
+  top:var(--stick-top); 
+  align-self:start;
+  display:grid;
+  gap:.7rem;
+  min-height:100%;
+}
 
 /* 패널 */
 .tmd-panel{
   display:flex; flex-direction:column;
-  min-height: 50vh;
   max-height: calc(100vh - var(--stick-top) - clamp(1rem,1.2vw,1.5rem));
   padding: clamp(.9rem,1vw,1.2rem) !important;
   border-radius:$radius;
@@ -206,6 +214,17 @@ $theme-dark: (
     gap:.5rem .6rem; margin-bottom:0; font-size:clamp(.72rem,.8vw,.92rem);
     dt{ margin:0; text-align:left; font-weight:500; }
     dd{ margin:0; text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  }
+}
+
+/* custom */
+.has-monitoring { 
+  .tmd-header--bar {column-gap: clamp(0rem,1vw,0rem);}
+}
+.has-dashboard {
+  .tmd-edge{
+    flex: 0 0 $edge-d;
+    width: $edge-d; min-width: $edge-min; max-width:$edge-d;
   }
 }
 
