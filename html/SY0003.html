@@ -11,7 +11,8 @@
   <link href="css/animate.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 </head>
-<body class="top-navigation has-dashboard" data-theme="light">
+<body class="top-navigation has-dashboard" data-theme="light"> <!-- (has-dashboard) 클래스 필요 -->
+  <!-- body[data-theme] = "light" | "dark" 로 테마를 관리 -->
   <div id="wrapper">
     <div id="page-wrapper">
       <div class="row border-bottom navy-bg">
@@ -90,23 +91,99 @@
 
         <div class="tmd-layout">
           <div class="tmd-list" id="tmd-list">
-            <div class="tmd-card" data-line="12-구간 데모">
+            <div class="tmd-card" data-line="부산역 - 사하">
               <div class="tmd-label tmd-from">출발</div>
               <div class="tmd-route">
                 <div class="tmd-track">
-					<div class="tmd-grid"
-						data-nodes='[
-							{"label":"구간1","state":"ok"},
-							{"label":"구간2","state":"warn"},
-							{"label":"구간3","state":"ok"},
-							{"label":"구간4","state":"ok"},
-							{"label":"구간5","state":"danger"},
-							{"label":"구간6","state":"ok"},
-							{"label":"구간7","state":"ok"},
-							{"label":"구간8","state":"warn"},
-							{"label":"구간9","state":"ok"},
-							{"label":"구간10","state":"ok"}]'>
-					</div>
+                  <div class="tmd-grid">
+                      <div class="tmd-row">
+                        <!--
+                        상태 구분: unknown|ok|warn|danger (미수신|정상|주의|위험)
+                        상태 적용: .tmd-dotbtn, .tmd-edge (클래스로 상태 표현)
+                        tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
+                        마지막 노드엔 (tmd-pair--last) 클래스 추가
+                        -->
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">부산역</span>
+                          </div>
+                          <div class="tmd-edge unknown" data-state="unknown" data-from="부산역" data-to="중앙" data-line="부산역 - 사하"></div>
+                        </div>
+                
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">중앙</span>
+                          </div>
+                          <div class="tmd-edge ok" data-state="ok" data-from="중앙" data-to="남포" data-line="부산역 - 사하"></div>
+                        </div>
+                
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">남포</span>
+                          </div>
+                          <div class="tmd-edge ok" data-state="ok" data-from="남포" data-to="자갈치" data-line="부산역 - 사하"></div>
+                        </div>
+                
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">자갈치</span>
+                          </div>
+                          <div class="tmd-edge danger" data-state="danger" data-from="자갈치" data-to="토성" data-line="부산역 - 사하"></div>
+                        </div>
+                
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">토성</span>
+                          </div>
+                          <div class="tmd-edge danger" data-state="danger" data-from="토성" data-to="동대신" data-line="부산역 - 사하"></div>
+                        </div>
+                
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">동대신</span>
+                          </div>
+                          <div class="tmd-edge warn" data-state="warn" data-from="동대신" data-to="서대신" data-line="부산역 - 사하"></div>
+                        </div>
+                
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">서대신</span>
+                          </div>
+                          <div class="tmd-edge warn" data-state="warn" data-from="서대신" data-to="대티" data-line="부산역 - 사하"></div>
+                        </div>
+
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">대티</span>
+                          </div>
+                          <div class="tmd-edge warn" data-state="warn" data-from="대티" data-to="사하" data-line="부산역 - 사하"></div>
+                        </div>
+
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">괴정</span>
+                          </div>
+                          <div class="tmd-edge ok" data-state="ok" data-from="괴정" data-to="사하" data-line="부산역 - 사하"></div>
+                        </div>
+                
+                        <!-- 마지막 노드엔 (tmd-pair--last) 클래스 추가 및 tmd-edge 미존재 -->
+                        <div class="tmd-pair tmd-pair--last">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">사하</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
               </div>
               <div class="tmd-label tmd-to">도착</div>
@@ -116,15 +193,79 @@
               <div class="tmd-label tmd-from">출발</div>
               <div class="tmd-route">
                 <div class="tmd-track">
-					<div class="tmd-grid"
-						data-nodes='[
-						{"label":"부산역","state":"unknown"},
-						{"label":"중앙","state":"unknown"},
-						{"label":"남포","state":"danger"},
-						{"label":"자갈치","state":"ok"},
-						{"label":"토성","state":"ok"},
-						{"label":"동대신","state":"ok"}]'>
-					</div>
+                  <div class="tmd-grid">
+                      <div class="tmd-row">
+                        <!--
+                        상태 구분: unknown|ok|warn|danger (미수신|정상|주의|위험)
+                        상태 적용: .tmd-dotbtn, .tmd-edge (클래스로 상태 표현)
+                        tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
+                        마지막 노드엔 (tmd-pair--last) 클래스 추가
+                        -->
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">부산역</span>
+                          </div>
+                          <div class="tmd-edge danger" data-state="danger" data-from="부산역" data-to="중앙" data-line="부산역 - 대티"></div>
+                        </div>
+                
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">중앙</span>
+                          </div>
+                          <div class="tmd-edge warn" data-state="warn" data-from="중앙" data-to="남포" data-line="부산역 - 대티"></div>
+                        </div>
+                
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">남포</span>
+                          </div>
+                          <div class="tmd-edge warn" data-state="warn" data-from="남포" data-to="자갈치" data-line="부산역 - 대티"></div>
+                        </div>
+                
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">자갈치</span>
+                          </div>
+                          <div class="tmd-edge danger" data-state="danger" data-from="자갈치" data-to="토성" data-line="부산역 - 대티"></div>
+                        </div>
+                
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">토성</span>
+                          </div>
+                          <div class="tmd-edge danger" data-state="danger" data-from="토성" data-to="동대신" data-line="부산역 - 대티"></div>
+                        </div>
+                
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">동대신</span>
+                          </div>
+                          <div class="tmd-edge warn" data-state="warn" data-from="동대신" data-to="서대신" data-line="부산역 - 대티"></div>
+                        </div>
+                
+                        <div class="tmd-pair">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">서대신</span>
+                          </div>
+                          <div class="tmd-edge unknown" data-state="unknown" data-from="서대신" data-to="대티" data-line="부산역 - 대티"></div>
+                        </div>
+
+                        <!-- 마지막 노드엔 (tmd-pair--last) 클래스 추가 및 tmd-edge 미존재 -->
+                        <div class="tmd-pair tmd-pair--last">
+                          <div class="tmd-node">
+                            <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                            <span class="tmd-nlabel">대티</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
               </div>
               <div class="tmd-label tmd-to">도착</div>
@@ -134,16 +275,87 @@
               <div class="tmd-label tmd-from">출발</div>
               <div class="tmd-route">
                 <div class="tmd-track">
-					<div class="tmd-grid"
-						data-nodes='[
-						{"label":"부산역","state":"ok"},
-						{"label":"중앙","state":"ok"},
-						{"label":"남포","state":"danger"},
-						{"label":"자갈치","state":"unknown"},
-						{"label":"토성","state":"unknown"},
-						{"label":"동대신","state":"warn"},
-						{"label":"서대신","state":"warn"}]'>
-					</div>
+                  <div class="tmd-grid">
+                    <div class="tmd-row">
+                      <!--
+                      상태 구분: unknown|ok|warn|danger (미수신|정상|주의|위험)
+                      상태 적용: .tmd-dotbtn, .tmd-edge (클래스로 상태 표현)
+                      tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
+                      마지막 노드엔 (tmd-pair--last) 클래스 추가
+                      -->
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">부산역</span>
+                        </div>
+                        <div class="tmd-edge ok" data-state="ok" data-from="부산역" data-to="중앙" data-line="부산역 - 괴정"></div>
+                      </div>
+              
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">중앙</span>
+                        </div>
+                        <div class="tmd-edge ok" data-state="ok" data-from="중앙" data-to="남포" data-line="부산역 - 괴정"></div>
+                      </div>
+              
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">남포</span>
+                        </div>
+                        <div class="tmd-edge ok" data-state="ok" data-from="남포" data-to="자갈치" data-line="부산역 - 괴정"></div>
+                      </div>
+              
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">자갈치</span>
+                        </div>
+                        <div class="tmd-edge unknown" data-state="unknown" data-from="자갈치" data-to="토성" data-line="부산역 - 괴정"></div>
+                      </div>
+              
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">토성</span>
+                        </div>
+                        <div class="tmd-edge unknown" data-state="unknown" data-from="토성" data-to="동대신" data-line="부산역 - 괴정"></div>
+                      </div>
+              
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">동대신</span>
+                        </div>
+                        <div class="tmd-edge warn" data-state="warn" data-from="동대신" data-to="서대신" data-line="부산역 - 괴정"></div>
+                      </div>
+              
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">서대신</span>
+                        </div>
+                        <div class="tmd-edge warn" data-state="warn" data-from="서대신" data-to="대티" data-line="부산역 - 괴정"></div>
+                      </div>
+
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">대티</span>
+                        </div>
+                        <div class="tmd-edge ok" data-state="ok" data-from="대티" data-to="괴정" data-line="부산역 - 괴정"></div>
+                      </div>
+              
+                      <!-- 마지막 노드엔 (tmd-pair--last) 클래스 추가 및 tmd-edge 미존재 -->
+                      <div class="tmd-pair tmd-pair--last">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">괴정</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="tmd-label tmd-to">도착</div>
@@ -153,15 +365,62 @@
               <div class="tmd-label tmd-from">출발</div>
               <div class="tmd-route">
                 <div class="tmd-track">
-                  <div class="tmd-grid"
-                    data-nodes='[
-                    {"label":"부산역","state":"unknown"},
-                    {"label":"중앙","state":"unknown"},
-                    {"label":"남포","state":"danger"},
-                    {"label":"자갈치","state":"danger"},
-                    {"label":"토성","state":"warn"},
-                    {"label":"동대신","state":"unknown"},
-                    {"label":"괴정","state":"ok"}]'>,
+                  <div class="tmd-grid">
+                    <div class="tmd-row">
+                      <!--
+                      상태 구분: unknown|ok|warn|danger (미수신|정상|주의|위험)
+                      상태 적용: .tmd-dotbtn, .tmd-edge (클래스로 상태 표현)
+                      tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
+                      마지막 노드엔 (tmd-pair--last) 클래스 추가
+                      -->
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">부산역</span>
+                        </div>
+                        <div class="tmd-edge warn" data-state="warn" data-from="부산역" data-to="중앙" data-line="부산역 - 동대신"></div>
+                      </div>
+              
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">중앙</span>
+                        </div>
+                        <div class="tmd-edge warn" data-state="warn" data-from="중앙" data-to="남포" data-line="부산역 - 동대신"></div>
+                      </div>
+              
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">남포</span>
+                        </div>
+                        <div class="tmd-edge ok" data-state="ok" data-from="남포" data-to="자갈치" data-line="부산역 - 동대신"></div>
+                      </div>
+              
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">자갈치</span>
+                        </div>
+                        <div class="tmd-edge unknown" data-state="unknown" data-from="자갈치" data-to="토성" data-line="부산역 - 동대신"></div>
+                      </div>
+              
+                      <div class="tmd-pair">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">토성</span>
+                        </div>
+                        <div class="tmd-edge ok" data-state="ok" data-from="토성" data-to="동대신" data-line="부산역 - 동대신"></div>
+                      </div>
+              
+                      <!-- 마지막 노드엔 (tmd-pair--last) 클래스 추가 및 tmd-edge 미존재 -->
+                      <div class="tmd-pair tmd-pair--last">
+                        <div class="tmd-node">
+                          <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
+                          <span class="tmd-nlabel">동대신</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -224,308 +483,203 @@
   <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
   <!-- Page scripts -->
-    <!--
-    - data-nodes에 샘플 JSON만 넣었습니다.
-    - 실제 개발 시 data-nodes JSON을 실데이터로 교체
-    - JSON 포맷: [{ "label": "구간명", "state": "ok|warn|danger|unknown" }]
-    -->
-    <script>
-        (function (win, doc, $) {
+  <script>
+    /* Theme / Popover / SidePanel / Clock */
+    (function (win, doc, $) {
+      var TMD = win.TMD || {}; win.TMD = TMD;
 
-            /* ====== 상수/셀렉터 ====== */
-            var SEL = { card: '.tmd-card', grid: '.tmd-grid', popover: '#tmd-popover' };
-            var RANK = { unknown: 0, ok: 1, warn: 2, danger: 3 };
-            var NODE_W = 88, EDGE_MIN = 36, GAP_X = 10;
-            var THEME_KEY = 'tmd-theme';
+      /* =========================
+        Theme Module
+      ========================= */
+      TMD.Theme = (function(){
+        var KEY = 'tmd-theme';
+        function setTheme(t){
+          $('body').attr('data-theme', t);
+          try{ localStorage.setItem(KEY, t); }catch(e){}
+          var $btn = $('#tmd-theme-toggle');
+          if(!$btn.length) return;
+          var isDark = (t === 'dark');
+          $btn.attr('aria-pressed', String(isDark));
+          var $icon = $btn.find('i');
+          if($icon.length) $icon.attr('class', isDark ? 'fa fa-sun-o' : 'fa fa-moon-o');
+        }
+        function loadTheme(){
+          var t=null; try{ t = localStorage.getItem(KEY); }catch(e){}
+          if(!t) t = $('body').attr('data-theme') || 'light';
+          setTheme(t);
+        }
+        function toggleTheme(){
+          var cur = ($('body').attr('data-theme') === 'dark') ? 'dark' : 'light';
+          setTheme(cur === 'dark' ? 'light' : 'dark');
+        }
+        function init(btnSel){
+          loadTheme();
+          $(doc).on('click', btnSel || '#tmd-theme-toggle', toggleTheme);
+        }
+        return { setTheme:setTheme, loadTheme:loadTheme, toggleTheme:toggleTheme, init:init };
+      })();
 
-            var $pop = $(SEL.popover), $sheet = $pop.find('.tmd-sheet');
-            var lockMode = false;
+      /* =========================
+        Popover Module
+        - 상태 표시는 요소의 상태 클래스(.ok|.warn|.danger|.unknown)만을 기준으로 함
+        - .tmd-edge data-* (data-state, data-from, data-to, data-line)는 팝오버/로그용 보조 메타
+      ========================= */
+      TMD.Popover = (function(){
+        var $pop, $sheet, lockMode=false, anchorEl=null, anchorPayload=null;
 
-            /* ---------- util: 상태 우선순위 비교 후 더 위험한 상태를 반환 ---------- */
-            function worst(a, b) { a = a || 'unknown'; b = b || 'unknown'; return (RANK[a] >= RANK[b]) ? a : b; }
+        function labelOf(s){ return s==='ok'?'정상' : s==='warn'?'주의' : s==='danger'?'위험' : '미수신'; }
+        function stateFromClass(el){
+          if(!el) return 'unknown';
+          var $el = $(el);
+          if($el.hasClass('danger')) return 'danger';
+          if($el.hasClass('warn'))   return 'warn';
+          if($el.hasClass('ok'))     return 'ok';
+          return 'unknown';
+        }
+        function getEdgePayload($edge){
+          var $card = $edge.closest('.tmd-card');
+          return {
+            line : $edge.data('line') || ($card.length ? $card.data('line') : '-') || '-',
+            from : $edge.data('from') || '-',
+            to   : $edge.data('to')   || '-',
+            state: $edge.data('state') || stateFromClass($edge[0])
+          };
+        }
 
-            /* ---------- util: 상태코드를 한글 레이블로 변환 ---------- */
-            function labelOf(s) { return s === 'ok' ? '정상' : s === 'warn' ? '주의' : s === 'danger' ? '위험' : '미수신'; }
+        function fill(data){
+          $('#tmd-p-line').text(data.line || '-');
+          $('#tmd-p-seg').text(data.segment || (data.from ? (data.from+' → '+data.to) : '-'));
+          $('#tmd-p-state').text(labelOf(data.state));
+          $('#tmd-p-last').text(data.last || new Date().toLocaleString());
+          // 데모 필드(실데이터 연동 시 교체)
+          $('#tmd-p-id').text('S-0001'); $('#tmd-p-nick').text('센서A');
+          $('#tmd-p-device').text('DEV-42'); $('#tmd-p-type').text('Spring');
+        }
+        function openAt(x,y,payload){
+          fill(payload);
+          $pop.prop('hidden', false);
+          $sheet.css({ top: Math.max(12, y+10), left: Math.min($(win).width()-300, x+12) });
+        }
+        function openByAnchor(anchor,payload){
+          fill(payload);
+          var r = anchor.getBoundingClientRect();
+          $pop.prop('hidden', false);
+          $sheet.css({ top: Math.max(12, r.top-6), left: Math.min($(win).width()-300, r.left + r.width + 10) });
+        }
+        function saveAnchor(anchor,payload){ anchorEl = anchor; anchorPayload = payload; lockMode = true; }
+        function restoreAnchor(){ if(lockMode && anchorEl) openByAnchor(anchorEl, anchorPayload); }
+        function close(){ lockMode=false; anchorEl=null; anchorPayload=null; $pop.prop('hidden', true); }
 
-            /* ---------- theme: 강제 테마 적용(localStorage 반영 포함) ---------- */
-            function setTheme(theme) {
-                $('body').attr('data-theme', theme);
-                try { win.localStorage.setItem(THEME_KEY, theme); } catch (e) { }
-                var $btn = $('#tmd-theme-toggle');
-                if ($btn.length) {
-                    var isDark = theme === 'dark';
-                    $btn.attr('aria-pressed', String(isDark));
-                    $btn.find('i').attr('class', isDark ? 'fa fa-sun-o' : 'fa fa-moon-o');
-                }
-            }
+        function bind(){
+          // 엣지: hover/이동/leave/클릭
+          $(doc)
+           .on('mouseenter', '.tmd-edge', function(e){ 
+              // [옵션] 고정 중(edge hover) 팝오버 닫기 → 필요하면 주석 해제
+              // if (lockMode) return close();
+              openAt(e.clientX, e.clientY, getEdgePayload($(this))); 
+            })
+            .on('mousemove',  '.tmd-edge', function(e){
+              if($pop.prop('hidden')) return;
+              $sheet.css({ top: e.clientY+10, left: Math.min($(win).width()-300, e.clientX+12) });
+            })
+            .on('mouseleave', '.tmd-edge', function(){ if(lockMode) restoreAnchor(); else $pop.prop('hidden', true); })
+            .on('click',      '.tmd-edge', function(e){ openAt(e.clientX, e.clientY, getEdgePayload($(this))); });
 
-            /* ---------- theme: 저장된/초기 테마를 로드하여 적용 ---------- */
-            function loadTheme() {
-                var t = null;
-                try { t = win.localStorage.getItem(THEME_KEY); } catch (e) { }
-                if (!t) t = $('body').attr('data-theme') || 'light';
-                setTheme(t);
-            }
+          // 노드: 클릭 → 고정모드
+          $(doc).on('click', '.tmd-node', function(){
+            var $node = $(this), $btn = $node.find('.tmd-dotbtn');
+            var seg   = $.trim($node.find('.tmd-nlabel').text());
+            var line  = $node.closest('.tmd-card').data('line') || '-';
+            var m = ($btn.attr('class')||'').match(/\b(ok|warn|danger|unknown)\b/);
+            var state = (m && m[1]) ? m[1] : 'unknown';
+            var payload = { line: line, segment: seg, state: state, last: new Date().toLocaleString() };
+            saveAnchor($btn[0] || this, payload);
+            openByAnchor(anchorEl, anchorPayload);
+          });
 
-            /* ---------- theme: 현재 테마(light/dark) 토글 ---------- */
-            function toggleTheme() {
-                var cur = $('body').attr('data-theme') === 'dark' ? 'dark' : 'light';
-                setTheme(cur === 'dark' ? 'light' : 'dark');
-            }
+          // 닫기
+          $(doc).on('click', '#tmd-p-close', close);
+          $(doc).on('keydown', function(e){ if(e.key==='Escape') close(); });
+          $(doc).on('mousedown', function(e){
+            if(!$pop.prop('hidden') && !$sheet[0].contains(e.target)) close();
+          });
+        }
 
-            /* ---------- clock: 상단 시계를 HH:MM AM/PM 형식으로 갱신 ---------- */
-            function tickClock() {
-                var $clock = $('#tmd-clock'); if (!$clock.length) return;
-                var t = new Date();
-                var h = ((t.getHours() + 11) % 12) + 1;
-                var m = ('0' + t.getMinutes()).slice(-2);
-                $clock.text(h + ':' + m + (t.getHours() < 12 ? ' AM' : ' PM'));
-            }
+        function init(){
+          $pop = $('#tmd-popover'); $sheet = $pop.find('.tmd-sheet');
+          bind();
+        }
+        return { init:init, openAt:openAt, openByAnchor:openByAnchor, close:close };
+      })();
 
-            /* ---------- popover: 팝오버 표시에 필요한 필드 채움 ---------- */
-            function fillPopover(data) {
-                if (!$pop.length) return;
-                $('#tmd-p-line').text(data.line || '-');
-                $('#tmd-p-seg').text(data.segment || (data.from ? (data.from + ' → ' + data.to) : '-'));
-                $('#tmd-p-state').text(labelOf(data.state));
-                $('#tmd-p-last').text(data.last || new Date().toLocaleString());
-                var s = data.sensor || sampleSensor();
-                $('#tmd-p-id').text(s.id); $('#tmd-p-nick').text(s.nickname);
-                $('#tmd-p-device').text(s.deviceId); $('#tmd-p-type').text(s.tensionType);
-            }
-
-            /* ---------- popover: 특정 좌표(x,y)에 팝오버 표시 ---------- */
-            function openPopoverAt(x, y, data) {
-                fillPopover(data); $pop.prop('hidden', false);
-                var left = Math.min(win.innerWidth - 300, x + 12);
-                $sheet.css({ top: Math.max(12, y + 10), left: left });
-            }
-
-            /* ---------- popover: 앵커 엘리먼트 기준으로 팝오버 표시(고정 모드) ---------- */
-            function openPopoverByAnchor(anchor, data) {
-                fillPopover(data);
-                var r = anchor.getBoundingClientRect();
-                $pop.prop('hidden', false);
-                var left = Math.min(win.innerWidth - 300, r.left + r.width + 10);
-                $sheet.css({ top: Math.max(12, r.top - 6), left: left });
-            }
-
-            /* ---------- popover: 팝오버를 닫고 고정 모드 해제 ---------- */
-            function closePopover() { lockMode = false; $pop.prop('hidden', true); }
-
-            /* ---------- sensor: 우측 정보 패널을 최신 데이터로 갱신 ---------- */
-            function updateSide(data) {
-                var s = data.sensor || {};
-                $('#tmd-d-line').text(data.line || '-');
-                $('#tmd-d-seg').text(data.segment || '-');
-                $('#tmd-d-last').text(data.last || '-');
-                $('#tmd-d-id').text(s.id || '-');
-                $('#tmd-d-nick').text(s.nickname || '-');
-                $('#tmd-d-device').text(s.deviceId || '-');
-                $('#tmd-d-type').text(s.tensionType || '-');
-                $('#tmd-d-range').text([s.s, s.l, s.c, s.ni].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
-                $('#tmd-d-disp').text([s.dispMin, s.dispMax].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
-                $('#tmd-d-temp').text([s.tempMin, s.tempMax].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
-                $('#tmd-d-volt').text([s.nodeVoltUpper, s.gateVoltUpper].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
-                $('#tmd-d-count').text([s.latestCnt, s.outOfRangeCnt].filter(function (v) { return v !== undefined; }).join(' / ') || '-');
-            }
-
-            /* ---------- sample: 샘플 센서(데모/초기값) ---------- */
-            function sampleSensor() {
-                return {
-                    id: 'S-0001', nickname: '센서A', deviceId: 'DEV-42', tensionType: 'Spring',
-                    s: 12, l: 34, c: 5, ni: 3, tempMin: -10, tempMax: 60, dispMin: 0.1, dispMax: 1.5, nodeVoltUpper: 4.2, gateVoltUpper: 12, latestCnt: 128, outOfRangeCnt: 2
-                };
-            }
-
-            /* ---------- grid: .tmd-grid에서 노드 정의를 읽어 JSON 배열로 반환 ---------- */
-            function readNodes($grid) {
-                var nodes = [], raw = $grid.attr('data-nodes');
-                if (raw) { try { nodes = JSON.parse(raw); } catch (e) { } }
-                if (!nodes.length) {
-                    var $s = $grid.children('script.tmd-nodes[type="application/json"]');
-                    if ($s.length) { try { nodes = JSON.parse($.trim($s.text())); } catch (e) { } }
-                }
-                if (!nodes.length) {
-                    nodes = [
-                        { label: '구간A', state: 'ok' }, { label: '구간B', state: 'warn' },
-                        { label: '구간C', state: 'ok' }, { label: '도착', state: 'unknown' }
-                    ];
-                }
-                return nodes.slice(0, 20);
-            }
-
-            /* ---------- grid: 주어진 노드로 그리드를 구성(최대 2행 균등 분배) ---------- */
-            function buildWrappedGrid($grid, nodes, line) {
-                $grid.empty();
-                var total = nodes.length; if (!total) return;
-
-                var parent = $grid.parent()[0];
-                var avail = parent ? parent.clientWidth : $grid.width();
-                var unit = NODE_W + EDGE_MIN + GAP_X;
-                var maxPerRow = Math.floor((avail + GAP_X) / unit);
-                if (maxPerRow < 3) maxPerRow = 3;
-                if (maxPerRow > 12) maxPerRow = 12;
-
-                var rows = Math.max(1, Math.ceil(total / maxPerRow));
-                if (rows > 2) rows = 2;
-
-                var base = Math.floor(total / rows);
-                var rem = total % rows;
-                var idx = 0;
-
-                for (var r = 0; r < rows; r++) {
-                    var count = base + (r < rem ? 1 : 0);
-                    var rowNodes = nodes.slice(idx, idx + count);
-                    idx += count;
-
-                    var $row = $('<div/>', { 'class': 'tmd-row' });
-
-                    for (var j = 0; j < rowNodes.length; j++) {
-                        var n = rowNodes[j];
-
-                        // node dom
-                        var $wrap = $('<div/>', { 'class': 'tmd-node' });
-                        var $btn = $('<button/>', {
-                            'class': 'tmd-dotbtn ' + (n.state || 'unknown'),
-                            'type': 'button',
-                            'aria-pressed': 'false'
-                        }).data('label', n.label).data('state', n.state || 'unknown');
-
-                        $wrap.append($btn).append($('<span/>', { 'class': 'tmd-nlabel', text: n.label }));
-                        $row.append($wrap);
-
-                        // edge dom
-                        if (j < rowNodes.length - 1) {
-                            var st = worst(n.state, rowNodes[j + 1].state);
-                            var $edge = $('<div/>', { 'class': 'tmd-edge ' + st })
-                                .data('state', st).data('from', n.label).data('to', rowNodes[j + 1].label).data('line', line);
-
-                            $edge.on('mouseenter', function (e) {
-                                if (lockMode) return;
-                                var $t = $(this);
-                                openPopoverAt(e.clientX, e.clientY, {
-                                    line: $t.data('line'),
-                                    from: $t.data('from'),
-                                    to: $t.data('to'),
-                                    state: $t.data('state')
-                                });
-                                $(doc).trigger('tmd:edge.enter', [{
-                                    line: $t.data('line'), from: $t.data('from'), to: $t.data('to'), state: $t.data('state'), ts: Date.now()
-                                }]);
-                            }).on('mousemove', function (e) {
-                                if (lockMode || $pop.prop('hidden')) return;
-                                var left = Math.min(win.innerWidth - 300, e.clientX + 12);
-                                $sheet.css({ top: (e.clientY + 10), left: left });
-                            }).on('mouseleave', function () {
-                                if (!lockMode) $pop.prop('hidden', true);
-                                var $t = $(this);
-                                $(doc).trigger('tmd:edge.leave', [{
-                                    line: $t.data('line'), from: $t.data('from'), to: $t.data('to'), state: $t.data('state'), ts: Date.now()
-                                }]);
-                            }).on('click', function (e) {
-                                if (lockMode) return;
-                                var $t = $(this);
-                                openPopoverAt(e.clientX, e.clientY, {
-                                    line: $t.data('line'),
-                                    from: $t.data('from'),
-                                    to: $t.data('to'),
-                                    state: $t.data('state')
-                                });
-                                $(doc).trigger('tmd:edge.click', [{
-                                    line: $t.data('line'), from: $t.data('from'), to: $t.data('to'), state: $t.data('state'), ts: Date.now()
-                                }]);
-                            });
-
-                            $row.append($edge);
-                        }
-
-                        // node click → 고정 팝오버 + 사이드 갱신 + 이벤트 발행
-                        (function ($wrapRef, $btnRef, label) {
-                            $wrapRef.on('click', function () {
-                                var state = $btnRef.data('state');
-                                var now = new Date().toLocaleString();
-                                lockMode = true;
-                                openPopoverByAnchor($btnRef[0], {
-                                    line: line, segment: label, state: state, last: now, sensor: sampleSensor()
-                                });
-                                updateSide({ line: line, segment: label, state: state, last: now, sensor: sampleSensor() });
-                                $(doc).trigger('tmd:node.select', [{ line: line, segment: label, state: state, ts: Date.now() }]);
-                            });
-                        })($wrap, $btn, n.label);
-                    }
-
-                    $grid.append($row);
-                }
-            }
-
-            /* ---------- card: 단일 카드 초기화 및 리사이즈 대응 ---------- */
-            function mountCard($card) {
-                var line = $card.attr('data-line') || '-';
-                var $grid = $card.find(SEL.grid); if (!$grid.length) return;
-
-                var nodes = readNodes($grid);
-                function rebuild() { buildWrappedGrid($grid, nodes, line); }
-                rebuild();
-
-                var timer = null;
-                $(win).on('resize.tmd', function () {
-                    clearTimeout(timer);
-                    timer = setTimeout(rebuild, 120);
-                });
-            }
-
-            /* ---------- api: 페이지 내 모든 카드 자동 렌더 ---------- */
-            function renderAll() {
-                $('.tmd-card').each(function () { mountCard($(this)); });
-            }
-
-            /* ---------- api: 특정 카드에 즉시 렌더(서버 데이터 반영 시 사용) ---------- */
-            function renderCard(cardEl, nodes, line) {
-                var $card = $(cardEl);
-                var $grid = $card.find(SEL.grid);
-                line = line || $card.attr('data-line') || '-';
-                if (nodes && nodes.length) {
-                    $grid.attr('data-nodes', JSON.stringify(nodes));
-                } else {
-                    nodes = readNodes($grid);
-                }
-                buildWrappedGrid($grid, nodes, line);
-            }
-
-            /* ---------- doc: 글로벌 키/마우스 핸들러 바인딩 ---------- */
-            $(doc).on('keydown', function (e) { if (e.key === 'Escape') closePopover(); });
-            $(doc).on('mousedown', function (e) {
-                if ($pop.prop('hidden') || !lockMode) return;
-                if (!$sheet[0].contains(e.target)) closePopover();
+      /* =========================
+        Side Panel Module
+      ========================= */
+      TMD.SidePanel = (function(){
+        function sampleSensor(){ return { id:'S-0001', nick:'센서A', device:'DEV-42', type:'Spring', range:'12 / 34 / 5 / 3', disp:'0.1 / 1.5', temp:'-10 / 60', volt:'4.2 / 12', count:'128 / 2' }; }
+        function fill(payload, sensor){
+          if(!payload) return;
+          $('#tmd-d-line').text(payload.line || '-');
+          $('#tmd-d-seg').text(payload.segment || (payload.from ? (payload.from+' → '+payload.to) : '-'));
+          $('#tmd-d-last').text(new Date().toLocaleString());
+          var s = sensor || sampleSensor();
+          $('#tmd-d-id').text(s.id);
+          $('#tmd-d-nick').text(s.nick);
+          $('#tmd-d-device').text(s.device);
+          $('#tmd-d-type').text(s.type);
+          $('#tmd-d-range').text(s.range);
+          $('#tmd-d-disp').text(s.disp);
+          $('#tmd-d-temp').text(s.temp);
+          $('#tmd-d-volt').text(s.volt);
+          $('#tmd-d-count').text(s.count);
+        }
+        function edgePayload($edge){
+          var $card = $edge.closest('.tmd-card');
+          return {
+            line: $edge.data('line') || ($card.length ? $card.data('line') : '-') || '-',
+            from: $edge.data('from') || '-',
+            to  : $edge.data('to')   || '-'
+          };
+        }
+        function bind(){
+          if (!$('.tmd-side .tmd-panel').length) return;
+          $(doc)
+            .on('mouseenter', '.tmd-edge', function(){ fill(edgePayload($(this))); })
+            .on('click',      '.tmd-edge', function(){ fill(edgePayload($(this))); })
+            .on('click',      '.tmd-node', function(){
+              var $node = $(this);
+              var seg = $.trim($node.find('.tmd-nlabel').text());
+              var line = $node.closest('.tmd-card').data('line') || '-';
+              fill({ line: line, segment: seg });
             });
+        }
+        function init(){ bind(); }
+        return { init:init, fill:fill };
+      })();
 
-            $('#tmd-p-close').on('click', closePopover);
-            $('#tmd-theme-toggle').on('click', toggleTheme);
+      /* =========================
+        Init
+      ========================= */
+      $(function(){
+        TMD.Theme.init('#tmd-theme-toggle');
+        TMD.Popover.init();
+        TMD.SidePanel.init();
 
-            /* ---------- init: 초기 테마/시계/전체 렌더 ---------- */
-            $(function () {
-                loadTheme();
-                tickClock(); setInterval(tickClock, 15000);
-                renderAll();
-            });
+        // Clock: HH:MM:SS (Asia/Seoul)
+        (function(){
+          var $el = $('#tmd-clock');
+          if(!$el.length) return;
+          var fmt = new Intl.DateTimeFormat('ko-KR', {
+            hour:'2-digit', minute:'2-digit', second:'2-digit',
+            hour12:false, timeZone: 'Asia/Seoul'
+          });
+          function tick(){ $el.text(fmt.format(new Date())); }
+          tick();
+          win.setInterval(tick, 1000);
+        })();
+      });
 
-            /* ---------- export: 전역 API 노출 ---------- */
-            win.TMD = {
-                // 화면 전체 렌더(초기화/레이아웃 변경 후)
-                renderAll: renderAll,
-                // 지정 카드에 데이터 바인딩 후 렌더
-                renderCard: renderCard,
-                // 우측 패널 갱신(상세 조회 응답 가공해 넘김)
-                updateSide: updateSide,
-                // 테마 강제/토글
-                setTheme: setTheme,
-                toggleTheme: toggleTheme,
-                // 팝오버 닫기(외부 동작 후 수동 제어)
-                closePopover: closePopover
-            };
-
-        })(window, document, jQuery);
-    </script>
+    })(window, document, jQuery);
+  </script>
 </body>
 </html>

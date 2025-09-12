@@ -11,7 +11,8 @@
   <link href="css/animate.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 </head>
-<body class="top-navigation has-monitoring" data-theme="light">
+<body class="top-navigation has-monitoring" data-theme="light"> <!-- (has-monitoring) 클래스 필요 -->
+  <!-- body[data-theme] = "light" | "dark" 로 테마를 관리 -->
   <div id="wrapper">
     <div id="page-wrapper">
       <div class="row border-bottom navy-bg">
@@ -884,128 +885,141 @@
     $(function () { toastr.options = { positionClass: "toast-top-right", timeOut: 3000 }; toastr.error("Loaded"); });
   </script>
 
-  <!-- Theme toggle -->
   <script>
-  (function (win, doc) {
-    var KEY = 'tmd-theme';
-    function setTheme(t){
-      doc.body.setAttribute('data-theme', t);
-      try{ localStorage.setItem(KEY, t); }catch(e){}
-      var btn = doc.getElementById('tmd-theme-toggle');
-      if(!btn) return;
-      var isDark = (t==='dark');
-      btn.setAttribute('aria-pressed', String(isDark));
-      var icon = btn.querySelector('i');
-      if(icon) icon.className = isDark ? 'fa fa-sun-o' : 'fa fa-moon-o';
-    }
-    function loadTheme(){
-      var t=null; try{ t = localStorage.getItem(KEY); }catch(e){}
-      if(!t) t = doc.body.getAttribute('data-theme') || 'light';
-      setTheme(t);
-    }
-    function toggleTheme(){
-      var cur = doc.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-      setTheme(cur === 'dark' ? 'light' : 'dark');
-    }
-    doc.addEventListener('DOMContentLoaded', function(){
-      loadTheme();
-      var btn = doc.getElementById('tmd-theme-toggle');
-      if(btn) btn.addEventListener('click', toggleTheme);
-    });
-  })(window, document);
-  </script>
-
-  <script>
-    /*
-    상태 구분: unknown|ok|warn|danger (미수신|정상|주의|위험)
-    .tmd-dotbtn / .tmd-edge의 상태 클래스가 단일 근거(SSOT)
-    .tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
-    */
+    /* Theme / Popover */
     (function (win, doc, $) {
-      /* refs/state */
-      var $pop = $('#tmd-popover'), $sheet = $pop.find('.tmd-sheet');
-      var lockMode = false;          // 노드 클릭 고정 여부
-      var anchorEl = null;           // 고정 앵커(노드 버튼)
-      var anchorPayload = null;      // 고정 팝오버 데이터
+      var TMD = win.TMD || {}; win.TMD = TMD;
 
-      /* utils */
-      function labelOf(s) { return s === 'ok' ? '정상' : s === 'warn' ? '주의' : s === 'danger' ? '위험' : '미수신'; }
-      function stateFromClass(el) {
-        if (!el) return 'unknown';
-        var c = el.classList;
-        if (c.contains('danger')) return 'danger';
-        if (c.contains('warn')) return 'warn';
-        if (c.contains('ok')) return 'ok';
-        return 'unknown';
-      }
-      function getEdgePayload($edge) {
-        var edgeEl = $edge[0], $card = $edge.closest('.tmd-card');
-        return {
-          line: $edge.data('line') || ($card.length ? $card.data('line') : '-') || '-',
-          from: $edge.data('from') || '-',
-          to: $edge.data('to') || '-',
-          state: $edge.data('state') || stateFromClass(edgeEl)
-        };
-      }
+      /* =========================
+        Theme Module
+      ========================= */
+      TMD.Theme = (function(){
+        var KEY = 'tmd-theme';
+        function setTheme(t){
+          $('body').attr('data-theme', t);
+          try{ localStorage.setItem(KEY, t); }catch(e){}
+          var $btn = $('#tmd-theme-toggle');
+          if(!$btn.length) return;
+          var isDark = (t === 'dark');
+          $btn.attr('aria-pressed', String(isDark));
+          var $icon = $btn.find('i');
+          if($icon.length) $icon.attr('class', isDark ? 'fa fa-sun-o' : 'fa fa-moon-o');
+        }
+        function loadTheme(){
+          var t=null; try{ t = localStorage.getItem(KEY); }catch(e){}
+          if(!t) t = $('body').attr('data-theme') || 'light';
+          setTheme(t);
+        }
+        function toggleTheme(){
+          var cur = ($('body').attr('data-theme') === 'dark') ? 'dark' : 'light';
+          setTheme(cur === 'dark' ? 'light' : 'dark');
+        }
+        function init(btnSel){
+          loadTheme();
+          $(doc).on('click', btnSel || '#tmd-theme-toggle', toggleTheme);
+        }
+        return { setTheme:setTheme, loadTheme:loadTheme, toggleTheme:toggleTheme, init:init };
+      })();
 
-      /* popover ui */
-      function fill(data) {
-        $('#tmd-p-line').text(data.line || '-');
-        $('#tmd-p-seg').text(data.segment || (data.from ? (data.from + ' → ' + data.to) : '-'));
-        $('#tmd-p-state').text(labelOf(data.state));
-        $('#tmd-p-last').text(data.last || new Date().toLocaleString());
-        // 데모 고정값(실데이터 연동 시 교체)
-        $('#tmd-p-id').text('S-0001'); $('#tmd-p-nick').text('센서A');
-        $('#tmd-p-device').text('DEV-42'); $('#tmd-p-type').text('Spring');
-      }
-      function openAt(x, y, payload) {
-        fill(payload);
-        $pop.prop('hidden', false);
-        $sheet.css({ top: Math.max(12, y + 10), left: Math.min(win.innerWidth - 300, x + 12) });
-      }
-      function openByAnchor(anchor, payload) {
-        fill(payload);
-        var r = anchor.getBoundingClientRect();
-        $pop.prop('hidden', false);
-        $sheet.css({ top: Math.max(12, r.top - 6), left: Math.min(win.innerWidth - 300, r.left + r.width + 10) });
-      }
-      function saveAnchor(anchor, payload) { anchorEl = anchor; anchorPayload = payload; lockMode = true; }
-      function restoreAnchor() { if (lockMode && anchorEl) openByAnchor(anchorEl, anchorPayload); }
-      function closePop() { lockMode = false; anchorEl = null; anchorPayload = null; $pop.prop('hidden', true); }
+      /* =========================
+        Popover Module
+        - 상태 표시는 요소의 상태 클래스(.ok|.warn|.danger|.unknown)만을 기준으로 함
+        - .tmd-edge data-* (data-state, data-from, data-to, data-line)는 팝오버/로그용 보조 메타
+      ========================= */
+      TMD.Popover = (function(){
+        var $pop, $sheet, lockMode=false, anchorEl=null, anchorPayload=null;
 
-      /* edges: hover preview (고정모드에서도 허용), leave 시 앵커 복귀 */
-      $(doc)
-        .on('mouseenter', '.tmd-edge', function (e) {
-          openAt(e.clientX, e.clientY, getEdgePayload($(this)));
-        })
-        .on('mousemove', '.tmd-edge', function (e) {
-          if ($pop.prop('hidden')) return;
-          $sheet.css({ top: e.clientY + 10, left: Math.min(win.innerWidth - 300, e.clientX + 12) });
-        })
-        .on('mouseleave', '.tmd-edge', function () {
-          if (lockMode) restoreAnchor(); else $pop.prop('hidden', true);
-        })
-        .on('click', '.tmd-edge', function (e) {
-          // 클릭도 미리보기로 동작(앵커는 유지)
-          openAt(e.clientX, e.clientY, getEdgePayload($(this)));
-        });
+        function labelOf(s){ return s==='ok'?'정상' : s==='warn'?'주의' : s==='danger'?'위험' : '미수신'; }
+        function stateFromClass(el){
+          if(!el) return 'unknown';
+          var $el = $(el);
+          if($el.hasClass('danger')) return 'danger';
+          if($el.hasClass('warn'))   return 'warn';
+          if($el.hasClass('ok'))     return 'ok';
+          return 'unknown';
+        }
+        function getEdgePayload($edge){
+          var $card = $edge.closest('.tmd-card');
+          return {
+            line : $edge.data('line') || ($card.length ? $card.data('line') : '-') || '-',
+            from : $edge.data('from') || '-',
+            to   : $edge.data('to')   || '-',
+            state: $edge.data('state') || stateFromClass($edge[0])
+          };
+        }
 
-      /* nodes: click → 고정모드 진입(앵커 저장), hover는 계속 동작 */
-      $(doc).on('click', '.tmd-node', function () {
-        var $node = $(this), $btn = $node.find('.tmd-dotbtn');
-        var seg = $node.find('.tmd-nlabel').text().trim();
-        var line = $node.closest('.tmd-card').data('line') || '-';
-        var state = ($btn.attr('class').match(/\b(ok|warn|danger|unknown)\b/) || [])[1] || 'unknown';
-        var payload = { line: line, segment: seg, state: state, last: new Date().toLocaleString() };
-        saveAnchor($btn[0] || this, payload);
-        openByAnchor(anchorEl, anchorPayload);
-      });
+        function fill(data){
+          $('#tmd-p-line').text(data.line || '-');
+          $('#tmd-p-seg').text(data.segment || (data.from ? (data.from+' → '+data.to) : '-'));
+          $('#tmd-p-state').text(labelOf(data.state));
+          $('#tmd-p-last').text(data.last || new Date().toLocaleString());
+          // 데모 필드(실데이터 연동 시 교체)
+          $('#tmd-p-id').text('S-0001'); $('#tmd-p-nick').text('센서A');
+          $('#tmd-p-device').text('DEV-42'); $('#tmd-p-type').text('Spring');
+        }
+        function openAt(x,y,payload){
+          fill(payload);
+          $pop.prop('hidden', false);
+          $sheet.css({ top: Math.max(12, y+10), left: Math.min($(win).width()-300, x+12) });
+        }
+        function openByAnchor(anchor,payload){
+          fill(payload);
+          var r = anchor.getBoundingClientRect();
+          $pop.prop('hidden', false);
+          $sheet.css({ top: Math.max(12, r.top-6), left: Math.min($(win).width()-300, r.left + r.width + 10) });
+        }
+        function saveAnchor(anchor,payload){ anchorEl = anchor; anchorPayload = payload; lockMode = true; }
+        function restoreAnchor(){ if(lockMode && anchorEl) openByAnchor(anchorEl, anchorPayload); }
+        function close(){ lockMode=false; anchorEl=null; anchorPayload=null; $pop.prop('hidden', true); }
 
-      /* close: X / ESC / 바깥클릭 */
-      $('#tmd-p-close').on('click', closePop);
-      $(doc).on('keydown', function (e) { if (e.key === 'Escape') closePop(); });
-      $(doc).on('mousedown', function (e) {
-        if (!$pop.prop('hidden') && !$sheet[0].contains(e.target)) closePop();
+        function bind(){
+          // 엣지: hover/이동/leave/클릭
+          $(doc)
+            .on('mouseenter', '.tmd-edge', function(e){ 
+              // [옵션] 고정 중(edge hover) 팝오버 닫기 → 필요하면 주석 해제
+              // if (lockMode) return close();
+              openAt(e.clientX, e.clientY, getEdgePayload($(this))); 
+            })
+            .on('mousemove',  '.tmd-edge', function(e){
+              if($pop.prop('hidden')) return;
+              $sheet.css({ top: e.clientY+10, left: Math.min($(win).width()-300, e.clientX+12) });
+            })
+            .on('mouseleave', '.tmd-edge', function(){ if(lockMode) restoreAnchor(); else $pop.prop('hidden', true); })
+            .on('click',      '.tmd-edge', function(e){ openAt(e.clientX, e.clientY, getEdgePayload($(this))); });
+
+          // 노드: 클릭 → 고정모드
+          $(doc).on('click', '.tmd-node', function(){
+            var $node = $(this), $btn = $node.find('.tmd-dotbtn');
+            var seg   = $.trim($node.find('.tmd-nlabel').text());
+            var line  = $node.closest('.tmd-card').data('line') || '-';
+            var m = ($btn.attr('class')||'').match(/\b(ok|warn|danger|unknown)\b/);
+            var state = (m && m[1]) ? m[1] : 'unknown';
+            var payload = { line: line, segment: seg, state: state, last: new Date().toLocaleString() };
+            saveAnchor($btn[0] || this, payload);
+            openByAnchor(anchorEl, anchorPayload);
+          });
+
+          // 닫기
+          $(doc).on('click', '#tmd-p-close', close);
+          $(doc).on('keydown', function(e){ if(e.key==='Escape') close(); });
+          $(doc).on('mousedown', function(e){
+            if(!$pop.prop('hidden') && !$sheet[0].contains(e.target)) close();
+          });
+        }
+
+        function init(){
+          $pop = $('#tmd-popover'); $sheet = $pop.find('.tmd-sheet');
+          bind();
+        }
+        return { init:init, openAt:openAt, openByAnchor:openByAnchor, close:close };
+      })();
+
+      /* =========================
+        Init
+      ========================= */
+      $(function(){
+        TMD.Theme.init('#tmd-theme-toggle');
+        TMD.Popover.init();
       });
 
     })(window, document, jQuery);
