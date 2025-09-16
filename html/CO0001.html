@@ -312,7 +312,7 @@
                          (form-group + is-{center | is-end} : 중앙 정렬, 우측 정렬
                     -->
                     <div class="form-group form-rowgroup">
-                        <label for="nameEl" class="col-form-label">메뉴명</label> <!-- (is-hidden) 클래스 추가시 라벨 숨김 처리됨 placeholder로 label 내용 대체 -->
+                        <label for="nameEl" class="col-form-label">left</label> <!-- (is-hidden) 클래스 추가시 라벨 숨김 처리됨 placeholder로 label 내용 대체 -->
                         <!-- 인풋 사이즈 제어 클래스 : .form-control에 `.form-control--xs|sm|md|lg|xlg` 클래스 적용시 사이즈에 맞는 표준화된 최대 너비 설정됨 -->
                         <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
                         
@@ -326,7 +326,7 @@
 
                 <div class="ibox-content ibox-top">
                     <div class="form-group form-rowgroup is-center">
-                        <label for="nameEl" class="col-form-label">메뉴명</label>
+                        <label for="nameEl" class="col-form-label">center</label>
                         <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
                         
                         <div class="btn-group btn-search">
@@ -339,7 +339,7 @@
 
                 <div class="ibox-content ibox-top">
                     <div class="form-group form-rowgroup is-end">
-                        <label for="nameEl" class="col-form-label">메뉴명</label>
+                        <label for="nameEl" class="col-form-label">right</label>
                         <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
                         
                         <div class="btn-group btn-search">
@@ -351,28 +351,104 @@
                 </div>
 
                 <div class="ibox-content ibox-top">
-                    <div class="row">
-                        <div class="col-sm-4">
+                    <!-- col1 -->
+                    <div class="row is-center"> <!-- (row + is-{center | is-end} : 중앙 정렬, 우측 정렬 -->
+                        <div class="col-lg-4 col-md-8 col-sm-12">
                             <div class="form-group row">
-                                <label for="inp02" class="col-sm-3 col-form-label">메뉴명</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="inp02" placeholder="placeholder 입력" class="form-control">
+                                <label for="inp012" class="col-sm-2 col-form-label">col1</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp012" placeholder="placeholder 입력" class="form-control form-control--lg">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                    </div>
+                    <!-- col2 -->
+                    <div class="row is-center"> <!-- (row + is-{center | is-end} : 중앙 정렬, 우측 정렬 -->
+                        <!-- 
+                        그리드 안내
+                        - col-{breakpoint}-{n} : 12분할 기준으로 칸 수(n) 지정
+                        - col-sm-12  : ≥576px에서 한 줄 꽉 채움(모바일~태블릿 초반)
+                        - col-md-6   : ≥768px에서 2열(6+6)
+                        - col-lg-4   : ≥992px에서 3열(4+4+4)
+                        -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                        <!-- 내부 폼 레이아웃
+                        - 레이블/컨트롤 비율: sm 이상에서 2:10
+                        - xs(<576px)에서는 세로로 쌓임 -->
                             <div class="form-group row">
-                                <label for="inp02" class="col-sm-3 col-form-label">메뉴명</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="inp02" placeholder="placeholder 입력" class="form-control">
+                                <label for="inp012" class="col-sm-2 col-form-label">col2</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp012" placeholder="placeholder 입력" class="form-control form-control--lg">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                          <div class="form-group row">
-                                <label for="inp02" class="col-sm-3 col-form-label">메뉴명</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="inp02" placeholder="placeholder 입력" class="form-control">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group row">
+                                <label for="inp013" class="col-sm-2 col-form-label">col2</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp013" placeholder="placeholder 입력" class="form-control form-control--lg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- col3 -->
+                    <div class="row is-center">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group row">
+                                <label for="inp012" class="col-sm-2 col-form-label">col3</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp012" placeholder="placeholder 입력" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group row">
+                                <label for="inp013" class="col-sm-2 col-form-label">col3</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp013" placeholder="placeholder 입력" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group row">
+                                <label for="inp013" class="col-sm-2 col-form-label">col3</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp013" placeholder="placeholder 입력" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- col4 -->
+                    <div class="row is-center">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="form-group row">
+                                <label for="inp012" class="col-sm-2 col-form-label">col4</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp012" placeholder="placeholder 입력" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="form-group row">
+                                <label for="inp013" class="col-sm-2 col-form-label">col4</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp013" placeholder="placeholder 입력" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="form-group row">
+                                <label for="inp013" class="col-sm-2 col-form-label">col4</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp013" placeholder="placeholder 입력" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="form-group row">
+                                <label for="inp013" class="col-sm-2 col-form-label">col4</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp013" placeholder="placeholder 입력" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -385,9 +461,57 @@
                 </div>
 
                 <div class="ibox-content ibox-top">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group form-rowgroup is-center">
+                    <div class="row is-center">
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <label for="inp012" class="col-sm-2 col-form-label">메뉴명</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp012" placeholder="placeholder 입력" class="form-control form-control--lg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <label for="inp012" class="col-sm-2 col-form-label">메뉴명</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp012" placeholder="placeholder 입력" class="form-control form-control--lg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-rowgroup">
+                                <label for="nameEl" class="col-form-label">메뉴명</label>
+                                <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
+                                
+                                <div class="btn-group btn-search">
+                                    <button class="btn btn-outline btn-primary btn-sm" type="button">검색</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row is-center">
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <label for="inp012" class="col-sm-2 col-form-label">메뉴명</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="inp012" placeholder="placeholder 입력" class="form-control form-control--lg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-rowgroup">
+                                <label for="nameEl" class="col-form-label">메뉴명</label>
+                                <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
+                                
+                                <div class="btn-group btn-search">
+                                    <button class="btn btn-outline btn-primary btn-sm" type="button">검색</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row is-center">
+                        <div class="col-sm-4">
+                            <div class="form-group form-rowgroup">
                                 <label for="nameEl" class="col-form-label">메뉴명</label>
                                 <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
                                 

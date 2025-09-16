@@ -289,6 +289,10 @@ a.link {
       .btn { min-width: initial; }
     }
   }
+  .row {
+    &.is-center { justify-content: center; }
+    &.is-end    { justify-content: flex-end; }
+  }
 }
 .ibox-title {
   display: flex;
