@@ -14,6 +14,9 @@
     <link href="css/style.css" rel="stylesheet">
 
     <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <style>
+        .row.is-center {margin-bottom: 1rem;}
+    </style>
 </head>
 <body class=""> <!-- (mini-navbar) 클래스 추가시 default 닫힌 상태 -->
     <div id="wrapper">
@@ -351,9 +354,16 @@
                 </div>
 
                 <div class="ibox-content ibox-top">
-                    <!-- col1 -->
                     <div class="row is-center"> <!-- (row + is-{center | is-end} : 중앙 정렬, 우측 정렬 -->
-                        <div class="col-lg-4 col-md-8 col-sm-12">
+                        <!-- 
+                            그리드 안내
+                            - col-{breakpoint}-{n} : 12분할 기준으로 칸 수(n) 지정
+                            - col-sm-12  : ≥576px에서 한 줄 꽉 채움(모바일~태블릿 초반)
+                            - col-md-6   : ≥768px에서 2열(6+6)
+                            - col-lg-4   : ≥992px에서 3열(4+4+4)
+                        -->
+                        <!-- col1 -->
+                        <div class="col-sm-12 col-md-8 col-lg-4">
                             <div class="form-group row">
                                 <label for="inp012" class="col-sm-2 col-form-label">col1</label>
                                 <div class="col-sm-10">
@@ -362,16 +372,10 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- col2 -->
-                    <div class="row is-center"> <!-- (row + is-{center | is-end} : 중앙 정렬, 우측 정렬 -->
-                        <!-- 
-                        그리드 안내
-                        - col-{breakpoint}-{n} : 12분할 기준으로 칸 수(n) 지정
-                        - col-sm-12  : ≥576px에서 한 줄 꽉 채움(모바일~태블릿 초반)
-                        - col-md-6   : ≥768px에서 2열(6+6)
-                        - col-lg-4   : ≥992px에서 3열(4+4+4)
-                        -->
-                        <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="row is-center">
+                        <div class="col-sm-12 col-md-6 col-lg-4">
                         <!-- 내부 폼 레이아웃
                         - 레이블/컨트롤 비율: sm 이상에서 2:10
                         - xs(<576px)에서는 세로로 쌓임 -->
@@ -382,7 +386,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="form-group row">
                                 <label for="inp013" class="col-sm-2 col-form-label">col2</label>
                                 <div class="col-sm-10">
@@ -391,9 +395,10 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- col3 -->
                     <div class="row is-center">
-                        <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
                             <div class="form-group row">
                                 <label for="inp012" class="col-sm-2 col-form-label">col3</label>
                                 <div class="col-sm-10">
@@ -401,7 +406,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
                             <div class="form-group row">
                                 <label for="inp013" class="col-sm-2 col-form-label">col3</label>
                                 <div class="col-sm-10">
@@ -409,7 +414,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
                             <div class="form-group row">
                                 <label for="inp013" class="col-sm-2 col-form-label">col3</label>
                                 <div class="col-sm-10">
@@ -418,9 +423,10 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- col4 -->
                     <div class="row is-center">
-                        <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-sm-12 col-md-6 col-lg-3">
                             <div class="form-group row">
                                 <label for="inp012" class="col-sm-2 col-form-label">col4</label>
                                 <div class="col-sm-10">
@@ -428,7 +434,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-sm-12 col-md-6 col-lg-3">
                             <div class="form-group row">
                                 <label for="inp013" class="col-sm-2 col-form-label">col4</label>
                                 <div class="col-sm-10">
@@ -436,7 +442,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-sm-12 col-md-6 col-lg-3">
                             <div class="form-group row">
                                 <label for="inp013" class="col-sm-2 col-form-label">col4</label>
                                 <div class="col-sm-10">
@@ -444,7 +450,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-sm-12 col-md-6 col-lg-3">
                             <div class="form-group row">
                                 <label for="inp013" class="col-sm-2 col-form-label">col4</label>
                                 <div class="col-sm-10">
@@ -453,11 +459,17 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="btn-group btn-search is-center">
-                        <button class="btn btn-outline btn-default btn-sm" type="button">초기화</button>
-                        <button class="btn btn-outline btn-primary btn-sm" type="button">검색</button>
-                        <button class="btn btn-primary btn-sm" type="button">등록</button>
+                        <button class="btn btn-outline btn-default btn-md" type="button">초기화</button>
+                        <button class="btn btn-outline btn-primary btn-md" type="button">검색</button>
+                        <button class="btn btn-primary btn-md" type="button">등록</button>
                     </div>
+                </div>
+                <div class="btn-group btn-search is-center">
+                    <button class="btn btn-outline btn-default btn-md" type="button">초기화</button>
+                    <button class="btn btn-outline btn-primary btn-md" type="button">검색</button>
+                    <button class="btn btn-primary btn-md" type="button">등록</button>
                 </div>
 
                 <div class="ibox-content ibox-top">
@@ -522,8 +534,8 @@
                         </div>
                     </div>
                     <div class="btn-group btn-search is-center">
-                        <button class="btn btn-outline btn-default btn-sm" type="button">초기화</button>
-                        <button class="btn btn-primary btn-sm" type="button">추가</button>
+                        <button class="btn btn-outline btn-default btn-md" type="button">초기화</button>
+                        <button class="btn btn-primary btn-md" type="button">추가</button>
                     </div>
                 </div>
 

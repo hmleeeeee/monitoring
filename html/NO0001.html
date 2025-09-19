@@ -255,7 +255,7 @@
                             <li class="dropdown">
                                 <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">노드 관리</a>
                                 <ul role="menu" class="dropdown-menu">
-                                    <li><a href="">노드 메뉴1</a></li>
+                                    <li><a href="NO0001.html">노드 메뉴1</a></li>
                                     <li><a href="">노드 메뉴2</a></li>
                                     <li><a href="">노드 메뉴3</a></li>
                                     <li><a href="">노드 메뉴4</a></li>
@@ -265,7 +265,7 @@
                             <li class="dropdown">
                                 <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">센서 관리</a>
                                 <ul role="menu" class="dropdown-menu">
-                                    <li><a href="">센서 메뉴1</a></li>
+                                    <li><a href="SE0001.html">센서 메뉴1</a></li>
                                     <li><a href="">센서 메뉴2</a></li>
                                     <li><a href="">센서 메뉴3</a></li>
                                     <li><a href="">센서 메뉴4</a></li>
@@ -274,9 +274,9 @@
                             <li class="dropdown">
                                 <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">설정</a>
                                 <ul role="menu" class="dropdown-menu">
-                                    <li><a href="">사용자 관리</a></li>
-                                    <li><a href="">센서 모니터링</a></li>
-                                    <li><a href="">대시보드1</a></li>
+                                    <li><a href="SY0001.html">사용자 관리</a></li>
+                                    <li><a href="SY0002.html">센서 모니터링</a></li>
+                                    <li><a href="SY0003.html">대시보드1</a></li>
                                     <li><a href="">대시보드2</a></li>
                                 </ul>
                             </li>
@@ -325,28 +325,24 @@
                 </div>
 
                 <div class="ibox-content ibox-top">
-                    <div class="row w-75 m-auto">
-                        <div class="col-sm-6">
+                    <div class="row is-center">
+                        <div class="col-12 col-lg-4">
                             <div class="form-group form-rowgroup">
                                 <label for="nameEl" class="col-form-label">필드명</label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
-                                </div>
+                                <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-12 col-lg-4">
                             <div class="form-group form-rowgroup">
                                 <label for="nameEl" class="col-form-label">노드명</label>
-                                <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
-                                <div class="btn-group btn-search">
-                                    <button class="btn btn-outline btn-primary btn-sm" type="button">검색</button>
+                                <div class="input-group gap">
+                                    <input type="text" id="nameEl" placeholder="" class="form-control form-control--lg">
+                                    <div class="btn-group btn-search">
+                                        <button class="btn btn-outline btn-primary btn-sm" type="button">검색</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="btn-group btn-search is-center">
-                        <button class="btn btn-outline btn-default btn-sm" type="button">초기화</button>
-                        <button class="btn btn-primary btn-sm" type="button">추가</button>
                     </div>
                 </div>
 
@@ -366,7 +362,7 @@
                             </div>
                             <div class="ibox-content">
                                 <!-- pagination 불필요시 table에 (footable) 클래스 및 관련 data 속성 삭제 -->
-                                <table class="footable table table-stripped" data-page-size="20" data-filter=#filter>
+                                <table class="table table-striped" data-page-size="20" data-filter=#filter>
                                     <thead>
                                         <tr>
                                             <th data-sortable="true">Node Name</th> <!-- sortable 기능 사용시 data-sortable="true" 작성 -->
@@ -431,8 +427,6 @@
                                             <td>제 2025-08</td>
                                             <td>위도 : 154.263, 경도 : 986.145</td>
                                         </tr>
-                                        
-                                        
                                         <tr>
                                             <td>노드명2노드명2노드명2</td>
                                             <td>제 2025-08</td>
@@ -464,15 +458,18 @@
                                             <td>위도 : 154.263, 경도 : 986.145</td>
                                         </tr>
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="3">
-                                                <!-- pagination 클래스 : is-{center | end} 중앙, 우측 정렬 -->
-                                                <ul class="pagination is-center"></ul>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
                                 </table>
+                            </div>
+                            <div class="pagination-select is-end">
+                                <div>
+                                    <select class="form-control">
+                                        <option value="1" selected="">1</option>
+                                        <option value="1" selected="">1</option>
+                                        <option value="1" selected="">1</option>
+                                        <option value="1" selected="">1</option>
+                                    </select>
+                                </div>
+                                <span class="total">99999</span>
                             </div>
                         </div>
                     </div>

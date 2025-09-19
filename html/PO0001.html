@@ -3,9 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>KCND | 공통 팝업</title>
-
+    <title>Tension Monitoring | 공통 팝업</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
@@ -314,7 +312,7 @@
                             </div>
                             <div class="ibox-content h-300">
                                 <p>버튼을 클릭하여 모달 호출<br>data-target 속성과 modal id 값 매칭</p>
-                                <div class="btn-group">
+                                <div class="btn-group flex-wrap">
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popup1">
                                         노드 상세 팝업
                                     </button>
@@ -329,6 +327,9 @@
                                     </button>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popupDrag">
                                         drag 팝업
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_inputUpdate">
+                                        도메인 상세 팝업
                                     </button>
                                 </div>
 
@@ -1180,6 +1181,261 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- 도메인 상세 팝업 -->
+                                <div class="modal inmodal js-draggable-modal" id="modal_inputUpdate" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-xlg">
+                                        <div class="modal-content">
+                                            <div class="modal-header js-drag-handle">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                <h4 class="modal-title" id="tit_modal_inputUpdate">도메인 상세페이지</h4>
+                                            </div>
+                                            <input type="hidden" id="inputUpdate_division" name="inputUpdate_division"/>
+                                            <!-- 도메인 상세 -->
+                                            <div class="modal-body" id="domain">
+                                                <div class="tbl-wrap">
+                                                    <div class="tbl-title">
+                                                        <p>도메인 정보</p>
+                                                        <button id="popup_domain_save_btn" class="btn btn-primary btn-md">수정</button> <!-- btn-[xs | sm | md | lg] 클래스로 버튼 사이즈 크기 조정 -->
+                                                    </div>
+                                                    <form id="domain_input">
+                                                        <input type="hidden" id="domain_input_domainId" name="domainId" />
+                                                        <table class="table table-bordered">
+                                                            <colgroup>
+                                                                <col style="width: 20%;">
+                                                                <col style="width: 30%;">
+                                                                <col style="width: 20%;">
+                                                                <col style="width: 30%;">
+                                                            </colgroup>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th>도메인 명</th>
+                                                                    <td colspan="3">
+                                                                        <div class="form-group">
+                                                                            <input
+                                                                                type="text"
+                                                                                id="domain_input_domainNm"
+                                                                                name="domainNm"
+                                                                                class="form-control require"
+                                                                                title="도메인 명"
+                                                                                value="도메인명테스트도메인명테스트테스트테스트"
+                                                                                placeholder="도메인 명을 입력해주세요" />
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>도메인 제목</th>
+                                                                    <td colspan="3">
+                                                                        <div class="form-group">
+                                                                            <input
+                                                                                type="text"
+                                                                                id="domain_input_domainTitle"
+                                                                                name="domainTitle"
+                                                                                class="form-control require"
+                                                                                title="도메인 제목"
+                                                                                value="도메인명테스트도메인명테스트테스트테스트"
+                                                                                placeholder="도메인 제목을 입력해주세요" />
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>DATA(T)</th>
+                                                                    <td>
+                                                                        <div class="form-group">
+                                                                            <input
+                                                                                type="text"
+                                                                                id="domain_input_dataT"
+                                                                                name="dataT"
+                                                                                class="form-control require"
+                                                                                title="데이터 정보 TYPE"
+                                                                                placeholder="데이터 정보 TYPE을 입력해주세요" />
+                                                                        </div>
+                                                                    </td>
+                                                                    <th>DATA(V)</th>
+                                                                    <td>
+                                                                        <div class="form-group">
+                                                                            <input
+                                                                                type="text"
+                                                                                id="domain_input_dataV"
+                                                                                name="dataV"
+                                                                                class="form-control require"
+                                                                                title="데이터 정보 VALUE"
+                                                                                placeholder="데이터 정보 VALUE를 입력해주세요" />
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>DATA(L)</th>
+                                                                    <td colspan=""> <!-- colspan 없이 input 사이즈 위 tr과 동일하도록 배치 -->
+                                                                        <div class="form-group">
+                                                                            <input
+                                                                                type="text"
+                                                                                id="domain_input_dataL"
+                                                                                name="dataL"
+                                                                                class="form-control require"
+                                                                                title="데이터 정보 LENGTH"
+                                                                                placeholder="데이터 정보 LENGTH를 입력해주세요" />
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>메인 내 로고 이미지</th>
+                                                                    <td>
+                                                                        <div class="form-rowgroup">
+                                                                            <input type="text" class="form-control" id="domain_input_mainLogoNm" name="mainLogoNm" />
+                                                                            <button id="mainLogoBtn" type="button" class="btn btn-outline btn-primary btn-xs">업로드</button>
+                                                                            <input type="hidden" id="mainLogoImg" name="mainLogo" />
+                                                                            <input
+                                                                                type="file"
+                                                                                id="domain_input_mainLogo"
+                                                                                class="form-control"
+                                                                                title="사이트 내 페이지 로고 이미지"
+                                                                                accept="image/*"
+                                                                                style="display:none;"/>
+                                                                        </div>
+                                                                    </td>
+                                                                    <th>사이트 내 로고 이미지</th>
+                                                                    <td>
+                                                                        <div class="form-rowgroup">
+                                                                            <input type="text" class="form-control" id="domain_input_siteLogoNm" name="siteLogoNm" />
+                                                                            <button id="siteLogoBtn" type="button" class="btn btn-outline btn-primary btn-xs">업로드</button>
+                                                                            <input type="hidden" id="siteLogoImg" name="siteLogo" />
+                                                                            <input
+                                                                                type="file"
+                                                                                id="domain_input_siteLogo"
+                                                                                class="form-control"
+                                                                                title="사이트 내 페이지 로고 이미지"
+                                                                                accept="image/*"
+                                                                                style="display:none;"/>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!-- 도메인 상세 -->
+                                            
+                                            <!-- 사이트 상세 -->
+                                            <div class="modal-body" id="site">
+                                                <div class="tbl-wrap">
+                                                    <div class="tbl-title">
+                                                        <p>사이트 정보</p>
+                                                        <button id="popup_site_save_btn" class="btn btn-primary btn-xs">수정</button>
+                                                    </div>
+                                                    <form id="site_input">
+                                                        <input type="hidden" id="site_input_domainId" name="domainId" />
+                                                        <input type="hidden" id="site_input_siteId" name="siteId" />
+                                                        <table class="table table-bordered">
+                                                            <colgroup>
+                                                                <col style="width: 20%;">
+                                                                <col style="width: 30%;">
+                                                                <col style="width: 20%;">
+                                                                <col style="width: 30%;">
+                                                            </colgroup>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th>도메인</th>
+                                                                    <td colspan="3">
+                                                                        <div class="input-group">
+                                                                            <input
+                                                                                type="text"
+                                                                                id="site_input_domainNm"
+                                                                                name="domainNm"
+                                                                                class="form-control require"
+                                                                                title="도메인"
+                                                                                placeholder="도메인을 검색해주세요" readonly/>
+                                                                            <button type="button" class="btn btn-outline btn-primary btn-xs m-l-xs" data-toggle="modal" data-target="#modal_domainList" >검색</button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>사용자 소속</th>
+                                                                    <td>
+                                                                        <div class="form-rowgroup">
+                                                                            <select id="site_input_regionCd" name="regionCd" class="form-control require" title="사용자 소속 지역">
+                                                                                <c:forEach var="item" items="${rgCdList }">
+                                                                                    <option value="<c:out value='${item.p_cd}'/>"><c:out value='${item.cd_nm}'/></option>
+                                                                                </c:forEach>
+                                                                            </select>
+                                                                            <select id="site_input_affiliationCd" name="affiliationCd" class="form-control require" title="사용자 소속 과">
+                                                                                <c:forEach var="item" items="${afCdList }">
+                                                                                    <option value="<c:out value='${item.p_cd}'/>"><c:out value='${item.cd_nm}'/></option>
+                                                                                </c:forEach>
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                    <th>면적</th>
+                                                                    <td>
+                                                                        <div class="form-group">
+                                                                            <input
+                                                                                type="text"
+                                                                                id="site_input_area"
+                                                                                name="area"
+                                                                                class="form-control require"
+                                                                                title="면적"
+                                                                                placeholder="면적을 입력해주세요" />
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>구분</th>
+                                                                    <td>
+                                                                        <div class="form-group">
+                                                                            <select id="site_input_divisionCd" name="divisionCd" class="form-control require" title="구분">
+                                                                                <c:forEach var="item" items="${dvsCdList }">
+                                                                                    <option value="<c:out value='${item.p_cd}'/>"><c:out value='${item.cd_nm}'/></option>
+                                                                                </c:forEach>
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                    <th>관리호</th>
+                                                                    <td>
+                                                                        <input
+                                                                            type="text"
+                                                                            id="site_input_siteMngNum"
+                                                                            name="siteMngNum"
+                                                                            class="form-control require"
+                                                                            title="관리호"
+                                                                            placeholder="관리호를 입력해주세요" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>주소</th>
+                                                                    <td colspan="3">
+                                                                        <div class="form-rowgroup">
+                                                                            <input
+                                                                                type="text"
+                                                                                id="site_input_mainAddress"
+                                                                                name="mainAddress"
+                                                                                class="form-control require"
+                                                                                title="메인 주소"
+                                                                                placeholder="메인 주소를 입력해주세요" />
+                                                                            <input
+                                                                                type="text"
+                                                                                id="site_input_detailAddress"
+                                                                                name="detailAddress"
+                                                                                class="form-control require"
+                                                                                title="상세 주소"
+                                                                                placeholder="상세 주소를 입력해주세요" />
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!-- 사이트 상세 -->
+                                            
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-white" data-dismiss="modal">닫기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //도메인 상세 팝업 -->
                             </div>
                         </div>
                     </div>
