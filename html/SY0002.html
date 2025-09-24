@@ -22,57 +22,57 @@
           </div>
           <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav mr-auto">
-              <li class="dropdown">
-                <a role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">도메인 관리</a>
-                <ul class="dropdown-menu">
-                  <li><a href="">도메인 메뉴1</a></li>
-                  <li><a href="">도메인 메뉴2</a></li>
-                  <li><a href="">도메인 메뉴3</a></li>
-                  <li><a href="">도메인 메뉴4</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">사이트 관리</a>
-                <ul class="dropdown-menu">
-                  <li><a href="">사이트 메뉴1</a></li>
-                  <li><a href="">사이트 메뉴2</a></li>
-                  <li><a href="">사이트 메뉴3</a></li>
-                  <li><a href="">사이트 메뉴4</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">노드 관리</a>
-                <ul class="dropdown-menu">
-                  <li><a href="">노드 메뉴1</a></li>
-                  <li><a href="">노드 메뉴2</a></li>
-                  <li><a href="">노드 메뉴3</a></li>
-                  <li><a href="">노드 메뉴4</a></li>
-                  <li><a href="">노드 메뉴5</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">센서 관리</a>
-                <ul class="dropdown-menu">
-                  <li><a href="">센서 메뉴1</a></li>
-                  <li><a href="">센서 메뉴2</a></li>
-                  <li><a href="">센서 메뉴3</a></li>
-                  <li><a href="">센서 메뉴4</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">설정</a>
-                <ul class="dropdown-menu">
-                  <li><a href="">사용자 관리</a></li>
-                  <li><a href="">센서 모니터링</a></li>
-                  <li><a href="">대시보드1</a></li>
-                  <li><a href="">대시보드2</a></li>
-                </ul>
-              </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">도메인 관리</a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="#none">도메인 메뉴1</a></li>
+                        <li><a href="#none">도메인 메뉴2</a></li>
+                        <li><a href="#none">도메인 메뉴3</a></li>
+                        <li><a href="#none">도메인 메뉴4</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">사이트 관리</a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="#none">사이트 메뉴1</a></li>
+                        <li><a href="#none">사이트 메뉴2</a></li>
+                        <li><a href="#none">사이트 메뉴3</a></li>
+                        <li><a href="#none">사이트 메뉴4</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">노드 관리</a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="NO0001.html">노드 메뉴1</a></li>
+                        <li><a href="#none">노드 메뉴2</a></li>
+                        <li><a href="#none">노드 메뉴3</a></li>
+                        <li><a href="#none">노드 메뉴4</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">센서 관리</a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="SE0001.html">센서 메뉴1</a></li>
+                        <li><a href="#none">센서 메뉴2</a></li>
+                        <li><a href="#none">센서 메뉴3</a></li>
+                        <li><a href="#none">센서 메뉴4</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">설정</a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="SY0001.html">사용자 관리</a></li>
+                        <li class="active"><a href="SY0002.html">센서 모니터링</a></li>
+                        <li><a href="SY0003.html">대시보드</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-top-links navbar-right">
-              <li>
-                <a href="LO0001.html"><i class="fa fa-sign-out"></i> Log out</a>
-              </li>
+                <li>
+                    <a href="LO0001.html">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+                </li>
             </ul>
           </div>
         </nav>
@@ -89,7 +89,7 @@
         </div>
 
         <div class="tmd-accordion accordion" id="tmd-acc-list">
-            <div class="tmd-acc-item card">
+            <div class="tmd-acc-item card card-sensor">
               <div class="tmd-acc-head card-header">
                 <div class="tmd-card" data-line="부산역 - 사하">
                   <div class="tmd-bookmark">
@@ -107,85 +107,7 @@
                           tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
                           마지막 노드엔 (tmd-pair--last) 클래스 추가
                           -->
-                          <div class="tmd-pair">
-                            <div class="tmd-node">
-                              <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
-                              <span class="tmd-nlabel">부산역</span>
-                            </div>
-                            <div class="tmd-edge unknown" data-state="unknown" data-from="부산역" data-to="중앙" data-line="부산역 - 사하"></div>
-                          </div>
-                  
-                          <div class="tmd-pair">
-                            <div class="tmd-node">
-                              <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
-                              <span class="tmd-nlabel">중앙</span>
-                            </div>
-                            <div class="tmd-edge ok" data-state="ok" data-from="중앙" data-to="남포" data-line="부산역 - 사하"></div>
-                          </div>
-                  
-                          <div class="tmd-pair">
-                            <div class="tmd-node">
-                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
-                              <span class="tmd-nlabel">남포</span>
-                            </div>
-                            <div class="tmd-edge ok" data-state="ok" data-from="남포" data-to="자갈치" data-line="부산역 - 사하"></div>
-                          </div>
-                  
-                          <div class="tmd-pair">
-                            <div class="tmd-node">
-                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
-                              <span class="tmd-nlabel">자갈치</span>
-                            </div>
-                            <div class="tmd-edge danger" data-state="danger" data-from="자갈치" data-to="토성" data-line="부산역 - 사하"></div>
-                          </div>
-                  
-                          <div class="tmd-pair">
-                            <div class="tmd-node">
-                              <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
-                              <span class="tmd-nlabel">토성</span>
-                            </div>
-                            <div class="tmd-edge danger" data-state="danger" data-from="토성" data-to="동대신" data-line="부산역 - 사하"></div>
-                          </div>
-                  
-                          <div class="tmd-pair">
-                            <div class="tmd-node">
-                              <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
-                              <span class="tmd-nlabel">동대신</span>
-                            </div>
-                            <div class="tmd-edge warn" data-state="warn" data-from="동대신" data-to="서대신" data-line="부산역 - 사하"></div>
-                          </div>
-                  
-                          <div class="tmd-pair">
-                            <div class="tmd-node">
-                              <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
-                              <span class="tmd-nlabel">서대신</span>
-                            </div>
-                            <div class="tmd-edge warn" data-state="warn" data-from="서대신" data-to="대티" data-line="부산역 - 사하"></div>
-                          </div>
-
-                          <div class="tmd-pair">
-                            <div class="tmd-node">
-                              <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
-                              <span class="tmd-nlabel">대티</span>
-                            </div>
-                            <div class="tmd-edge warn" data-state="warn" data-from="대티" data-to="사하" data-line="부산역 - 사하"></div>
-                          </div>
-
-                          <div class="tmd-pair">
-                            <div class="tmd-node">
-                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
-                              <span class="tmd-nlabel">괴정</span>
-                            </div>
-                            <div class="tmd-edge ok" data-state="ok" data-from="괴정" data-to="사하" data-line="부산역 - 사하"></div>
-                          </div>
-                  
-                          <!-- 마지막 노드엔 (tmd-pair--last) 클래스 추가 및 tmd-edge 미존재 -->
-                          <div class="tmd-pair tmd-pair--last">
-                            <div class="tmd-node">
-                              <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
-                              <span class="tmd-nlabel">사하</span>
-                            </div>
-                          </div>
+                          <div class="tmd-pair tmd-pair--title">센서들이 있는 노드명 1</div>
                         </div>
                       </div>
                     </div>
@@ -200,94 +122,290 @@
                 </div>
               </div>
 
-              <div id="acc-body-1" class="tmd-acc-body collapse" data-parent="#tmd-acc-list">
+              <div id="acc-body-1" class="tmd-acc-body collapse show" data-parent="#tmd-acc-list">
                 <div class="tmd-acc-panel card-body">
-                  <div class="tmd-sgrid">
+                  <div class="tmd-sgrid" id="tmd-acc-sensor-1">
                     <!-- 상태 카드 1 : danger -->
                     <div class="tmd-scard danger">
                       <div class="tmd-scard__head">
-                        <h4 class="tmd-scard__title">남포</h4>
-                        <span class="tmd-scard__badge"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
+                        <h4 class="tmd-scard__title">LRDTW100250700001234</h4>
+                         <span class="tmd-scard__badge"
+                                data-toggle="collapse"
+                                data-target="#acc-card-1"
+                                aria-expanded="false"
+                                aria-controls="acc-card-1">
+                          <i class="fa fa-bell-o" aria-hidden="true"></i>
+                        </span>
                       </div>
-                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
-                      <dl class="tmd-scard__meta">
-                        <div><dt>Device ID</dt><dd>DEV-421</dd></div>
-                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      <p class="tmd-scard__route">RAIL</p>
+                      <dl class="tmd-scard__meta collapse" id="acc-card-1">
+                          <div>
+                            <dt>type</dt>
+                            <dd>1</dd>
+                          </div>
+                          <div>
+                            <dt>period</dt>
+                            <dd>600</dd>
+                          </div>
+                          <div>
+                            <dt>battery</dt>
+                            <dd>3.6</dd>
+                          </div>
+                          <div>
+                            <dt>fw_ver</dt>
+                            <dd>1.23</dd>
+                          </div>
+                          <div>
+                            <dt>distance</dt>
+                            <dd>155</dd>
+                          </div>
+                          <div>
+                            <dt>temperature</dt>
+                            <dd>25.4</dd>
+                          </div>
                       </dl>
                     </div>
 
                     <!-- 상태 카드 2 : warn -->
                     <div class="tmd-scard warn">
                       <div class="tmd-scard__head">
-                        <h4 class="tmd-scard__title">대티</h4>
-                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                        <h4 class="tmd-scard__title">WRDTW100250700001234</h4>
+                         <span class="tmd-scard__badge"
+                                data-toggle="collapse"
+                                data-target="#acc-card-2"
+                                aria-expanded="false"
+                                aria-controls="acc-card-2">
+                          <i class="fa fa-exclamation" aria-hidden="true"></i>
+                        </span>
                       </div>
-                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
-                      <dl class="tmd-scard__meta">
-                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
-                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      <p class="tmd-scard__route">RAIL</p>
+                      <dl class="tmd-scard__meta collapse" id="acc-card-2">
+                          <div>
+                            <dt>type</dt>
+                            <dd>1</dd>
+                          </div>
+                          <div>
+                            <dt>period</dt>
+                            <dd>600</dd>
+                          </div>
+                          <div>
+                            <dt>battery</dt>
+                            <dd>3.6</dd>
+                          </div>
+                          <div>
+                            <dt>fw_ver</dt>
+                            <dd>1.23</dd>
+                          </div>
+                          <div>
+                            <dt>distance</dt>
+                            <dd>155</dd>
+                          </div>
+                          <div>
+                            <dt>temperature</dt>
+                            <dd>25.4</dd>
+                          </div>
                       </dl>
                     </div>
 
                     <div class="tmd-scard warn">
                       <div class="tmd-scard__head">
-                        <h4 class="tmd-scard__title">대티</h4>
-                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                        <h4 class="tmd-scard__title">WRDTW100250700001234</h4>
+                         <span class="tmd-scard__badge"
+                                data-toggle="collapse"
+                                data-target="#acc-card-3"
+                                aria-expanded="false"
+                                aria-controls="acc-card-3">
+                          <i class="fa fa-exclamation" aria-hidden="true"></i>
+                        </span>
                       </div>
-                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
-                      <dl class="tmd-scard__meta">
-                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
-                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      <p class="tmd-scard__route">RAIL</p>
+                      <dl class="tmd-scard__meta collapse" id="acc-card-3">
+                          <div>
+                            <dt>type</dt>
+                            <dd>1</dd>
+                          </div>
+                          <div>
+                            <dt>period</dt>
+                            <dd>600</dd>
+                          </div>
+                          <div>
+                            <dt>battery</dt>
+                            <dd>3.6</dd>
+                          </div>
+                          <div>
+                            <dt>fw_ver</dt>
+                            <dd>1.23</dd>
+                          </div>
+                          <div>
+                            <dt>distance</dt>
+                            <dd>155</dd>
+                          </div>
+                          <div>
+                            <dt>temperature</dt>
+                            <dd>25.4</dd>
+                          </div>
                       </dl>
                     </div>
 
                     <div class="tmd-scard warn">
                       <div class="tmd-scard__head">
-                        <h4 class="tmd-scard__title">대티</h4>
-                        <span class="tmd-scard__badge"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                        <h4 class="tmd-scard__title">WRDTW100250700001234</h4>
+                         <span class="tmd-scard__badge"
+                                data-toggle="collapse"
+                                data-target="#acc-card-4"
+                                aria-expanded="false"
+                                aria-controls="acc-card-4">
+                          <i class="fa fa-exclamation" aria-hidden="true"></i>
+                        </span>
                       </div>
-                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
-                      <dl class="tmd-scard__meta">
-                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
-                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      <p class="tmd-scard__route">RAIL</p>
+                      <dl class="tmd-scard__meta collapse" id="acc-card-4">
+                          <div>
+                            <dt>type</dt>
+                            <dd>1</dd>
+                          </div>
+                          <div>
+                            <dt>period</dt>
+                            <dd>600</dd>
+                          </div>
+                          <div>
+                            <dt>battery</dt>
+                            <dd>3.6</dd>
+                          </div>
+                          <div>
+                            <dt>fw_ver</dt>
+                            <dd>1.23</dd>
+                          </div>
+                          <div>
+                            <dt>distance</dt>
+                            <dd>155</dd>
+                          </div>
+                          <div>
+                            <dt>temperature</dt>
+                            <dd>25.4</dd>
+                          </div>
                       </dl>
                     </div>
 
                     <!-- 상태 카드 3 : ok -->
                     <div class="tmd-scard ok">
                       <div class="tmd-scard__head">
-                        <h4 class="tmd-scard__title">토성</h4>
-                        <span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
+                        <h4 class="tmd-scard__title">SEDTW100250700001234</h4>
+                         <span class="tmd-scard__badge"
+                                data-toggle="collapse"
+                                data-target="#acc-card-5"
+                                aria-expanded="false"
+                                aria-controls="acc-card-5">
+                          <i class="fa fa-check" aria-hidden="true"></i>
+                        </span>
                       </div>
-                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
-                      <dl class="tmd-scard__meta">
-                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
-                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      <p class="tmd-scard__route">RAIL</p>
+                      <dl class="tmd-scard__meta collapse" id="acc-card-5">
+                          <div>
+                            <dt>type</dt>
+                            <dd>1</dd>
+                          </div>
+                          <div>
+                            <dt>period</dt>
+                            <dd>600</dd>
+                          </div>
+                          <div>
+                            <dt>battery</dt>
+                            <dd>3.6</dd>
+                          </div>
+                          <div>
+                            <dt>fw_ver</dt>
+                            <dd>1.23</dd>
+                          </div>
+                          <div>
+                            <dt>distance</dt>
+                            <dd>155</dd>
+                          </div>
+                          <div>
+                            <dt>temperature</dt>
+                            <dd>25.4</dd>
+                          </div>
                       </dl>
                     </div>
 
                     <div class="tmd-scard ok">
                       <div class="tmd-scard__head">
-                        <h4 class="tmd-scard__title">자갈치</h4>
-                        <span class="tmd-scard__badge"><i class="fa fa-check" aria-hidden="true"></i></span>
+                        <h4 class="tmd-scard__title">SEDTW100250700001234</h4>
+                         <span class="tmd-scard__badge"
+                                data-toggle="collapse"
+                                data-target="#acc-card-6"
+                                aria-expanded="false"
+                                aria-controls="acc-card-6">
+                          <i class="fa fa-check" aria-hidden="true"></i>
+                        </span>
                       </div>
-                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
-                      <dl class="tmd-scard__meta">
-                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
-                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      <p class="tmd-scard__route">RAIL</p>
+                      <dl class="tmd-scard__meta collapse" id="acc-card-6">
+                          <div>
+                            <dt>type</dt>
+                            <dd>1</dd>
+                          </div>
+                          <div>
+                            <dt>period</dt>
+                            <dd>600</dd>
+                          </div>
+                          <div>
+                            <dt>battery</dt>
+                            <dd>3.6</dd>
+                          </div>
+                          <div>
+                            <dt>fw_ver</dt>
+                            <dd>1.23</dd>
+                          </div>
+                          <div>
+                            <dt>distance</dt>
+                            <dd>155</dd>
+                          </div>
+                          <div>
+                            <dt>temperature</dt>
+                            <dd>25.4</dd>
+                          </div>
                       </dl>
                     </div>
 
                     <!-- 상태 카드 4 : unknown -->
                     <div class="tmd-scard unknown">
                       <div class="tmd-scard__head">
-                        <h4 class="tmd-scard__title">중앙</h4>
-                        <span class="tmd-scard__badge"><i class="fa fa-times" aria-hidden="true"></i></span>
+                        <h4 class="tmd-scard__title">SEDTW100250700001234</h4>
+                         <span class="tmd-scard__badge"
+                                data-toggle="collapse"
+                                data-target="#acc-card-7"
+                                aria-expanded="false"
+                                aria-controls="acc-card-7">
+                          <i class="fa fa-times" aria-hidden="true"></i>
+                        </span>
                       </div>
-                      <p class="tmd-scard__route">부산역 → 사하 구간</p>
-                      <dl class="tmd-scard__meta">
-                        <div><dt>Device ID</dt><dd>DEV-422</dd></div>
-                        <div><dt>범위(S/L/C/NI)</dt><dd>12 / 34 / 5 / 3</dd></div>
+                      <p class="tmd-scard__route">RAIL</p>
+                      <dl class="tmd-scard__meta collapse" id="acc-card-7">
+                          <div>
+                            <dt>type</dt>
+                            <dd>1</dd>
+                          </div>
+                          <div>
+                            <dt>period</dt>
+                            <dd>600</dd>
+                          </div>
+                          <div>
+                            <dt>battery</dt>
+                            <dd>3.6</dd>
+                          </div>
+                          <div>
+                            <dt>fw_ver</dt>
+                            <dd>1.23</dd>
+                          </div>
+                          <div>
+                            <dt>distance</dt>
+                            <dd>155</dd>
+                          </div>
+                          <div>
+                            <dt>temperature</dt>
+                            <dd>25.4</dd>
+                          </div>
                       </dl>
                     </div>
                   </div>
@@ -390,7 +508,7 @@
                 </div>
               </div>
 
-              <div id="acc-body-2" class="tmd-acc-body collapse show" data-parent="#tmd-acc-list">
+              <div id="acc-body-2" class="tmd-acc-body collapse" data-parent="#tmd-acc-list">
                 <div class="tmd-acc-panel card-body">
                   <div class="tmd-sgrid">
                     <!-- 상태 카드 1 : danger -->
