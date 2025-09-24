@@ -12047,11 +12047,30 @@ body.mini-navbar .nav ul.nav-second-level.depth3 {
   }
 }
 
-body.top-navigation .navbar-default.navbar-static-side, body.top-navigation .navbar-minimalize {
+body.top-navigation:not(.has-monitoring) .navbar-default.navbar-static-side, body.top-navigation:not(.has-monitoring) .navbar-minimalize {
   display: none;
 }
-body.top-navigation .navbar-top-links li a {
+body.top-navigation:not(.has-monitoring) .navbar-top-links li a {
   min-height: 40px;
+}
+
+body.has-monitoring.mini-navbar #page-wrapper {
+  margin: 0 0 0 50px;
+  transition: none;
+  border-left: 1px solid #2D2F39;
+}
+body.has-monitoring.mini-navbar .navbar-static-side .nav > li a:hover, body.has-monitoring.mini-navbar .navbar-static-side .nav > li a:focus, body.has-monitoring.mini-navbar .navbar-static-side .nav > li a:active {
+  background: #222835;
+}
+body.has-monitoring.mini-navbar .navbar.navbar-static-top .navbar-minimalize {
+  display: none;
+}
+body.has-monitoring.mini-navbar .navbar.navbar-static-top .nav.navbar-nav > li > a {
+  padding: 10px 24px 11px;
+}
+body.has-monitoring.mini-navbar .navbar.navbar-static-top .navbar-top-links li a {
+  min-height: 40px;
+  padding: 10px 30px 11px;
 }
 
 /* navy */
@@ -12741,7 +12760,7 @@ body.has-dashboard .ibox-acco .ibox-content {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: clamp(0.8rem, 1.1vw, 1.4rem);
-  padding: 0 3.8rem 0 3.8rem;
+  padding: 0 3rem;
 }
 .tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard {
   position: relative;
@@ -12890,15 +12909,17 @@ body.has-dashboard .ibox-acco .ibox-content {
 ========================================= */
 /* Mount themes */
 body[data-theme=light] {
-  background: #f6f7fb;
   color: #111827;
   /* 링 색 */
   /* 엣지 그라데이션 */
   /* 클릭 기본 배경(패널), 호버는 더 밝게(패널 → 화이트 쪽으로 이동) */
 }
+body[data-theme=light] #page-wrapper {
+  background: #f6f7fb;
+}
 body[data-theme=light] .tmd-wrap {
   max-width: min(240rem, 98vw);
-  margin: clamp(1.2rem, 1.8vw, 2.2rem) auto clamp(1.4rem, 2vw, 2.6rem);
+  margin: clamp(1.2rem, 1.8vw, 2.2rem) auto 0;
   padding: 0 clamp(1rem, 1.6vw, 2rem) clamp(1.1rem, 1.6vw, 2rem);
 }
 body[data-theme=light] .tmd-title {
@@ -13164,15 +13185,17 @@ body[data-theme=light] .tmd-popover.mode-click .tmd-sheet .tmd-kv dd {
 }
 
 body[data-theme=dark] {
-  background: #0f172a;
   color: #e5e7eb;
   /* 링 색 */
   /* 엣지 그라데이션 */
   /* 클릭 기본 배경(패널), 호버는 더 밝게(패널 → 화이트 쪽으로 이동) */
 }
+body[data-theme=dark] #page-wrapper {
+  background: #0f172a;
+}
 body[data-theme=dark] .tmd-wrap {
   max-width: min(240rem, 98vw);
-  margin: clamp(1.2rem, 1.8vw, 2.2rem) auto clamp(1.4rem, 2vw, 2.6rem);
+  margin: clamp(1.2rem, 1.8vw, 2.2rem) auto 0;
   padding: 0 clamp(1rem, 1.6vw, 2rem) clamp(1.1rem, 1.6vw, 2rem);
 }
 body[data-theme=dark] .tmd-title {

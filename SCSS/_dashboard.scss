@@ -390,7 +390,7 @@ $theme-dark: (
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: clamp(.8rem, 1.1vw, 1.4rem);
-        padding: 0 3.8rem 0 3.8rem;
+        padding: 0 3rem;
       }
 
       .tmd-scard{
@@ -493,12 +493,12 @@ $theme-dark: (
 
 @mixin theme-apply($scope, $t){
   #{$scope}{
-    background: map-get($t,bg);
     color:      map-get($t,text);
 
+    #page-wrapper { background: map-get($t,bg); }
     .tmd-wrap{
       max-width: min($container-max, $container-vw);
-      margin: clamp(1.2rem, 1.8vw, 2.2rem) auto clamp(1.4rem, 2vw, 2.6rem);
+      margin: clamp(1.2rem, 1.8vw, 2.2rem) auto 0;
       padding: 0 clamp(1rem, 1.6vw, 2rem) clamp(1.1rem, 1.6vw, 2rem);
     }
     .tmd-title{ color: map-get($t,text); }
