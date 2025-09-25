@@ -12834,7 +12834,7 @@ body[data-theme=dark] .modal .sweet-alert .sa-button-container button:active {
 .tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-sgrid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: clamp(0.8rem, 1.1vw, 1.4rem);
+  gap: clamp(0.8rem, 1vw, 1.2rem);
   padding: 0 3rem;
 }
 .tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard {
@@ -12856,7 +12856,7 @@ body[data-theme=dark] .modal .sweet-alert .sa-button-container button:active {
   width: calc(100% - 32px);
   margin: 0;
   font-weight: 800;
-  font-size: clamp(1.2rem, 1.01vw, 1.5rem);
+  font-size: clamp(1.2rem, 1vw, 1.5rem);
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
@@ -12875,13 +12875,14 @@ body[data-theme=dark] .modal .sweet-alert .sa-button-container button:active {
 .tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__route {
   margin: 0;
   font-size: clamp(0.92rem, 0.9vw, 1.2rem);
-  line-height: 1.25;
+  font-weight: 600;
+  line-height: 1.2;
 }
 .tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__meta {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(4px, 0.2vw, 6px) clamp(4px, 1vw, 6px);
-  margin: clamp(10px, 0.7vw, 12px) 0 0;
+  gap: clamp(2px, 0.15vw, 4px) clamp(2px, 0.8vw, 4px);
+  margin: clamp(10px, 0.7vw, 8px) 0 0;
 }
 .tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-scard__meta > div {
   display: grid;
@@ -12905,7 +12906,7 @@ body[data-theme=dark] .modal .sweet-alert .sa-button-container button:active {
 }
 @media (min-width: 1920px) {
   .tmd-accordion .tmd-acc-body .tmd-acc-panel .tmd-sgrid {
-    gap: clamp(1rem, 0.8vw, 1.4rem);
+    gap: clamp(0.8rem, 0.6vw, 1.2rem);
   }
 }
 .tmd-accordion .tmd-acc-panel.card-body {
