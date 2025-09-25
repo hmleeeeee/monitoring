@@ -14,13 +14,13 @@ $title     : clamp(1.45rem, 2vw, 2rem);
 $card-max-h: clamp(16rem, 48vh, 36rem);
 
 /* 라인 균등 */
-$node-w   : clamp(4.2rem, 4.7vw, 5.4rem);
-$gap-x    : clamp(.36rem, .55vw, .7rem);
+$node-w   : clamp(5.4rem, 6vw, 8rem);
+$gap-x    : clamp(.45rem, .6vw, .6rem);
 
 /* 엣지 길이(동일하게 보이는 목표 길이 + 절대 최소) */
-$edge-min : clamp(1.4rem, 2.0vw, 2.6rem);
-$edge-l   : clamp(2.5rem, 8vw, 3.6rem);
-$edge-d   : clamp(3.5rem, 12vw, 6rem);
+$edge-min : clamp(2rem, 3.5vw, 4rem);
+$edge-l   : clamp(3.5rem, 5.25vw, 6rem);
+$edge-d   : clamp(5rem, 8vw, 12rem);
 
 /* padding */
 $card-pad: clamp(.75rem, .9vw, 1.1rem);
@@ -126,7 +126,7 @@ $theme-dark: (
       display:grid; grid-template-columns:7rem 1fr; margin-bottom:0; gap:.2rem .4rem;
       font-size: clamp(0.846rem, calc(0.15625vw + 0.692rem),  0.923rem);
       dt{ color:$muted; font-weight:500; }
-      dd{ color:$text;  font-weight:400; }
+      dd{ color:$text;  font-weight:400; word-break: break-all; }
     }
 
     /*  HOVER MODE  */
@@ -185,6 +185,47 @@ $theme-dark: (
       }
     }
   }
+   /* DEFAULT MODAL */
+   .modal {
+    .modal-content {
+      color:$text;
+      background: $click-bg;
+      border-color: rgba($click-bc, 1);
+      box-shadow: 0 .55rem 1.35rem rgba(0,0,0,.34);
+    }
+    .modal-header { border-color: rgba($hover-bc, 1); }
+    .modal-body { background: $click-bg; 
+      .ibox-content, .tbl-wrap { padding: 20px; background: $click-bg; border-color: rgba($click-bc, 1); }
+      .border-bottom, .border-top { border-color: rgba($click-bc, 1)!important; }
+      .tbl-wrap .tbl-title > p { color: $text; }
+      .table { background: $click-bg; 
+        thead > tr th, thead > tr td,
+        tbody > tr th, tbody > tr td,
+        tfoot > tr th, tfoot > tr td {
+          border-color: rgba($click-bc, 1);
+        }
+        > colgroup + tbody > tr > th {
+          color: $text;
+          background-color: $hover-bg;
+        }
+      }
+    }
+    .modal-footer {
+      border-color: rgba($hover-bc, 1);
+    }
+    .modal-title, .col-form-label, .tbl-title, .tbl-title > p { color:$text; }
+    .btn-outline { color: $text; border-color: rgba($click-bc, 1); background-color: transparent; }
+    .btn-white { border-color: rgba($click-bc, 1); background-color: transparent; }
+   }
+
+   /* ALERT */
+   .sweet-alert {
+      color: $text;
+      background: $hover-bg;
+      border-color: rgba($hover-bc, 1);
+      box-shadow: 0 .35rem 1rem rgba(0,0,0,.28);
+      h2 , p { color: $text; }
+   }
 }
 
 /* =========================================
@@ -227,7 +268,7 @@ $theme-dark: (
   grid-template-columns:6rem 1fr 6rem;
   grid-template-areas:"from route to";
   align-items:center;
-  gap:clamp(.45rem,.9vw,1.2rem);
+  gap:clamp(.45rem,.6vw,1rem);
   border-radius: calc(#{$radius} + .2rem);
   padding:$card-pad;
 
@@ -255,7 +296,7 @@ $theme-dark: (
   justify-content:flex-start;
   align-content:center;
   column-gap:$gap-x;
-  row-gap: clamp(.35rem,.5vw,.7rem);
+  row-gap: clamp(.45rem,.65vw,.8rem);
   max-width:100%; min-width:0;
 }
 
@@ -264,6 +305,7 @@ $theme-dark: (
   display:flex; align-items:flex-start;
   column-gap:$gap-x;
   flex: 0 1 auto;             /* 내용 기준으로 줄바꿈 */
+  /* min-width:  node(노드폭)  +  edge-min(엣지 최소길이)  +  gap-x(사이간격) */
   min-width: calc(#{$node-w} + #{$edge-min} + #{$gap-x});
   font-size: clamp(.88rem, 1.05vw, 1.125rem);
 }
@@ -284,7 +326,11 @@ $theme-dark: (
   > .tmd-dotbtn{ justify-self:center; align-self:center; }
 }
 .tmd-nlabel{
-  margin-top:.32rem; font-size: clamp(.88rem, 1.05vw, 1.125rem); text-align:center;
+  margin-top: .32rem;
+  font-size: clamp(.88rem, 1.2vw, 1rem);
+  text-align: center;
+  line-height: 1.25;
+  word-break: break-all;
 }
 
 /* 블렛(링) */
@@ -332,6 +378,65 @@ $theme-dark: (
   }
 }
 
+body[data-theme=dark] .modal {
+  $panel: map-get($theme-dark, panel);
+  $text : map-get($theme-dark, text);
+  $muted: map-get($theme-dark, muted);
+  $line : map-get($theme-dark, line);
+  $btn-cancel : #334155;  $btn-cancel-h : #475569;  $btn-cancel-a : #1F2937;  $on-cancel : $text;
+
+  .modal-header .close { background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.78567 19L5 18.2143L11.2143 12L5 5.78567L5.78567 5L12 11.2143L18.2143 5L19 5.78567L12.7857 12L19 18.2143L18.2143 19L12 12.7857L5.78567 19Z' fill='%23e5e7eb'/%3E%3C/svg%3E"); }
+  select.form-control { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2016%2016%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M11.3327%206.00016L7.99935%209.3335L4.66602%206.00016%27%20stroke%3D%27%23e5e7eb%27%20stroke-width%3D%271.2%27%20stroke-linecap%3D%27square%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E"); }
+
+  /* active */
+  .form-control,
+  .single-line,
+  select.form-control {
+    color: rgba($text,.96);
+    -webkit-text-fill-color: rgba($text,.96);
+    background-color: mix(#fff,$panel,6%);
+    border-color: mix(#fff,$line,22%);
+    box-shadow: inset 0 0 0 1px rgba(#000,.22);
+    &::placeholder { color: rgba($muted,.6); }
+  }
+  /* readonly/disabled */
+  .form-control:disabled,
+  .form-control[readonly],
+  .single-line:disabled,
+  .single-line[readonly],
+  select.form-control:disabled,
+  select.form-control[readonly]{
+    color: rgba($muted,.82);
+    -webkit-text-fill-color: rgba($muted,.82);
+    background-color: mix(#fff,$panel,18%);
+    border-color: mix(#fff,$line,46%);
+    box-shadow: inset 0 0 0 1px rgba(#000,.12);
+    &::placeholder { color: rgba($muted,.58); }
+    opacity: 1;
+    cursor: default;
+    caret-color: transparent;                 /* readonly도 커서 숨김 */
+  }
+
+  /* no hover accents for readonly/disabled */
+  .form-control:disabled:hover,
+  .form-control[readonly]:hover,
+  select.form-control:disabled:hover,
+  select.form-control[readonly]:hover {
+    border-color: mix(#fff,$line,46%);
+    box-shadow: inset 0 0 0 1px rgba(#000,.12);
+  }
+
+  // ALERT
+  .sweet-alert {
+    .sa-button-container {
+      button { color: $on-cancel; background: $btn-cancel;
+        &:hover { background: $btn-cancel-h; }
+        &:active { background: $btn-cancel-a; }
+      }
+    }
+  }
+}
+
 /* =========================================
    Accordion (base)
 ========================================= */
@@ -362,7 +467,7 @@ $theme-dark: (
         width: clamp(28px, 1.6vw, 36px); height: clamp(28px, 1.6vw, 36px); aspect-ratio: 1/1;
         border-radius:50%; display:inline-grid; place-items:center; padding:0; line-height:0;
         transition: transform .15s, box-shadow .2s;
-        i{ font-size: clamp(.86rem, .95vw, 1.05rem); }
+        i{ font-size: clamp(.86rem, .95vw, 1rem); }
       }
 
       .tmd-utill{

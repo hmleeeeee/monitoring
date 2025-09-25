@@ -11729,7 +11729,7 @@ select.form-control {
   max-width: var(--modal-max, 1200px);
 }
 .js-draggable-modal .modal-dialog.modal-sm {
-  --modal-max: 300px;
+  --modal-max: 360px;
 }
 .js-draggable-modal .modal-dialog.modal-md {
   --modal-max: 600px;
@@ -12497,7 +12497,7 @@ body.has-dashboard .ibox-acco .ibox-content {
   grid-template-columns: 6rem 1fr 6rem;
   grid-template-areas: "from route to";
   align-items: center;
-  gap: clamp(0.45rem, 0.9vw, 1.2rem);
+  gap: clamp(0.45rem, 0.6vw, 1rem);
   border-radius: calc(clamp(0.7rem, 0.8vw, 1.1rem) + 0.2rem);
   padding: clamp(0.75rem, 0.9vw, 1.1rem);
   min-height: clamp(7.5rem, 9.5vw, 11.5rem);
@@ -12544,9 +12544,9 @@ body.has-dashboard .ibox-acco .ibox-content {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: center;
-  -moz-column-gap: clamp(0.36rem, 0.55vw, 0.7rem);
-       column-gap: clamp(0.36rem, 0.55vw, 0.7rem);
-  row-gap: clamp(0.35rem, 0.5vw, 0.7rem);
+  -moz-column-gap: clamp(0.45rem, 0.6vw, 0.6rem);
+       column-gap: clamp(0.45rem, 0.6vw, 0.6rem);
+  row-gap: clamp(0.45rem, 0.65vw, 0.8rem);
   max-width: 100%;
   min-width: 0;
 }
@@ -12555,10 +12555,11 @@ body.has-dashboard .ibox-acco .ibox-content {
 .tmd-pair {
   display: flex;
   align-items: flex-start;
-  -moz-column-gap: clamp(0.36rem, 0.55vw, 0.7rem);
-       column-gap: clamp(0.36rem, 0.55vw, 0.7rem);
+  -moz-column-gap: clamp(0.45rem, 0.6vw, 0.6rem);
+       column-gap: clamp(0.45rem, 0.6vw, 0.6rem);
   flex: 0 1 auto; /* 내용 기준으로 줄바꿈 */
-  min-width: calc(clamp(4.2rem, 4.7vw, 5.4rem) + clamp(1.4rem, 2vw, 2.6rem) + clamp(0.36rem, 0.55vw, 0.7rem));
+  /* min-width:  node(노드폭)  +  edge-min(엣지 최소길이)  +  gap-x(사이간격) */
+  min-width: calc(clamp(5.4rem, 6vw, 8rem) + clamp(2rem, 3.5vw, 4rem) + clamp(0.45rem, 0.6vw, 0.6rem));
   font-size: clamp(0.88rem, 1.05vw, 1.125rem);
 }
 
@@ -12568,13 +12569,13 @@ body.has-dashboard .ibox-acco .ibox-content {
 }
 
 .tmd-pair--last {
-  min-width: clamp(4.2rem, 4.7vw, 5.4rem); /* 마지막 pair는 노드 폭만 보장 */
+  min-width: clamp(5.4rem, 6vw, 8rem); /* 마지막 pair는 노드 폭만 보장 */
 }
 
 /* 노드 */
 .tmd-node {
-  flex: 0 0 clamp(4.2rem, 4.7vw, 5.4rem);
-  min-width: clamp(4.2rem, 4.7vw, 5.4rem);
+  flex: 0 0 clamp(5.4rem, 6vw, 8rem);
+  min-width: clamp(5.4rem, 6vw, 8rem);
   display: grid;
   place-items: center;
   text-align: center;
@@ -12586,8 +12587,10 @@ body.has-dashboard .ibox-acco .ibox-content {
 
 .tmd-nlabel {
   margin-top: 0.32rem;
-  font-size: clamp(0.88rem, 1.05vw, 1.125rem);
+  font-size: clamp(0.88rem, 1.2vw, 1rem);
   text-align: center;
+  line-height: 1.25;
+  word-break: break-all;
 }
 
 /* 블렛(링) */
@@ -12611,10 +12614,10 @@ body.has-dashboard .ibox-acco .ibox-content {
 
 /* 엣지: 동일 길이 */
 .tmd-edge {
-  flex: 0 0 clamp(2.5rem, 8vw, 3.6rem);
-  width: clamp(2.5rem, 8vw, 3.6rem);
-  min-width: clamp(1.4rem, 2vw, 2.6rem);
-  max-width: clamp(2.5rem, 8vw, 3.6rem);
+  flex: 0 0 clamp(3.5rem, 5.25vw, 6rem);
+  width: clamp(3.5rem, 5.25vw, 6rem);
+  min-width: clamp(2rem, 3.5vw, 4rem);
+  max-width: clamp(3.5rem, 5.25vw, 6rem);
   height: clamp(0.32rem, 0.42vw, 0.55rem);
   border-radius: 999px;
   margin-top: calc(clamp(0.95rem, 1.05vw, 1.35rem) / 2 - clamp(0.32rem, 0.42vw, 0.55rem) / 2);
@@ -12657,6 +12660,78 @@ body.has-dashboard .ibox-acco .ibox-content {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+body[data-theme=dark] .modal {
+  /* active */
+  /* readonly/disabled */
+  /* no hover accents for readonly/disabled */
+}
+body[data-theme=dark] .modal .modal-header .close {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.78567 19L5 18.2143L11.2143 12L5 5.78567L5.78567 5L12 11.2143L18.2143 5L19 5.78567L12.7857 12L19 18.2143L18.2143 19L12 12.7857L5.78567 19Z' fill='%23e5e7eb'/%3E%3C/svg%3E");
+}
+body[data-theme=dark] .modal select.form-control {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2016%2016%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M11.3327%206.00016L7.99935%209.3335L4.66602%206.00016%27%20stroke%3D%27%23e5e7eb%27%20stroke-width%3D%271.2%27%20stroke-linecap%3D%27square%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E");
+}
+body[data-theme=dark] .modal .form-control,
+body[data-theme=dark] .modal .single-line,
+body[data-theme=dark] .modal select.form-control {
+  color: rgba(229, 231, 235, 0.96);
+  -webkit-text-fill-color: rgba(229, 231, 235, 0.96);
+  background-color: rgb(33.16, 44.44, 65.12);
+  border-color: rgb(84.18, 93.54, 111.48);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.22);
+}
+body[data-theme=dark] .modal .form-control::-moz-placeholder, body[data-theme=dark] .modal .single-line::-moz-placeholder, body[data-theme=dark] .modal select.form-control::-moz-placeholder {
+  color: rgba(148, 163, 184, 0.6);
+}
+body[data-theme=dark] .modal .form-control::placeholder,
+body[data-theme=dark] .modal .single-line::placeholder,
+body[data-theme=dark] .modal select.form-control::placeholder {
+  color: rgba(148, 163, 184, 0.6);
+}
+body[data-theme=dark] .modal .form-control:disabled,
+body[data-theme=dark] .modal .form-control[readonly],
+body[data-theme=dark] .modal .single-line:disabled,
+body[data-theme=dark] .modal .single-line[readonly],
+body[data-theme=dark] .modal select.form-control:disabled,
+body[data-theme=dark] .modal select.form-control[readonly] {
+  color: rgba(148, 163, 184, 0.82);
+  -webkit-text-fill-color: rgba(148, 163, 184, 0.82);
+  background-color: rgb(61.48, 71.32, 89.36);
+  border-color: rgb(136.74, 143.22, 155.64);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+  opacity: 1;
+  cursor: default;
+  caret-color: transparent; /* readonly도 커서 숨김 */
+}
+body[data-theme=dark] .modal .form-control:disabled::-moz-placeholder, body[data-theme=dark] .modal .form-control[readonly]::-moz-placeholder, body[data-theme=dark] .modal .single-line:disabled::-moz-placeholder, body[data-theme=dark] .modal .single-line[readonly]::-moz-placeholder, body[data-theme=dark] .modal select.form-control:disabled::-moz-placeholder, body[data-theme=dark] .modal select.form-control[readonly]::-moz-placeholder {
+  color: rgba(148, 163, 184, 0.58);
+}
+body[data-theme=dark] .modal .form-control:disabled::placeholder,
+body[data-theme=dark] .modal .form-control[readonly]::placeholder,
+body[data-theme=dark] .modal .single-line:disabled::placeholder,
+body[data-theme=dark] .modal .single-line[readonly]::placeholder,
+body[data-theme=dark] .modal select.form-control:disabled::placeholder,
+body[data-theme=dark] .modal select.form-control[readonly]::placeholder {
+  color: rgba(148, 163, 184, 0.58);
+}
+body[data-theme=dark] .modal .form-control:disabled:hover,
+body[data-theme=dark] .modal .form-control[readonly]:hover,
+body[data-theme=dark] .modal select.form-control:disabled:hover,
+body[data-theme=dark] .modal select.form-control[readonly]:hover {
+  border-color: rgb(136.74, 143.22, 155.64);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+body[data-theme=dark] .modal .sweet-alert .sa-button-container button {
+  color: #e5e7eb;
+  background: #334155;
+}
+body[data-theme=dark] .modal .sweet-alert .sa-button-container button:hover {
+  background: #475569;
+}
+body[data-theme=dark] .modal .sweet-alert .sa-button-container button:active {
+  background: #1F2937;
 }
 
 /* =========================================
@@ -12713,7 +12788,7 @@ body.has-dashboard .ibox-acco .ibox-content {
   transition: transform 0.15s, box-shadow 0.2s;
 }
 .tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-bookmark .btn-bookmark i {
-  font-size: clamp(0.86rem, 0.95vw, 1.05rem);
+  font-size: clamp(0.86rem, 0.95vw, 1rem);
 }
 .tmd-accordion .tmd-acc-head.card-header > .tmd-card .tmd-utill {
   display: inline-flex;
@@ -12913,6 +12988,8 @@ body[data-theme=light] {
   /* 링 색 */
   /* 엣지 그라데이션 */
   /* 클릭 기본 배경(패널), 호버는 더 밝게(패널 → 화이트 쪽으로 이동) */
+  /* DEFAULT MODAL */
+  /* ALERT */
 }
 body[data-theme=light] #page-wrapper {
   background: #f6f7fb;
@@ -13118,6 +13195,7 @@ body[data-theme=light] .tmd-popover .tmd-kv dt {
 body[data-theme=light] .tmd-popover .tmd-kv dd {
   color: #111827;
   font-weight: 400;
+  word-break: break-all;
 }
 body[data-theme=light] .tmd-popover.mode-hover .tmd-sheet {
   pointer-events: none;
@@ -13183,12 +13261,73 @@ body[data-theme=light] .tmd-popover.mode-click .tmd-sheet .tmd-kv dt {
 body[data-theme=light] .tmd-popover.mode-click .tmd-sheet .tmd-kv dd {
   color: #111827;
 }
+body[data-theme=light] .modal .modal-content {
+  color: #111827;
+  background: #ffffff;
+  border-color: rgb(212.6, 212.6, 212.6);
+  box-shadow: 0 0.55rem 1.35rem rgba(0, 0, 0, 0.34);
+}
+body[data-theme=light] .modal .modal-header {
+  border-color: rgb(220.55, 220.55, 220.55);
+}
+body[data-theme=light] .modal .modal-body {
+  background: #ffffff;
+}
+body[data-theme=light] .modal .modal-body .ibox-content, body[data-theme=light] .modal .modal-body .tbl-wrap {
+  padding: 20px;
+  background: #ffffff;
+  border-color: rgb(212.6, 212.6, 212.6);
+}
+body[data-theme=light] .modal .modal-body .border-bottom, body[data-theme=light] .modal .modal-body .border-top {
+  border-color: rgb(212.6, 212.6, 212.6) !important;
+}
+body[data-theme=light] .modal .modal-body .tbl-wrap .tbl-title > p {
+  color: #111827;
+}
+body[data-theme=light] .modal .modal-body .table {
+  background: #ffffff;
+}
+body[data-theme=light] .modal .modal-body .table thead > tr th, body[data-theme=light] .modal .modal-body .table thead > tr td,
+body[data-theme=light] .modal .modal-body .table tbody > tr th, body[data-theme=light] .modal .modal-body .table tbody > tr td,
+body[data-theme=light] .modal .modal-body .table tfoot > tr th, body[data-theme=light] .modal .modal-body .table tfoot > tr td {
+  border-color: rgb(212.6, 212.6, 212.6);
+}
+body[data-theme=light] .modal .modal-body .table > colgroup + tbody > tr > th {
+  color: #111827;
+  background-color: white;
+}
+body[data-theme=light] .modal .modal-footer {
+  border-color: rgb(220.55, 220.55, 220.55);
+}
+body[data-theme=light] .modal .modal-title, body[data-theme=light] .modal .col-form-label, body[data-theme=light] .modal .tbl-title, body[data-theme=light] .modal .tbl-title > p {
+  color: #111827;
+}
+body[data-theme=light] .modal .btn-outline {
+  color: #111827;
+  border-color: rgb(212.6, 212.6, 212.6);
+  background-color: transparent;
+}
+body[data-theme=light] .modal .btn-white {
+  border-color: rgb(212.6, 212.6, 212.6);
+  background-color: transparent;
+}
+body[data-theme=light] .sweet-alert {
+  color: #111827;
+  background: white;
+  border-color: rgb(220.55, 220.55, 220.55);
+  box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.28);
+}
+body[data-theme=light] .sweet-alert h2, body[data-theme=light] .sweet-alert p {
+  color: #111827;
+}
 
 body[data-theme=dark] {
   color: #e5e7eb;
   /* 링 색 */
   /* 엣지 그라데이션 */
   /* 클릭 기본 배경(패널), 호버는 더 밝게(패널 → 화이트 쪽으로 이동) */
+  /* DEFAULT MODAL */
+  /* ALERT */
 }
 body[data-theme=dark] #page-wrapper {
   background: #0f172a;
@@ -13394,6 +13533,7 @@ body[data-theme=dark] .tmd-popover .tmd-kv dt {
 body[data-theme=dark] .tmd-popover .tmd-kv dd {
   color: #e5e7eb;
   font-weight: 400;
+  word-break: break-all;
 }
 body[data-theme=dark] .tmd-popover.mode-hover .tmd-sheet {
   pointer-events: none;
@@ -13457,6 +13597,65 @@ body[data-theme=dark] .tmd-popover.mode-click .tmd-sheet .tmd-kv dt {
   color: #94a3b8;
 }
 body[data-theme=dark] .tmd-popover.mode-click .tmd-sheet .tmd-kv dd {
+  color: #e5e7eb;
+}
+body[data-theme=dark] .modal .modal-content {
+  color: #e5e7eb;
+  background: #131f35;
+  border-color: rgb(79.8, 89.4, 107.8);
+  box-shadow: 0 0.55rem 1.35rem rgba(0, 0, 0, 0.34);
+}
+body[data-theme=dark] .modal .modal-header {
+  border-color: rgb(112.65, 120.45, 135.4);
+}
+body[data-theme=dark] .modal .modal-body {
+  background: #131f35;
+}
+body[data-theme=dark] .modal .modal-body .ibox-content, body[data-theme=dark] .modal .modal-body .tbl-wrap {
+  padding: 20px;
+  background: #131f35;
+  border-color: rgb(79.8, 89.4, 107.8);
+}
+body[data-theme=dark] .modal .modal-body .border-bottom, body[data-theme=dark] .modal .modal-body .border-top {
+  border-color: rgb(79.8, 89.4, 107.8) !important;
+}
+body[data-theme=dark] .modal .modal-body .tbl-wrap .tbl-title > p {
+  color: #e5e7eb;
+}
+body[data-theme=dark] .modal .modal-body .table {
+  background: #131f35;
+}
+body[data-theme=dark] .modal .modal-body .table thead > tr th, body[data-theme=dark] .modal .modal-body .table thead > tr td,
+body[data-theme=dark] .modal .modal-body .table tbody > tr th, body[data-theme=dark] .modal .modal-body .table tbody > tr td,
+body[data-theme=dark] .modal .modal-body .table tfoot > tr th, body[data-theme=dark] .modal .modal-body .table tfoot > tr td {
+  border-color: rgb(79.8, 89.4, 107.8);
+}
+body[data-theme=dark] .modal .modal-body .table > colgroup + tbody > tr > th {
+  color: #e5e7eb;
+  background-color: rgb(47.32, 57.88, 77.24);
+}
+body[data-theme=dark] .modal .modal-footer {
+  border-color: rgb(112.65, 120.45, 135.4);
+}
+body[data-theme=dark] .modal .modal-title, body[data-theme=dark] .modal .col-form-label, body[data-theme=dark] .modal .tbl-title, body[data-theme=dark] .modal .tbl-title > p {
+  color: #e5e7eb;
+}
+body[data-theme=dark] .modal .btn-outline {
+  color: #e5e7eb;
+  border-color: rgb(79.8, 89.4, 107.8);
+  background-color: transparent;
+}
+body[data-theme=dark] .modal .btn-white {
+  border-color: rgb(79.8, 89.4, 107.8);
+  background-color: transparent;
+}
+body[data-theme=dark] .sweet-alert {
+  color: #e5e7eb;
+  background: rgb(47.32, 57.88, 77.24);
+  border-color: rgb(112.65, 120.45, 135.4);
+  box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.28);
+}
+body[data-theme=dark] .sweet-alert h2, body[data-theme=dark] .sweet-alert p {
   color: #e5e7eb;
 }
 

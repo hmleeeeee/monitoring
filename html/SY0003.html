@@ -91,102 +91,81 @@
 
         <div class="tmd-layout">
           <div class="tmd-list" id="tmd-list">
-            <div class="tmd-card" data-line="부산역 - 사하">
-              <div class="tmd-label tmd-from">출발</div>
+            <div class="tmd-card" data-line="DT-G300-56297A">
+              <div class="tmd-label tmd-from">Start</div>
               <div class="tmd-route">
                 <div class="tmd-track">
                   <div class="tmd-grid">
                       <div class="tmd-row">
-                        <!--
-                        상태 구분: unknown|ok|warn|danger (미수신|정상|주의|위험)
-                        상태 적용: .tmd-dotbtn, .tmd-edge (클래스로 상태 표현)
-                        tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
-                        마지막 노드엔 (tmd-pair--last) 클래스 추가
-                        -->
-                        <div class="tmd-pair">
-                          <div class="tmd-node">
-                            <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
-                            <span class="tmd-nlabel">부산역부산역부산역</span>
+                          <!--
+                          상태 구분: unknown|ok|warn|danger (미수신|정상|주의|위험)
+                          상태 적용: .tmd-dotbtn, .tmd-edge (클래스로 상태 표현)
+                          tmd-edge data: data-state, data-from, data-to, data-line (팝오버/로그 메타)
+                          마지막 노드엔 (tmd-pair--last) 클래스 추가
+                          -->
+                          <div class="tmd-pair">
+                            <div class="tmd-node"><button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button><span
+                                class="tmd-nlabel">LWAC1F09FFFE0A6AF0</span></div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="LWAC1F09FFFE0A6AF0" data-to="LWAC1F09FFFE0A6AFC"
+                              data-line="DT-G300-56297A"></div>
                           </div>
-                          <div class="tmd-edge unknown" data-state="unknown" data-from="부산역" data-to="중앙" data-line="부산역 - 사하"></div>
-                        </div>
-                
-                        <div class="tmd-pair">
-                          <div class="tmd-node">
-                            <button type="button" class="tmd-dotbtn unknown" aria-pressed="false"></button>
-                            <span class="tmd-nlabel">중앙</span>
+                          <div class="tmd-pair">
+                            <div class="tmd-node"><button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button><span
+                                class="tmd-nlabel">LWAC1F09FFFE0A6AFC</span></div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="LWAC1F09FFFE0A6AFC" data-to="LWAC1F09FFFE0A6AFB"
+                              data-line="DT-G300-56297A"></div>
                           </div>
-                          <div class="tmd-edge ok" data-state="ok" data-from="중앙" data-to="남포" data-line="부산역 - 사하"></div>
-                        </div>
-                
-                        <div class="tmd-pair">
-                          <div class="tmd-node">
-                            <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
-                            <span class="tmd-nlabel">남포</span>
+                          <div class="tmd-pair">
+                            <div class="tmd-node"><button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button><span
+                                class="tmd-nlabel">LWAC1F09FFFE0A6AFB</span></div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="LWAC1F09FFFE0A6AFB" data-to="LWAC1F09FFFE0A6AFA"
+                              data-line="DT-G300-56297A"></div>
                           </div>
-                          <div class="tmd-edge ok" data-state="ok" data-from="남포" data-to="자갈치" data-line="부산역 - 사하"></div>
-                        </div>
-                
-                        <div class="tmd-pair">
-                          <div class="tmd-node">
-                            <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
-                            <span class="tmd-nlabel">자갈치</span>
+                          <div class="tmd-pair">
+                            <div class="tmd-node"><button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button><span
+                                class="tmd-nlabel">LWAC1F09FFFE0A6AFA</span></div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="LWAC1F09FFFE0A6AFA" data-to="LWAC1F09FFFE0A6AF9"
+                              data-line="DT-G300-56297A"></div>
                           </div>
-                          <div class="tmd-edge danger" data-state="danger" data-from="자갈치" data-to="토성" data-line="부산역 - 사하"></div>
-                        </div>
-                
-                        <div class="tmd-pair">
-                          <div class="tmd-node">
-                            <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
-                            <span class="tmd-nlabel">토성</span>
+                          <div class="tmd-pair">
+                            <div class="tmd-node"><button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button><span
+                                class="tmd-nlabel">LWAC1F09FFFE0A6AF9</span></div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="LWAC1F09FFFE0A6AF9" data-to="LWAC1F09FFFE0A6AF8"
+                              data-line="DT-G300-56297A"></div>
                           </div>
-                          <div class="tmd-edge danger" data-state="danger" data-from="토성" data-to="동대신" data-line="부산역 - 사하"></div>
-                        </div>
-                
-                        <div class="tmd-pair">
-                          <div class="tmd-node">
-                            <button type="button" class="tmd-dotbtn danger" aria-pressed="false"></button>
-                            <span class="tmd-nlabel">동대신</span>
+                          <div class="tmd-pair">
+                            <div class="tmd-node"><button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button><span
+                                class="tmd-nlabel">LWAC1F09FFFE0A6AF8</span></div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="LWAC1F09FFFE0A6AF8" data-to="LWAC1F09FFFE0A6AF1"
+                              data-line="DT-G300-56297A"></div>
                           </div>
-                          <div class="tmd-edge warn" data-state="warn" data-from="동대신" data-to="서대신" data-line="부산역 - 사하"></div>
-                        </div>
-                
-                        <div class="tmd-pair">
-                          <div class="tmd-node">
-                            <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
-                            <span class="tmd-nlabel">서대신</span>
+                          <div class="tmd-pair">
+                            <div class="tmd-node"><button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button><span
+                                class="tmd-nlabel">LWAC1F09FFFE0A6AF1</span></div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="LWAC1F09FFFE0A6AF1" data-to="LWAC1F09FFFE0A6AF7"
+                              data-line="DT-G300-56297A"></div>
                           </div>
-                          <div class="tmd-edge warn" data-state="warn" data-from="서대신" data-to="대티" data-line="부산역 - 사하"></div>
-                        </div>
-
-                        <div class="tmd-pair">
-                          <div class="tmd-node">
-                            <button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button>
-                            <span class="tmd-nlabel">대티</span>
+                               <div class="tmd-pair">
+                            <div class="tmd-node"><button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button><span
+                                class="tmd-nlabel">LWAC1F09FFFE0A6AF1</span></div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="LWAC1F09FFFE0A6AF1" data-to="LWAC1F09FFFE0A6AF7"
+                              data-line="DT-G300-56297A"></div>
                           </div>
-                          <div class="tmd-edge warn" data-state="warn" data-from="대티" data-to="사하" data-line="부산역 - 사하"></div>
-                        </div>
-
-                        <div class="tmd-pair">
-                          <div class="tmd-node">
-                            <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
-                            <span class="tmd-nlabel">괴정</span>
+                               <div class="tmd-pair">
+                            <div class="tmd-node"><button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button><span
+                                class="tmd-nlabel">LWAC1F09FFFE0A6AF1</span></div>
+                            <div class="tmd-edge warn" data-state="warn" data-from="LWAC1F09FFFE0A6AF1" data-to="LWAC1F09FFFE0A6AF7"
+                              data-line="DT-G300-56297A"></div>
                           </div>
-                          <div class="tmd-edge ok" data-state="ok" data-from="괴정" data-to="사하" data-line="부산역 - 사하"></div>
-                        </div>
-                
-                        <!-- 마지막 노드엔 (tmd-pair--last) 클래스 추가 및 tmd-edge 미존재 -->
-                        <div class="tmd-pair tmd-pair--last">
-                          <div class="tmd-node">
-                            <button type="button" class="tmd-dotbtn ok" aria-pressed="false"></button>
-                            <span class="tmd-nlabel">사하</span>
+                          <div class="tmd-pair tmd-pair--last">
+                            <div class="tmd-node"><button type="button" class="tmd-dotbtn warn" aria-pressed="false"></button><span
+                                class="tmd-nlabel">LWAC1F09FFFE0A6AF7</span></div>
                           </div>
                         </div>
-                      </div>
                     </div>
                 </div>
               </div>
-              <div class="tmd-label tmd-to">도착</div>
+              <div class="tmd-label tmd-to">End</div>
             </div>
 
             <div class="tmd-card" data-line="부산 - 동대신">
@@ -432,18 +411,18 @@
             <div class="tmd-panel" aria-live="polite">
               <h3>센서 기본값</h3>
               <dl class="tmd-kv">
-                <dt>노선</dt><dd id="tmd-d-line">부산→동대신</dd>
-                <dt>구간</dt><dd id="tmd-d-seg">부산역</dd>
-                <dt>최근 측정</dt><dd id="tmd-d-last">2025. 9. 10. 오후 5:29:07</dd>
-                <dt>ID</dt><dd id="tmd-d-id">S-0001</dd>
-                <dt>Nickname</dt><dd id="tmd-d-nick">센서A</dd>
-                <dt>Device ID</dt><dd id="tmd-d-device">DEV-42</dd>
-                <dt>Tension Type</dt><dd id="tmd-d-type">Spring</dd>
-                <dt>범위(S/L/C/NI)</dt><dd id="tmd-d-range">12 / 34 / 5 / 3</dd>
-                <dt>변위(Min/Max)</dt><dd id="tmd-d-disp">0.1 / 1.5</dd>
-                <dt>온도(Min/Max)</dt><dd id="tmd-d-temp">-10 / 60</dd>
-                <dt>전압(Node/Gate)</dt><dd id="tmd-d-volt">4.2 / 12</dd>
-                <dt>데이터(최근/범위밖)</dt><dd id="tmd-d-count">128 / 2</dd>
+                <dt>노선</dt><dd id="tmd-d-line"></dd>
+                <dt>구간</dt><dd id="tmd-d-seg"></dd>
+                <dt>최근 측정</dt><dd id="tmd-d-last"></dd>
+                <dt>ID</dt><dd id="tmd-d-id"></dd>
+                <dt>Nickname</dt><dd id="tmd-d-nick"></dd>
+                <dt>Device ID</dt><dd id="tmd-d-device"></dd>
+                <dt>Tension Type</dt><dd id="tmd-d-type"></dd>
+                <dt>범위(S/L/C/NI)</dt><dd id="tmd-d-range"></dd>
+                <dt>변위(Min/Max)</dt><dd id="tmd-d-disp"></dd>
+                <dt>온도(Min/Max)</dt><dd id="tmd-d-temp"></dd>
+                <dt>전압(Node/Gate)</dt><dd id="tmd-d-volt"></dd>
+                <dt>데이터(최근/범위밖)</dt><dd id="tmd-d-count"></dd>
               </dl>
             </div>
           </div>
