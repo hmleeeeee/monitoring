@@ -121,7 +121,13 @@ $(document).ready(function () {
         event.preventDefault();
         $("body").toggleClass("mini-navbar");
         SmoothlyMenu();
-
+		
+		if (document.body.classList.contains('mini-navbar')) {
+		    console.log('body에 mini-navbar 클래스가 있습니다.');
+		} else {
+		    console.log('body에 mini-navbar 클래스가 없습니다.');
+		}
+		
     });
 
     // Tooltips demo
@@ -316,13 +322,14 @@ function WinMove() {
 (function () {
   var ROOT = '.js-draggable-modal';
   var HANDLE = '.js-drag-handle';
+  var zIndexCounter = 0; // 기본 z-index 값보다 큰 값으로 시작
 
   $(document).on('shown.bs.modal', function (e) {
     var $m = $(e.target);
     if (!$m.is(ROOT)) return;
 
     // 모달을 body로 올려서 offset 부모 영향 제거
-    if (!$m.parent().is('body')) $m.appendTo('body');
+//    if (!$m.parent().is('body')) $m.appendTo('body');
     var $d = $m.find('.modal-dialog').css({ margin: 0, position: 'fixed' });
 
     // 드래그 초기화
@@ -333,8 +340,11 @@ function WinMove() {
 
     // 오픈 시 중앙 배치
     var ww = $(window).width(), wh = $(window).height();
-    var dw = $d.outerWidth(),  dh = $d.outerHeight();
+    var dw = $d.outerWidth(), dh = $d.outerHeight();
     $d.css({ left: Math.max(0, (ww - dw) / 2), top: Math.max(20, (wh - dh) / 2) });
+
+    // z-index 값을 증가시켜서 새로운 모달이 위에 오도록 설정
+    $m.css('z-index', zIndexCounter++);
   });
 
   // 닫을 때 위치 초기화
@@ -342,8 +352,12 @@ function WinMove() {
     var $m = $(e.target);
     if (!$m.is(ROOT)) return;
     $m.find('.modal-dialog').removeAttr('style');
+
+    // 모달 닫히면 z-index 초기화
+    $m.removeAttr('style');
   });
 })();
+
 
 // Depth3 Auto Viewport Cap
 (function () {
@@ -384,30 +398,129 @@ function WinMove() {
   $(document).on('shown.bs.collapse shown.metisMenu', function(){ run(); });
 })();
 
-// mini-navbar 상태에서 1depth 링크는 토글 막고 이동만 허용
+//navActiveSync: GNB/SNB active 동기화
 (function () {
-  var menu = document.getElementById('side-menu');
-  if (!menu) return;
+  var SNB2 = '#side-menu > li > ul.depth2 li > a.menu-call[data-menu]';
+  var GNB2 = '#navbar .dropdown-menu a.menu-call[data-menu]';
+  // mini-navbar 스코프에 한정된 루트 셀렉터
+  var SNB_ROOT = '.mini-navbar #side-menu li > a';
+  var GNB_ROOT = '.mini-navbar #navbar .navbar-nav > li.dropdown > a.dropdown-toggle';
 
-  menu.addEventListener('click', function (ev) {
-    if (!document.body.classList.contains('mini-navbar')) return;
+  function keyOf($a){
+    var k = String($a.data('menu')||'').trim();
+    if (k) return k;
 
-    var a = ev.target.closest('#side-menu > li > a');
-    if (!a || !menu.contains(a)) return;
+    // 루트 a일 경우: 자식의 첫 2뎁스 data-menu 추출
+    var $s = $a.next('ul').find('a.menu-call[data-menu]').first();
+    if ($s.length) return String($s.data('menu')||'').trim();
 
-    var href = a.getAttribute('href');
-    if (!href || href === '#' || href === '#none') {
-      ev.preventDefault(); // MetisMenu 토글 막기
-      ev.stopImmediatePropagation();
-      return;
-    }
+    // GNB 루트 a일 경우: 하위 2뎁스의 첫 data-menu 추출
+    var $g = $a.closest('li.dropdown').find('.dropdown-menu a.menu-call[data-menu]').first();
+    if ($g.length) return String($g.data('menu')||'').trim();
 
-    ev.preventDefault();
-    ev.stopImmediatePropagation();
+    return '';
+  }
 
-    var target = a.getAttribute('target');
-    target && target !== '_self'
-      ? window.open(href, target)
-      : window.location.assign(href);
-  }, true);
+  function markSNB(key){
+    var $a = $(SNB2 + '[data-menu="'+key+'"]').first();
+    var $side = $('#side-menu');
+
+    // 초기화
+    $side.find('a.menu-call.active').removeClass('active').attr('aria-expanded', null);
+    $side.find('li.active').removeClass('active');
+    if (!$a.length) return;
+
+    // 현재 경로(체인)
+    var $chainLis = $a.parentsUntil('#side-menu','li').add($a.closest('li'));
+    var $chainUls = $a.parentsUntil('#side-menu','ul');
+
+    // 다른 분기 닫기/비활성
+    $side.find('ul.collapse').not($chainUls).each(function(){
+      var $ul=$(this);
+      if ($ul.hasClass('collapse') && $.fn.collapse) $ul.collapse('hide');
+      $ul.removeClass('in show').attr('aria-expanded','false').css('height','');
+    });
+
+    // 현재 경로 펼치기 + 토글 표시
+    $chainUls.each(function(){
+      var $ul=$(this);
+      if ($ul.hasClass('collapse') && $.fn.collapse) $ul.collapse('show');
+      $ul.addClass('in show').attr('aria-expanded','true').css('height','');
+      var $tg=$ul.prev('a'); // 루트 토글
+      if ($tg.length) $tg.addClass('active').attr('aria-expanded','true');
+    });
+
+    // 타깃 + 모든 조상 li 활성화
+    $a.addClass('active');
+    $chainLis.addClass('active');
+  }
+
+  function markGNB(key){
+    var $a = $(GNB2 + '[data-menu="'+key+'"]').first();
+    var $nav = $('#navbar');
+    var $roots = $nav.find('.navbar-nav > li.dropdown');
+
+    // 다른 드롭다운 전부 닫기/비활성
+    $roots.removeClass('active open show')
+          .children('a.dropdown-toggle').removeClass('active').attr('aria-expanded','false');
+    $roots.find('> .dropdown-menu').removeClass('show');
+    $roots.find('.dropdown-menu a.menu-call').removeClass('active');
+    $roots.find('.dropdown-menu li').removeClass('active');
+
+    if (!$a.length) return;
+
+    // 선택 루트/경로 활성화
+    var $root = $a.closest('li.dropdown');
+    $root.addClass('active show')
+         .children('a.dropdown-toggle').addClass('active').attr('aria-expanded','true');
+    $root.children('> .dropdown-menu').addClass('show');
+
+    $a.addClass('active').closest('li').addClass('active');
+  }
+
+  function sync(key){ if (key){ markSNB(key); markGNB(key); } }
+
+  // 2뎁스 클릭 → 양쪽 동기화
+  $(document)
+    .off('click.sync.dm', SNB2 + ', ' + GNB2)
+    .on('click.sync.dm',  SNB2 + ', ' + GNB2, function(){
+      var key = keyOf($(this));
+      console.log('[navActiveSync] 2depth-click → key:%s, text:%s', key || '(none)', $.trim($(this).text()).replace(/\s+/g,' '));
+      sync(key);
+    });
+
+  // mini-navbar: SNB 루트 a(토글) 클릭 → 동기화 + 해당 GNB 2뎁스 강제 클릭(화면 이동)
+  $(document)
+    .off('click.sync.mini.snb', SNB_ROOT)
+    .on('click.sync.mini.snb',  SNB_ROOT, function(e){
+      var $root = $(this);
+      var key   = keyOf($root);
+
+      console.log('[navActiveSync mini] SNB root-click → key:%s, text:%s', key || '(none)', $.trim($root.text()).replace(/\s+/g,' '));
+      sync(key);
+
+      if (key){
+        var $gnb = $(GNB2 + '[data-menu="'+ key +'"]').first();
+        if ($gnb.length){
+          // 강제 이동: GNB의 해당 .menu-call 2뎁스를 클릭시켜 라우팅 실행
+          $gnb.trigger('click');
+        } else {
+          // (폴백) 같은 키의 SNB 2뎁스가 있으면 그것이라도 클릭
+          var $snb = $root.next('ul').find('a.menu-call[data-menu="'+ key +'"]').first();
+          if ($snb.length) $snb.trigger('click');
+        }
+      }
+
+      // '#' 점프 방지 (미니모드에서 우리는 강제 라우팅으로 처리)
+      e.preventDefault();
+    });
+
+  // mini-navbar: GNB 루트 a 클릭 → 동기화만
+  $(document)
+    .off('click.sync.mini.gnb', GNB_ROOT)
+    .on('click.sync.mini.gnb',  GNB_ROOT, function(){
+      var key = keyOf($(this));
+      console.log('[navActiveSync mini] GNB root-click → key:%s, text:%s', key || '(none)', $.trim($(this).text()).replace(/\s+/g,' ')); // 한 줄 체크 로그
+      sync(key);
+    });
 })();
