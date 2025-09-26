@@ -813,8 +813,9 @@ body.mini-navbar {
     background: $nav-bg;
     border-bottom: 1px solid #2D2F39;
     .nav-logo { justify-content: center;
+      .logo-link { justify-content: center; }
       .logo1 { display: none; }
-      .logo2 { display: block; width: 100%; height: 20px; }
+      .logo2 { display: block; width: auto; height: 20px; }
     }
     &:has(.nav-logo):after { display: none; }
   }

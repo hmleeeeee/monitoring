@@ -18,9 +18,9 @@ $node-w   : clamp(5.4rem, 6vw, 8rem);
 $gap-x    : clamp(.45rem, .6vw, .6rem);
 
 /* 엣지 길이(동일하게 보이는 목표 길이 + 절대 최소) */
-$edge-min : clamp(2rem, 3.5vw, 4rem);
-$edge-l   : clamp(3.5rem, 5.25vw, 6rem);
-$edge-d   : clamp(5rem, 8vw, 12rem);
+$edge-min : clamp(2rem, 3.5vw, 4rem);   // ~64px @1920
+$edge-l   : clamp(3.5rem, 5.25vw, 6rem);// ~96px @1920
+$edge-d   : clamp(5rem, 8vw, 12rem);    // ~154px @1920, ~192px @4K
 
 /* padding */
 $card-pad: clamp(.75rem, .9vw, 1.1rem);
@@ -113,27 +113,25 @@ $theme-dark: (
         all:unset; cursor:pointer; padding:.2rem .35rem; border-radius:.45rem; color:$text;
         &:focus-visible{ @include focus-ring($ring); }
       }
-
-       #tmd-p-state, .tmd-p-state {
-        &.is-ok     { color: map-get($t, ok); }
-        &.is-warn   { color: map-get($t, warn); }
-        &.is-danger { color: map-get($t, danger); }
-        &.is-unknown{ color: map-get($t, muted); }
-      }
     }
 
     .tmd-kv{
-      display:grid; grid-template-columns:7rem 1fr; margin-bottom:0; gap:.2rem .4rem;
-      font-size: clamp(0.846rem, calc(0.15625vw + 0.692rem),  0.923rem);
+      display:grid; grid-template-columns:7.5rem 1fr; margin-bottom:0; gap:.2rem .4rem;
+      font-size: clamp(0.846rem, calc(0.15625vw + 0.692rem),  0.923rem); line-height: 1.25;
       dt{ color:$muted; font-weight:500; }
-      dd{ color:$text;  font-weight:400; word-break: break-all; }
+      dd{ color:$text; font-weight:400; word-break: break-all; 
+        &.is-ok     { color: map-get($t, ok) !important; }
+        &.is-warn   { color: map-get($t, warn) !important; }
+        &.is-danger { color: map-get($t, danger) !important; }
+        &.is-unknown{ color: map-get($t, muted) !important; }
+      }
     }
 
     /*  HOVER MODE  */
     &.mode-hover{
       .tmd-sheet{
         pointer-events: none;
-        width: clamp(11rem, 13vw, 14rem);
+        width: clamp(12rem, 15vw, 15rem);
         padding: clamp(.42rem, .55vw, .65rem);
         background: $hover-bg;
         border-color: rgba($hover-bc, 1);
@@ -142,14 +140,15 @@ $theme-dark: (
         opacity: .98;
         border-radius: calc(#{$radius} - .4rem);
 
+        .thd-shhet-header { display: none !important; }
         .thd-shhet-header, .tmd-sheet-header{ margin-bottom: .6rem; }
         .tmd-p-title{ font-weight:600; opacity:.95; }
-        .tmd-close, #tmd-p-close{ display:none !important; }
 
         .tmd-kv{
           gap:.15rem .35rem;
           font-size: clamp(0.812rem, calc(0.14vw + 0.68rem), 0.90rem);
-          dt, dd { color: mix($text, $muted, 40%); }
+          grid-template-columns: 3rem 1fr;
+          dt, dd { color: mix($text, $muted, 40%); margin-bottom: 0 };
         }
       }
     }
@@ -157,7 +156,7 @@ $theme-dark: (
     &.mode-click{
       .tmd-sheet{
         pointer-events:auto;
-        width: clamp(13rem, 16vw, 18rem);
+        width: clamp(14rem, 17vw, 22rem);
         padding: clamp(.6rem, .8vw, .95rem);
         background: $click-bg;
         border-color: rgba($click-bc, 1);
@@ -177,10 +176,8 @@ $theme-dark: (
         }
 
         .tmd-kv{
-          gap:.25rem .45rem;
+          gap:.1rem .45rem;
           font-size: clamp(0.87rem, calc(0.18vw + 0.72rem), 0.96rem);
-          dt{ color:$muted; }
-          dd{ color:$text; }
         }
       }
     }
@@ -346,10 +343,23 @@ $theme-dark: (
 
 /* 엣지: 동일 길이 */
 .tmd-edge{
-  flex: 0 0 $edge-l;
-  width: $edge-l; min-width: $edge-min; max-width:$edge-l;
-  height:$edge-h; border-radius:999px;
-  margin-top: calc((#{$dot} / 2) - (#{$edge-h} / 2));
+  /* 기본 폭: CSS 변수로 노출 (클래스/인라인에서 --edge-size로 덮어쓰기) */
+  --edge-size: #{$edge-l};
+  /* 절대 최소 폭(선택): 필요 시 --edge-min으로 덮어쓰기 가능 */
+  --edge-min: #{$edge-min};
+  /* width = flex-basis = max-width 모두 같은 소스 사용 */
+  flex: 0 0 var(--edge-size);
+  width: var(--edge-size);
+  max-width: var(--edge-size);
+  min-width: var(--edge-min);
+
+  height: $edge-h;
+  border-radius: 999px;
+  margin-top: calc((#{$dot}/2) - (#{$edge-h}/2));
+
+  &.is-sm { --edge-size: #{$edge-min}; } // ≈64px @1920
+  &.is-md { --edge-size: #{$edge-l};   } // ≈96px @1920
+  &.is-lg { --edge-size: #{$edge-d};   } // ≈154px @1920, ≈192px @4K
 }
 
 /* 우측 패널: sticky */
@@ -374,7 +384,7 @@ $theme-dark: (
     display:grid; grid-template-columns:8rem 1fr;
     gap:.5rem .6rem; margin-bottom:0; font-size:clamp(.72rem,.8vw,.92rem);
     dt{ margin:0; text-align:left; font-weight:500; }
-    dd{ margin:0; text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    dd{ margin:0; text-align:right; word-break: break-all; /*white-space:nowrap; overflow:hidden; text-overflow:ellipsis;*/ }
   }
 }
 
